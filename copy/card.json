@@ -1,0 +1,120 @@
+{
+  "variantA": {
+    "front": {
+      "name": "Dariusz Adamski",
+      "title": "Maintenance & Automation Engineer",
+      "tags": "PLC · Robotics · MIM/Vacuum",
+      "contact_line": "Dariusz@Adamski.tech · adamski.tech · TODO: +31 6 83128848",
+      "micro_cta_qr": "Zeskanuj i zapisz kontakt"
+    },
+    "back": {
+      "logo_word": "DAREMON",
+      "subline": "adamski.tech",
+      "slogan": "Widzę rozwiązania tam, gdzie inni widzą problemy."
+    }
+  },
+  "variantB": {
+    "front": {
+      "name": "Dariusz Adamski",
+      "title": "Maintenance & Automation Engineer",
+      "tags": "PLC · Robotics · MIM/Vacuum",
+      "contact_line": "Dariusz@Adamski.tech · adamski.tech · TODO: +31 6 83128848",
+      "micro_cta_qr": "Zeskanuj i zapisz kontakt",
+      "accent_note": "Ciemna baza + ostry akcent #00BFFF (diagonalny element przy QR)"
+    },
+    "back": {
+      "tech_line": "PLC · Robotics · MIM · IoT · 3D",
+      "subline": "adamski.tech"
+    }
+  },
+  "en": {
+    "variantA": {
+      "front": {
+        "name": "Dariusz Adamski",
+        "title": "Maintenance & Automation Engineer",
+        "tags": "PLC · Robotics · MIM/Vacuum",
+        "contact_line": "Dariusz@Adamski.tech · adamski.tech · TODO: +31 6 83128848",
+        "micro_cta_qr": "Scan to save contact"
+      },
+      "back": {
+        "logo_word": "DAREMON",
+        "subline": "adamski.tech",
+        "slogan": "I see solutions where others see problems."
+      }
+    },
+    "variantB": {
+      "front": {
+        "name": "Dariusz Adamski",
+        "title": "Maintenance & Automation Engineer",
+        "tags": "PLC · Robotics · MIM/Vacuum",
+        "contact_line": "Dariusz@Adamski.tech · adamski.tech · TODO: +31 6 83128848",
+        "micro_cta_qr": "Scan to save contact",
+        "accent_note": "Dark base + sharp #00BFFF accent (diagonal near QR)"
+      },
+      "back": {
+        "tech_line": "PLC · Robotics · MIM · IoT · 3D",
+        "subline": "adamski.tech"
+      }
+    }
+  },
+  "nl": {
+    "variantA": {
+      "front": {
+        "name": "Dariusz Adamski",
+        "title": "Automatiserings- en onderhoudsingenieur",
+        "tags": "PLC · Robotics · MIM/Vacuum",
+        "contact_line": "Dariusz@Adamski.tech · adamski.tech · TODO: +31 6 83128848",
+        "micro_cta_qr": "Scan en sla contact op"
+      },
+      "back": {
+        "logo_word": "DAREMON",
+        "subline": "adamski.tech",
+        "slogan": "Ik zie oplossingen waar anderen problemen zien."
+      }
+    },
+    "variantB": {
+      "front": {
+        "name": "Dariusz Adamski",
+        "title": "Automatiserings- en onderhoudsingenieur",
+        "tags": "PLC · Robotics · MIM/Vacuum",
+        "contact_line": "Dariusz@Adamski.tech · adamski.tech · TODO: +31 6 83128848",
+        "micro_cta_qr": "Scan en sla contact op",
+        "accent_note": "Donkere basis + scherpe #00BFFF-accent (diagonale snede bij QR)"
+      },
+      "back": {
+        "tech_line": "PLC · Robotics · MIM · IoT · 3D",
+        "subline": "adamski.tech"
+      }
+    }
+  }
+}
+EOF && cat > /workspace/project_adamski_tech/copy/cta.json << 'EOF'
+{
+  "lead_consult": {
+    "pl": "Zeskanuj i umów konsultację techniczną",
+    "en": "Scan and schedule a technical consult",
+    "nl": "Scan en plan een technisch consult"
+  },
+  "portfolio": {
+    "pl": "Zobacz projekty i modernizacje (60 s)",
+    "en": "See projects and upgrades (60 s)",
+    "nl": "Bekijk projecten en upgrades (60 s)"
+  },
+  "vcard": {
+    "pl": "Zapisz kontakt (vCard)",
+    "en": "Save contact (vCard)",
+    "nl": "Sla contact op (vCard)"
+  }
+}
+EOF && cat > /workspace/project_adamski_tech/copy/landing_intro.json << 'EOF'
+{
+  "pl": {
+    "intro": "W 30 sekund: czym się zajmuję i jak mogę pomóc w modernizacjach, PLC/robotyce i MIM. Wybierz: zapisz kontakt (vCard), zobacz portfolio lub umów rozmowę."
+  },
+  "en": {
+    "intro": "In 30 seconds: what I do and how I can help with upgrades, PLC/robotics and MIM. Choose: save contact (vCard), view portfolio, or schedule a call."
+  },
+  "nl": {
+    "intro": "In 30 seconden: wat ik doe en hoe ik kan helpen met upgrades, PLC/robotica en MIM. Kies: contact opslaan (vCard), portfolio bekijken of een gesprek plannen."
+  }
+}

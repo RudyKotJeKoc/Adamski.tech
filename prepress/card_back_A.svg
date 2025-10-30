@@ -1,0 +1,41 @@
+<!-- Adamski.tech Business Card Back - Variant A (Industrial Minimal) -->
+<!-- Dimensions: 85x55 mm + 3mm bleed => 91x61 mm -->
+<!-- NOTE: GUIDES layer for prepress only; remove before final PDF/X-4.
+     "SPOT_UV" layer marks varnish area; map to spot varnish swatch during prepress. -->
+
+<svg xmlns="http://www.w3.org/2000/svg" width="91mm" height="61mm" viewBox="0 0 91 61">
+  <defs>
+    <style><![CDATA[
+      .bg { fill: #0D1117; }
+      .text { fill: #EAEAEA; font-family: Inter, Arial, sans-serif; }
+      .mono { fill: #EAEAEA; font-family: "JetBrains Mono", Consolas, monospace; }
+      .accent { fill: #00BFFF; }
+      .guides { fill: none; stroke-width: 0.3; }
+      .guide-trim { stroke: #00ffff; }
+      .guide-safe { stroke: #ff00ff; }
+      .cta { fill: #EAEAEA; font-family: Inter, Arial, sans-serif; font-size: 3.2px; }
+      .small { font-size: 3.0px; }
+      .uv { fill: #EAEAEA; opacity: 1.0; } /* Spot UV area indicator (no transparency in final swatch) */
+      .nfc-zone { fill: none; stroke: #EAEAEA; stroke-width: 0.3; stroke-dasharray: 1.2 1.2; }
+    ]]></style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="91" height="61"/>
+
+  <g id="GUIDES" class="guides">
+    <rect class="guide-trim" x="3" y="3" width="85" height="55"/>
+    <rect class="guide-safe" x="8" y="8" width="75" height="45"/>
+  </g>
+
+  <!-- Large "DAREMON" (spot UV) centered -->
+  <g id="SPOT_UV">
+    <text class="uv" x="45.5" y="32" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">DAREMON</text>
+  </g>
+
+  <!-- Small "adamski.tech" bottom-center -->
+  <text class="text small" x="45.5" y="50" text-anchor="middle">adamski.tech</text>
+
+  <!-- NFC chip zone (indication only) -->
+  <rect class="nfc-zone" x="40" y="35" width="11" height="7"/>
+  <text class="text small" x="45.5" y="44" text-anchor="middle">Strefa NFC (NTAG213)</text>
+</svg>

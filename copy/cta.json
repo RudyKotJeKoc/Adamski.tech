@@ -1,0 +1,17 @@
+{
+  "pl": {
+    "vcard": "Zapisz kontakt (vCard)",
+    "portfolio": "Zobacz projekty",
+    "consultation": "Umów konsultację techniczną"
+  },
+  "en": {
+    "vcard": "Save contact (vCard)",
+    "portfolio": "View projects",
+    "consultation": "Book a technical consultation"
+  },
+  "nl": {
+    "vcard": "Contact opslaan (vCard)",
+    "portfolio": "Bekijk projecten",
+    "consultation": "Plan een technisch gesprek"
+  }
+}

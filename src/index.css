@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base */
+html { scroll-behavior: smooth; }
+body { @apply bg-background-default text-neutral-50 font-body; }
+
+/* Section spacing & sticky offset */
+.section { @apply scroll-mt-24 md:scroll-mt-28; }
+
+/* Focus visible ring */
+:focus-visible {
+  outline: none;
+  @apply ring-2 ring-primary-500 ring-offset-2 ring-offset-background-default;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-visible {
+    transition-duration: theme('transitionDuration.base');
+    transition-timing-function: theme('transitionTimingFunction.in-out');
+    transform: none;
+  }
+}
+
+/* Custom scrollbars (WebKit + Firefox), desktop only */
+@media (hover: hover) and (pointer: fine) {
+  * { scrollbar-width: thin; scrollbar-color: #1f2937 #11161c; }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: #11161c; }
+  ::-webkit-scrollbar-thumb {
+    background: #1f2937;
+    border-radius: 10px;
+    border: 2px solid #0b0f14;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: #2563eb; }
+}
+
+/* Reveal utilities */
+.reveal-hidden { opacity: 0; transform: translateY(12px); }
+.reveal-visible {
+  opacity: 1; transform: translateY(0);
+  transition-property: opacity, transform;
+  transition-duration: theme('transitionDuration.base');
+  transition-timing-function: theme('transitionTimingFunction.in-out');
+}
+
+/* Hover glow utility */
+.hover-glow:hover { box-shadow: theme('boxShadow.led'); }

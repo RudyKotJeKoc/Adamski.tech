@@ -1,0 +1,66 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Dariusz;Adamski;;;
+FN:Dariusz Adamski
+ORG:Daremon Engineering
+TITLE:Maintenance & Automation Engineer (PLC / Robotics / MIM)
+EMAIL;TYPE=INTERNET,PREF:Dariusz@Adamski.tech
+TEL;TYPE=CELL,VOICE:TODO:+31683128848
+URL:https://adamski.tech
+ADR;TYPE=WORK:;;Boxtel;;;Netherlands
+NOTE:PLC Siemens S7/LOGO; Yaskawa; MIM/Vacuum; IoT/HA; 3D Printing
+END:VCARD
+EOF && cat > /workspace/project_adamski_tech/nfc/nfc_payload.txt << 'EOF'
+https://adamski.tech/hans?utm_source=card&utm_medium=nfc&utm_campaign=adamski_card_v1
+EOF && cat > /workspace/project_adamski_tech/readme_hand-off.md << 'EOF'
+Hand-off: QR / VCF / NFC — Daremon Engineering
+
+Ścieżki plików:
+- vCard: /workspace/project_adamski_tech/assets/vcard/vcard.vcf
+- QR (vCard): /workspace/project_adamski_tech/assets/qr/qr_vcard.svg
+- QR (portfolio/landing): /workspace/project_adamski_tech/assets/qr/qr_portfolio.svg
+- NFC payload (NTAG213, NDEF): /workspace/project_adamski_tech/nfc/nfc_payload.txt
+
+Wymagania druku:
+- QR: SVG wektor, 100%K, quiet zone ≥ 4 moduły, ECC Q (lub M), bez przezroczystości.
+- Minimalny rozmiar QR na druku: 16 mm × 16 mm (lub większy).
+- Tekst na karcie: 100K (unikaj 4C czerni).
+
+Reprodukowalne generowanie QR (Node, bez instalacji globalnej):
+1) QR z vCard (statyczny, offline):
+   npx --yes qrcode -o /workspace/project_adamski_tech/assets/qr/qr_vcard.svg -t svg --error-correction Q --margin 4 "$(cat /workspace/project_adamski_tech/assets/vcard/vcard.vcf)"
+
+2) QR z linku (portfolio / landing, UTM):
+   npx --yes qrcode -o /workspace/project_adamski_tech/assets/qr/qr_portfolio.svg -t svg --error-correction Q --margin 4 "https://adamski.tech/qr/biz?utm_source=card&utm_medium=qr&utm_campaign=adamski_card_v1"
+
+Uwaga dot. 100%K:
+- Wygenerowane SVG ma fill #000. W prepress konwertuj na 100K (CMYK) bez komponowania 4C na drobnicy. QR pozostawić jako 100%K.
+
+Aktualizacja telefonu:
+- W pliku vCard użyto tymczasowo TEL: TODO:+31683128848. Po potwierdzeniu numeru zaktualizuj w vcard.vcf i przegeneruj qr_vcard.svg komendą z pkt 1.
+
+NFC (NTAG213, NDEF URI):
+- Payload: https://adamski.tech/hans?utm_source=card&utm_medium=nfc&utm_campaign=adamski_card_v1
+- Programowanie (np. NXP TagWriter / iOS NFC Tools):
+  - Record type: URI
+  - URI: użyj powyższego payload
+  - Lock tag: NIE blokuj na etapie testów; zablokuj dopiero po finalnym potwierdzeniu.
+  - Testy: min. 5 telefonów (Android/iOS), sprawdź otwarcie właściwego landingu i obecność UTM.
+
+QA — testy skanowalności:
+- Druk próbny: sprawdź QR z 30–40 cm, różne warunki oświetlenia.
+- Zachowaj quiet zone ≥ 4 moduły (bez grafiki w strefie ciszy).
+- Wariant B (edge): wycięcie nie może naruszać strefy ciszy QR.
+
+Netlify/Nginx — redirecty (przykład):
+- Netlify (_redirects) — obsługa SPA + 302 dla ścieżek jeśli chcesz tymczasowo przekierować:
+  /*    /index.html   200
+- Nginx — przykłady:
+  location /qr/biz { return 302 https://adamski.tech/hub?via=card_qr&v=v1; }
+  location /hans    { return 302 https://adamski.tech/partners/hans?via=nfc&v=v1; }
+
+A/B i batch:
+- UTM różne dla QR i NFC oraz batchy druku (adamski_card_v1, v2, ...). Umieść batch ID drobną notacją przy spadzie (niewidoczne po cięciu).
+EOF && npx --yes qrcode -o /workspace/project_adamski_tech/assets/qr/qr_vcard.svg -t svg --error-correction Q --margin 4 "$(cat /workspace/project_adamski_tech/assets/vcard/vcard.vcf)" \ && npx --yes qrcode -o /workspace/project_adamski_tech/assets/qr/qr_portfolio.svg -t svg --error-correction Q --margin 4 "https://adamski.tech/qr/biz?utm_source=card&utm_medium=qr&utm_campaign=adamski_card_v1"
+echo "
+"

@@ -1,0 +1,169 @@
+{
+  "variants": {
+    "A": {
+      "name": "Industrial Minimal",
+      "colors": {
+        "background_hex": "#0D1117",
+        "background_fill_cmyk": "C60 M40 Y40 K100",
+        "accent_hex": "#00BFFF",
+        "accent_cmyk": "C78 M0 Y3 K0",
+        "text_hex": "#EAEAEA",
+        "text_cmyk": "C0 M0 Y0 K10",
+        "qr_color": "100K"
+      },
+      "composition": {
+        "top_left": ["name_bold", "title_regular"],
+        "bottom_left": ["contact_line"],
+        "bottom_right": ["qr_code", "micro_cta_qr"]
+      },
+      "notes": "Ciemne tło, akcent techniczny #00BFFF, tekst jasny #EAEAEA; QR w 100%K."
+    },
+    "B": {
+      "name": "Creative Tech",
+      "colors": {
+        "background_hex": "#0D1117",
+        "background_fill_cmyk": "C60 M40 Y40 K100",
+        "accent_hex": "#00BFFF",
+        "accent_cmyk": "C78 M0 Y3 K0",
+        "text_hex": "#EAEAEA",
+        "text_cmyk": "C0 M0 Y0 K10",
+        "qr_color": "100K"
+      },
+      "composition": {
+        "top_left": ["name_bold", "title_regular"],
+        "bottom_left": ["contact_line"],
+        "bottom_right": ["qr_code", "micro_cta_qr", "edge_accent"]
+      },
+      "edge_cut_guidelines": {
+        "description": "Nietypowe nacięcie/mikro‑wycięcie przy QR.",
+        "offset_from_safe_mm": 2,
+        "min_width_mm": 8,
+        "corner_radius_mm": 1.5
+      },
+      "notes": "Ciemna baza + ostry akcent (#00BFFF), krótka diagonalna kreska przy QR."
+    }
+  },
+  "typography": {
+    "heading": "Inter",
+    "mono": "JetBrains Mono",
+    "sizes_mm": {
+      "name_bold": 4.5,
+      "title_regular": 3.5,
+      "tags_mono": 3.2,
+      "contact_line": 2.9,
+      "micro_cta_qr": 2.7
+    },
+    "line_height_factor": 1.2
+  },
+  "layout": {
+    "size_mm": { "w": 85, "h": 55 },
+    "bleed_mm": 3,
+    "safe_mm": 5,
+    "grid": {
+      "columns": 4,
+      "rows": 4,
+      "margins_mm": { "top": 5, "left": 5, "right": 5, "bottom": 5 }
+    },
+    "placements_mm": {
+      "qr_code": { "w": 16, "h": 16, "x": 85-5-16, "y": 55-5-16 },
+      "micro_cta_qr": { "x": 85-5-16, "y": 55-5-16-4, "max_width_mm": 16 }
+    }
+  },
+  "print": {
+    "profile": "FOGRA39 (ISO Coated v2)",
+    "black_text": "100K",
+    "qr_black": "100K",
+    "white": "paper (no overprint)",
+    "rich_black_fill": "C60 M40 Y40 K100 for large areas only (not for text)",
+    "notes": "Unikaj 4‑kolorowej czerni na drobnicy; czarny tekst zawsze 100K; QR tylko 100%K."
+  },
+  "finishing": {
+    "A": { "soft_touch": true, "spot_uv": ["DAREMON"] },
+    "B": { "edge_cut": "apply per guidelines near QR", "soft_touch": true, "spot_uv": ["DAREMON (optional)"] }
+  },
+  "icons": {
+    "linkedin": { "use": "optional", "condition": "tylko jeśli realnie prowadzisz", "color": "#EAEAEA" }
+  },
+  "web_tokens": {
+    "theme": "dark",
+    "tailwind_mapping_notes": "Zachowaj spójność z design/design.json; primary/accent wg web.",
+    "colors": {
+      "web_primary_500": "#3b82f6",
+      "web_primary_600": "#2563eb",
+      "web_led_cyan": "#38bdf8",
+      "accent_tech": "#00BFFF",
+      "background_default": "#0b0f14",
+      "background_elevated": "#11161c",
+      "surface_card": "#141a22",
+      "surface_border": "#1f2937"
+    }
+  }
+}
+EOF && cat > /workspace/project_adamski_tech/design/mockups.md << 'EOF'
+# Mockups — Wizytówka Daremon Engineering (A/B)
+
+Spec: 85×55 mm (EU), bleed 3 mm, safe 5 mm, CMYK FOGRA39. Tekst: 100K. QR: 100%K. Biel: papier (bez overprint).
+
+## Wariant A — Industrial Minimal (Front)
+Tło: #0D1117 (rich black fill dla dużych obszarów). Akcent: #00BFFF. Tekst: #EAEAEA.
+
+ASCII szkic (bez uwzględnienia spadów, orientacyjny):
++---------------------------------------------------------------------------------+
+| Dariusz Adamski (bold, Inter 4.5 mm)                                           |
+| Maintenance & Automation Engineer (Inter 3.5 mm)                               |
+|                                                                                 |
+| PLC · Robotics · MIM/Vacuum (JetBrains Mono 3.2 mm)                             |
+|                                                                                 |
+| Dariusz@Adamski.tech · adamski.tech · TODO: +31 6 83128848 (Inter 2.9 mm)      |
+|                                                                                 |
+|                                                     [#### QR ####]              |
+|                                                     Zeskanuj i zapisz kontakt   |
++---------------------------------------------------------------------------------+
+
+Back:
++---------------------------------------------------------------------------------+
+|                                                                                 |
+|                                DAREMON (spot UV)                                |
+|                                   adamski.tech                                  |
+|                                                                                 |
+|                           [NFC chip zone — hardware]                            |
++---------------------------------------------------------------------------------+
+
+Uwagi:
+- QR min 16×16 mm + quiet zone ≥ 4 moduły.
+- Mikro‑CTA przy QR: jednoznaczna instrukcja (PL/EN/NL).
+- Tekst zawsze 100K; brak 4C czerni na drobnicy.
+
+## Wariant B — Creative Tech (Front)
+Tło: #0D1117. Akcent: #00BFFF (diagonalna kreska przy QR).
+
++---------------------------------------------------------------------------------+
+| Dariusz Adamski (bold)                                                          |
+| Maintenance & Automation Engineer                                               |
+|                                                                                 |
+| PLC · Robotics · MIM/Vacuum                                                     |
+|                                                                                 |
+| Dariusz@Adamski.tech · adamski.tech · TODO: +31 6 83128848                      |
+|                                                                                 |
+|                                              [#### QR ####]  / diagonal accent  |
+|                                              Scan to save contact               |
++---------------------------------------------------------------------------------+
+
+Back:
++---------------------------------------------------------------------------------+
+| PLC · Robotics · MIM · IoT · 3D (JetBrains Mono)                                |
+|                                                                                 |
+|                                   adamski.tech                                  |
+|                                                                                 |
+|                               [NFC chip zone]                                   |
++---------------------------------------------------------------------------------+
+
+Edge cut — guidelines:
+- Offset od safe area: ≥ 2 mm.
+- Minimalna szerokość: ≥ 8 mm.
+- Promień narożnika: 1.5 mm (jeśli zaokrąglone R3).
+- Nie naruszaj quiet zone QR.
+
+Kontrast i czytelność:
+- Sprawdź próbny druk: QR skanowalność z 30–40 cm na 5 telefonach.
+- Zachowaj 100K dla tekstu i QR; akcenty w #00BFFF (CMYK C78 M0 Y3 K0).

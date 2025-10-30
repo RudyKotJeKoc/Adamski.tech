@@ -1,0 +1,332 @@
+{
+  "pl": {
+    "meta": {
+      "title": "Daremon Engineering — Adamski.tech",
+      "description": "Inżynier automatyki i utrzymania ruchu. Niezawodne systemy: automatyzacje, IoT, projekty techniczne, MIM i druk 3D. Profesjonalnie, precyzyjnie, bez zbędnego marketingu."
+    },
+    "navigation": {
+      "hero": "Start",
+      "about": "O mnie",
+      "skills": "Umiejętności",
+      "projects": "Projekty",
+      "contact": "Kontakt"
+    },
+    "hero": {
+      "heading": "Dariusz Adamski — Inżynier Automatyki i UR",
+      "subheading": "Projektuję i rozwijam niezawodne systemy: automatyzacje, IoT, projekty techniczne, MIM i druk 3D.",
+      "cta_primary": "Skontaktuj się",
+      "cta_secondary": "Pobierz CV"
+    },
+    "about": {
+      "title": "O mnie",
+      "paragraphs": [
+        "Inżynier utrzymania ruchu i automatyki z doświadczeniem w projektowaniu, wdrażaniu i utrzymaniu systemów przemysłowych. Skupiam się na bezpieczeństwie, dostępności i klarownej dokumentacji.",
+        "Obszary zainteresowań: automatyzacje DIY, IoT, systemy techniczne, MIM oraz druk 3D. Pracuję w duchu technicznego minimalizmu i industrial futurism."
+      ]
+    },
+    "skills": {
+      "title": "Umiejętności",
+      "categories": [
+        {
+          "name": "Automatyka/UR",
+          "items": [
+            "Diagnostyka i prewencja awarii",
+            "PLC/SCADA (ogólne)",
+            "Standaryzacja i dokumentacja",
+            "Integracja systemów"
+          ]
+        },
+        {
+          "name": "IoT/Embedded",
+          "items": [
+            "ESP32/Arduino (ogólne)",
+            "MQTT/Node-RED",
+            "Czujniki i komunikacja",
+            "Prototypowanie i testy"
+          ]
+        },
+        {
+          "name": "Druk 3D/MIM",
+          "items": [
+            "Projektowanie CAD (ogólne)",
+            "Prototypowanie FDM/SLA",
+            "MIM: koncepcje i przygotowanie",
+            "Iteracyjne wdrożenia"
+          ]
+        }
+      ],
+      "highlights": [
+        "Niezawodność i bezpieczeństwo systemów",
+        "Przejrzysta dokumentacja i standardy pracy"
+      ]
+    },
+    "projects": {
+      "title": "Projekty",
+      "items": [
+        {
+          "name": "TODO: nazwa projektu 1",
+          "tagline": "TODO: krótki opis projektu 1",
+          "tech": ["TODO: technologia"],
+          "description": "TODO: 1–2 zdania opisu projektu 1.",
+          "links": {
+            "demo": "TODO: url demo",
+            "repo": "TODO: url repo"
+          }
+        },
+        {
+          "name": "TODO: nazwa projektu 2",
+          "tagline": "TODO: krótki opis projektu 2",
+          "tech": ["TODO: technologia"],
+          "description": "TODO: 1–2 zdania opisu projektu 2.",
+          "links": {
+            "demo": "TODO: url demo",
+            "repo": "TODO: url repo"
+          }
+        },
+        {
+          "name": "TODO: nazwa projektu 3",
+          "tagline": "TODO: krótki opis projektu 3",
+          "tech": ["TODO: technologia"],
+          "description": "TODO: 1–2 zdania opisu projektu 3.",
+          "links": {
+            "demo": "TODO: url demo",
+            "repo": "TODO: url repo"
+          }
+        }
+      ]
+    },
+    "contact": {
+      "title": "Kontakt",
+      "subtitle": "Preferowany kontakt mailowy.",
+      "email_label": "Email",
+      "phone_label": "Telefon",
+      "socials": {
+        "github": "TODO: url",
+        "linkedin": "TODO: url",
+        "x": "TODO: url"
+      },
+      "address": "TODO: adres (opcjonalnie)",
+      "availability_note": "Dostępny do współpracy projektowej i konsultacji."
+    }
+  },
+  "en": {
+    "meta": {
+      "title": "Daremon Engineering — Adamski.tech",
+      "description": "Automation and maintenance engineer. Reliable systems: industrial automation, IoT, technical projects, MIM and 3D printing. Professional, precise, no marketing noise."
+    },
+    "navigation": {
+      "hero": "Home",
+      "about": "About",
+      "skills": "Skills",
+      "projects": "Projects",
+      "contact": "Contact"
+    },
+    "hero": {
+      "heading": "Dariusz Adamski — Automation & Maintenance Engineer",
+      "subheading": "Designing and delivering reliable systems: automation, IoT, technical projects, MIM and 3D printing.",
+      "cta_primary": "Get in touch",
+      "cta_secondary": "Download CV"
+    },
+    "about": {
+      "title": "About",
+      "paragraphs": [
+        "Engineer in industrial automation and maintenance, focused on safety, uptime, and clear documentation. Experience in design, implementation, and lifecycle support.",
+        "Interests: DIY automation, IoT, technical projects, MIM, and 3D printing. Working in a style of technical minimalism and industrial futurism."
+      ]
+    },
+    "skills": {
+      "title": "Skills",
+      "categories": [
+        {
+          "name": "Automation/Maintenance",
+          "items": [
+            "Failure diagnostics & prevention",
+            "PLC/SCADA (general)",
+            "Standardization & documentation",
+            "System integration"
+          ]
+        },
+        {
+          "name": "IoT/Embedded",
+          "items": [
+            "ESP32/Arduino (general)",
+            "MQTT/Node-RED",
+            "Sensors & communication",
+            "Prototyping & testing"
+          ]
+        },
+        {
+          "name": "3D Printing/MIM",
+          "items": [
+            "CAD design (general)",
+            "FDM/SLA prototyping",
+            "MIM: concepts & preparation",
+            "Iterative deployments"
+          ]
+        }
+      ],
+      "highlights": [
+        "System reliability and safety",
+        "Clear documentation and working standards"
+      ]
+    },
+    "projects": {
+      "title": "Projects",
+      "items": [
+        {
+          "name": "TODO: project name 1",
+          "tagline": "TODO: short tagline 1",
+          "tech": ["TODO: technology"],
+          "description": "TODO: 1–2 sentence description.",
+          "links": {
+            "demo": "TODO: demo url",
+            "repo": "TODO: repo url"
+          }
+        },
+        {
+          "name": "TODO: project name 2",
+          "tagline": "TODO: short tagline 2",
+          "tech": ["TODO: technology"],
+          "description": "TODO: 1–2 sentence description.",
+          "links": {
+            "demo": "TODO: demo url",
+            "repo": "TODO: repo url"
+          }
+        },
+        {
+          "name": "TODO: project name 3",
+          "tagline": "TODO: short tagline 3",
+          "tech": ["TODO: technology"],
+          "description": "TODO: 1–2 sentence description.",
+          "links": {
+            "demo": "TODO: demo url",
+            "repo": "TODO: repo url"
+          }
+        }
+      ]
+    },
+    "contact": {
+      "title": "Contact",
+      "subtitle": "Email preferred.",
+      "email_label": "Email",
+      "phone_label": "Phone",
+      "socials": {
+        "github": "TODO: url",
+        "linkedin": "TODO: url",
+        "x": "TODO: url"
+      },
+      "address": "TODO: address (optional)",
+      "availability_note": "Available for project work and consulting."
+    }
+  },
+  "nl": {
+    "meta": {
+      "title": "Daremon Engineering — Adamski.tech",
+      "description": "Automatiserings- en onderhoudsingenieur. Betrouwbare systemen: industriële automatisering, IoT, technische projecten, MIM en 3D-print. Professioneel en precies."
+    },
+    "navigation": {
+      "hero": "Start",
+      "about": "Over",
+      "skills": "Vaardigheden",
+      "projects": "Projecten",
+      "contact": "Contact"
+    },
+    "hero": {
+      "heading": "Dariusz Adamski — Automatiserings- en onderhoudsingenieur",
+      "subheading": "Ontwerp en bouw van betrouwbare systemen: automatisering, IoT, technische projecten, MIM en 3D‑printen.",
+      "cta_primary": "Neem contact op",
+      "cta_secondary": "Download CV"
+    },
+    "about": {
+      "title": "Over",
+      "paragraphs": [
+        "Ingenieur in industriële automatisering en onderhoud, met focus op veiligheid, uptime en duidelijke documentatie. Ervaring in ontwerp, implementatie en levenscyclusondersteuning.",
+        "Interesses: DIY‑automatisering, IoT, technische projecten, MIM en 3D‑printen. Werkt in technische minimalisme en industrieel futurisme."
+      ]
+    },
+    "skills": {
+      "title": "Vaardigheden",
+      "categories": [
+        {
+          "name": "Automatisering/Onderhoud",
+          "items": [
+            "Foutdiagnose en preventie",
+            "PLC/SCADA (algemeen)",
+            "Standaardisatie en documentatie",
+            "Systeemintegratie"
+          ]
+        },
+        {
+          "name": "IoT/Embedded",
+          "items": [
+            "ESP32/Arduino (algemeen)",
+            "MQTT/Node‑RED",
+            "Sensoren en communicatie",
+            "Prototyping en testen"
+          ]
+        },
+        {
+          "name": "3D‑print/MIM",
+          "items": [
+            "CAD‑ontwerp (algemeen)",
+            "FDM/SLA‑prototyping",
+            "MIM: concepten en voorbereiding",
+            "Iteratieve implementaties"
+          ]
+        }
+      ],
+      "highlights": [
+        "Betrouwbaarheid en veiligheid van systemen",
+        "Heldere documentatie en werkstandaarden"
+      ]
+    },
+    "projects": {
+      "title": "Projecten",
+      "items": [
+        {
+          "name": "TODO: projectnaam 1",
+          "tagline": "TODO: korte beschrijving 1",
+          "tech": ["TODO: technologie"],
+          "description": "TODO: 1–2 zinnen beschrijving.",
+          "links": {
+            "demo": "TODO: demo‑url",
+            "repo": "TODO: repo‑url"
+          }
+        },
+        {
+          "name": "TODO: projectnaam 2",
+          "tagline": "TODO: korte beschrijving 2",
+          "tech": ["TODO: technologie"],
+          "description": "TODO: 1–2 zinnen beschrijving.",
+          "links": {
+            "demo": "TODO: demo‑url",
+            "repo": "TODO: repo‑url"
+          }
+        },
+        {
+          "name": "TODO: projectnaam 3",
+          "tagline": "TODO: korte beschrijving 3",
+          "tech": ["TODO: technologie"],
+          "description": "TODO: 1–2 zinnen beschrijving.",
+          "links": {
+            "demo": "TODO: demo‑url",
+            "repo": "TODO: repo‑url"
+          }
+        }
+      ]
+    },
+    "contact": {
+      "title": "Contact",
+      "subtitle": "E‑mail heeft de voorkeur.",
+      "email_label": "E‑mail",
+      "phone_label": "Telefoon",
+      "socials": {
+        "github": "TODO: url",
+        "linkedin": "TODO: url",
+        "x": "TODO: url"
+      },
+      "address": "TODO: adres (optioneel)",
+      "availability_note": "Beschikbaar voor projecten en consultancy."
+    }
+  }
+}
