@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Dariusz;Adamski;;;
+FN:Dariusz Adamski
+ORG:Daremon Engineering
+TITLE:Maintenance & Automation Engineer (PLC / Robotics / MIM)
+EMAIL;TYPE=INTERNET,PREF:Dariusz@Adamski.tech
+TEL;TYPE=CELL,VOICE:+31XXXXXXXXX
+URL:https://adamski.tech
+ADR;TYPE=WORK:;;Boxtel;;;Netherlands
+NOTE:PLC Siemens S7/LOGO; Yaskawa; MIM/Vacuum; IoT/HA; 3D Printing
+END:VCARD
