@@ -68,331 +68,232 @@ export const SkillTag: React.FC<{ label: string }> = ({ label }) => (
   </span>
 );
 
-export const MetricCounter: React.FC<{
-  value: number;
-  suffix?: string;
-  label: string;
-  description?: string;
-  duration?: number;
-  locale: Locale;
-}> = ({ value, suffix = '', label, description, duration = 1200, locale }) => {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const [displayValue, setDisplayValue] = useState(0);
-  const [triggered, setTriggered] = useState(false);
 
-  useEffect(() => {
-    const node = ref.current;
-    if (!node) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setTriggered(true);
-          }
-        });
-      },
-      { threshold: 0.6 }
-    );
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (!triggered) return;
-    if (prefersReducedMotion()) {
-      setDisplayValue(value);
-      return;
+const renderFormatted = (text: string) => {
+  const segments = text.split(/(\*\*[^*]+\*\*)/g).filter(Boolean);
+  return segments.map((segment, idx) => {
+    if (segment.startsWith('**') && segment.endsWith('**')) {
+      return (
+        <strong key={`${segment}-${idx}`} className="text-neutral-50">
+          {segment.slice(2, -2)}
+        </strong>
+      );
     }
-    let frame = 0;
-    const start = performance.now();
-    const step = (timestamp: number) => {
-      const progress = Math.min((timestamp - start) / duration, 1);
-      setDisplayValue(value * progress);
-      if (progress < 1) {
-        frame = requestAnimationFrame(step);
-      }
-    };
-    frame = requestAnimationFrame(step);
-    return () => cancelAnimationFrame(frame);
-  }, [triggered, value, duration]);
-
-  const decimals = Number.isInteger(value) ? 0 : 1;
-  const formatted = useMemo(() => {
-    const formatter = new Intl.NumberFormat(locale, {
-      maximumFractionDigits: decimals,
-      minimumFractionDigits: decimals && displayValue > 0 && !Number.isInteger(value) ? 1 : 0
-    });
-    return formatter.format(triggered ? displayValue : 0);
-  }, [displayValue, decimals, locale, triggered, value]);
-
-  return (
-    <article
-      ref={ref}
-      className="rounded-card bg-surface.card border border-surface-border p-5 shadow-card transition-transform hover:-translate-y-1 hover:shadow-md"
-    >
-      <div className="text-3xl font-heading font-semibold text-neutral-50" aria-live="polite">
-        {formatted}
-        <span className="text-primary-400">{suffix}</span>
-      </div>
-      <h3 className="mt-3 text-lg font-heading text-neutral-100">{label}</h3>
-      {description && <p className="mt-2 text-sm text-neutral-300">{description}</p>}
-    </article>
-  );
+    return <React.Fragment key={`${segment}-${idx}`}>{segment}</React.Fragment>;
+  });
 };
 
-export type WorkflowPhase = {
-  id: string;
-  name: string;
-  summary: string;
-  deliverables: string[];
-  icon?: string;
-};
-
-export const WorkflowDiagram: React.FC<{ phases: WorkflowPhase[] }> = ({ phases }) => (
-  <ol className="relative grid gap-6" role="list">
-    {phases.map((phase, index) => (
-      <li key={phase.id} className="relative pl-12">
-        <div
-          className="absolute left-0 top-2 flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-primary-700 to-accent-led text-lg"
-          aria-hidden="true"
-        >
-          {phase.icon ?? '•'}
-        </div>
-        {index < phases.length - 1 && (
-          <span
-            aria-hidden="true"
-            className="absolute left-5 top-10 h-full w-px bg-surface-border"
-          />
-        )}
-        <article className="rounded-card border border-surface-border bg-background-elevated/70 p-4 backdrop-blur">
-          <header className="flex flex-wrap items-baseline justify-between gap-2">
-            <h3 className="text-xl font-heading text-neutral-50">{phase.name}</h3>
-            <span className="text-xs uppercase tracking-wide text-primary-300">{index + 1}/{phases.length}</span>
-          </header>
-          <p className="mt-2 text-neutral-300">{phase.summary}</p>
-          {phase.deliverables.length > 0 && (
-            <ul className="mt-3 space-y-1 text-sm text-neutral-200" role="list">
-              {phase.deliverables.map((item) => (
-                <li key={item} className="flex items-start gap-2">
-                  <span aria-hidden="true" className="mt-[6px] h-1.5 w-1.5 rounded-full bg-primary-500" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          )}
-        </article>
-      </li>
-    ))}
-  </ol>
-);
-
-export type TimelineMilestone = {
-  id: string;
-  period: string;
-  role: string;
-  context?: string;
-  summary: string;
-  highlights?: string[];
-};
-
-export const TimelineSlider: React.FC<{
-  milestones: TimelineMilestone[];
-  label: string;
-}> = ({ milestones, label }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const tabsRef = useRef<(HTMLButtonElement | null)[]>([]);
-
-  const goTo = (index: number) => {
-    const normalized = (index + milestones.length) % milestones.length;
-    setActiveIndex(normalized);
-  };
-
-  useEffect(() => {
-    const node = tabsRef.current[activeIndex];
-    if (!node) return;
-    if (prefersReducedMotion()) {
-      node.scrollIntoView({ block: 'nearest', inline: 'center' });
-      return;
-    }
-    node.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-  }, [activeIndex]);
-
-  const active = milestones[activeIndex];
-
-  return (
-    <div className="space-y-4" role="region" aria-label={label}>
-      <article
-        id={`timeline-panel-${active.id}`}
-        role="tabpanel"
-        aria-labelledby={`timeline-tab-${active.id}`}
-        className="rounded-card border border-surface-border bg-surface.card/80 p-6 shadow-card"
-      >
-        <header className="flex flex-col gap-1 md:flex-row md:items-center md:justify-between">
-          <div>
-            <p className="text-sm uppercase tracking-wide text-primary-300">{active.period}</p>
-            <h3 className="text-2xl font-heading text-neutral-50">{active.role}</h3>
-          </div>
-          {active.context && <span className="text-neutral-300">{active.context}</span>}
-        </header>
-        <p className="mt-3 text-neutral-200" aria-live="polite">
-          {active.summary}
-        </p>
-        {active.highlights && active.highlights.length > 0 && (
-          <ul className="mt-4 space-y-2 text-sm text-neutral-200" role="list">
-            {active.highlights.map((item) => (
-              <li key={item} className="flex items-start gap-2">
-                <span aria-hidden="true" className="mt-1 h-1.5 w-1.5 rounded-full bg-accent-led" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        )}
-      </article>
-      <div className="flex flex-col gap-3 rounded-card border border-surface-border bg-background-elevated/60 p-4">
-        <div className="flex items-center justify-between gap-3">
-          <button
-            type="button"
-            onClick={() => goTo(activeIndex - 1)}
-            className="rounded-button border border-surface-border px-3 py-2 text-sm text-neutral-200 transition hover:border-primary-500 hover:text-primary-200"
-            aria-label="Previous milestone"
-          >
-            ‹
-          </button>
-          <p className="text-sm text-neutral-300">{activeIndex + 1} / {milestones.length}</p>
-          <button
-            type="button"
-            onClick={() => goTo(activeIndex + 1)}
-            className="rounded-button border border-surface-border px-3 py-2 text-sm text-neutral-200 transition hover:border-primary-500 hover:text-primary-200"
-            aria-label="Next milestone"
-          >
-            ›
-          </button>
-        </div>
-        <div role="tablist" aria-label={label} className="flex gap-2 overflow-x-auto pb-1">
-          {milestones.map((milestone, index) => (
-            <button
-              key={milestone.id}
-              id={`timeline-tab-${milestone.id}`}
-              role="tab"
-              ref={(node) => {
-                tabsRef.current[index] = node;
-              }}
-              aria-controls={activeIndex === index ? `timeline-panel-${milestone.id}` : undefined}
-              aria-selected={activeIndex === index}
-              onClick={() => goTo(index)}
-              onKeyDown={(event) => {
-                if (event.key === 'ArrowRight') {
-                  event.preventDefault();
-                  goTo(index + 1);
-                }
-                if (event.key === 'ArrowLeft') {
-                  event.preventDefault();
-                  goTo(index - 1);
-                }
-              }}
-              className={`min-w-[6rem] rounded-card border px-3 py-2 text-left text-sm transition ${
-                activeIndex === index
-                  ? 'border-primary-500 bg-primary-600/20 text-primary-200'
-                  : 'border-transparent bg-surface.card text-neutral-300 hover:text-neutral-50'
-              }`}
-            >
-              <span className="block text-xs uppercase tracking-wide text-neutral-400">{milestone.period}</span>
-              <span className="block font-medium text-neutral-100">{milestone.role}</span>
-            </button>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export const PartnerCard: React.FC<{
-  icon?: string;
+type AboutCardProps = {
   title: string;
-  valueProposition: string;
-  idealFor?: string;
-  highlights?: string[];
-  ctaLabel?: string;
-}> = ({ icon, title, valueProposition, idealFor, highlights = [], ctaLabel }) => (
-  <article className="group relative flex h-full flex-col rounded-card border border-surface-border bg-surface.card p-5 shadow-card transition-transform hover:-translate-y-1 hover:shadow-lg">
-    {icon && (
-      <span aria-hidden="true" className="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary-700/60 text-2xl">
-        {icon}
-      </span>
-    )}
-    <h3 className="text-xl font-heading text-neutral-50">{title}</h3>
-    <p className="mt-2 text-neutral-200">{valueProposition}</p>
-    {idealFor && <p className="mt-2 text-sm text-neutral-300">{idealFor}</p>}
-    {highlights.length > 0 && (
-      <ul className="mt-3 space-y-1 text-sm text-neutral-200" role="list">
-        {highlights.map((item) => (
-          <li key={item} className="flex items-start gap-2">
-            <span aria-hidden="true" className="mt-1 h-1.5 w-1.5 rounded-full bg-accent-led" />
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
-    )}
-    {ctaLabel && (
-      <p className="mt-4 text-sm font-medium text-primary-300">{ctaLabel}</p>
+  icon?: string;
+  items: string[];
+  cta?: { label: string; href: string } | null;
+};
+
+export const AboutCard: React.FC<AboutCardProps> = ({ title, icon, items, cta }) => (
+  <article className="h-full rounded-card bg-surface.card border border-surface-border shadow-card transition-shadow hover:shadow-lg focus-within:shadow-lg focus-within:border-accent-led">
+    <header className="flex items-start gap-3 p-4 pb-2">
+      {icon && (
+        <span aria-hidden="true" className="text-2xl leading-none">
+          {icon}
+        </span>
+      )}
+      <h3 className="text-xl font-heading font-semibold text-neutral-50">{title}</h3>
+    </header>
+    <ul className="px-4 pb-4 space-y-2 text-neutral-200" role="list">
+      {items.map((item, idx) => (
+        <li key={`${title}-${idx}`} className="leading-relaxed">
+          {renderFormatted(item)}
+        </li>
+      ))}
+    </ul>
+    {cta?.href && cta?.label && (
+      <div className="px-4 pb-4">
+        <a
+          href={cta.href}
+          role="button"
+          aria-label={`${title}: ${cta.label}`}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-button border border-primary-600 text-primary-50 hover:text-white hover:border-accent-led focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-led"
+        >
+          {cta.label}
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
     )}
   </article>
 );
 
 type ProjectLinks = { demo?: string; repo?: string };
 export const ProjectCard: React.FC<{
+  locale: Locale;
   name: string;
   tagline?: string;
-  description?: string;
-  tech?: string[];
-  links?: ProjectLinks;
-}> = ({ name, tagline, description, tech = [], links }) => (
-  <article className="rounded-card bg-surface.card border border-surface-border shadow-card transition-shadow hover:shadow-md hover-glow p-4">
-    <figure className="aspect-video rounded-card overflow-hidden bg-black/30 mb-3">
-      {/* Placeholder image */}
-      <img
-        src="/assets/placeholder.jpg"
-        alt={`Miniatura projektu: ${name}`}
-        className="w-full h-full object-cover opacity-90"
-        loading="lazy"
-      />
-    </figure>
-    <h3 className="text-xl font-heading font-semibold text-neutral-50">{name}</h3>
-    {tagline && <p className="text-neutral-300 mt-1">{tagline}</p>}
-    {description && <p className="text-neutral-200 mt-2">{description}</p>}
-    {tech.length > 0 && (
-      <ul className="flex flex-wrap gap-2 mt-3" role="list">
-        {tech.map((t) => (
-          <li key={t}>
-            <SkillTag label={t} />
-          </li>
-        ))}
-      </ul>
-    )}
-    <div className="flex gap-3 mt-4">
-      {links?.repo && (
-        <a
-          className="px-3 py-2 rounded-button border border-primary-600 text-primary-50 !bg-transparent !hover:bg-transparent hover:text-white focus-visible:outline-none"
-          href={links.repo}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Szczegóły
-        </a>
-      )}
-      {links?.demo && (
-        <a
-          className="px-3 py-2 rounded-button border border-accent-blue_tech text-accent-blue_tech !bg-transparent !hover:bg-transparent hover:text-white focus-visible:outline-none"
-          href={links.demo}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Demo
-        </a>
-      )}
-    </div>
-  </article>
-);
+  summary?: string;
+  challenge?: string;
+  approach?: string[];
+  outcome?: string;
+  metrics?: ProjectMetric[];
+  skills?: string[];
+  image?: ProjectImage;
+  ctas?: ProjectCta[];
+}> = ({
+  locale,
+  name,
+  tagline,
+  summary,
+  challenge,
+  approach = [],
+  outcome,
+  metrics = [],
+  skills = [],
+  image,
+  ctas = []
+}) => {
+  const sectionLabels: Record<Locale, { challenge: string; approach: string; outcome: string; metrics: string; skills: string }> = {
+    pl: {
+      challenge: 'Wyzwanie',
+      approach: 'Podejście',
+      outcome: 'Rezultat',
+      metrics: 'Kluczowe wskaźniki',
+      skills: 'Kompetencje'
+    },
+    en: {
+      challenge: 'Challenge',
+      approach: 'Approach',
+      outcome: 'Outcome',
+      metrics: 'Key metrics',
+      skills: 'Capabilities'
+    },
+    nl: {
+      challenge: 'Uitdaging',
+      approach: 'Aanpak',
+      outcome: 'Resultaat',
+      metrics: 'Kerncijfers',
+      skills: 'Competenties'
+    }
+  };
+
+  const ctaVariants: Record<ProjectCtaVariant, string> = {
+    primary: 'bg-gradient-to-r from-primary-600 to-accent-led text-white hover:from-primary-700 hover:to-accent-led focus-visible:ring-2 focus-visible:ring-accent-led/70',
+    secondary: 'border border-primary-500 text-primary-50 hover:text-white hover:bg-primary-500/10 focus-visible:ring-2 focus-visible:ring-primary-500/70',
+    ghost: 'border border-surface-border text-neutral-100 hover:text-white hover:bg-surface.card focus-visible:ring-2 focus-visible:ring-neutral-300/40'
+  };
+
+  const labels = sectionLabels[locale];
+
+  const normalizeVariant = (variant?: string): ProjectCtaVariant => {
+    if (variant === 'primary' || variant === 'secondary' || variant === 'ghost') {
+      return variant;
+    }
+    return 'secondary';
+  };
+
+  const renderCtaClass = (variant?: string) => {
+    const key = normalizeVariant(variant);
+    return ctaVariants[key];
+  };
+
+  const isExternal = (href: string) => /^https?:/i.test(href);
+
+  return (
+    <article className="rounded-card bg-surface.card border border-surface-border shadow-card transition-shadow hover:shadow-lg hover-glow flex flex-col h-full">
+      <figure className="aspect-video rounded-t-card overflow-hidden bg-black/20">
+        {image?.src ? (
+          <img
+            src={image.src}
+            alt={image.alt}
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center text-neutral-300 text-sm">
+            {locale === 'pl' ? 'Wizualizacja w przygotowaniu' : locale === 'en' ? 'Visual coming soon' : 'Visual volgt binnenkort'}
+          </div>
+        )}
+      </figure>
+      <div className="flex flex-col gap-4 p-5 flex-1">
+        <header>
+          <h3 className="text-xl font-heading font-semibold text-neutral-50">{name}</h3>
+          {tagline && <p className="text-neutral-300 mt-1">{tagline}</p>}
+          {summary && <p className="text-neutral-200 mt-2">{summary}</p>}
+        </header>
+
+        {metrics.length > 0 && (
+          <section aria-label={labels.metrics}>
+            <ul className="flex flex-wrap gap-2" role="list">
+              {metrics.map((metric) => (
+                <li key={`${metric.label}-${metric.value}`}>
+                  <span className="inline-flex flex-col px-3 py-2 rounded-chip border border-surface-border bg-black/20 text-neutral-100 min-w-[120px]">
+                    <span className="text-xs uppercase tracking-wide text-neutral-400">{metric.label}</span>
+                    <span className="text-lg font-semibold text-neutral-50">{metric.value}</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        <div className="space-y-4 text-neutral-200">
+          {challenge && (
+            <section>
+              <h4 className="font-heading text-sm uppercase tracking-wide text-neutral-400">{labels.challenge}</h4>
+              <p className="mt-1 leading-relaxed">{challenge}</p>
+            </section>
+          )}
+          {approach.length > 0 && (
+            <section>
+              <h4 className="font-heading text-sm uppercase tracking-wide text-neutral-400">{labels.approach}</h4>
+              <ul className="list-disc pl-5 mt-1 space-y-1" role="list">
+                {approach.map((step, index) => (
+                  <li key={`${name}-approach-${index}`}>{step}</li>
+                ))}
+              </ul>
+            </section>
+          )}
+          {outcome && (
+            <section>
+              <h4 className="font-heading text-sm uppercase tracking-wide text-neutral-400">{labels.outcome}</h4>
+              <p className="mt-1 leading-relaxed">{outcome}</p>
+            </section>
+          )}
+        </div>
+
+        {skills.length > 0 && (
+          <section aria-label={labels.skills}>
+            <ul className="flex flex-wrap gap-2" role="list">
+              {skills.map((skill) => (
+                <li key={skill}>
+                  <SkillTag label={skill} />
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {ctas.length > 0 && (
+          <div className="flex flex-wrap gap-3 pt-2 mt-auto">
+            {ctas.map((cta) => {
+              const variantClass = renderCtaClass(cta.variant);
+              const external = isExternal(cta.href);
+              return (
+                <a
+                  key={`${name}-${cta.label}`}
+                  href={cta.href}
+                  className={`px-4 py-2 rounded-button text-sm font-medium transition-colors focus-visible:outline-none ${variantClass}`}
+                  target={external ? '_blank' : undefined}
+                  rel={external ? 'noopener noreferrer' : undefined}
+                  aria-label={`${name}: ${cta.label}`}
+                >
+                  {cta.label}
+                </a>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    </article>
+  );
+};
 
 export const Footer: React.FC<{ year: number; labels: NavItem[] }> = ({ year, labels }) => (
   <footer role="contentinfo" className="mt-24 border-t border-surface-border py-8 text-neutral-300">
@@ -462,3 +363,6 @@ export const Navbar: React.FC<{
     </header>
   );
 };
+
+export { RadarChart } from './components/RadarChart';
+export type { RadarChartProps, RadarChartAxis } from './components/RadarChart';

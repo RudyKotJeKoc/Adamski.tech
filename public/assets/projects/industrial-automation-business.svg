@@ -1,0 +1,22 @@
+<svg width="800" height="480" viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Industrial automation practice placeholder</title>
+  <desc id="desc">Placeholder illustration for the independent industrial automation practice case study.</desc>
+  <defs>
+    <linearGradient id="iabGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2f1b3d" />
+      <stop offset="100%" stop-color="#a34cc5" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="480" rx="32" fill="url(#iabGrad)" />
+  <g fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.6">
+    <rect x="96" y="140" width="168" height="112" rx="18" />
+    <rect x="320" y="100" width="168" height="152" rx="18" />
+    <rect x="544" y="156" width="168" height="128" rx="18" />
+    <path d="M264 196h56M488 176h56M488 208h56" />
+    <path d="M264 196l56-56M488 176l56-56M488 208l56 56" opacity="0.4" />
+  </g>
+  <g font-family="'Montserrat', 'Helvetica Neue', Arial, sans-serif" fill="#ffffff" font-weight="600">
+    <text x="48" y="88" font-size="36">Industrial Automation Practice</text>
+    <text x="48" y="130" font-size="20" opacity="0.75">Case study artwork placeholder</text>
+  </g>
+</svg>

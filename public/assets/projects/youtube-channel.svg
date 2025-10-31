@@ -1,0 +1,22 @@
+<svg width="800" height="480" viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">YouTube channel placeholder</title>
+  <desc id="desc">Placeholder illustration for the Dariusz Daremon YouTube channel case study.</desc>
+  <defs>
+    <linearGradient id="ytGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3a0d0d" />
+      <stop offset="100%" stop-color="#d14444" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="480" rx="32" fill="url(#ytGrad)" />
+  <g fill="#ffffff" opacity="0.85">
+    <rect x="120" y="150" width="560" height="220" rx="24" opacity="0.2" />
+    <path d="M320 220l96 60-96 60z" />
+    <rect x="160" y="184" width="120" height="24" rx="12" opacity="0.4" />
+    <rect x="160" y="228" width="120" height="24" rx="12" opacity="0.35" />
+    <rect x="160" y="272" width="120" height="24" rx="12" opacity="0.3" />
+  </g>
+  <g font-family="'Montserrat', 'Helvetica Neue', Arial, sans-serif" fill="#ffffff" font-weight="600">
+    <text x="48" y="88" font-size="36">YouTube @DariuszDaremon</text>
+    <text x="48" y="130" font-size="20" opacity="0.75">Educational channel case study visual</text>
+  </g>
+</svg>
