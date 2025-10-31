@@ -1,6 +1,21 @@
 import React, { createContext, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import contentAll from '../content/content.json';
-import { Navbar, Footer, SectionHeading, ProjectCard, SkillTag, Reveal, LanguageSwitcher, Locale, AboutCard } from './components';
+import {
+  Navbar,
+  Footer,
+  SectionHeading,
+  ProjectCard,
+  SkillTag,
+  Reveal,
+  LanguageSwitcher,
+  Locale,
+  AboutCard,
+  MetricCounter,
+  WorkflowDiagram,
+  TimelineSlider,
+  PartnerCard,
+  RadarChart
+} from './components';
 
 type SectionId = 'hero' | 'about' | 'ai' | 'equipment' | 'skills' | 'career' | 'projects' | 'brand' | 'partners' | 'contact';
 
@@ -19,6 +34,8 @@ type SkillsContent = {
   categories: SkillCategory[];
   highlights: string[];
 };
+type ProjectsContent = ContentLang['projects'];
+type ProjectItem = ProjectsContent['items'][number];
 
 const App: React.FC = () => {
   const content = contentAll as ContentMap;
@@ -102,6 +119,10 @@ const App: React.FC = () => {
   const [selectedSkill, setSelectedSkill] = useState<string>('all');
 
   useEffect(() => {
+    setSelectedSkill('all');
+  }, [locale]);
+
+  useEffect(() => {
     const options: IntersectionObserverInit = { threshold: 0.5 };
     const obs = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
@@ -114,6 +135,50 @@ const App: React.FC = () => {
     });
     return () => obs.disconnect();
   }, []);
+
+  const projectsContent = content[locale].projects as ProjectsContent;
+  const projectItems = (projectsContent?.items ?? []) as ProjectItem[];
+
+  const projectFilterLabel = useMemo(() => {
+    if (projectsContent?.filter_label) return projectsContent.filter_label;
+    switch (locale) {
+      case 'pl':
+        return 'Filtruj projekty według kompetencji';
+      case 'nl':
+        return 'Filter projecten op competentie';
+      default:
+        return 'Filter projects by capability';
+    }
+  }, [locale, projectsContent]);
+
+  const allProjectsLabel = useMemo(() => {
+    if (projectsContent?.all_label) return projectsContent.all_label;
+    switch (locale) {
+      case 'pl':
+        return 'Wszystkie projekty';
+      case 'nl':
+        return 'Alle projecten';
+      default:
+        return 'All projects';
+    }
+  }, [locale, projectsContent]);
+
+  const skillCollator = useMemo(() => new Intl.Collator(locale), [locale]);
+
+  const projectSkills = useMemo(() => {
+    const unique = new Set<string>();
+    projectItems.forEach((project) => {
+      (project.skills ?? []).forEach((skill) => {
+        if (skill) unique.add(skill);
+      });
+    });
+    return Array.from(unique).sort(skillCollator.compare);
+  }, [projectItems, skillCollator]);
+
+  const filteredProjects = useMemo(() => {
+    if (selectedSkill === 'all') return projectItems;
+    return projectItems.filter((project) => project.skills?.includes(selectedSkill));
+  }, [projectItems, selectedSkill]);
 
   const skillsContent = content[locale].skills as SkillsContent;
   const skillCategories = skillsContent.categories;
