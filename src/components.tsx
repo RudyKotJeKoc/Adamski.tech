@@ -65,60 +65,181 @@ export const SkillTag: React.FC<{ label: string }> = ({ label }) => (
   </span>
 );
 
-type ProjectLinks = { demo?: string; repo?: string };
+type ProjectMetric = { label: string; value: string };
+type ProjectCtaVariant = 'primary' | 'secondary' | 'ghost';
+type ProjectCta = { label: string; href: string; variant?: string };
+type ProjectImage = { src: string; alt: string };
+
 export const ProjectCard: React.FC<{
+  locale: Locale;
   name: string;
   tagline?: string;
-  description?: string;
-  tech?: string[];
-  links?: ProjectLinks;
-}> = ({ name, tagline, description, tech = [], links }) => (
-  <article className="rounded-card bg-surface.card border border-surface-border shadow-card transition-shadow hover:shadow-md hover-glow p-4">
-    <figure className="aspect-video rounded-card overflow-hidden bg-black/30 mb-3">
-      {/* Placeholder image */}
-      <img
-        src="/assets/placeholder.jpg"
-        alt={`Miniatura projektu: ${name}`}
-        className="w-full h-full object-cover opacity-90"
-        loading="lazy"
-      />
-    </figure>
-    <h3 className="text-xl font-heading font-semibold text-neutral-50">{name}</h3>
-    {tagline && <p className="text-neutral-300 mt-1">{tagline}</p>}
-    {description && <p className="text-neutral-200 mt-2">{description}</p>}
-    {tech.length > 0 && (
-      <ul className="flex flex-wrap gap-2 mt-3" role="list">
-        {tech.map((t) => (
-          <li key={t}>
-            <SkillTag label={t} />
-          </li>
-        ))}
-      </ul>
-    )}
-    <div className="flex gap-3 mt-4">
-      {links?.repo && (
-        <a
-          className="px-3 py-2 rounded-button border border-primary-600 text-primary-50 !bg-transparent !hover:bg-transparent hover:text-white focus-visible:outline-none"
-          href={links.repo}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Szczegóły
-        </a>
-      )}
-      {links?.demo && (
-        <a
-          className="px-3 py-2 rounded-button border border-accent-blue_tech text-accent-blue_tech !bg-transparent !hover:bg-transparent hover:text-white focus-visible:outline-none"
-          href={links.demo}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Demo
-        </a>
-      )}
-    </div>
-  </article>
-);
+  summary?: string;
+  challenge?: string;
+  approach?: string[];
+  outcome?: string;
+  metrics?: ProjectMetric[];
+  skills?: string[];
+  image?: ProjectImage;
+  ctas?: ProjectCta[];
+}> = ({
+  locale,
+  name,
+  tagline,
+  summary,
+  challenge,
+  approach = [],
+  outcome,
+  metrics = [],
+  skills = [],
+  image,
+  ctas = []
+}) => {
+  const sectionLabels: Record<Locale, { challenge: string; approach: string; outcome: string; metrics: string; skills: string }> = {
+    pl: {
+      challenge: 'Wyzwanie',
+      approach: 'Podejście',
+      outcome: 'Rezultat',
+      metrics: 'Kluczowe wskaźniki',
+      skills: 'Kompetencje'
+    },
+    en: {
+      challenge: 'Challenge',
+      approach: 'Approach',
+      outcome: 'Outcome',
+      metrics: 'Key metrics',
+      skills: 'Capabilities'
+    },
+    nl: {
+      challenge: 'Uitdaging',
+      approach: 'Aanpak',
+      outcome: 'Resultaat',
+      metrics: 'Kerncijfers',
+      skills: 'Competenties'
+    }
+  };
+
+  const ctaVariants: Record<ProjectCtaVariant, string> = {
+    primary: 'bg-gradient-to-r from-primary-600 to-accent-led text-white hover:from-primary-700 hover:to-accent-led focus-visible:ring-2 focus-visible:ring-accent-led/70',
+    secondary: 'border border-primary-500 text-primary-50 hover:text-white hover:bg-primary-500/10 focus-visible:ring-2 focus-visible:ring-primary-500/70',
+    ghost: 'border border-surface-border text-neutral-100 hover:text-white hover:bg-surface.card focus-visible:ring-2 focus-visible:ring-neutral-300/40'
+  };
+
+  const labels = sectionLabels[locale];
+
+  const normalizeVariant = (variant?: string): ProjectCtaVariant => {
+    if (variant === 'primary' || variant === 'secondary' || variant === 'ghost') {
+      return variant;
+    }
+    return 'secondary';
+  };
+
+  const renderCtaClass = (variant?: string) => {
+    const key = normalizeVariant(variant);
+    return ctaVariants[key];
+  };
+
+  const isExternal = (href: string) => /^https?:/i.test(href);
+
+  return (
+    <article className="rounded-card bg-surface.card border border-surface-border shadow-card transition-shadow hover:shadow-lg hover-glow flex flex-col h-full">
+      <figure className="aspect-video rounded-t-card overflow-hidden bg-black/20">
+        {image?.src ? (
+          <img
+            src={image.src}
+            alt={image.alt}
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center text-neutral-300 text-sm">
+            {locale === 'pl' ? 'Wizualizacja w przygotowaniu' : locale === 'en' ? 'Visual coming soon' : 'Visual volgt binnenkort'}
+          </div>
+        )}
+      </figure>
+      <div className="flex flex-col gap-4 p-5 flex-1">
+        <header>
+          <h3 className="text-xl font-heading font-semibold text-neutral-50">{name}</h3>
+          {tagline && <p className="text-neutral-300 mt-1">{tagline}</p>}
+          {summary && <p className="text-neutral-200 mt-2">{summary}</p>}
+        </header>
+
+        {metrics.length > 0 && (
+          <section aria-label={labels.metrics}>
+            <ul className="flex flex-wrap gap-2" role="list">
+              {metrics.map((metric) => (
+                <li key={`${metric.label}-${metric.value}`}>
+                  <span className="inline-flex flex-col px-3 py-2 rounded-chip border border-surface-border bg-black/20 text-neutral-100 min-w-[120px]">
+                    <span className="text-xs uppercase tracking-wide text-neutral-400">{metric.label}</span>
+                    <span className="text-lg font-semibold text-neutral-50">{metric.value}</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        <div className="space-y-4 text-neutral-200">
+          {challenge && (
+            <section>
+              <h4 className="font-heading text-sm uppercase tracking-wide text-neutral-400">{labels.challenge}</h4>
+              <p className="mt-1 leading-relaxed">{challenge}</p>
+            </section>
+          )}
+          {approach.length > 0 && (
+            <section>
+              <h4 className="font-heading text-sm uppercase tracking-wide text-neutral-400">{labels.approach}</h4>
+              <ul className="list-disc pl-5 mt-1 space-y-1" role="list">
+                {approach.map((step, index) => (
+                  <li key={`${name}-approach-${index}`}>{step}</li>
+                ))}
+              </ul>
+            </section>
+          )}
+          {outcome && (
+            <section>
+              <h4 className="font-heading text-sm uppercase tracking-wide text-neutral-400">{labels.outcome}</h4>
+              <p className="mt-1 leading-relaxed">{outcome}</p>
+            </section>
+          )}
+        </div>
+
+        {skills.length > 0 && (
+          <section aria-label={labels.skills}>
+            <ul className="flex flex-wrap gap-2" role="list">
+              {skills.map((skill) => (
+                <li key={skill}>
+                  <SkillTag label={skill} />
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {ctas.length > 0 && (
+          <div className="flex flex-wrap gap-3 pt-2 mt-auto">
+            {ctas.map((cta) => {
+              const variantClass = renderCtaClass(cta.variant);
+              const external = isExternal(cta.href);
+              return (
+                <a
+                  key={`${name}-${cta.label}`}
+                  href={cta.href}
+                  className={`px-4 py-2 rounded-button text-sm font-medium transition-colors focus-visible:outline-none ${variantClass}`}
+                  target={external ? '_blank' : undefined}
+                  rel={external ? 'noopener noreferrer' : undefined}
+                  aria-label={`${name}: ${cta.label}`}
+                >
+                  {cta.label}
+                </a>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    </article>
+  );
+};
 
 export const Footer: React.FC<{ year: number; labels: NavItem[] }> = ({ year, labels }) => (
   <footer role="contentinfo" className="mt-24 border-t border-surface-border py-8 text-neutral-300">

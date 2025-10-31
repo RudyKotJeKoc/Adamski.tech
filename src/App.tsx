@@ -51,6 +51,7 @@ const App: React.FC = () => {
   };
 
   const [activeId, setActiveId] = useState<string | null>('hero');
+  const [selectedSkill, setSelectedSkill] = useState<string>('all');
 
   useEffect(() => {
     const options: IntersectionObserverInit = { threshold: 0.5 };
@@ -65,6 +66,28 @@ const App: React.FC = () => {
     });
     return () => obs.disconnect();
   }, []);
+
+  useEffect(() => {
+    setSelectedSkill('all');
+  }, [locale]);
+
+  const projectItems = content[locale].projects.items;
+  const projectSkills = useMemo(() => {
+    const unique = new Set<string>();
+    projectItems.forEach((project) => {
+      (project.skills ?? []).forEach((skill: string) => unique.add(skill));
+    });
+    return Array.from(unique).sort((a, b) => a.localeCompare(b, locale));
+  }, [projectItems, locale]);
+
+  const filteredProjects = useMemo(() => {
+    if (selectedSkill === 'all') return projectItems;
+    return projectItems.filter((project) => (project.skills ?? []).includes(selectedSkill));
+  }, [projectItems, selectedSkill]);
+
+  const projectFilterLabel =
+    locale === 'pl' ? 'Filtruj według kompetencji' : locale === 'en' ? 'Filter by capability' : 'Filter op competentie';
+  const allProjectsLabel = locale === 'pl' ? 'Wszystkie projekty' : locale === 'en' ? 'All projects' : 'Alle projecten';
 
   // Smooth scroll offset handled via scroll-margin in CSS (.section)
   const year = new Date().getFullYear();
@@ -165,15 +188,59 @@ const App: React.FC = () => {
           className="section mt-24"
         >
           <SectionHeading id="projects-title" title={content[locale].projects.title} />
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {content[locale].projects.items.map((pr) => (
+          <div className="mb-6 flex flex-col gap-3">
+            <span className="text-sm text-neutral-300" id="projects-filter-label">
+              {projectFilterLabel}
+            </span>
+            <div
+              role="group"
+              aria-labelledby="projects-filter-label"
+              className="flex flex-wrap gap-2"
+            >
+              <button
+                type="button"
+                className={`px-3 py-1 rounded-chip border border-surface-border text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500/60 ${
+                  selectedSkill === 'all'
+                    ? 'bg-primary-600 text-white border-primary-500'
+                    : 'bg-transparent text-neutral-200 hover:bg-surface.card'
+                }`}
+                aria-pressed={selectedSkill === 'all'}
+                onClick={() => setSelectedSkill('all')}
+              >
+                {allProjectsLabel}
+              </button>
+              {projectSkills.map((skill) => (
+                <button
+                  key={skill}
+                  type="button"
+                  className={`px-3 py-1 rounded-chip border border-surface-border text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500/60 ${
+                    selectedSkill === skill
+                      ? 'bg-primary-600 text-white border-primary-500'
+                      : 'bg-transparent text-neutral-200 hover:bg-surface.card'
+                  }`}
+                  aria-pressed={selectedSkill === skill}
+                  onClick={() => setSelectedSkill(skill)}
+                >
+                  {skill}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className="grid gap-6 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+            {filteredProjects.map((pr) => (
               <Reveal key={pr.name}>
                 <ProjectCard
+                  locale={locale}
                   name={pr.name}
                   tagline={pr.tagline}
-                  description={pr.description}
-                  tech={pr.tech}
-                  links={pr.links}
+                  summary={pr.summary}
+                  challenge={pr.challenge}
+                  approach={pr.approach}
+                  outcome={pr.outcome}
+                  metrics={pr.metrics}
+                  skills={pr.skills}
+                  image={pr.image}
+                  ctas={pr.ctas}
                 />
               </Reveal>
             ))}
