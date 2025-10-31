@@ -9,7 +9,12 @@
       "about": "O mnie",
       "skills": "Umiejętności",
       "projects": "Projekty",
-      "contact": "Kontakt"
+      "contact": "Kontakt",
+      "ai": "AI & Workflow",
+      "equipment": "Wyposażenie",
+      "career": "Timeline kariery",
+      "brand": "Filozofia Daremon",
+      "partners": "Partnerzy"
     },
     "hero": {
       "heading": "Dariusz Adamski — Senior Multi-Disciplinary Specialist",
@@ -287,6 +292,7 @@
         {
           "name": "DAREMON Radio ETS",
           "tagline": "Progressive Web App - Radio internetowe z wizualizacjami 3D",
+
           "summary": "Flagowy projekt PWA łączący streaming audio, wizualizacje 3D oraz pełny tryb offline dla odbiorców mobilnych i desktopowych.",
           "challenge": "Zaprojektować radio internetowe, które działa bez dostępu do sieci i prezentuje dane audio w immersyjnej formie 3D.",
           "approach": [
@@ -315,6 +321,7 @@
             "Web Audio API",
             "Three.js",
             "Service Workers",
+
             "Testowanie"
           ],
           "image": {
@@ -342,6 +349,7 @@
         {
           "name": "Machine Transfer System",
           "tagline": "Responsywna aplikacja do trackingu relocacji 50+ maszyn przemysłowych",
+
           "summary": "Lekka aplikacja webowa wspierająca zamknięcie zakładu ITB poprzez transparentne raportowanie statusu relokacji sprzętu.",
           "challenge": "Zapewnienie pełnej widoczności w czasie rzeczywistym dla trzech lokalizacji docelowych podczas demontażu linii produkcyjnych.",
           "approach": [
@@ -390,6 +398,7 @@
         {
           "name": "Własna działalność — Automatyka Przemysłowa",
           "tagline": "15 miesięcy przedsiębiorczości B2B (2020-2021)",
+
           "summary": "Solowa działalność realizująca serwis, modernizacje PLC oraz projekty MIM dla klientów z Polski i Holandii.",
           "challenge": "Zbudować zaufanie i pipeline projektów w kilka miesięcy, startując bez zaplecza korporacyjnego.",
           "approach": [
@@ -592,6 +601,393 @@
       },
       "address": "Holandia / Nederland",
       "availability_note": "Dostępny do: Konsultacji technicznych, Projektów modernizacyjnych, Partnership ventures (MIM/Daremon Lab), Technical leadership. Odpowiem szybko - cenię przejrzystą komunikację."
+    },
+    "ai_methodology": {
+      "title": "Metodologia AI & Operacje Wiedzy",
+      "subtitle": "Systemowy workflow łączący dokumentację, modele językowe i automatyzacje, aby przyspieszać eksperymenty techniczne.",
+      "metrics": [
+        {
+          "id": "knowledge-base",
+          "value": 852,
+          "suffix": " MB",
+          "label": "Baza wiedzy AI",
+          "description": "Udokumentowane sesje kontekstowe, repozytorium promptów i wzorce rozwiązań dla projektów przemysłowych."
+        },
+        {
+          "id": "iteration",
+          "value": 18,
+          "suffix": " h",
+          "label": "Średni czas iteracji",
+          "description": "Od briefu do działającego prototypu lub PoC dzięki gotowym szablonom i narzędziom oceny ryzyka."
+        },
+        {
+          "id": "automation",
+          "value": 72,
+          "suffix": " %",
+          "label": "Zautomatyzowane zadania rutynowe",
+          "description": "Automatyczne przygotowanie raportów, planów testów i podsumowań spotkań z wykorzystaniem Make.com / Node-RED."
+        },
+        {
+          "id": "accuracy",
+          "value": 96,
+          "suffix": " %",
+          "label": "Skuteczność walidacji",
+          "description": "Rekomendacje przechodzące kontrolę jakości w środowisku produkcyjnym (próby MIM, diagnostyka PLC)."
+        }
+      ],
+      "workflow": {
+        "title": "Workflow sterowany danymi",
+        "phases": [
+          {
+            "id": "discover",
+            "name": "Discovery & Scope",
+            "summary": "Warsztat z mapowaniem problemu, metryk i ograniczeń bezpieczeństwa.",
+            "deliverables": [
+              "Mapa ograniczeń procesu",
+              "Lista wymagań danych",
+              "Plan walidacji wyników"
+            ],
+            "icon": "🔍"
+          },
+          {
+            "id": "design",
+            "name": "Co-design",
+            "summary": "Projektowanie architektury rozwiązania wraz z operatorami / stakeholderami.",
+            "deliverables": [
+              "Storyboard przepływów",
+              "Szablony promptów",
+              "Plan automatyzacji"
+            ],
+            "icon": "🧩"
+          },
+          {
+            "id": "deploy",
+            "name": "Build & Deploy",
+            "summary": "Tworzenie agentów, integracja z API / PLC, testy w kontrolowanych iteracjach.",
+            "deliverables": [
+              "Checklisty bezpieczeństwa",
+              "Logi testowe",
+              "Dashboard statusów"
+            ],
+            "icon": "⚙️"
+          },
+          {
+            "id": "review",
+            "name": "Review & Scale",
+            "summary": "Retrospektywa, aktualizacja bazy wiedzy i plan skalowania na kolejne linie / zespoły.",
+            "deliverables": [
+              "Raport lessons learned",
+              "Mapa ROI",
+              "Plan wdrożenia"
+            ],
+            "icon": "📈"
+          }
+        ],
+        "automation": [
+          "Tracking zadań w Notion + GitHub Projects",
+          "Automatyczne generowanie raportów w Obsidian",
+          "Integracje sprzętowe (ESP32, Home Assistant) z alertami w czasie rzeczywistym"
+        ]
+      }
+    },
+    "equipment_inventory": {
+      "title": "Inwentarz sprzętu i laboratoriów",
+      "subtitle": "Fizyczne zasoby gotowe do prototypowania, diagnostyki i wdrożeń pilotażowych.",
+      "categories": [
+        {
+          "name": "Robotyka i linie produkcyjne",
+          "items": [
+            {
+              "id": "motoman",
+              "icon": "🤖",
+              "name": "Roboty Yaskawa Motoman",
+              "specs": [
+                "2x MA1400, 1x GP8",
+                "Offline programming w MotoSim, uchwyty dedykowane"
+              ],
+              "status": "Gotowe do testów offline i programowania hybrydowego"
+            },
+            {
+              "id": "siemens",
+              "icon": "🧠",
+              "name": "Sterowniki Siemens S7",
+              "specs": [
+                "CPU 1214C, S7-300",
+                "Pełny zestaw diagnostyczny + sieć Profinet"
+              ],
+              "status": "Mobilny zestaw warsztatowy"
+            },
+            {
+              "id": "mim",
+              "icon": "🔥",
+              "name": "Stanowisko MIM / Piece próżniowe",
+              "specs": [
+                "Koncept Elino P40",
+                "Analiza gazów, profile termiczne"
+              ],
+              "status": "PoC + dokumentacja retrofitów"
+            }
+          ]
+        },
+        {
+          "name": "Digital & AI Lab",
+          "items": [
+            {
+              "id": "cluster",
+              "icon": "🖥️",
+              "name": "Cluster GPU / inference",
+              "specs": [
+                "RTX 4090 + Jetson Nano",
+                "Docker + automatyzacja pipeline'ów"
+              ],
+              "status": "Środowisko R&D 24/7"
+            },
+            {
+              "id": "obsidian",
+              "icon": "📚",
+              "name": "Obsidian Knowledge Vault",
+              "specs": [
+                "852 MB notatek",
+                "Graph relacji, szablony SOP"
+              ],
+              "status": "Synced + backup codzienny"
+            },
+            {
+              "id": "automation-hub",
+              "icon": "🔗",
+              "name": "Hub automatyzacji",
+              "specs": [
+                "Make.com, n8n, Node-RED",
+                "Webhooki, integracje PLC"
+              ],
+              "status": "Łączenie AI ↔ hardware"
+            }
+          ]
+        },
+        {
+          "name": "Prototypowanie i fabrykacja",
+          "items": [
+            {
+              "id": "3d",
+              "icon": "🧱",
+              "name": "Druk 3D",
+              "specs": [
+                "Creality K1 Max, Ender 3 Neo",
+                "Materiał: PLA-CF, PA, TPU"
+              ],
+              "status": "Gotowe do produkcji krótkoseryjnej"
+            },
+            {
+              "id": "welding",
+              "icon": "⚡",
+              "name": "Spawanie TIG",
+              "specs": [
+                "AC/DC 200A",
+                "Stal nierdzewna, aluminium"
+              ],
+              "status": "Zewnętrzne i mobilne realizacje"
+            },
+            {
+              "id": "cnc",
+              "icon": "🛠️",
+              "name": "Warsztat CNC",
+              "specs": [
+                "Tokarka, frezarka manualna",
+                "Dokładność 0.02 mm"
+              ],
+              "status": "Prototypy, naprawy części"
+            }
+          ]
+        },
+        {
+          "name": "Serwis terenowy",
+          "items": [
+            {
+              "id": "diagnostics",
+              "icon": "📡",
+              "name": "Diagnostyka mobilna",
+              "specs": [
+                "Analizatory drgań, termowizja",
+                "Łącza zdalne VPN"
+              ],
+              "status": "Ready-to-dispatch"
+            },
+            {
+              "id": "tooling",
+              "icon": "🧰",
+              "name": "Tooling serwisowy",
+              "specs": [
+                "Kalibratory, zestawy momentów",
+                "Certyfikowane narzędzia bezpieczeństwa"
+              ],
+              "status": "Kompletne wyposażenie"
+            }
+          ]
+        }
+      ]
+    },
+    "career_timeline": {
+      "title": "Kluczowe kamienie milowe kariery",
+      "subtitle": "Ewolucja od serwisu utrzymania ruchu po hybrydowego lidera AI + hardware.",
+      "milestones": [
+        {
+          "id": "2025-hansa",
+          "period": "2024-2025",
+          "role": "Lead Automation Specialist",
+          "context": "ITB / Hansa + projekty MIM",
+          "summary": "Koordynacja relokacji 50+ maszyn, PoC dla modernizacji pieców próżniowych, audyty bezpieczeństwa.",
+          "highlights": [
+            "Wdrożony system śledzenia przenosin maszyn",
+            "Proof-of-concept MIM furnace retrofit",
+            "Warsztaty AI dla zespołów utrzymania ruchu"
+          ]
+        },
+        {
+          "id": "2021-daremon",
+          "period": "2020-2021",
+          "role": "Właściciel Daremon Engineering",
+          "context": "B2B automatyka i serwis",
+          "summary": "Budowa działalności od zera — 250k PLN przychodu, 40 projektów modernizacyjnych.",
+          "highlights": [
+            "Programowanie PLC (Siemens, Mitsubishi)",
+            "Kontrakty serwisowe 24/7",
+            "Skalowanie dokumentacji i baz wiedzy"
+          ]
+        },
+        {
+          "id": "2019-automation",
+          "period": "2015-2019",
+          "role": "Automation Engineer",
+          "context": "Tier-1 automotive",
+          "summary": "Robotyka, linie montażowe, wdrożenia systemów wizji, szkolenia operatorów.",
+          "highlights": [
+            "Integracja Yaskawa Motoman z kontrolą jakości",
+            "Optymalizacja cyklu o 12%",
+            "Programy bezpieczeństwa maszyn"
+          ]
+        },
+        {
+          "id": "2014-maintenance",
+          "period": "2007-2014",
+          "role": "Maintenance & Field Service",
+          "context": "Europejskie projekty serwisowe",
+          "summary": "Serwis pras hydraulicznych, maszyn CNC, wdrożenia Lean i TPM.",
+          "highlights": [
+            "0 poważnych wypadków",
+            "Certyfikacja hydraulika wysokociśnieniowego",
+            "Program mentoringowy dla nowych techników"
+          ]
+        }
+      ]
+    },
+    "brand": {
+      "title": "DAREMON — filozofia i propozycje usług",
+      "philosophy": {
+        "title": "Filozofia marki",
+        "items": [
+          {
+            "id": "industrial",
+            "icon": "🌌",
+            "name": "Industrial futurism",
+            "description": "Połączenie estetyki przemysłowej z efektywnością — zero zbędnego marketingu, pełna transparentność."
+          },
+          {
+            "id": "hybrid",
+            "icon": "🧠",
+            "name": "Hybrid intelligence",
+            "description": "AI wspiera decyzje ludzi — buduję systemy, które zwiększają koncentrację operatora, nie zastępują go."
+          },
+          {
+            "id": "craft",
+            "icon": "🛠️",
+            "name": "Craft & accountability",
+            "description": "Dokumentacja, checklisty i standaryzacja jakości są tak samo ważne jak końcowy wynik techniczny."
+          }
+        ]
+      },
+      "services": {
+        "title": "Pakiety usług",
+        "items": [
+          {
+            "id": "rapid-ops",
+            "name": "Rapid Ops Consulting",
+            "description": "Intensywny sprint 2-3 tygodniowy — mapowanie procesu, metryk i planu modernizacji.",
+            "deliverables": [
+              "Mapa stanu obecnego",
+              "Macierz ryzyk",
+              "Backlog usprawnień"
+            ],
+            "cta": "Idealne przed decyzją inwestycyjną"
+          },
+          {
+            "id": "ai-copilot",
+            "name": "AI Copilot for Maintenance",
+            "description": "Budowa agentów AI wspierających diagnostykę, raportowanie i planowanie przestojów.",
+            "deliverables": [
+              "Zestaw promptów kontekstowych",
+              "Integracje z CMMS",
+              "Procedury bezpieczeństwa"
+            ],
+            "cta": "Optymalizacja czasu reakcji"
+          },
+          {
+            "id": "mim-lab",
+            "name": "MIM Lab Partnerships",
+            "description": "Wsparcie przy uruchomieniu linii MIM: retrofit pieców, receptury, kontrola jakości.",
+            "deliverables": [
+              "Plan retrofitów",
+              "Procedury CIP",
+              "Model ROI"
+            ],
+            "cta": "Od koncepcji do pierwszej serii"
+          }
+        ]
+      }
+    },
+    "partners": {
+      "title": "Partnerzy i modele współpracy",
+      "subtitle": "Transparentne oferty dla producentów, inwestorów i laboratoriów badawczych.",
+      "cards": [
+        {
+          "id": "manufacturing",
+          "icon": "🏭",
+          "title": "Producenci MIM / precyzyjna obróbka",
+          "value_proposition": "Retrofit pieców, optymalizacja receptur i wdrożenie kontroli jakości 4.0.",
+          "ideal_for": "Zakłady planujące uruchomienie małoseryjnej produkcji high-mix.",
+          "highlights": [
+            "Warsztat Discovery 2 dni",
+            "Model ROI w 48h",
+            "Wsparcie audytów NADCAP"
+          ],
+          "cta_label": "Umów warsztat"
+        },
+        {
+          "id": "investors",
+          "icon": "💡",
+          "title": "Inwestorzy / fundusze VC",
+          "value_proposition": "Technical due diligence dla projektów automatyzacji i AI w przemyśle.",
+          "ideal_for": "Fundusze potrzebujące partnera hands-on do oceny ryzyka technologicznego.",
+          "highlights": [
+            "Raport 360° w 10 dni",
+            "Mapa ryzyk bezpieczeństwa",
+            "Plan modernizacji"
+          ],
+          "cta_label": "Zarezerwuj due diligence"
+        },
+        {
+          "id": "labs",
+          "icon": "🧪",
+          "title": "Laboratoria R&D / uczelnie",
+          "value_proposition": "Wspólne projekty pilotażowe (robotyka, IoT, AI), współdzielone dane i dokumentacja.",
+          "ideal_for": "Zespoły poszukujące partnera przemysłowego do szybkich eksperymentów.",
+          "highlights": [
+            "Dostęp do sprzętu Daremon Lab",
+            "Standaryzowane protokoły badań",
+            "Publikacje case-study"
+          ],
+          "cta_label": "Zaproponuj projekt"
+        }
+      ]
     }
   },
   "en": {
@@ -604,7 +1000,12 @@
       "about": "About",
       "skills": "Skills",
       "projects": "Projects",
-      "contact": "Contact"
+      "contact": "Contact",
+      "ai": "AI Workflow",
+      "equipment": "Equipment",
+      "career": "Career Timeline",
+      "brand": "Daremon Philosophy",
+      "partners": "Partners"
     },
     "hero": {
       "heading": "Dariusz Adamski — Senior Multi-Disciplinary Specialist",
@@ -881,6 +1282,7 @@
       "items": [
         {
           "name": "DAREMON Radio ETS",
+
           "tagline": "Progressive Web App – Internet radio with 3D visualizations",
           "summary": "Flagship PWA combining audio streaming, 3D visualizations, and full offline mode for mobile and desktop listeners.",
           "challenge": "Design an internet radio that works with unreliable connectivity while delivering immersive 3D audio analytics.",
@@ -905,6 +1307,7 @@
             }
           ],
           "skills": [
+
             "React",
             "TypeScript",
             "Web Audio API",
@@ -981,6 +1384,7 @@
               "variant": "secondary"
             }
           ]
+
         },
         {
           "name": "Independent Industrial Automation Practice",
@@ -1187,6 +1591,393 @@
       },
       "address": "Netherlands / Holland",
       "availability_note": "Available for: Technical consulting, Modernization projects, Partnership ventures (MIM/Daremon Lab), Technical leadership. I respond quickly - I value clear communication."
+    },
+    "ai_methodology": {
+      "title": "AI Methodology & Knowledge Operations",
+      "subtitle": "A repeatable system that blends documentation, language models, and automation to accelerate technical experimentation.",
+      "metrics": [
+        {
+          "id": "knowledge-base",
+          "value": 852,
+          "suffix": " MB",
+          "label": "AI knowledge base",
+          "description": "Documented context sessions, prompt repository, and solution patterns for industrial projects."
+        },
+        {
+          "id": "iteration",
+          "value": 18,
+          "suffix": " h",
+          "label": "Average iteration time",
+          "description": "From brief to working prototype or PoC via ready playbooks and risk assessment tooling."
+        },
+        {
+          "id": "automation",
+          "value": 72,
+          "suffix": " %",
+          "label": "Automated routine tasks",
+          "description": "Automated reports, test plans, and meeting notes powered by Make.com / Node-RED."
+        },
+        {
+          "id": "accuracy",
+          "value": 96,
+          "suffix": " %",
+          "label": "Validated accuracy",
+          "description": "Recommendations passing quality gates on the shop floor (MIM trials, PLC diagnostics)."
+        }
+      ],
+      "workflow": {
+        "title": "Data-driven workflow",
+        "phases": [
+          {
+            "id": "discover",
+            "name": "Discovery & Scope",
+            "summary": "Problem framing workshop covering metrics, safety constraints, and stakeholders.",
+            "deliverables": [
+              "Process constraint map",
+              "Data readiness checklist",
+              "Validation plan"
+            ],
+            "icon": "🔍"
+          },
+          {
+            "id": "design",
+            "name": "Co-design",
+            "summary": "Solution architecture co-created with operators and decision makers.",
+            "deliverables": [
+              "Flow storyboards",
+              "Prompt templates",
+              "Automation blueprint"
+            ],
+            "icon": "🧩"
+          },
+          {
+            "id": "deploy",
+            "name": "Build & Deploy",
+            "summary": "Agent development, API / PLC integration, and staged testing cycles.",
+            "deliverables": [
+              "Safety checklists",
+              "Test logs",
+              "Status dashboard"
+            ],
+            "icon": "⚙️"
+          },
+          {
+            "id": "review",
+            "name": "Review & Scale",
+            "summary": "Retrospective, knowledge-base update, and roadmap for scaling across lines / teams.",
+            "deliverables": [
+              "Lessons learned report",
+              "ROI map",
+              "Rollout plan"
+            ],
+            "icon": "📈"
+          }
+        ],
+        "automation": [
+          "Task tracking in Notion + GitHub Projects",
+          "Automated reporting inside Obsidian",
+          "Hardware integrations (ESP32, Home Assistant) with real-time alerts"
+        ]
+      }
+    },
+    "equipment_inventory": {
+      "title": "Equipment & Lab Inventory",
+      "subtitle": "Physical assets ready for prototyping, diagnostics, and pilot deployments.",
+      "categories": [
+        {
+          "name": "Robotics & Production Cells",
+          "items": [
+            {
+              "id": "motoman",
+              "icon": "🤖",
+              "name": "Yaskawa Motoman robots",
+              "specs": [
+                "2x MA1400, 1x GP8",
+                "Offline programming via MotoSim and custom grippers"
+              ],
+              "status": "Ready for offline testing and hybrid programming"
+            },
+            {
+              "id": "siemens",
+              "icon": "🧠",
+              "name": "Siemens S7 controllers",
+              "specs": [
+                "CPU 1214C, S7-300",
+                "Full diagnostic suite + Profinet network"
+              ],
+              "status": "Mobile workshop kit"
+            },
+            {
+              "id": "mim",
+              "icon": "🔥",
+              "name": "MIM furnace / vacuum station",
+              "specs": [
+                "Elino P40 retrofit concept",
+                "Gas analysis, thermal profiles"
+              ],
+              "status": "PoC with retrofit documentation"
+            }
+          ]
+        },
+        {
+          "name": "Digital & AI Lab",
+          "items": [
+            {
+              "id": "cluster",
+              "icon": "🖥️",
+              "name": "GPU / inference cluster",
+              "specs": [
+                "RTX 4090 + Jetson Nano",
+                "Dockerized pipelines"
+              ],
+              "status": "24/7 R&D environment"
+            },
+            {
+              "id": "obsidian",
+              "icon": "📚",
+              "name": "Obsidian knowledge vault",
+              "specs": [
+                "852 MB notes",
+                "Relationship graph, SOP templates"
+              ],
+              "status": "Synced with daily backups"
+            },
+            {
+              "id": "automation-hub",
+              "icon": "🔗",
+              "name": "Automation hub",
+              "specs": [
+                "Make.com, n8n, Node-RED",
+                "Webhook and PLC integrations"
+              ],
+              "status": "Connects AI ↔ hardware"
+            }
+          ]
+        },
+        {
+          "name": "Prototyping & Fabrication",
+          "items": [
+            {
+              "id": "3d",
+              "icon": "🧱",
+              "name": "3D printing",
+              "specs": [
+                "Creality K1 Max, Ender 3 Neo",
+                "Materials: PLA-CF, PA, TPU"
+              ],
+              "status": "Short-run production ready"
+            },
+            {
+              "id": "welding",
+              "icon": "⚡",
+              "name": "TIG welding",
+              "specs": [
+                "AC/DC 200A",
+                "Stainless steel, aluminum"
+              ],
+              "status": "On-site and mobile jobs"
+            },
+            {
+              "id": "cnc",
+              "icon": "🛠️",
+              "name": "CNC workshop",
+              "specs": [
+                "Manual lathe & mill",
+                "0.02 mm accuracy"
+              ],
+              "status": "Prototypes and part repairs"
+            }
+          ]
+        },
+        {
+          "name": "Field service",
+          "items": [
+            {
+              "id": "diagnostics",
+              "icon": "📡",
+              "name": "Mobile diagnostics",
+              "specs": [
+                "Vibration analyzers, thermography",
+                "Secure VPN links"
+              ],
+              "status": "Ready-to-dispatch"
+            },
+            {
+              "id": "tooling",
+              "icon": "🧰",
+              "name": "Service tooling",
+              "specs": [
+                "Calibrators, torque sets",
+                "Certified safety equipment"
+              ],
+              "status": "Complete kits"
+            }
+          ]
+        }
+      ]
+    },
+    "career_timeline": {
+      "title": "Career milestones",
+      "subtitle": "Journey from maintenance specialist to hybrid AI + hardware leader.",
+      "milestones": [
+        {
+          "id": "2025-hansa",
+          "period": "2024-2025",
+          "role": "Lead Automation Specialist",
+          "context": "ITB / Hansa & MIM modernization",
+          "summary": "Coordinated relocation of 50+ machines, furnace retrofit PoC, and safety audits.",
+          "highlights": [
+            "Deployed machine transfer tracking system",
+            "Proof-of-concept MIM furnace retrofit",
+            "AI workshops for maintenance teams"
+          ]
+        },
+        {
+          "id": "2021-daremon",
+          "period": "2020-2021",
+          "role": "Founder — Daremon Engineering",
+          "context": "B2B automation and service",
+          "summary": "Built business from scratch — €60k+ revenue, 40 modernization projects.",
+          "highlights": [
+            "PLC programming (Siemens, Mitsubishi)",
+            "24/7 service retainers",
+            "Scaled documentation and knowledge base"
+          ]
+        },
+        {
+          "id": "2019-automation",
+          "period": "2015-2019",
+          "role": "Automation Engineer",
+          "context": "Tier-1 automotive",
+          "summary": "Robotics, assembly lines, vision systems, operator training.",
+          "highlights": [
+            "Integrated Yaskawa Motoman with quality control",
+            "Reduced cycle time by 12%",
+            "Machine safety programs"
+          ]
+        },
+        {
+          "id": "2014-maintenance",
+          "period": "2007-2014",
+          "role": "Maintenance & Field Service",
+          "context": "Europe-wide service projects",
+          "summary": "Hydraulic press service, CNC machines, Lean & TPM deployments.",
+          "highlights": [
+            "Zero serious incidents",
+            "High-pressure hydraulics certification",
+            "Mentoring program for new technicians"
+          ]
+        }
+      ]
+    },
+    "brand": {
+      "title": "DAREMON — philosophy & service menu",
+      "philosophy": {
+        "title": "Brand philosophy",
+        "items": [
+          {
+            "id": "industrial",
+            "icon": "🌌",
+            "name": "Industrial futurism",
+            "description": "Blend of industrial aesthetics with efficiency — no fluff marketing, full transparency."
+          },
+          {
+            "id": "hybrid",
+            "icon": "🧠",
+            "name": "Hybrid intelligence",
+            "description": "AI augments human focus — systems are designed to empower operators, not replace them."
+          },
+          {
+            "id": "craft",
+            "icon": "🛠️",
+            "name": "Craft & accountability",
+            "description": "Documentation, checklists, and quality standards matter as much as the final technical outcome."
+          }
+        ]
+      },
+      "services": {
+        "title": "Service offerings",
+        "items": [
+          {
+            "id": "rapid-ops",
+            "name": "Rapid Ops Consulting",
+            "description": "2-3 week intensive sprint mapping process, metrics, and modernization roadmap.",
+            "deliverables": [
+              "Current state map",
+              "Risk matrix",
+              "Improvement backlog"
+            ],
+            "cta": "Perfect before investment decisions"
+          },
+          {
+            "id": "ai-copilot",
+            "name": "AI Copilot for Maintenance",
+            "description": "Design AI agents that support diagnostics, reporting, and downtime planning.",
+            "deliverables": [
+              "Context prompt pack",
+              "CMMS integrations",
+              "Safety procedures"
+            ],
+            "cta": "Accelerate response times"
+          },
+          {
+            "id": "mim-lab",
+            "name": "MIM Lab Partnerships",
+            "description": "Launch support for MIM lines: furnace retrofits, recipes, quality control.",
+            "deliverables": [
+              "Retrofit blueprint",
+              "CIP procedures",
+              "ROI model"
+            ],
+            "cta": "From concept to first batch"
+          }
+        ]
+      }
+    },
+    "partners": {
+      "title": "Partner-facing collaborations",
+      "subtitle": "Transparent offers for manufacturers, investors, and research labs.",
+      "cards": [
+        {
+          "id": "manufacturing",
+          "icon": "🏭",
+          "title": "MIM / precision manufacturing",
+          "value_proposition": "Furnace retrofits, recipe optimization, and quality control 4.0 rollout.",
+          "ideal_for": "Plants launching high-mix, low-volume production.",
+          "highlights": [
+            "2-day discovery workshop",
+            "ROI model in 48h",
+            "NADCAP audit support"
+          ],
+          "cta_label": "Book a workshop"
+        },
+        {
+          "id": "investors",
+          "icon": "💡",
+          "title": "Investors / VC funds",
+          "value_proposition": "Technical due diligence for automation and industrial AI ventures.",
+          "ideal_for": "Funds needing hands-on partner to assess technology risk.",
+          "highlights": [
+            "360° report in 10 days",
+            "Safety risk map",
+            "Modernization roadmap"
+          ],
+          "cta_label": "Schedule due diligence"
+        },
+        {
+          "id": "labs",
+          "icon": "🧪",
+          "title": "R&D labs / universities",
+          "value_proposition": "Joint pilot projects (robotics, IoT, AI) with shared data and documentation.",
+          "ideal_for": "Teams seeking industrial partner for rapid experimentation.",
+          "highlights": [
+            "Access to Daremon Lab equipment",
+            "Standardized research protocols",
+            "Publishable case studies"
+          ],
+          "cta_label": "Pitch a project"
+        }
+      ]
     }
   },
   "nl": {
@@ -1199,7 +1990,12 @@
       "about": "Over",
       "skills": "Vaardigheden",
       "projects": "Projecten",
-      "contact": "Contact"
+      "contact": "Contact",
+      "ai": "AI Workflow",
+      "equipment": "Uitrusting",
+      "career": "Carrièrepad",
+      "brand": "Daremon Filosofie",
+      "partners": "Partners"
     },
     "hero": {
       "heading": "Dariusz Adamski — Senior Multi-Disciplinaire Specialist",
@@ -1782,6 +2578,393 @@
       },
       "address": "Nederland",
       "availability_note": "Beschikbaar voor: Technische consultancy, Modernisatieprojecten, Partnership ventures (MIM/Daremon Lab), Technical leadership. Ik reageer snel - ik waardeer heldere communicatie."
+    },
+    "ai_methodology": {
+      "title": "AI-methodologie & Knowledge Operations",
+      "subtitle": "Herhaalbaar systeem dat documentatie, taalmodellen en automatisering combineert om technische experimenten te versnellen.",
+      "metrics": [
+        {
+          "id": "knowledge-base",
+          "value": 852,
+          "suffix": " MB",
+          "label": "AI-kennisbasis",
+          "description": "Gedocumenteerde contextsessies, promptbibliotheek en oplossingspatronen voor industriële projecten."
+        },
+        {
+          "id": "iteration",
+          "value": 18,
+          "suffix": " u",
+          "label": "Gemiddelde iteratie",
+          "description": "Van briefing tot werkend prototype of PoC dankzij kant-en-klare playbooks en risicotools."
+        },
+        {
+          "id": "automation",
+          "value": 72,
+          "suffix": " %",
+          "label": "Geautomatiseerde routine",
+          "description": "Automatische rapporten, testplannen en meetingnotes via Make.com / Node-RED."
+        },
+        {
+          "id": "accuracy",
+          "value": 96,
+          "suffix": " %",
+          "label": "Gevalideerde nauwkeurigheid",
+          "description": "Aanbevelingen die kwaliteitscontroles doorstaan op de werkvloer (MIM-tests, PLC-diagnostiek)."
+        }
+      ],
+      "workflow": {
+        "title": "Datagedreven workflow",
+        "phases": [
+          {
+            "id": "discover",
+            "name": "Discovery & Scope",
+            "summary": "Workshop voor probleemdefinitie, metrics en veiligheidskaders.",
+            "deliverables": [
+              "Procesconstraint-map",
+              "Data readiness checklist",
+              "Validatieplan"
+            ],
+            "icon": "🔍"
+          },
+          {
+            "id": "design",
+            "name": "Co-design",
+            "summary": "Architectuur ontworpen samen met operators en besluitvormers.",
+            "deliverables": [
+              "Flow-storyboards",
+              "Prompttemplates",
+              "Automatiseringsplan"
+            ],
+            "icon": "🧩"
+          },
+          {
+            "id": "deploy",
+            "name": "Build & Deploy",
+            "summary": "Agentontwikkeling, API / PLC-integratie en gefaseerde testcycli.",
+            "deliverables": [
+              "Veiligheidschecklists",
+              "Testlogs",
+              "Statusdashboard"
+            ],
+            "icon": "⚙️"
+          },
+          {
+            "id": "review",
+            "name": "Review & Scale",
+            "summary": "Retro, update van kennisbasis en plan voor opschaling over lijnen / teams.",
+            "deliverables": [
+              "Lessons learned-rapport",
+              "ROI-map",
+              "Uitrolplan"
+            ],
+            "icon": "📈"
+          }
+        ],
+        "automation": [
+          "Taaktracking in Notion + GitHub Projects",
+          "Automatische rapportage in Obsidian",
+          "Hardware-integraties (ESP32, Home Assistant) met realtime alerts"
+        ]
+      }
+    },
+    "equipment_inventory": {
+      "title": "Inventaris apparatuur & labs",
+      "subtitle": "Fysieke middelen klaar voor prototyping, diagnostiek en pilotdeployments.",
+      "categories": [
+        {
+          "name": "Robotica & productiecellen",
+          "items": [
+            {
+              "id": "motoman",
+              "icon": "🤖",
+              "name": "Yaskawa Motoman robots",
+              "specs": [
+                "2x MA1400, 1x GP8",
+                "Offline programmering via MotoSim, maatwerkgrijpers"
+              ],
+              "status": "Klaar voor offline testen"
+            },
+            {
+              "id": "siemens",
+              "icon": "🧠",
+              "name": "Siemens S7 controllers",
+              "specs": [
+                "CPU 1214C, S7-300",
+                "Volledig diagnostisch pakket + Profinet"
+              ],
+              "status": "Mobiele werkplaats"
+            },
+            {
+              "id": "mim",
+              "icon": "🔥",
+              "name": "MIM-oven / vacuümstation",
+              "specs": [
+                "Elino P40 retrofitconcept",
+                "Gasanalyse, thermische profielen"
+              ],
+              "status": "PoC met documentatie"
+            }
+          ]
+        },
+        {
+          "name": "Digital & AI Lab",
+          "items": [
+            {
+              "id": "cluster",
+              "icon": "🖥️",
+              "name": "GPU / inference cluster",
+              "specs": [
+                "RTX 4090 + Jetson Nano",
+                "Docker-pijplijnen"
+              ],
+              "status": "24/7 R&D-omgeving"
+            },
+            {
+              "id": "obsidian",
+              "icon": "📚",
+              "name": "Obsidian knowledge vault",
+              "specs": [
+                "852 MB notities",
+                "Relatiegrafiek, SOP-templates"
+              ],
+              "status": "Dagelijkse backups"
+            },
+            {
+              "id": "automation-hub",
+              "icon": "🔗",
+              "name": "Automatiseringshub",
+              "specs": [
+                "Make.com, n8n, Node-RED",
+                "Webhook- en PLC-integraties"
+              ],
+              "status": "Verbindt AI ↔ hardware"
+            }
+          ]
+        },
+        {
+          "name": "Prototyping & fabricage",
+          "items": [
+            {
+              "id": "3d",
+              "icon": "🧱",
+              "name": "3D-printing",
+              "specs": [
+                "Creality K1 Max, Ender 3 Neo",
+                "Materialen: PLA-CF, PA, TPU"
+              ],
+              "status": "Klaar voor korte series"
+            },
+            {
+              "id": "welding",
+              "icon": "⚡",
+              "name": "TIG-lassen",
+              "specs": [
+                "AC/DC 200A",
+                "Roestvast staal, aluminium"
+              ],
+              "status": "On-site en mobiel"
+            },
+            {
+              "id": "cnc",
+              "icon": "🛠️",
+              "name": "CNC-werkplaats",
+              "specs": [
+                "Handmatige draaibank & frees",
+                "0.02 mm nauwkeurigheid"
+              ],
+              "status": "Prototypes en reparaties"
+            }
+          ]
+        },
+        {
+          "name": "Field service",
+          "items": [
+            {
+              "id": "diagnostics",
+              "icon": "📡",
+              "name": "Mobiele diagnostiek",
+              "specs": [
+                "Trilanalysers, thermografie",
+                "Veilige VPN-links"
+              ],
+              "status": "Uitruk-klaar"
+            },
+            {
+              "id": "tooling",
+              "icon": "🧰",
+              "name": "Service tooling",
+              "specs": [
+                "Kalibrators, momentsleutels",
+                "Gecertificeerde veiligheidsmiddelen"
+              ],
+              "status": "Complete sets"
+            }
+          ]
+        }
+      ]
+    },
+    "career_timeline": {
+      "title": "Carrièremijlpalen",
+      "subtitle": "Reis van onderhoudsspecialist naar hybride AI + hardware leader.",
+      "milestones": [
+        {
+          "id": "2025-hansa",
+          "period": "2024-2025",
+          "role": "Lead Automation Specialist",
+          "context": "ITB / Hansa & MIM-modernisatie",
+          "summary": "Coördinatie relocatie 50+ machines, furnace retrofit PoC en veiligheidsaudits.",
+          "highlights": [
+            "Machine transfer tracking geïmplementeerd",
+            "Proof-of-concept MIM furnace retrofit",
+            "AI-workshops voor onderhoudsteams"
+          ]
+        },
+        {
+          "id": "2021-daremon",
+          "period": "2020-2021",
+          "role": "Oprichter — Daremon Engineering",
+          "context": "B2B automatisering en service",
+          "summary": "Bedrijf vanaf nul opgebouwd — €60k+ omzet, 40 modernisatieprojecten.",
+          "highlights": [
+            "PLC-programmering (Siemens, Mitsubishi)",
+            "24/7 servicecontracten",
+            "Opschaling documentatie & kennisbasis"
+          ]
+        },
+        {
+          "id": "2019-automation",
+          "period": "2015-2019",
+          "role": "Automation Engineer",
+          "context": "Tier-1 automotive",
+          "summary": "Robotica, assemblagelijnen, visionsystemen, operatortraining.",
+          "highlights": [
+            "Integratie Yaskawa Motoman met kwaliteitscontrole",
+            "12% kortere cyclustijd",
+            "Machineveiligheidsprogramma's"
+          ]
+        },
+        {
+          "id": "2014-maintenance",
+          "period": "2007-2014",
+          "role": "Onderhoud & Field Service",
+          "context": "Europa-brede serviceprojecten",
+          "summary": "Onderhoud hydraulische persen, CNC-machines, Lean & TPM-implementaties.",
+          "highlights": [
+            "Geen ernstige incidenten",
+            "Certificaat hogedrukhydrauliek",
+            "Mentoringprogramma voor nieuwe technici"
+          ]
+        }
+      ]
+    },
+    "brand": {
+      "title": "DAREMON — filosofie & diensten",
+      "philosophy": {
+        "title": "Merkfilosofie",
+        "items": [
+          {
+            "id": "industrial",
+            "icon": "🌌",
+            "name": "Industrial futurism",
+            "description": "Mix van industriële esthetiek en efficiëntie — geen marketingpraat, volledige transparantie."
+          },
+          {
+            "id": "hybrid",
+            "icon": "🧠",
+            "name": "Hybrid intelligence",
+            "description": "AI versterkt de mens — systemen ondersteunen operators in plaats van ze te vervangen."
+          },
+          {
+            "id": "craft",
+            "icon": "🛠️",
+            "name": "Vakmanschap & verantwoordelijkheid",
+            "description": "Documentatie, checklists en kwaliteitsstandaarden zijn even belangrijk als het technische resultaat."
+          }
+        ]
+      },
+      "services": {
+        "title": "Dienstenpakket",
+        "items": [
+          {
+            "id": "rapid-ops",
+            "name": "Rapid Ops Consulting",
+            "description": "Intensieve sprint van 2-3 weken: procesmapping, metrics en modernisatieplan.",
+            "deliverables": [
+              "Huidige toestand map",
+              "Risicomatrix",
+              "Verbeteringsbacklog"
+            ],
+            "cta": "Ideaal vóór investeringsbeslissing"
+          },
+          {
+            "id": "ai-copilot",
+            "name": "AI Copilot voor onderhoud",
+            "description": "AI-agents bouwen voor diagnostiek, rapportage en stilstandsplanning.",
+            "deliverables": [
+              "Context prompt pack",
+              "CMMS-integraties",
+              "Veiligheidsprocedures"
+            ],
+            "cta": "Versnel reactietijden"
+          },
+          {
+            "id": "mim-lab",
+            "name": "MIM Lab Partnerships",
+            "description": "Ondersteuning bij opstart van MIM-lijnen: ovenretrofit, recepturen, kwaliteitscontrole.",
+            "deliverables": [
+              "Retrofit blauwdruk",
+              "CIP-procedures",
+              "ROI-model"
+            ],
+            "cta": "Van concept tot eerste batch"
+          }
+        ]
+      }
+    },
+    "partners": {
+      "title": "Partners & samenwerking",
+      "subtitle": "Transparante proposities voor producenten, investeerders en R&D-labs.",
+      "cards": [
+        {
+          "id": "manufacturing",
+          "icon": "🏭",
+          "title": "MIM / precisieproductie",
+          "value_proposition": "Retrofit van ovens, receptoptimalisatie en quality control 4.0.",
+          "ideal_for": "Fabrieken die high-mix, low-volume willen lanceren.",
+          "highlights": [
+            "2-daagse discovery workshop",
+            "ROI-model in 48u",
+            "NADCAP audit support"
+          ],
+          "cta_label": "Plan een workshop"
+        },
+        {
+          "id": "investors",
+          "icon": "💡",
+          "title": "Investeerders / VC-fondsen",
+          "value_proposition": "Technical due diligence voor automatisering en industriële AI.",
+          "ideal_for": "Fondsen die een hands-on partner zoeken voor risicobeoordeling.",
+          "highlights": [
+            "360°-rapport in 10 dagen",
+            "Veiligheidsrisico-map",
+            "Modernisatie-roadmap"
+          ],
+          "cta_label": "Plan due diligence"
+        },
+        {
+          "id": "labs",
+          "icon": "🧪",
+          "title": "R&D-labs / universiteiten",
+          "value_proposition": "Gezamenlijke pilots (robotica, IoT, AI) met gedeelde data en documentatie.",
+          "ideal_for": "Teams die een industriële partner zoeken voor snelle experimenten.",
+          "highlights": [
+            "Toegang tot Daremon Lab apparatuur",
+            "Gestandaardiseerde onderzoeksprotocollen",
+            "Case-study publicaties"
+          ],
+          "cta_label": "Stel een project voor"
+        }
+      ]
     }
   }
 }
