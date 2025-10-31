@@ -48,7 +48,7 @@ export const LanguageSwitcher: React.FC<{ locale: Locale; onChange: (loc: Locale
           aria-pressed={locale === l}
           onClick={() => onChange(l)}
           className={`px-3 py-1 rounded-chip border border-surface-border text-sm transition-colors ${
-            locale === l ? 'bg-primary-600 text-white' : 'bg-transparent text-neutral-50 hover:bg-surface.card'
+            locale === l ? 'bg-primary-600 text-white' : 'bg-transparent text-neutral-50 hover:bg-surface-card'
           }`}
         >
           {l.toUpperCase()}
@@ -68,7 +68,7 @@ export const SectionHeading: React.FC<{ id?: string; title: string; subtitle?: s
 );
 
 export const SkillTag: React.FC<{ label: string }> = ({ label }) => (
-  <span className="inline-block px-3 py-1 rounded-chip border border-surface-border text-neutral-200 hover:bg-surface.card focus:bg-surface.card focus-visible:outline-none">
+  <span className="inline-block px-3 py-1 rounded-chip border border-surface-border text-neutral-200 hover:bg-surface-card focus:bg-surface-card focus-visible:outline-none">
     {label}
   </span>
 );
@@ -101,7 +101,7 @@ type ProjectCtaVariant = 'primary' | 'secondary' | 'ghost';
 type ProjectCta = { label: string; href: string; variant?: ProjectCtaVariant | string };
 
 export const AboutCard: React.FC<AboutCardProps> = ({ title, icon, items, cta }) => (
-  <article className="h-full rounded-card bg-surface.card border border-surface-border shadow-card transition-shadow hover:shadow-lg focus-within:shadow-lg focus-within:border-accent-led">
+  <article className="h-full rounded-card bg-surface-card border border-surface-border shadow-card transition-shadow hover:shadow-lg focus-within:shadow-lg focus-within:border-accent-led">
     <header className="flex items-start gap-3 p-4 pb-2">
       {icon && (
         <span aria-hidden="true" className="text-2xl leading-none">
@@ -185,7 +185,7 @@ export const ProjectCard: React.FC<{
   const ctaVariants: Record<ProjectCtaVariant, string> = {
     primary: 'bg-gradient-to-r from-primary-600 to-accent-led text-white hover:from-primary-700 hover:to-accent-led focus-visible:ring-2 focus-visible:ring-accent-led/70',
     secondary: 'border border-primary-500 text-primary-50 hover:text-white hover:bg-primary-500/10 focus-visible:ring-2 focus-visible:ring-primary-500/70',
-    ghost: 'border border-surface-border text-neutral-100 hover:text-white hover:bg-surface.card focus-visible:ring-2 focus-visible:ring-neutral-300/40'
+    ghost: 'border border-surface-border text-neutral-100 hover:text-white hover:bg-surface-card focus-visible:ring-2 focus-visible:ring-neutral-300/40'
   };
 
   const labels = sectionLabels[locale];
@@ -205,7 +205,7 @@ export const ProjectCard: React.FC<{
   const isExternal = (href: string) => /^https?:/i.test(href);
 
   return (
-    <article className="rounded-card bg-surface.card border border-surface-border shadow-card transition-shadow hover:shadow-lg hover-glow flex flex-col h-full">
+    <article className="rounded-card bg-surface-card border border-surface-border shadow-card transition-shadow hover:shadow-lg hover-glow flex flex-col h-full">
       <figure className="aspect-video rounded-t-card overflow-hidden bg-black/20">
         {image?.src ? (
           <img
@@ -349,7 +349,7 @@ export const MetricCounter: React.FC<MetricCounterProps> = ({ value, suffix = ''
 
   return (
     <article
-      className="rounded-card border border-surface-border bg-surface.card/80 p-4 shadow-card"
+      className="rounded-card border border-surface-border bg-surface-card/80 p-4 shadow-card"
       aria-label={`${label}: ${formattedValue}${suffix}`}
       aria-live="polite"
     >
@@ -474,7 +474,7 @@ export const TimelineSlider: React.FC<{ milestones: TimelineMilestone[]; label: 
               className={`rounded-button border px-4 py-2 text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-led ${
                 isActive
                   ? 'border-primary-500 bg-primary-600/20 text-primary-50'
-                  : 'border-surface-border bg-surface.card/40 text-neutral-200 hover:bg-surface.card'
+                  : 'border-surface-border bg-surface-card/40 text-neutral-200 hover:bg-surface-card'
               }`}
             >
               <span className="block font-semibold text-neutral-50">{milestone.period}</span>
@@ -487,7 +487,7 @@ export const TimelineSlider: React.FC<{ milestones: TimelineMilestone[]; label: 
         role="tabpanel"
         id={`${sliderId}-panel-${activeMilestone.id}`}
         aria-labelledby={`${sliderId}-tab-${activeMilestone.id}`}
-        className="rounded-card border border-surface-border bg-surface.card/80 p-6 shadow-card"
+        className="rounded-card border border-surface-border bg-surface-card/80 p-6 shadow-card"
       >
         <header className="flex flex-col gap-1">
           <p className="text-sm uppercase tracking-wide text-primary-300">{activeMilestone.period}</p>
@@ -529,7 +529,7 @@ export const PartnerCard: React.FC<PartnerCardProps> = ({
   highlights = [],
   ctaLabel
 }) => (
-  <article className="h-full rounded-card border border-surface-border bg-surface.card/80 p-5 shadow-card transition hover:shadow-lg">
+  <article className="h-full rounded-card border border-surface-border bg-surface-card/80 p-5 shadow-card transition hover:shadow-lg">
     <header className="flex items-start gap-3">
       {icon ? (
         <span aria-hidden="true" className="text-3xl leading-none">

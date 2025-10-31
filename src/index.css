@@ -105,7 +105,7 @@ body { @apply bg-background-default text-neutral-50 font-body; }
 }
 
 .hero-badge {
-  @apply inline-flex items-center gap-3 rounded-full border border-surface-border/80 bg-surface.card/60 px-4 py-2 text-sm text-neutral-100 backdrop-blur-sm;
+  @apply inline-flex items-center gap-3 rounded-full border border-surface-border/80 bg-surface-card/60 px-4 py-2 text-sm text-neutral-100 backdrop-blur-sm;
   box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.2), 0 18px 45px rgba(37, 99, 235, 0.25);
 }
 
@@ -149,11 +149,11 @@ body { @apply bg-background-default text-neutral-50 font-body; }
 }
 
 .hero-cta--ghost {
-  @apply border border-surface-border/70 text-neutral-100 bg-surface.card/40 hover:border-primary-500 hover:text-white;
+  @apply border border-surface-border/70 text-neutral-100 bg-surface-card/40 hover:border-primary-500 hover:text-white;
 }
 
 .hero-visual {
-  @apply relative rounded-card bg-surface.card border border-surface-border shadow-card overflow-hidden;
+  @apply relative rounded-card bg-surface-card border border-surface-border shadow-card overflow-hidden;
   min-height: 16rem;
   display: flex;
   align-items: center;

@@ -17,7 +17,7 @@ import {
   RadarChart
 } from './components';
 
-type SectionId = 'hero' | 'about' | 'ai' | 'equipment' | 'skills' | 'career' | 'projects' | 'brand' | 'partners' | 'contact';
+type SectionId = 'hero' | 'about' | 'career' | 'skills' | 'projects' | 'ai' | 'equipment' | 'brand' | 'partners' | 'contact';
 
 type ContentLang = typeof contentAll['pl'];
 type ContentMap = { pl: ContentLang; en: ContentLang; nl: ContentLang };
@@ -63,11 +63,11 @@ const App: React.FC = () => {
     () => [
       { id: 'hero', label: content[locale].navigation.hero },
       { id: 'about', label: content[locale].navigation.about },
+      { id: 'career', label: content[locale].navigation.career },
+      { id: 'skills', label: content[locale].navigation.skills },
+      { id: 'projects', label: content[locale].navigation.projects },
       { id: 'ai', label: content[locale].navigation.ai },
       { id: 'equipment', label: content[locale].navigation.equipment },
-      { id: 'skills', label: content[locale].navigation.skills },
-      { id: 'career', label: content[locale].navigation.career },
-      { id: 'projects', label: content[locale].navigation.projects },
       { id: 'brand', label: content[locale].navigation.brand },
       { id: 'partners', label: content[locale].navigation.partners },
       { id: 'contact', label: content[locale].navigation.contact }
@@ -105,11 +105,11 @@ const App: React.FC = () => {
   const sectionsRef = {
     hero: useRef<HTMLElement | null>(null),
     about: useRef<HTMLElement | null>(null),
+    career: useRef<HTMLElement | null>(null),
+    skills: useRef<HTMLElement | null>(null),
+    projects: useRef<HTMLElement | null>(null),
     ai: useRef<HTMLElement | null>(null),
     equipment: useRef<HTMLElement | null>(null),
-    skills: useRef<HTMLElement | null>(null),
-    career: useRef<HTMLElement | null>(null),
-    projects: useRef<HTMLElement | null>(null),
     brand: useRef<HTMLElement | null>(null),
     partners: useRef<HTMLElement | null>(null),
     contact: useRef<HTMLElement | null>(null)
@@ -288,7 +288,7 @@ const App: React.FC = () => {
 
   return (
     <LocaleContext.Provider value={{ locale, setLocale }}>
-      <a className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:px-3 focus:py-2 focus:rounded-button focus:bg-surface.card focus:text-neutral-50" href="#main">
+      <a className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:px-3 focus:py-2 focus:rounded-button focus:bg-surface-card focus:text-neutral-50" href="#main">
         Pomiń nawigację
       </a>
 
@@ -427,6 +427,247 @@ const App: React.FC = () => {
           </div>
         </section>
 
+        {/* Career Timeline */}
+        <section
+          id="career"
+          ref={sectionsRef.career as React.RefObject<HTMLElement>}
+          aria-labelledby="career-title"
+          className="section mt-24"
+        >
+          <SectionHeading
+            id="career-title"
+            title={content[locale].career_timeline.title}
+            subtitle={content[locale].career_timeline.subtitle}
+          />
+          <Reveal>
+            <TimelineSlider
+              milestones={content[locale].career_timeline.milestones}
+              label={
+                locale === 'pl'
+                  ? `${content[locale].career_timeline.title} — oś czasu`
+                  : locale === 'nl'
+                  ? `${content[locale].career_timeline.title} — tijdlijn`
+                  : `${content[locale].career_timeline.title} timeline`
+              }
+            />
+          </Reveal>
+        </section>
+
+        {/* Skills */}
+        <section
+          id="skills"
+          ref={sectionsRef.skills as React.RefObject<HTMLElement>}
+          aria-labelledby="skills-title"
+          className="section mt-24"
+        >
+          <SectionHeading id="skills-title" title={content[locale].skills.title} />
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)] items-start">
+            <Reveal className="lg:row-span-2">
+              <article className="rounded-card bg-surface-card border border-surface-border p-4 shadow-card">
+                <div
+                  role="tablist"
+                  aria-label={locale === 'pl' ? 'Kategorie kompetencji' : locale === 'nl' ? 'Competentiecategorieën' : 'Competency categories'}
+                  className="flex flex-wrap gap-3"
+                >
+                  {skillCategories.map((cat, index) => {
+                    const isActive = cat.id === activeCategoryId;
+                    return (
+                      <button
+                        key={cat.id}
+                        ref={(node) => {
+                          tabRefs.current[index] = node;
+                        }}
+                        type="button"
+                        role="tab"
+                        id={`skills-tab-${cat.id}`}
+                        aria-selected={isActive}
+                        aria-controls={`skills-panel-${cat.id}`}
+                        tabIndex={isActive ? 0 : -1}
+                        onClick={() => {
+                          setActiveCategoryId(cat.id);
+                          setActiveCompetencyId(cat.competencies[0]?.id ?? '');
+                        }}
+                        onKeyDown={(event) => handleTabKey(event, index)}
+                        className={`flex-1 min-w-[12rem] px-4 py-3 rounded-button border text-left transition focus-visible:outline-none ${
+                          isActive
+                            ? 'bg-primary-600 text-white border-primary-500 shadow-lg'
+                            : 'bg-transparent text-neutral-200 border-surface-border hover:bg-surface-card'
+                        }`}
+                      >
+                        <span className="block font-heading font-semibold text-base">{cat.name}</span>
+                        <div className="mt-1 flex flex-wrap items-center gap-2 text-sm text-neutral-300">
+                          {renderRating(cat.rating)}
+                          {cat.rating.label && (
+                            <span className="inline-flex items-center rounded-full bg-primary-600/20 px-2 py-0.5 text-xs text-primary-200">
+                              {cat.rating.label}
+                            </span>
+                          )}
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+                {skillCategories.map((cat) => {
+                  const isActive = cat.id === activeCategoryId;
+                  return (
+                    <div
+                      key={cat.id}
+                      role="tabpanel"
+                      id={`skills-panel-${cat.id}`}
+                      aria-labelledby={`skills-tab-${cat.id}`}
+                      hidden={!isActive}
+                      className="mt-6"
+                    >
+                      <p className="text-neutral-200 text-sm md:text-base">{cat.description}</p>
+                      <div className="mt-6 grid gap-4 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
+                        <ul className="space-y-3" role="list">
+                          {cat.competencies.map((comp) => {
+                            const isCompActive = comp.id === activeCompetencyId;
+                            return (
+                              <li key={comp.id}>
+                                <button
+                                  type="button"
+                                  onClick={() => setActiveCompetencyId(comp.id)}
+                                  onMouseEnter={() => setActiveCompetencyId(comp.id)}
+                                  onFocus={() => setActiveCompetencyId(comp.id)}
+                                  aria-pressed={isCompActive}
+                                  className={`w-full rounded-md border px-4 py-3 text-left transition focus-visible:outline-none ${
+                                    isCompActive
+                                      ? 'border-primary-500 bg-primary-500/10 shadow-md'
+                                      : 'border-surface-border bg-surface-card/30 hover:bg-surface-card'
+                                  }`}
+                                >
+                                  <span className="flex flex-wrap items-center justify-between gap-2 font-medium text-neutral-100">
+                                    {comp.name}
+                                    {renderRating(comp.rating, 'text-xs text-neutral-300')}
+                                  </span>
+                                  {comp.experience && (
+                                    <span className="mt-1 block text-sm text-neutral-300">{comp.experience}</span>
+                                  )}
+                                </button>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                        <div
+                          className="rounded-md border border-surface-border bg-surface-card/60 p-4 shadow-inner"
+                          role="status"
+                          aria-live="polite"
+                        >
+                          <h4 className="font-heading text-lg font-semibold text-neutral-50">
+                            {activeCompetency?.name}
+                          </h4>
+                          {activeCompetency?.detail && (
+                            <p className="mt-2 text-sm text-neutral-200 md:text-base">{activeCompetency.detail}</p>
+                          )}
+                          {activeCompetency?.experience && (
+                            <p className="mt-3 text-sm text-neutral-300">{activeCompetency.experience}</p>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </article>
+            </Reveal>
+            <Reveal>
+              <article className="rounded-card bg-surface-card border border-surface-border p-4 shadow-card">
+                <RadarChart
+                  title={skillsContent.chart.title}
+                  axes={skillsContent.chart.axes}
+                  maxValue={skillsContent.chart.max}
+                  valueLabel={chartValueLabel}
+                />
+              </article>
+            </Reveal>
+            <Reveal>
+              <article className="rounded-card bg-surface-card border border-surface-border p-4 shadow-card">
+                <h3 className="font-heading text-lg font-semibold text-neutral-50">{highlightsTitle}</h3>
+                <ul className="mt-3 space-y-2" role="list">
+                  {skillsContent.highlights.map((highlight) => (
+                    <li key={highlight} className="flex items-start gap-2 text-neutral-200">
+                      <span aria-hidden="true" className="mt-1 inline-flex h-2 w-2 rounded-full bg-accent-led" />
+                      <span>{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* Projects */}
+        <section
+          id="projects"
+          ref={sectionsRef.projects as React.RefObject<HTMLElement>}
+          aria-labelledby="projects-title"
+          className="section mt-24"
+        >
+          <SectionHeading id="projects-title" title={content[locale].projects.title} />
+          <div className="mb-6 flex flex-col gap-3">
+            <span className="text-sm text-neutral-300" id="projects-filter-label">
+              {projectFilterLabel}
+            </span>
+            <div
+              role="group"
+              aria-labelledby="projects-filter-label"
+              className="flex flex-wrap gap-2"
+            >
+              <button
+                type="button"
+                className={`px-3 py-1 rounded-chip border border-surface-border text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500/60 ${
+                  selectedSkill === 'all'
+                    ? 'bg-primary-600 text-white border-primary-500'
+                    : 'bg-transparent text-neutral-200 hover:bg-surface-card'
+                }`}
+                aria-pressed={selectedSkill === 'all'}
+                onClick={() => setSelectedSkill('all')}
+              >
+                {allProjectsLabel}
+              </button>
+              {projectSkills.map((skill) => (
+                <button
+                  key={skill}
+                  type="button"
+                  className={`px-3 py-1 rounded-chip border border-surface-border text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500/60 ${
+                    selectedSkill === skill
+                      ? 'bg-primary-600 text-white border-primary-500'
+                      : 'bg-transparent text-neutral-200 hover:bg-surface-card'
+                  }`}
+                  aria-pressed={selectedSkill === skill}
+                  onClick={() => setSelectedSkill(skill)}
+                >
+                  {skill}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className="grid gap-6 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+            {filteredProjects.map((pr) => (
+              <Reveal key={pr.name}>
+                <ProjectCard
+                  locale={locale}
+                  name={pr.name}
+                  tagline={pr.tagline}
+                  summary={pr.summary}
+                  challenge={pr.challenge}
+                  approach={pr.approach}
+                  outcome={pr.outcome}
+                  metrics={pr.metrics}
+                  skills={pr.skills}
+                  image={pr.image}
+                  ctas={pr.ctas}
+                />
+              </Reveal>
+            ))}
+          </div>
+          <div className="mt-6">
+            <a href="#contact" className="text-primary-500 hover:text-primary-300">
+              {locale === 'pl' ? 'Chcesz podobne wdrożenie? Skontaktuj się' : locale === 'en' ? 'Want a similar implementation? Get in touch' : 'Wil je iets soortgelijks? Neem contact op'}
+            </a>
+          </div>
+        </section>
+
         {/* AI Methodology */}
         <section
           id="ai"
@@ -454,7 +695,7 @@ const App: React.FC = () => {
               ))}
             </div>
             <Reveal>
-              <article className="rounded-card border border-surface-border bg-surface.card/90 p-6 shadow-card">
+              <article className="rounded-card border border-surface-border bg-surface-card/90 p-6 shadow-card">
                 <h3 className="text-xl font-heading text-neutral-50">{content[locale].ai_methodology.workflow.title}</h3>
                 <p className="mt-3 text-neutral-300">{content[locale].ai_methodology.subtitle}</p>
                 <div className="mt-6">
@@ -499,7 +740,7 @@ const App: React.FC = () => {
           <div className="grid gap-6 lg:grid-cols-2">
             {content[locale].equipment_inventory.categories.map((category) => (
               <Reveal key={category.name}>
-                <article className="rounded-card border border-surface-border bg-surface.card/80 p-5 shadow-card">
+                <article className="rounded-card border border-surface-border bg-surface-card/80 p-5 shadow-card">
                   <header className="mb-4 flex items-start justify-between gap-2">
                     <h3 className="text-xl font-heading text-neutral-50">{category.name}</h3>
                     <span className="text-sm text-neutral-400">{category.items.length} {locale === 'pl' ? 'pozycji' : locale === 'en' ? 'assets' : 'items'}</span>
@@ -543,247 +784,6 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* Skills */}
-        <section
-          id="skills"
-          ref={sectionsRef.skills as React.RefObject<HTMLElement>}
-          aria-labelledby="skills-title"
-          className="section mt-24"
-        >
-          <SectionHeading id="skills-title" title={content[locale].skills.title} />
-          <div className="grid gap-6 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)] items-start">
-            <Reveal className="lg:row-span-2">
-              <article className="rounded-card bg-surface.card border border-surface-border p-4 shadow-card">
-                <div
-                  role="tablist"
-                  aria-label={locale === 'pl' ? 'Kategorie kompetencji' : locale === 'nl' ? 'Competentiecategorieën' : 'Competency categories'}
-                  className="flex flex-wrap gap-3"
-                >
-                  {skillCategories.map((cat, index) => {
-                    const isActive = cat.id === activeCategoryId;
-                    return (
-                      <button
-                        key={cat.id}
-                        ref={(node) => {
-                          tabRefs.current[index] = node;
-                        }}
-                        type="button"
-                        role="tab"
-                        id={`skills-tab-${cat.id}`}
-                        aria-selected={isActive}
-                        aria-controls={`skills-panel-${cat.id}`}
-                        tabIndex={isActive ? 0 : -1}
-                        onClick={() => {
-                          setActiveCategoryId(cat.id);
-                          setActiveCompetencyId(cat.competencies[0]?.id ?? '');
-                        }}
-                        onKeyDown={(event) => handleTabKey(event, index)}
-                        className={`flex-1 min-w-[12rem] px-4 py-3 rounded-button border text-left transition focus-visible:outline-none ${
-                          isActive
-                            ? 'bg-primary-600 text-white border-primary-500 shadow-lg'
-                            : 'bg-transparent text-neutral-200 border-surface-border hover:bg-surface.card'
-                        }`}
-                      >
-                        <span className="block font-heading font-semibold text-base">{cat.name}</span>
-                        <div className="mt-1 flex flex-wrap items-center gap-2 text-sm text-neutral-300">
-                          {renderRating(cat.rating)}
-                          {cat.rating.label && (
-                            <span className="inline-flex items-center rounded-full bg-primary-600/20 px-2 py-0.5 text-xs text-primary-200">
-                              {cat.rating.label}
-                            </span>
-                          )}
-                        </div>
-                      </button>
-                    );
-                  })}
-                </div>
-                {skillCategories.map((cat) => {
-                  const isActive = cat.id === activeCategoryId;
-                  return (
-                    <div
-                      key={cat.id}
-                      role="tabpanel"
-                      id={`skills-panel-${cat.id}`}
-                      aria-labelledby={`skills-tab-${cat.id}`}
-                      hidden={!isActive}
-                      className="mt-6"
-                    >
-                      <p className="text-neutral-200 text-sm md:text-base">{cat.description}</p>
-                      <div className="mt-6 grid gap-4 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
-                        <ul className="space-y-3" role="list">
-                          {cat.competencies.map((comp) => {
-                            const isCompActive = comp.id === activeCompetencyId;
-                            return (
-                              <li key={comp.id}>
-                                <button
-                                  type="button"
-                                  onClick={() => setActiveCompetencyId(comp.id)}
-                                  onMouseEnter={() => setActiveCompetencyId(comp.id)}
-                                  onFocus={() => setActiveCompetencyId(comp.id)}
-                                  aria-pressed={isCompActive}
-                                  className={`w-full rounded-md border px-4 py-3 text-left transition focus-visible:outline-none ${
-                                    isCompActive
-                                      ? 'border-primary-500 bg-primary-500/10 shadow-md'
-                                      : 'border-surface-border bg-surface.card/30 hover:bg-surface.card'
-                                  }`}
-                                >
-                                  <span className="flex flex-wrap items-center justify-between gap-2 font-medium text-neutral-100">
-                                    {comp.name}
-                                    {renderRating(comp.rating, 'text-xs text-neutral-300')}
-                                  </span>
-                                  {comp.experience && (
-                                    <span className="mt-1 block text-sm text-neutral-300">{comp.experience}</span>
-                                  )}
-                                </button>
-                              </li>
-                            );
-                          })}
-                        </ul>
-                        <div
-                          className="rounded-md border border-surface-border bg-surface.card/60 p-4 shadow-inner"
-                          role="status"
-                          aria-live="polite"
-                        >
-                          <h4 className="font-heading text-lg font-semibold text-neutral-50">
-                            {activeCompetency?.name}
-                          </h4>
-                          {activeCompetency?.detail && (
-                            <p className="mt-2 text-sm text-neutral-200 md:text-base">{activeCompetency.detail}</p>
-                          )}
-                          {activeCompetency?.experience && (
-                            <p className="mt-3 text-sm text-neutral-300">{activeCompetency.experience}</p>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </article>
-            </Reveal>
-            <Reveal>
-              <article className="rounded-card bg-surface.card border border-surface-border p-4 shadow-card">
-                <RadarChart
-                  title={skillsContent.chart.title}
-                  axes={skillsContent.chart.axes}
-                  maxValue={skillsContent.chart.max}
-                  valueLabel={chartValueLabel}
-                />
-              </article>
-            </Reveal>
-            <Reveal>
-              <article className="rounded-card bg-surface.card border border-surface-border p-4 shadow-card">
-                <h3 className="font-heading text-lg font-semibold text-neutral-50">{highlightsTitle}</h3>
-                <ul className="mt-3 space-y-2" role="list">
-                  {skillsContent.highlights.map((highlight) => (
-                    <li key={highlight} className="flex items-start gap-2 text-neutral-200">
-                      <span aria-hidden="true" className="mt-1 inline-flex h-2 w-2 rounded-full bg-accent-led" />
-                      <span>{highlight}</span>
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            </Reveal>
-          </div>
-        </section>
-
-        {/* Career Timeline */}
-        <section
-          id="career"
-          ref={sectionsRef.career as React.RefObject<HTMLElement>}
-          aria-labelledby="career-title"
-          className="section mt-24"
-        >
-          <SectionHeading
-            id="career-title"
-            title={content[locale].career_timeline.title}
-            subtitle={content[locale].career_timeline.subtitle}
-          />
-          <Reveal>
-            <TimelineSlider
-              milestones={content[locale].career_timeline.milestones}
-              label={
-                locale === 'pl'
-                  ? `${content[locale].career_timeline.title} — oś czasu`
-                  : locale === 'nl'
-                  ? `${content[locale].career_timeline.title} — tijdlijn`
-                  : `${content[locale].career_timeline.title} timeline`
-              }
-            />
-          </Reveal>
-        </section>
-
-        {/* Projects */}
-        <section
-          id="projects"
-          ref={sectionsRef.projects as React.RefObject<HTMLElement>}
-          aria-labelledby="projects-title"
-          className="section mt-24"
-        >
-          <SectionHeading id="projects-title" title={content[locale].projects.title} />
-          <div className="mb-6 flex flex-col gap-3">
-            <span className="text-sm text-neutral-300" id="projects-filter-label">
-              {projectFilterLabel}
-            </span>
-            <div
-              role="group"
-              aria-labelledby="projects-filter-label"
-              className="flex flex-wrap gap-2"
-            >
-              <button
-                type="button"
-                className={`px-3 py-1 rounded-chip border border-surface-border text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500/60 ${
-                  selectedSkill === 'all'
-                    ? 'bg-primary-600 text-white border-primary-500'
-                    : 'bg-transparent text-neutral-200 hover:bg-surface.card'
-                }`}
-                aria-pressed={selectedSkill === 'all'}
-                onClick={() => setSelectedSkill('all')}
-              >
-                {allProjectsLabel}
-              </button>
-              {projectSkills.map((skill) => (
-                <button
-                  key={skill}
-                  type="button"
-                  className={`px-3 py-1 rounded-chip border border-surface-border text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500/60 ${
-                    selectedSkill === skill
-                      ? 'bg-primary-600 text-white border-primary-500'
-                      : 'bg-transparent text-neutral-200 hover:bg-surface.card'
-                  }`}
-                  aria-pressed={selectedSkill === skill}
-                  onClick={() => setSelectedSkill(skill)}
-                >
-                  {skill}
-                </button>
-              ))}
-            </div>
-          </div>
-          <div className="grid gap-6 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
-            {filteredProjects.map((pr) => (
-              <Reveal key={pr.name}>
-                <ProjectCard
-                  locale={locale}
-                  name={pr.name}
-                  tagline={pr.tagline}
-                  summary={pr.summary}
-                  challenge={pr.challenge}
-                  approach={pr.approach}
-                  outcome={pr.outcome}
-                  metrics={pr.metrics}
-                  skills={pr.skills}
-                  image={pr.image}
-                  ctas={pr.ctas}
-                />
-              </Reveal>
-            ))}
-          </div>
-          <div className="mt-6">
-            <a href="#contact" className="text-primary-500 hover:text-primary-300">
-              {locale === 'pl' ? 'Chcesz podobne wdrożenie? Skontaktuj się' : locale === 'en' ? 'Want a similar implementation? Get in touch' : 'Wil je iets soortgelijks? Neem contact op'}
-            </a>
-          </div>
-        </section>
-
         {/* Daremon Brand */}
         <section
           id="brand"
@@ -794,7 +794,7 @@ const App: React.FC = () => {
           <SectionHeading id="brand-title" title={content[locale].brand.title} />
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.3fr)]">
             <Reveal>
-              <article className="rounded-card border border-surface-border bg-surface.card/80 p-6 shadow-card">
+              <article className="rounded-card border border-surface-border bg-surface-card/80 p-6 shadow-card">
                 <h3 className="text-xl font-heading text-neutral-50">{content[locale].brand.philosophy.title}</h3>
                 <div className="mt-5 grid gap-4 sm:grid-cols-2">
                   {content[locale].brand.philosophy.items.map((item) => (
@@ -814,7 +814,7 @@ const App: React.FC = () => {
               </article>
             </Reveal>
             <Reveal>
-              <article className="rounded-card border border-surface-border bg-surface.card/80 p-6 shadow-card">
+              <article className="rounded-card border border-surface-border bg-surface-card/80 p-6 shadow-card">
                 <h3 className="text-xl font-heading text-neutral-50">{content[locale].brand.services.title}</h3>
                 <div className="mt-5 space-y-4">
                   {content[locale].brand.services.items.map((service) => (
@@ -880,7 +880,7 @@ const App: React.FC = () => {
         >
           <SectionHeading id="contact-title" title={contactContent.title} subtitle={contactContent.subtitle} />
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-            <div className="rounded-card bg-surface.card border border-surface-border p-6 shadow-card flex flex-col gap-6">
+            <div className="rounded-card bg-surface-card border border-surface-border p-6 shadow-card flex flex-col gap-6">
               <div>
                 <h3 className="font-heading text-2xl font-semibold text-neutral-50">{contactContent.headline ?? contactContent.title}</h3>
                 <p className="mt-3 text-neutral-300 text-base">{contactContent.subtext ?? contactContent.subtitle}</p>
@@ -950,7 +950,7 @@ const App: React.FC = () => {
             <form
               id="contact-form"
               aria-describedby="contact-note message-help"
-              className="rounded-card bg-surface.card border border-surface-border p-6 shadow-card"
+              className="rounded-card bg-surface-card border border-surface-border p-6 shadow-card"
               onSubmit={(e) => {
                 e.preventDefault();
                 const form = e.currentTarget as HTMLFormElement;
