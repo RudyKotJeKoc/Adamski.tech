@@ -13,9 +13,17 @@
     },
     "hero": {
       "heading": "Dariusz Adamski — Senior Multi-Disciplinary Specialist",
-      "subheading": "Hardware ↔ Software Bridge: 15+ lat w przemyśle + kompetencje cyfrowe (React, TypeScript, Python, AI). Od naprawy maszyn przemysłowych po tworzenie aplikacji webowych.",
-      "cta_primary": "Skontaktuj się",
-      "cta_secondary": "Zobacz projekty"
+      "tagline": "Maszyny → Kod → Strategia",
+      "tagline_sequence": ["Maszyny", "Kod", "Strategia"],
+      "subheading": "Lider automatyki przemysłowej łączący robotykę, retrofity PLC i produkty webowe full-stack dla mierzalnych rezultatów.",
+      "badge_label": "Daremon Engineering",
+      "badge_caption": "Maszyny, software i partnerstwa strategiczne.",
+      "cta_primary": "Zainicjuj partnerstwo",
+      "cta_primary_aria": "Zainicjuj partnerstwo – przejdź do sekcji kontakt.",
+      "cta_secondary": "Zobacz realizacje",
+      "cta_secondary_aria": "Zobacz realizacje – przejdź do sekcji projektów.",
+      "cta_tertiary": "Pobierz CV (PDF)",
+      "cta_tertiary_aria": "Pobierz CV Dariusza Adamskiego w PDF."
     },
     "about": {
       "title": "O mnie",
@@ -168,9 +176,17 @@
     },
     "hero": {
       "heading": "Dariusz Adamski — Senior Multi-Disciplinary Specialist",
-      "subheading": "Hardware ↔ Software Bridge: 15+ years in industry + digital competencies (React, TypeScript, Python, AI). From industrial machine repair to web application development.",
-      "cta_primary": "Get in touch",
-      "cta_secondary": "View projects"
+      "tagline": "Machine → Code → Strategy",
+      "tagline_sequence": ["Machine", "Code", "Strategy"],
+      "subheading": "Industrial automation leader bridging robotics, PLC retrofits, and full-stack web products for measurable outcomes.",
+      "badge_label": "Daremon Engineering",
+      "badge_caption": "Industrial systems, software, and strategic partnerships.",
+      "cta_primary": "Start a partnership call",
+      "cta_primary_aria": "Start a partnership call – jump to the contact section.",
+      "cta_secondary": "Browse flagship projects",
+      "cta_secondary_aria": "Browse flagship projects – jump to the projects grid.",
+      "cta_tertiary": "Download CV (PDF)",
+      "cta_tertiary_aria": "Download Dariusz Adamski's CV as a PDF."
     },
     "about": {
       "title": "About",
@@ -323,9 +339,17 @@
     },
     "hero": {
       "heading": "Dariusz Adamski — Senior Multi-Disciplinaire Specialist",
-      "subheading": "Hardware ↔ Software Bridge: 15+ jaar in industrie + digitale competenties (React, TypeScript, Python, AI). Van reparatie industriële machines tot ontwikkeling webapplicaties.",
-      "cta_primary": "Neem contact op",
-      "cta_secondary": "Bekijk projecten"
+      "tagline": "Machines → Code → Strategie",
+      "tagline_sequence": ["Machines", "Code", "Strategie"],
+      "subheading": "Industrieel automatiseringsleider die robotica, PLC-retrofits en full-stack webproducten verbindt voor meetbare resultaten.",
+      "badge_label": "Daremon Engineering",
+      "badge_caption": "Machines, software en strategische partnerships.",
+      "cta_primary": "Plan een partnershipgesprek",
+      "cta_primary_aria": "Plan een partnershipgesprek – ga naar de contactsectie.",
+      "cta_secondary": "Bekijk referentieprojecten",
+      "cta_secondary_aria": "Bekijk referentieprojecten – ga naar de projectengrid.",
+      "cta_tertiary": "Download CV (PDF)",
+      "cta_tertiary_aria": "Download het CV van Dariusz Adamski als PDF."
     },
     "about": {
       "title": "Over mij",
