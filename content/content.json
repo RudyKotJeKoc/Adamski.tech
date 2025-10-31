@@ -12,107 +12,152 @@
       "contact": "Kontakt"
     },
     "hero": {
-      "heading": "Dariusz Adamski — Inżynier Automatyki i UR",
-      "subheading": "Projektuję i rozwijam niezawodne systemy: automatyzacje, IoT, projekty techniczne, MIM i druk 3D.",
+      "heading": "Dariusz Adamski — Senior Multi-Disciplinary Specialist",
+      "subheading": "Hardware ↔ Software Bridge: 15+ lat w przemyśle + kompetencje cyfrowe (React, TypeScript, Python, AI). Od naprawy maszyn przemysłowych po tworzenie aplikacji webowych.",
       "cta_primary": "Skontaktuj się",
-      "cta_secondary": "Pobierz CV"
+      "cta_secondary": "Zobacz projekty"
     },
     "about": {
       "title": "O mnie",
       "paragraphs": [
-        "Inżynier utrzymania ruchu i automatyki z doświadczeniem w projektowaniu, wdrażaniu i utrzymaniu systemów przemysłowych. Skupiam się na bezpieczeństwie, dostępności i klarownej dokumentacji.",
-        "Obszary zainteresowań: automatyzacje DIY, IoT, systemy techniczne, MIM oraz druk 3D. Pracuję w duchu technicznego minimalizmu i industrial futurism."
+        "Multidyscyplinarny specjalista techniczny łączący głęboką wiedzę hardware z nowoczesnymi kompetencjami software. 15+ lat praktycznego doświadczenia w automatyce przemysłowej, robotyce i systemach MIM.",
+        "Unikalny profil: od programowania PLC i robotów Yaskawa Motoman, przez tworzenie aplikacji webowych (React, TypeScript), po AI-enhanced workflow. Właściciel własnej działalności (2020-2021) - 250,000 PLN przychodu w 15 miesięcy.",
+        "ADHD jako supermoc: cross-domain pattern recognition, hyperfocus w rozwiązywaniu problemów. Filozofia Daremon: nie walczę z energią, wykorzystuję ją strategicznie.",
+        "Trójjęzyczny komunikator: Polski (native), Niderlandzki (C1 - profesjonalny 53.3%), Angielski (techniczny). Systematyczne wykorzystanie AI jako narzędzia biznesowego (93 udokumentowane konsultacje, 17.6 MB dokumentacji strategicznej)."
       ]
     },
     "skills": {
-      "title": "Umiejętności",
+      "title": "Kompetencje Techniczne",
       "categories": [
         {
-          "name": "Automatyka/UR",
+          "name": "Systemy Produkcyjne (EXPERT)",
           "items": [
-            "Diagnostyka i prewencja awarii",
-            "PLC/SCADA (ogólne)",
-            "Standaryzacja i dokumentacja",
-            "Integracja systemów"
+            "Wtryskarki Arburg (9/10) - 7+ lat",
+            "Roboty Yaskawa Motoman (8.5/10) - 7+ lat + 3 własne",
+            "PLC Siemens S7 (8/10) - 7+ lat",
+            "Piece próżniowe MIM (8/10) - 7+ lat",
+            "Pneumatyka/Hydraulika (8/10) - 15+ lat"
           ]
         },
         {
-          "name": "IoT/Embedded",
+          "name": "Programowanie i IT",
           "items": [
-            "ESP32/Arduino (ogólne)",
-            "MQTT/Node-RED",
-            "Czujniki i komunikacja",
-            "Prototypowanie i testy"
+            "React + TypeScript (8/10) - DAREMON Radio ETS, adamski.tech",
+            "Python (7/10) - Analiza danych, automatyzacja",
+            "Home Assistant (9/10) - 50+ urządzeń, 30+ automatyzacji",
+            "Git/GitHub (7/10) - Public repos, CI/CD",
+            "Web Audio API + Three.js"
           ]
         },
         {
-          "name": "Druk 3D/MIM",
+          "name": "Inżynieria Mechaniczna",
           "items": [
-            "Projektowanie CAD (ogólne)",
-            "Prototypowanie FDM/SLA",
-            "MIM: koncepcje i przygotowanie",
-            "Iteracyjne wdrożenia"
+            "SolidWorks (6/10) - WŁASNA LICENCJA",
+            "Druk 3D (8/10) - Creality K1 Max, Ender 3 Neo",
+            "Spawanie TIG (7/10) - Aluminium, stal nierdzewna",
+            "CNC (6/10) - Tokarka, frezarka"
+          ]
+        },
+        {
+          "name": "Umiejętności Biznesowe",
+          "items": [
+            "Własna działalność - 250k PLN w 15 mies",
+            "Zarządzanie projektami B2B",
+            "Root Cause Analysis",
+            "Dokumentacja techniczna"
           ]
         }
       ],
       "highlights": [
-        "Niezawodność i bezpieczeństwo systemów",
-        "Przejrzysta dokumentacja i standardy pracy"
+        "Full-Stack Manufacturing: SolidWorks → PLC → React → TIG welding",
+        "AI-Enhanced Professional (2025) - 93 konsultacje, 17.6 MB dokumentacji",
+        "Zero poważnych wypadków w 15+ lat kariery",
+        "Średnia ocena kompetencji: 8.25/10"
       ]
     },
     "projects": {
-      "title": "Projekty",
+      "title": "Kluczowe Projekty i Realizacje",
       "items": [
         {
-          "name": "TODO: nazwa projektu 1",
-          "tagline": "TODO: krótki opis projektu 1",
-          "tech": ["TODO: technologia"],
-          "description": "TODO: 1–2 zdania opisu projektu 1.",
+          "name": "DAREMON Radio ETS",
+          "tagline": "Progressive Web App - Radio internetowe z wizualizacjami 3D",
+          "tech": ["React", "TypeScript", "Web Audio API", "Three.js", "Service Workers", "Vitest"],
+          "description": "2200+ linii kodu JavaScript, 18+ plików testowych. Pełna funkcjonalność offline, zaawansowane wizualizacje audio, profesjonalna architektura PWA. Projekt flagowy pokazujący kompetencje full-stack web development.",
           "links": {
-            "demo": "TODO: url demo",
-            "repo": "TODO: url repo"
+            "demo": "https://daremonradioets.netlify.app",
+            "repo": "https://github.com/RudyKotJeKoc/DAREMON-Radio-ETS"
           }
         },
         {
-          "name": "TODO: nazwa projektu 2",
-          "tagline": "TODO: krótki opis projektu 2",
-          "tech": ["TODO: technologia"],
-          "description": "TODO: 1–2 zdania opisu projektu 2.",
+          "name": "Machine Transfer System",
+          "tagline": "Responsywna aplikacja do trackingu relocacji 50+ maszyn przemysłowych",
+          "tech": ["HTML5", "CSS3", "JavaScript", "localStorage"],
+          "description": "Stworzona podczas zamknięcia fabryki ITB (2024-2025). Real-time status updates dla 3 destynacji (Czechy, Meksyk, złomowisko). Mobile-friendly interface usprawniający proces relocacji. Recognition od management za praktyczne rozwiązanie krytycznego problemu biznesowego.",
           "links": {
-            "demo": "TODO: url demo",
-            "repo": "TODO: url repo"
+            "demo": "",
+            "repo": ""
           }
         },
         {
-          "name": "TODO: nazwa projektu 3",
-          "tagline": "TODO: krótki opis projektu 3",
-          "tech": ["TODO: technologia"],
-          "description": "TODO: 1–2 zdania opisu projektu 3.",
+          "name": "Własna Działalność - Automatyka Przemysłowa",
+          "tagline": "15 miesięcy przedsiębiorczości B2B (2020-2021)",
+          "tech": ["PLC (Siemens, Mitsubishi, Unitronics)", "Robotyka", "Diagnostyka", "Zarządzanie projektami"],
+          "description": "~250,000 PLN przychodu, ~15 klientów B2B, ~40 projektów (modernizacje PLC, naprawy awaryjne). 100% spłaconych faktur, 80% klientów powracających. Udowodniona zdolność do budowania i prowadzenia technicznego biznesu od zera.",
           "links": {
-            "demo": "TODO: url demo",
-            "repo": "TODO: url repo"
+            "demo": "",
+            "repo": ""
+          }
+        },
+        {
+          "name": "YouTube: @DariuszDaremon",
+          "tagline": "481 subskrybentów - Edukacja techniczna i DIY projekty",
+          "tech": ["Hydraulika", "Spawanie TIG", "Automatyka", "DIY Engineering"],
+          "description": "36+ filmów: tutoriale techniczne, DIY projekty (hydrauliczna prasa, brama przesuwna), edukacja społeczności maker. Showcase praktycznych umiejętności i zdolności do przekazywania wiedzy technicznej w przystępny sposób.",
+          "links": {
+            "demo": "https://youtube.com/@DariuszDaremon",
+            "repo": ""
+          }
+        },
+        {
+          "name": "MIM Furnaces Modernization Proposal",
+          "tagline": "Koncepcja biznesowa dla partnera Hansa (2024-2025)",
+          "tech": ["MIM Technology", "CVE/Elino Furnaces", "PLC Retrofit", "Business Planning"],
+          "description": "Kompleksowy business case: retrofit pieców próżniowych (PLC, sensory), małoskalowa produkcja high-end MIM, ROI calculations, partnership structure. Technical feasibility study połączone ze strategią biznesową. Status: Ongoing discussions (Oct 2025).",
+          "links": {
+            "demo": "",
+            "repo": ""
+          }
+        },
+        {
+          "name": "Home Assistant - Smart Home Infrastructure",
+          "tagline": "50+ urządzeń, 30+ automatyzacji - produkcyjna instalacja",
+          "tech": ["Home Assistant", "ESPHome", "MQTT", "Automation", "IoT"],
+          "description": "Zaawansowany ekosystem smart home: wielopoziomowe automatyzacje, własne sensory ESP32, integracja systemów bezpieczeństwa. Praktyczna implementacja IoT na poziomie produkcyjnym, nie hobby - pełna dokumentacja i monitoring.",
+          "links": {
+            "demo": "",
+            "repo": ""
           }
         }
       ]
     },
     "contact": {
       "title": "Kontakt",
-      "subtitle": "Preferowany kontakt mailowy.",
+      "subtitle": "Preferowany kontakt: email lub LinkedIn. Odpowiadam w ciągu 24-48h.",
       "email_label": "Email",
       "phone_label": "Telefon",
       "socials": {
-        "github": "TODO: url",
-        "linkedin": "TODO: url",
-        "x": "TODO: url"
+        "github": "https://github.com/RudyKotJeKoc",
+        "linkedin": "https://linkedin.com/in/dariusz-adamski",
+        "youtube": "https://youtube.com/@DariuszDaremon"
       },
-      "address": "TODO: adres (opcjonalnie)",
-      "availability_note": "Dostępny do współpracy projektowej i konsultacji."
+      "address": "Holandia / Nederland",
+      "availability_note": "Dostępny do: Konsultacji technicznych, Projektów modernizacyjnych, Partnership ventures (MIM/Daremon Lab), Technical leadership. Odpowiem szybko - cenię przejrzystą komunikację."
     }
   },
   "en": {
     "meta": {
       "title": "Daremon Engineering — Adamski.tech",
-      "description": "Automation and maintenance engineer. Reliable systems: industrial automation, IoT, technical projects, MIM and 3D printing. Professional, precise, no marketing noise."
+      "description": "Senior Multi-Disciplinary Specialist: 15+ years industrial experience + digital competencies (React, TypeScript, Python, AI). Hardware ↔ Software Bridge."
     },
     "navigation": {
       "hero": "Home",
@@ -122,107 +167,152 @@
       "contact": "Contact"
     },
     "hero": {
-      "heading": "Dariusz Adamski — Automation & Maintenance Engineer",
-      "subheading": "Designing and delivering reliable systems: automation, IoT, technical projects, MIM and 3D printing.",
+      "heading": "Dariusz Adamski — Senior Multi-Disciplinary Specialist",
+      "subheading": "Hardware ↔ Software Bridge: 15+ years in industry + digital competencies (React, TypeScript, Python, AI). From industrial machine repair to web application development.",
       "cta_primary": "Get in touch",
-      "cta_secondary": "Download CV"
+      "cta_secondary": "View projects"
     },
     "about": {
       "title": "About",
       "paragraphs": [
-        "Engineer in industrial automation and maintenance, focused on safety, uptime, and clear documentation. Experience in design, implementation, and lifecycle support.",
-        "Interests: DIY automation, IoT, technical projects, MIM, and 3D printing. Working in a style of technical minimalism and industrial futurism."
+        "Multi-disciplinary technical specialist combining deep hardware knowledge with modern software competencies. 15+ years of practical experience in industrial automation, robotics, and MIM systems.",
+        "Unique profile: from PLC programming and Yaskawa Motoman robots, through web application development (React, TypeScript), to AI-enhanced workflow. Business owner (2020-2021) - €60,000+ revenue in 15 months.",
+        "ADHD as superpower: cross-domain pattern recognition, hyperfocus in problem-solving. Daremon philosophy: I don't fight my energy, I use it strategically.",
+        "Trilingual communicator: Polish (native), Dutch (C1 - professional 53.3%), English (technical). Systematic use of AI as business tool (93 documented consultations, 17.6 MB strategic documentation)."
       ]
     },
     "skills": {
-      "title": "Skills",
+      "title": "Technical Competencies",
       "categories": [
         {
-          "name": "Automation/Maintenance",
+          "name": "Production Systems (EXPERT)",
           "items": [
-            "Failure diagnostics & prevention",
-            "PLC/SCADA (general)",
-            "Standardization & documentation",
-            "System integration"
+            "Arburg injection molding (9/10) - 7+ years",
+            "Yaskawa Motoman robots (8.5/10) - 7+ years + 3 owned",
+            "Siemens S7 PLC (8/10) - 7+ years",
+            "MIM vacuum furnaces (8/10) - 7+ years",
+            "Pneumatics/Hydraulics (8/10) - 15+ years"
           ]
         },
         {
-          "name": "IoT/Embedded",
+          "name": "Programming & IT",
           "items": [
-            "ESP32/Arduino (general)",
-            "MQTT/Node-RED",
-            "Sensors & communication",
-            "Prototyping & testing"
+            "React + TypeScript (8/10) - DAREMON Radio ETS, adamski.tech",
+            "Python (7/10) - Data analysis, automation",
+            "Home Assistant (9/10) - 50+ devices, 30+ automations",
+            "Git/GitHub (7/10) - Public repos, CI/CD",
+            "Web Audio API + Three.js"
           ]
         },
         {
-          "name": "3D Printing/MIM",
+          "name": "Mechanical Engineering",
           "items": [
-            "CAD design (general)",
-            "FDM/SLA prototyping",
-            "MIM: concepts & preparation",
-            "Iterative deployments"
+            "SolidWorks (6/10) - OWN LICENSE",
+            "3D Printing (8/10) - Creality K1 Max, Ender 3 Neo",
+            "TIG Welding (7/10) - Aluminum, stainless steel",
+            "CNC (6/10) - Lathe, mill"
+          ]
+        },
+        {
+          "name": "Business Skills",
+          "items": [
+            "Own business - €60k+ in 15 months",
+            "B2B project management",
+            "Root Cause Analysis",
+            "Technical documentation"
           ]
         }
       ],
       "highlights": [
-        "System reliability and safety",
-        "Clear documentation and working standards"
+        "Full-Stack Manufacturing: SolidWorks → PLC → React → TIG welding",
+        "AI-Enhanced Professional (2025) - 93 consultations, 17.6 MB documentation",
+        "Zero serious accidents in 15+ year career",
+        "Average competency rating: 8.25/10"
       ]
     },
     "projects": {
-      "title": "Projects",
+      "title": "Key Projects & Achievements",
       "items": [
         {
-          "name": "TODO: project name 1",
-          "tagline": "TODO: short tagline 1",
-          "tech": ["TODO: technology"],
-          "description": "TODO: 1–2 sentence description.",
+          "name": "DAREMON Radio ETS",
+          "tagline": "Progressive Web App - Internet radio with 3D visualizations",
+          "tech": ["React", "TypeScript", "Web Audio API", "Three.js", "Service Workers", "Vitest"],
+          "description": "2200+ lines of JavaScript, 18+ test files. Full offline functionality, advanced audio visualizations, professional PWA architecture. Flagship project showcasing full-stack web development competencies.",
           "links": {
-            "demo": "TODO: demo url",
-            "repo": "TODO: repo url"
+            "demo": "https://daremonradioets.netlify.app",
+            "repo": "https://github.com/RudyKotJeKoc/DAREMON-Radio-ETS"
           }
         },
         {
-          "name": "TODO: project name 2",
-          "tagline": "TODO: short tagline 2",
-          "tech": ["TODO: technology"],
-          "description": "TODO: 1–2 sentence description.",
+          "name": "Machine Transfer System",
+          "tagline": "Responsive app for tracking relocation of 50+ industrial machines",
+          "tech": ["HTML5", "CSS3", "JavaScript", "localStorage"],
+          "description": "Created during ITB factory closure (2024-2025). Real-time status updates for 3 destinations (Czech Republic, Mexico, scrap). Mobile-friendly interface streamlining relocation process. Management recognition for practical solution to critical business problem.",
           "links": {
-            "demo": "TODO: demo url",
-            "repo": "TODO: repo url"
+            "demo": "",
+            "repo": ""
           }
         },
         {
-          "name": "TODO: project name 3",
-          "tagline": "TODO: short tagline 3",
-          "tech": ["TODO: technology"],
-          "description": "TODO: 1–2 sentence description.",
+          "name": "Own Business - Industrial Automation",
+          "tagline": "15 months of B2B entrepreneurship (2020-2021)",
+          "tech": ["PLC (Siemens, Mitsubishi, Unitronics)", "Robotics", "Diagnostics", "Project Management"],
+          "description": "~€60,000 revenue, ~15 B2B clients, ~40 projects (PLC modernizations, emergency repairs). 100% paid invoices, 80% returning clients. Proven ability to build and run technical business from scratch.",
           "links": {
-            "demo": "TODO: demo url",
-            "repo": "TODO: repo url"
+            "demo": "",
+            "repo": ""
+          }
+        },
+        {
+          "name": "YouTube: @DariuszDaremon",
+          "tagline": "481 subscribers - Technical education & DIY projects",
+          "tech": ["Hydraulics", "TIG Welding", "Automation", "DIY Engineering"],
+          "description": "36+ videos: technical tutorials, DIY projects (hydraulic press, sliding gate), maker community education. Showcase of practical skills and ability to convey technical knowledge in accessible way.",
+          "links": {
+            "demo": "https://youtube.com/@DariuszDaremon",
+            "repo": ""
+          }
+        },
+        {
+          "name": "MIM Furnaces Modernization Proposal",
+          "tagline": "Business concept for partner Hans (2024-2025)",
+          "tech": ["MIM Technology", "CVE/Elino Furnaces", "PLC Retrofit", "Business Planning"],
+          "description": "Comprehensive business case: vacuum furnace retrofit (PLC, sensors), small-scale high-end MIM production, ROI calculations, partnership structure. Technical feasibility study combined with business strategy. Status: Ongoing discussions (Oct 2025).",
+          "links": {
+            "demo": "",
+            "repo": ""
+          }
+        },
+        {
+          "name": "Home Assistant - Smart Home Infrastructure",
+          "tagline": "50+ devices, 30+ automations - production installation",
+          "tech": ["Home Assistant", "ESPHome", "MQTT", "Automation", "IoT"],
+          "description": "Advanced smart home ecosystem: multi-level automations, custom ESP32 sensors, security systems integration. Practical IoT implementation at production level, not hobby - full documentation and monitoring.",
+          "links": {
+            "demo": "",
+            "repo": ""
           }
         }
       ]
     },
     "contact": {
       "title": "Contact",
-      "subtitle": "Email preferred.",
+      "subtitle": "Preferred contact: email or LinkedIn. I respond within 24-48h.",
       "email_label": "Email",
       "phone_label": "Phone",
       "socials": {
-        "github": "TODO: url",
-        "linkedin": "TODO: url",
-        "x": "TODO: url"
+        "github": "https://github.com/RudyKotJeKoc",
+        "linkedin": "https://linkedin.com/in/dariusz-adamski",
+        "youtube": "https://youtube.com/@DariuszDaremon"
       },
-      "address": "TODO: address (optional)",
-      "availability_note": "Available for project work and consulting."
+      "address": "Netherlands / Holland",
+      "availability_note": "Available for: Technical consulting, Modernization projects, Partnership ventures (MIM/Daremon Lab), Technical leadership. I respond quickly - I value clear communication."
     }
   },
   "nl": {
     "meta": {
       "title": "Daremon Engineering — Adamski.tech",
-      "description": "Automatiserings- en onderhoudsingenieur. Betrouwbare systemen: industriële automatisering, IoT, technische projecten, MIM en 3D-print. Professioneel en precies."
+      "description": "Senior Multi-Disciplinaire Specialist: 15+ jaar industriële ervaring + digitale competenties (React, TypeScript, Python, AI). Hardware ↔ Software Bridge."
     },
     "navigation": {
       "hero": "Start",
@@ -232,101 +322,146 @@
       "contact": "Contact"
     },
     "hero": {
-      "heading": "Dariusz Adamski — Automatiserings- en onderhoudsingenieur",
-      "subheading": "Ontwerp en bouw van betrouwbare systemen: automatisering, IoT, technische projecten, MIM en 3D‑printen.",
+      "heading": "Dariusz Adamski — Senior Multi-Disciplinaire Specialist",
+      "subheading": "Hardware ↔ Software Bridge: 15+ jaar in industrie + digitale competenties (React, TypeScript, Python, AI). Van reparatie industriële machines tot ontwikkeling webapplicaties.",
       "cta_primary": "Neem contact op",
-      "cta_secondary": "Download CV"
+      "cta_secondary": "Bekijk projecten"
     },
     "about": {
-      "title": "Over",
+      "title": "Over mij",
       "paragraphs": [
-        "Ingenieur in industriële automatisering en onderhoud, met focus op veiligheid, uptime en duidelijke documentatie. Ervaring in ontwerp, implementatie en levenscyclusondersteuning.",
-        "Interesses: DIY‑automatisering, IoT, technische projecten, MIM en 3D‑printen. Werkt in technische minimalisme en industrieel futurisme."
+        "Multi-disciplinaire technische specialist die diepe hardware-kennis combineert met moderne software-competenties. 15+ jaar praktijkervaring in industriële automatisering, robotica en MIM-systemen.",
+        "Uniek profiel: van PLC-programmering en Yaskawa Motoman robots, via webapplicatie-ontwikkeling (React, TypeScript), tot AI-versterkte workflow. Bedrijfseigenaar (2020-2021) - €60.000+ omzet in 15 maanden.",
+        "ADHD als superkracht: cross-domain patroonherkenning, hyperfocus bij probleemoplossing. Daremon filosofie: ik vecht niet tegen mijn energie, ik gebruik het strategisch.",
+        "Drietalige communicator: Pools (moedertaal), Nederlands (C1 - professioneel 53.3%), Engels (technisch). Systematisch gebruik van AI als zakelijk hulpmiddel (93 gedocumenteerde consultaties, 17.6 MB strategische documentatie)."
       ]
     },
     "skills": {
-      "title": "Vaardigheden",
+      "title": "Technische Competenties",
       "categories": [
         {
-          "name": "Automatisering/Onderhoud",
+          "name": "Productiesystemen (EXPERT)",
           "items": [
-            "Foutdiagnose en preventie",
-            "PLC/SCADA (algemeen)",
-            "Standaardisatie en documentatie",
-            "Systeemintegratie"
+            "Arburg spuitgietmachines (9/10) - 7+ jaar",
+            "Yaskawa Motoman robots (8.5/10) - 7+ jaar + 3 eigen",
+            "Siemens S7 PLC (8/10) - 7+ jaar",
+            "MIM vacuümovens (8/10) - 7+ jaar",
+            "Pneumatiek/Hydrauliek (8/10) - 15+ jaar"
           ]
         },
         {
-          "name": "IoT/Embedded",
+          "name": "Programmeren & IT",
           "items": [
-            "ESP32/Arduino (algemeen)",
-            "MQTT/Node‑RED",
-            "Sensoren en communicatie",
-            "Prototyping en testen"
+            "React + TypeScript (8/10) - DAREMON Radio ETS, adamski.tech",
+            "Python (7/10) - Data-analyse, automatisering",
+            "Home Assistant (9/10) - 50+ apparaten, 30+ automatiseringen",
+            "Git/GitHub (7/10) - Publieke repos, CI/CD",
+            "Web Audio API + Three.js"
           ]
         },
         {
-          "name": "3D‑print/MIM",
+          "name": "Werktuigbouwkunde",
           "items": [
-            "CAD‑ontwerp (algemeen)",
-            "FDM/SLA‑prototyping",
-            "MIM: concepten en voorbereiding",
-            "Iteratieve implementaties"
+            "SolidWorks (6/10) - EIGEN LICENTIE",
+            "3D Printen (8/10) - Creality K1 Max, Ender 3 Neo",
+            "TIG Lassen (7/10) - Aluminium, roestvast staal",
+            "CNC (6/10) - Draaibank, freesmachine"
+          ]
+        },
+        {
+          "name": "Zakelijke Vaardigheden",
+          "items": [
+            "Eigen bedrijf - €60k+ in 15 maanden",
+            "B2B projectmanagement",
+            "Root Cause Analysis",
+            "Technische documentatie"
           ]
         }
       ],
       "highlights": [
-        "Betrouwbaarheid en veiligheid van systemen",
-        "Heldere documentatie en werkstandaarden"
+        "Full-Stack Manufacturing: SolidWorks → PLC → React → TIG lassen",
+        "AI-Versterkte Professional (2025) - 93 consultaties, 17.6 MB documentatie",
+        "Nul ernstige ongevallen in 15+ jaar carrière",
+        "Gemiddelde competentiebeoordeling: 8.25/10"
       ]
     },
     "projects": {
-      "title": "Projecten",
+      "title": "Belangrijke Projecten & Prestaties",
       "items": [
         {
-          "name": "TODO: projectnaam 1",
-          "tagline": "TODO: korte beschrijving 1",
-          "tech": ["TODO: technologie"],
-          "description": "TODO: 1–2 zinnen beschrijving.",
+          "name": "DAREMON Radio ETS",
+          "tagline": "Progressive Web App - Internetradio met 3D-visualisaties",
+          "tech": ["React", "TypeScript", "Web Audio API", "Three.js", "Service Workers", "Vitest"],
+          "description": "2200+ regels JavaScript, 18+ testbestanden. Volledige offline functionaliteit, geavanceerde audio-visualisaties, professionele PWA-architectuur. Vlaggenschipproject dat full-stack webontwikkelingscompetenties laat zien.",
           "links": {
-            "demo": "TODO: demo‑url",
-            "repo": "TODO: repo‑url"
+            "demo": "https://daremonradioets.netlify.app",
+            "repo": "https://github.com/RudyKotJeKoc/DAREMON-Radio-ETS"
           }
         },
         {
-          "name": "TODO: projectnaam 2",
-          "tagline": "TODO: korte beschrijving 2",
-          "tech": ["TODO: technologie"],
-          "description": "TODO: 1–2 zinnen beschrijving.",
+          "name": "Machine Transfer System",
+          "tagline": "Responsieve app voor tracking van relocatie van 50+ industriële machines",
+          "tech": ["HTML5", "CSS3", "JavaScript", "localStorage"],
+          "description": "Gemaakt tijdens sluiting ITB-fabriek (2024-2025). Real-time statusupdates voor 3 bestemmingen (Tsjechië, Mexico, schroot). Mobile-friendly interface die relocatieproces stroomlijnt. Management erkenning voor praktische oplossing voor kritiek bedrijfsprobleem.",
           "links": {
-            "demo": "TODO: demo‑url",
-            "repo": "TODO: repo‑url"
+            "demo": "",
+            "repo": ""
           }
         },
         {
-          "name": "TODO: projectnaam 3",
-          "tagline": "TODO: korte beschrijving 3",
-          "tech": ["TODO: technologie"],
-          "description": "TODO: 1–2 zinnen beschrijving.",
+          "name": "Eigen Bedrijf - Industriële Automatisering",
+          "tagline": "15 maanden B2B-ondernemerschap (2020-2021)",
+          "tech": ["PLC (Siemens, Mitsubishi, Unitronics)", "Robotica", "Diagnostiek", "Projectmanagement"],
+          "description": "~€60.000 omzet, ~15 B2B-klanten, ~40 projecten (PLC-moderniseringen, noodreparaties). 100% betaalde facturen, 80% terugkerende klanten. Bewezen vermogen om technisch bedrijf vanaf nul op te bouwen en te runnen.",
           "links": {
-            "demo": "TODO: demo‑url",
-            "repo": "TODO: repo‑url"
+            "demo": "",
+            "repo": ""
+          }
+        },
+        {
+          "name": "YouTube: @DariuszDaremon",
+          "tagline": "481 abonnees - Technische educatie & DIY-projecten",
+          "tech": ["Hydrauliek", "TIG Lassen", "Automatisering", "DIY Engineering"],
+          "description": "36+ video's: technische tutorials, DIY-projecten (hydraulische pers, schuifpoort), maker-gemeenschap educatie. Showcase van praktische vaardigheden en vermogen om technische kennis op toegankelijke manier over te brengen.",
+          "links": {
+            "demo": "https://youtube.com/@DariuszDaremon",
+            "repo": ""
+          }
+        },
+        {
+          "name": "MIM Ovens Modernisatie Voorstel",
+          "tagline": "Bedrijfsconcept voor partner Hans (2024-2025)",
+          "tech": ["MIM Technologie", "CVE/Elino Ovens", "PLC Retrofit", "Business Planning"],
+          "description": "Uitgebreide business case: vacuümoven retrofit (PLC, sensoren), kleinschalige high-end MIM-productie, ROI-berekeningen, partnership structuur. Technical feasibility study gecombineerd met bedrijfsstrategie. Status: Lopende discussies (Oct 2025).",
+          "links": {
+            "demo": "",
+            "repo": ""
+          }
+        },
+        {
+          "name": "Home Assistant - Smart Home Infrastructuur",
+          "tagline": "50+ apparaten, 30+ automatiseringen - productie-installatie",
+          "tech": ["Home Assistant", "ESPHome", "MQTT", "Automation", "IoT"],
+          "description": "Geavanceerd smart home ecosysteem: multi-level automatiseringen, aangepaste ESP32-sensoren, integratie beveiligingssystemen. Praktische IoT-implementatie op productieniveau, geen hobby - volledige documentatie en monitoring.",
+          "links": {
+            "demo": "",
+            "repo": ""
           }
         }
       ]
     },
     "contact": {
       "title": "Contact",
-      "subtitle": "E‑mail heeft de voorkeur.",
+      "subtitle": "Voorkeur contact: e-mail of LinkedIn. Ik reageer binnen 24-48u.",
       "email_label": "E‑mail",
       "phone_label": "Telefoon",
       "socials": {
-        "github": "TODO: url",
-        "linkedin": "TODO: url",
-        "x": "TODO: url"
+        "github": "https://github.com/RudyKotJeKoc",
+        "linkedin": "https://linkedin.com/in/dariusz-adamski",
+        "youtube": "https://youtube.com/@DariuszDaremon"
       },
-      "address": "TODO: adres (optioneel)",
-      "availability_note": "Beschikbaar voor projecten en consultancy."
+      "address": "Nederland",
+      "availability_note": "Beschikbaar voor: Technische consultancy, Modernisatieprojecten, Partnership ventures (MIM/Daremon Lab), Technical leadership. Ik reageer snel - ik waardeer heldere communicatie."
     }
   }
 }

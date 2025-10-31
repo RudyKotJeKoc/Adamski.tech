@@ -242,8 +242,8 @@ const App: React.FC = () => {
                   </a>
                 </li>
                 <li>
-                  <a className="text-neutral-300 hover:text-neutral-50" href={content[locale].contact.socials.x || '#'}>
-                    X
+                  <a className="text-neutral-300 hover:text-neutral-50" href={content[locale].contact.socials.youtube || '#'}>
+                    YouTube
                   </a>
                 </li>
               </ul>
