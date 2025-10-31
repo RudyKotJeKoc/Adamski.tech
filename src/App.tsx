@@ -1,6 +1,6 @@
 import React, { createContext, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import contentAll from '../content/content.json';
-import { Navbar, Footer, SectionHeading, ProjectCard, SkillTag, Reveal, LanguageSwitcher, Locale, RadarChart } from './components';
+import { Navbar, Footer, SectionHeading, ProjectCard, SkillTag, Reveal, LanguageSwitcher, Locale, AboutCard } from './components';
 
 type SectionId = 'hero' | 'about' | 'skills' | 'projects' | 'contact';
 
@@ -52,6 +52,33 @@ const App: React.FC = () => {
     ],
     [locale]
   );
+
+  const heroContent = content[locale].hero;
+
+  const heroSequence = useMemo(() => {
+    if (!heroContent) return [] as string[];
+    if (Array.isArray((heroContent as { tagline_sequence?: unknown }).tagline_sequence)) {
+      return (heroContent as { tagline_sequence: string[] }).tagline_sequence;
+    }
+    if (typeof heroContent.tagline === 'string') {
+      return heroContent.tagline
+        .split('→')
+        .map((segment) => segment.trim())
+        .filter(Boolean);
+    }
+    return [] as string[];
+  }, [heroContent]);
+
+  const heroCtaGroupLabel = useMemo(() => {
+    switch (locale) {
+      case 'pl':
+        return 'Kluczowe działania startowe';
+      case 'nl':
+        return 'Belangrijkste startacties';
+      default:
+        return 'Primary hero actions';
+    }
+  }, [locale]);
 
   const sectionsRef = {
     hero: useRef<HTMLElement | null>(null),
@@ -190,33 +217,112 @@ const App: React.FC = () => {
           id="hero"
           ref={sectionsRef.hero as React.RefObject<HTMLElement>}
           aria-labelledby="hero-title"
-          className="section min-h-[60vh] md:min-h-[70vh] lg:min-h-[75vh] flex items-center bg-hero-bg rounded-card px-4 md:px-8 mt-8"
+          className="section hero relative min-h-[60vh] md:min-h-[70vh] lg:min-h-[75vh] flex items-center bg-hero-bg rounded-card px-4 md:px-8 mt-8 overflow-hidden"
         >
-          <div className="w-full grid md:grid-cols-2 gap-6 items-center">
+          <div className="hero-background" aria-hidden="true">
+            {heroSequence.length > 0 && (
+              <>
+                <div className="hero-background-layer hero-background-layer--top">
+                  <div className="hero-background-track">
+                    {Array.from({ length: 3 }).map((_, trackIndex) => (
+                      <div className="hero-background-sequence" key={`hero-top-${trackIndex}`}>
+                        {heroSequence.map((word, wordIndex) => (
+                          <React.Fragment key={`hero-top-${trackIndex}-${word}-${wordIndex}`}>
+                            <span className="hero-background-word">{word}</span>
+                            {wordIndex < heroSequence.length - 1 && (
+                              <span className="hero-background-arrow" aria-hidden="true">
+                                →
+                              </span>
+                            )}
+                          </React.Fragment>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="hero-background-layer hero-background-layer--bottom">
+                  <div className="hero-background-track hero-background-track--alt">
+                    {Array.from({ length: 3 }).map((_, trackIndex) => (
+                      <div className="hero-background-sequence" key={`hero-bottom-${trackIndex}`}>
+                        {heroSequence
+                          .slice()
+                          .reverse()
+                          .map((word, wordIndex) => (
+                            <React.Fragment key={`hero-bottom-${trackIndex}-${word}-${wordIndex}`}>
+                              <span className="hero-background-word">{word}</span>
+                              {wordIndex < heroSequence.length - 1 && (
+                                <span className="hero-background-arrow" aria-hidden="true">
+                                  →
+                                </span>
+                              )}
+                            </React.Fragment>
+                          ))}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
+          <div className="relative z-10 w-full grid md:grid-cols-2 gap-8 items-center">
             <Reveal>
-              <div>
+              <div className="space-y-6">
+                {heroContent.badge_label && (
+                  <div className="hero-badge" role="presentation">
+                    <span className="hero-badge__pulse" aria-hidden="true" />
+                    <span className="hero-badge__label">{heroContent.badge_label}</span>
+                    {heroContent.badge_caption && (
+                      <span className="hero-badge__caption">{heroContent.badge_caption}</span>
+                    )}
+                  </div>
+                )}
                 <h1 id="hero-title" className="text-3xl md:text-5xl font-heading font-semibold text-neutral-50">
-                  {content[locale].hero.heading}
+                  {heroContent.heading}
                 </h1>
-                <p className="text-neutral-300 mt-4 md:text-lg">{content[locale].hero.subheading}</p>
-                <div className="mt-6 flex flex-col sm:flex-row gap-3">
+                {heroContent.tagline && <p className="hero-tagline">{heroContent.tagline}</p>}
+                <p className="text-neutral-300 md:text-lg">{heroContent.subheading}</p>
+                <div className="hero-cta-group" role="group" aria-label={heroCtaGroupLabel}>
                   <a
                     href="#contact"
-                    className="px-5 py-3 rounded-button text-white bg-gradient-to-r from-primary-600 to-accent-led hover:from-primary-700 hover:to-accent-led"
+                    className="hero-cta hero-cta--primary"
+                    aria-label={heroContent.cta_primary_aria ?? heroContent.cta_primary}
                   >
-                    {content[locale].hero.cta_primary}
+                    {heroContent.cta_primary}
                   </a>
                   <a
                     href="#projects"
-                    className="px-5 py-3 rounded-button border border-primary-600 text-primary-50 !bg-transparent !hover:bg-transparent hover:text-white"
+                    className="hero-cta hero-cta--secondary"
+                    aria-label={heroContent.cta_secondary_aria ?? heroContent.cta_secondary}
                   >
-                    {content[locale].hero.cta_secondary}
+                    {heroContent.cta_secondary}
+                  </a>
+                  <a
+                    href="/dariusz-adamski-cv.pdf"
+                    className="hero-cta hero-cta--ghost"
+                    aria-label={heroContent.cta_tertiary_aria ?? heroContent.cta_tertiary}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    download
+                  >
+                    {heroContent.cta_tertiary}
                   </a>
                 </div>
               </div>
             </Reveal>
             <Reveal className="hidden md:block">
-              <div className="rounded-card bg-surface.card border border-surface-border h-64 shadow-card" aria-hidden="true" />
+              <div className="hero-visual" aria-hidden="true">
+                <div className="hero-visual__glow" />
+                <div className="hero-visual__frame">
+                  <p className="hero-visual__title">{heroContent.badge_label}</p>
+                  {heroSequence.length > 0 && (
+                    <ul className="hero-visual__list">
+                      {heroSequence.map((word) => (
+                        <li key={`hero-visual-${word}`}>{word}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </div>
             </Reveal>
           </div>
         </section>
@@ -229,12 +335,10 @@ const App: React.FC = () => {
           className="section mt-24"
         >
           <SectionHeading id="about-title" title={content[locale].about.title} />
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {content[locale].about.paragraphs.map((p, idx) => (
-              <Reveal key={idx}>
-                <article className="rounded-card bg-surface.card border border-surface-border p-4 shadow-card">
-                  <p className="text-neutral-200">{p}</p>
-                </article>
+          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+            {content[locale].about.cards?.map((card) => (
+              <Reveal key={card.title}>
+                <AboutCard title={card.title} icon={card.icon} items={card.items} cta={card.cta} />
               </Reveal>
             ))}
           </div>
