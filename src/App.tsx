@@ -1,6 +1,6 @@
-import React, { createContext, useEffect, useMemo, useRef, useState } from 'react';
+import React, { createContext, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import contentAll from '../content/content.json';
-import { Navbar, Footer, SectionHeading, ProjectCard, SkillTag, Reveal, LanguageSwitcher, Locale } from './components';
+import { Navbar, Footer, SectionHeading, ProjectCard, SkillTag, Reveal, LanguageSwitcher, Locale, AboutCard } from './components';
 
 type SectionId = 'hero' | 'about' | 'skills' | 'projects' | 'contact';
 
@@ -8,6 +8,17 @@ type ContentLang = typeof contentAll['pl'];
 type ContentMap = { pl: ContentLang; en: ContentLang; nl: ContentLang };
 
 const LocaleContext = createContext<{ locale: Locale; setLocale: (loc: Locale) => void }>({ locale: 'pl', setLocale: () => {} });
+
+type Rating = { value: number; scale: number; label?: string };
+type Competency = { id: string; name: string; experience?: string; rating: Rating; detail: string };
+type SkillCategory = { id: string; name: string; description: string; rating: Rating; competencies: Competency[] };
+type SkillsChartAxis = { id: string; label: string; value: number; description?: string };
+type SkillsContent = {
+  title: string;
+  chart: { title: string; max: number; axes: SkillsChartAxis[] };
+  categories: SkillCategory[];
+  highlights: string[];
+};
 
 const App: React.FC = () => {
   const content = contentAll as ContentMap;
@@ -42,6 +53,33 @@ const App: React.FC = () => {
     [locale]
   );
 
+  const heroContent = content[locale].hero;
+
+  const heroSequence = useMemo(() => {
+    if (!heroContent) return [] as string[];
+    if (Array.isArray((heroContent as { tagline_sequence?: unknown }).tagline_sequence)) {
+      return (heroContent as { tagline_sequence: string[] }).tagline_sequence;
+    }
+    if (typeof heroContent.tagline === 'string') {
+      return heroContent.tagline
+        .split('→')
+        .map((segment) => segment.trim())
+        .filter(Boolean);
+    }
+    return [] as string[];
+  }, [heroContent]);
+
+  const heroCtaGroupLabel = useMemo(() => {
+    switch (locale) {
+      case 'pl':
+        return 'Kluczowe działania startowe';
+      case 'nl':
+        return 'Belangrijkste startacties';
+      default:
+        return 'Primary hero actions';
+    }
+  }, [locale]);
+
   const sectionsRef = {
     hero: useRef<HTMLElement | null>(null),
     about: useRef<HTMLElement | null>(null),
@@ -67,27 +105,101 @@ const App: React.FC = () => {
     return () => obs.disconnect();
   }, []);
 
+  const skillsContent = content[locale].skills as SkillsContent;
+  const skillCategories = skillsContent.categories;
+  const [activeCategoryId, setActiveCategoryId] = useState<string>(() => skillCategories[0]?.id ?? '');
+  const [activeCompetencyId, setActiveCompetencyId] = useState<string>(
+    () => skillCategories[0]?.competencies[0]?.id ?? ''
+  );
+  const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
+
   useEffect(() => {
-    setSelectedSkill('all');
-  }, [locale]);
+    const firstCategory = skillCategories[0];
+    setActiveCategoryId(firstCategory?.id ?? '');
+    setActiveCompetencyId(firstCategory?.competencies[0]?.id ?? '');
+  }, [locale, skillCategories]);
 
-  const projectItems = content[locale].projects.items;
-  const projectSkills = useMemo(() => {
-    const unique = new Set<string>();
-    projectItems.forEach((project) => {
-      (project.skills ?? []).forEach((skill: string) => unique.add(skill));
-    });
-    return Array.from(unique).sort((a, b) => a.localeCompare(b, locale));
-  }, [projectItems, locale]);
+  useEffect(() => {
+    const category = skillCategories.find((cat) => cat.id === activeCategoryId);
+    if (!category) return;
+    if (!category.competencies.some((comp) => comp.id === activeCompetencyId)) {
+      setActiveCompetencyId(category.competencies[0]?.id ?? '');
+    }
+  }, [activeCategoryId, skillCategories, activeCompetencyId]);
 
-  const filteredProjects = useMemo(() => {
-    if (selectedSkill === 'all') return projectItems;
-    return projectItems.filter((project) => (project.skills ?? []).includes(selectedSkill));
-  }, [projectItems, selectedSkill]);
+  const activeCategory =
+    skillCategories.find((cat) => cat.id === activeCategoryId) ?? skillCategories[0];
+  const activeCompetency =
+    activeCategory?.competencies.find((comp) => comp.id === activeCompetencyId) ??
+    activeCategory?.competencies[0];
 
-  const projectFilterLabel =
-    locale === 'pl' ? 'Filtruj według kompetencji' : locale === 'en' ? 'Filter by capability' : 'Filter op competentie';
-  const allProjectsLabel = locale === 'pl' ? 'Wszystkie projekty' : locale === 'en' ? 'All projects' : 'Alle projecten';
+  const handleTabKey = useCallback(
+    (event: React.KeyboardEvent<HTMLButtonElement>, index: number) => {
+      if (!skillCategories.length) return;
+      const lastIndex = skillCategories.length - 1;
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+        event.preventDefault();
+        const nextIndex = index === lastIndex ? 0 : index + 1;
+        const nextCategory = skillCategories[nextIndex];
+        setActiveCategoryId(nextCategory.id);
+        setActiveCompetencyId(nextCategory.competencies[0]?.id ?? '');
+        tabRefs.current[nextIndex]?.focus();
+      } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+        event.preventDefault();
+        const prevIndex = index === 0 ? lastIndex : index - 1;
+        const prevCategory = skillCategories[prevIndex];
+        setActiveCategoryId(prevCategory.id);
+        setActiveCompetencyId(prevCategory.competencies[0]?.id ?? '');
+        tabRefs.current[prevIndex]?.focus();
+      } else if (event.key === 'Home') {
+        event.preventDefault();
+        const firstCategory = skillCategories[0];
+        setActiveCategoryId(firstCategory?.id ?? '');
+        setActiveCompetencyId(firstCategory?.competencies[0]?.id ?? '');
+        tabRefs.current[0]?.focus();
+      } else if (event.key === 'End') {
+        event.preventDefault();
+        const lastCategory = skillCategories[lastIndex];
+        setActiveCategoryId(lastCategory?.id ?? '');
+        setActiveCompetencyId(lastCategory?.competencies[0]?.id ?? '');
+        tabRefs.current[lastIndex]?.focus();
+      }
+    },
+    [skillCategories]
+  );
+
+  const formatRatingValue = (value: number) => (Number.isInteger(value) ? value.toFixed(0) : value.toFixed(1));
+
+  const ratingSrText = (rating: Rating) => {
+    const base = `${formatRatingValue(rating.value)} / ${formatRatingValue(rating.scale)}`;
+    if (locale === 'pl') return `Ocena ${base}`;
+    if (locale === 'nl') return `Score ${base}`;
+    return `Rating ${base}`;
+  };
+
+  const renderRating = (rating: Rating, className?: string) => {
+    const totalStars = 5;
+    const max = rating.scale || 1;
+    const normalized = Math.max(0, Math.min(rating.value / max, 1));
+    const filled = Math.round(normalized * totalStars);
+    const stars = Array.from({ length: totalStars }, (_, idx) => (idx < filled ? '★' : '☆')).join('');
+    return (
+      <span className={`inline-flex items-center gap-2 ${className ?? ''}`}>
+        <span aria-hidden="true" className="text-accent-led text-base leading-none tracking-tight">
+          {stars}
+        </span>
+        <span className="sr-only">{ratingSrText(rating)}</span>
+        <span aria-hidden="true" className="text-neutral-300 text-sm">
+          {formatRatingValue(rating.value)}/{formatRatingValue(rating.scale)}
+        </span>
+      </span>
+    );
+  };
+
+  const highlightsTitle =
+    locale === 'pl' ? 'Najważniejsze wyróżniki' : locale === 'nl' ? 'Belangrijkste highlights' : 'Key highlights';
+
+  const chartValueLabel = locale === 'pl' ? 'Ocena' : locale === 'nl' ? 'Score' : 'Score';
 
   // Smooth scroll offset handled via scroll-margin in CSS (.section)
   const year = new Date().getFullYear();
@@ -106,33 +218,112 @@ const App: React.FC = () => {
           id="hero"
           ref={sectionsRef.hero as React.RefObject<HTMLElement>}
           aria-labelledby="hero-title"
-          className="section min-h-[60vh] md:min-h-[70vh] lg:min-h-[75vh] flex items-center bg-hero-bg rounded-card px-4 md:px-8 mt-8"
+          className="section hero relative min-h-[60vh] md:min-h-[70vh] lg:min-h-[75vh] flex items-center bg-hero-bg rounded-card px-4 md:px-8 mt-8 overflow-hidden"
         >
-          <div className="w-full grid md:grid-cols-2 gap-6 items-center">
+          <div className="hero-background" aria-hidden="true">
+            {heroSequence.length > 0 && (
+              <>
+                <div className="hero-background-layer hero-background-layer--top">
+                  <div className="hero-background-track">
+                    {Array.from({ length: 3 }).map((_, trackIndex) => (
+                      <div className="hero-background-sequence" key={`hero-top-${trackIndex}`}>
+                        {heroSequence.map((word, wordIndex) => (
+                          <React.Fragment key={`hero-top-${trackIndex}-${word}-${wordIndex}`}>
+                            <span className="hero-background-word">{word}</span>
+                            {wordIndex < heroSequence.length - 1 && (
+                              <span className="hero-background-arrow" aria-hidden="true">
+                                →
+                              </span>
+                            )}
+                          </React.Fragment>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="hero-background-layer hero-background-layer--bottom">
+                  <div className="hero-background-track hero-background-track--alt">
+                    {Array.from({ length: 3 }).map((_, trackIndex) => (
+                      <div className="hero-background-sequence" key={`hero-bottom-${trackIndex}`}>
+                        {heroSequence
+                          .slice()
+                          .reverse()
+                          .map((word, wordIndex) => (
+                            <React.Fragment key={`hero-bottom-${trackIndex}-${word}-${wordIndex}`}>
+                              <span className="hero-background-word">{word}</span>
+                              {wordIndex < heroSequence.length - 1 && (
+                                <span className="hero-background-arrow" aria-hidden="true">
+                                  →
+                                </span>
+                              )}
+                            </React.Fragment>
+                          ))}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
+          <div className="relative z-10 w-full grid md:grid-cols-2 gap-8 items-center">
             <Reveal>
-              <div>
+              <div className="space-y-6">
+                {heroContent.badge_label && (
+                  <div className="hero-badge" role="presentation">
+                    <span className="hero-badge__pulse" aria-hidden="true" />
+                    <span className="hero-badge__label">{heroContent.badge_label}</span>
+                    {heroContent.badge_caption && (
+                      <span className="hero-badge__caption">{heroContent.badge_caption}</span>
+                    )}
+                  </div>
+                )}
                 <h1 id="hero-title" className="text-3xl md:text-5xl font-heading font-semibold text-neutral-50">
-                  {content[locale].hero.heading}
+                  {heroContent.heading}
                 </h1>
-                <p className="text-neutral-300 mt-4 md:text-lg">{content[locale].hero.subheading}</p>
-                <div className="mt-6 flex flex-col sm:flex-row gap-3">
+                {heroContent.tagline && <p className="hero-tagline">{heroContent.tagline}</p>}
+                <p className="text-neutral-300 md:text-lg">{heroContent.subheading}</p>
+                <div className="hero-cta-group" role="group" aria-label={heroCtaGroupLabel}>
                   <a
                     href="#contact"
-                    className="px-5 py-3 rounded-button text-white bg-gradient-to-r from-primary-600 to-accent-led hover:from-primary-700 hover:to-accent-led"
+                    className="hero-cta hero-cta--primary"
+                    aria-label={heroContent.cta_primary_aria ?? heroContent.cta_primary}
                   >
-                    {content[locale].hero.cta_primary}
+                    {heroContent.cta_primary}
                   </a>
                   <a
                     href="#projects"
-                    className="px-5 py-3 rounded-button border border-primary-600 text-primary-50 !bg-transparent !hover:bg-transparent hover:text-white"
+                    className="hero-cta hero-cta--secondary"
+                    aria-label={heroContent.cta_secondary_aria ?? heroContent.cta_secondary}
                   >
-                    {content[locale].hero.cta_secondary}
+                    {heroContent.cta_secondary}
+                  </a>
+                  <a
+                    href="/dariusz-adamski-cv.pdf"
+                    className="hero-cta hero-cta--ghost"
+                    aria-label={heroContent.cta_tertiary_aria ?? heroContent.cta_tertiary}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    download
+                  >
+                    {heroContent.cta_tertiary}
                   </a>
                 </div>
               </div>
             </Reveal>
             <Reveal className="hidden md:block">
-              <div className="rounded-card bg-surface.card border border-surface-border h-64 shadow-card" aria-hidden="true" />
+              <div className="hero-visual" aria-hidden="true">
+                <div className="hero-visual__glow" />
+                <div className="hero-visual__frame">
+                  <p className="hero-visual__title">{heroContent.badge_label}</p>
+                  {heroSequence.length > 0 && (
+                    <ul className="hero-visual__list">
+                      {heroSequence.map((word) => (
+                        <li key={`hero-visual-${word}`}>{word}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </div>
             </Reveal>
           </div>
         </section>
@@ -145,12 +336,10 @@ const App: React.FC = () => {
           className="section mt-24"
         >
           <SectionHeading id="about-title" title={content[locale].about.title} />
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {content[locale].about.paragraphs.map((p, idx) => (
-              <Reveal key={idx}>
-                <article className="rounded-card bg-surface.card border border-surface-border p-4 shadow-card">
-                  <p className="text-neutral-200">{p}</p>
-                </article>
+          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+            {content[locale].about.cards?.map((card) => (
+              <Reveal key={card.title}>
+                <AboutCard title={card.title} icon={card.icon} items={card.items} cta={card.cta} />
               </Reveal>
             ))}
           </div>
@@ -164,19 +353,138 @@ const App: React.FC = () => {
           className="section mt-24"
         >
           <SectionHeading id="skills-title" title={content[locale].skills.title} />
-          <div className="grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {content[locale].skills.categories.map((cat) => (
-              <Reveal key={cat.name}>
-                <article className="rounded-card bg-surface.card border border-surface-border p-4 shadow-card">
-                  <h3 className="font-heading font-semibold text-neutral-50 mb-2">{cat.name}</h3>
-                  <ul className="flex flex-wrap gap-2" role="list">
-                    {cat.items.map((it) => (
-                      <li key={it}><SkillTag label={it} /></li>
-                    ))}
-                  </ul>
-                </article>
-              </Reveal>
-            ))}
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)] items-start">
+            <Reveal className="lg:row-span-2">
+              <article className="rounded-card bg-surface.card border border-surface-border p-4 shadow-card">
+                <div
+                  role="tablist"
+                  aria-label={locale === 'pl' ? 'Kategorie kompetencji' : locale === 'nl' ? 'Competentiecategorieën' : 'Competency categories'}
+                  className="flex flex-wrap gap-3"
+                >
+                  {skillCategories.map((cat, index) => {
+                    const isActive = cat.id === activeCategoryId;
+                    return (
+                      <button
+                        key={cat.id}
+                        ref={(node) => {
+                          tabRefs.current[index] = node;
+                        }}
+                        type="button"
+                        role="tab"
+                        id={`skills-tab-${cat.id}`}
+                        aria-selected={isActive}
+                        aria-controls={`skills-panel-${cat.id}`}
+                        tabIndex={isActive ? 0 : -1}
+                        onClick={() => {
+                          setActiveCategoryId(cat.id);
+                          setActiveCompetencyId(cat.competencies[0]?.id ?? '');
+                        }}
+                        onKeyDown={(event) => handleTabKey(event, index)}
+                        className={`flex-1 min-w-[12rem] px-4 py-3 rounded-button border text-left transition focus-visible:outline-none ${
+                          isActive
+                            ? 'bg-primary-600 text-white border-primary-500 shadow-lg'
+                            : 'bg-transparent text-neutral-200 border-surface-border hover:bg-surface.card'
+                        }`}
+                      >
+                        <span className="block font-heading font-semibold text-base">{cat.name}</span>
+                        <div className="mt-1 flex flex-wrap items-center gap-2 text-sm text-neutral-300">
+                          {renderRating(cat.rating)}
+                          {cat.rating.label && (
+                            <span className="inline-flex items-center rounded-full bg-primary-600/20 px-2 py-0.5 text-xs text-primary-200">
+                              {cat.rating.label}
+                            </span>
+                          )}
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+                {skillCategories.map((cat) => {
+                  const isActive = cat.id === activeCategoryId;
+                  return (
+                    <div
+                      key={cat.id}
+                      role="tabpanel"
+                      id={`skills-panel-${cat.id}`}
+                      aria-labelledby={`skills-tab-${cat.id}`}
+                      hidden={!isActive}
+                      className="mt-6"
+                    >
+                      <p className="text-neutral-200 text-sm md:text-base">{cat.description}</p>
+                      <div className="mt-6 grid gap-4 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
+                        <ul className="space-y-3" role="list">
+                          {cat.competencies.map((comp) => {
+                            const isCompActive = comp.id === activeCompetencyId;
+                            return (
+                              <li key={comp.id}>
+                                <button
+                                  type="button"
+                                  onClick={() => setActiveCompetencyId(comp.id)}
+                                  onMouseEnter={() => setActiveCompetencyId(comp.id)}
+                                  onFocus={() => setActiveCompetencyId(comp.id)}
+                                  aria-pressed={isCompActive}
+                                  className={`w-full rounded-md border px-4 py-3 text-left transition focus-visible:outline-none ${
+                                    isCompActive
+                                      ? 'border-primary-500 bg-primary-500/10 shadow-md'
+                                      : 'border-surface-border bg-surface.card/30 hover:bg-surface.card'
+                                  }`}
+                                >
+                                  <span className="flex flex-wrap items-center justify-between gap-2 font-medium text-neutral-100">
+                                    {comp.name}
+                                    {renderRating(comp.rating, 'text-xs text-neutral-300')}
+                                  </span>
+                                  {comp.experience && (
+                                    <span className="mt-1 block text-sm text-neutral-300">{comp.experience}</span>
+                                  )}
+                                </button>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                        <div
+                          className="rounded-md border border-surface-border bg-surface.card/60 p-4 shadow-inner"
+                          role="status"
+                          aria-live="polite"
+                        >
+                          <h4 className="font-heading text-lg font-semibold text-neutral-50">
+                            {activeCompetency?.name}
+                          </h4>
+                          {activeCompetency?.detail && (
+                            <p className="mt-2 text-sm text-neutral-200 md:text-base">{activeCompetency.detail}</p>
+                          )}
+                          {activeCompetency?.experience && (
+                            <p className="mt-3 text-sm text-neutral-300">{activeCompetency.experience}</p>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </article>
+            </Reveal>
+            <Reveal>
+              <article className="rounded-card bg-surface.card border border-surface-border p-4 shadow-card">
+                <RadarChart
+                  title={skillsContent.chart.title}
+                  axes={skillsContent.chart.axes}
+                  maxValue={skillsContent.chart.max}
+                  valueLabel={chartValueLabel}
+                />
+              </article>
+            </Reveal>
+            <Reveal>
+              <article className="rounded-card bg-surface.card border border-surface-border p-4 shadow-card">
+                <h3 className="font-heading text-lg font-semibold text-neutral-50">{highlightsTitle}</h3>
+                <ul className="mt-3 space-y-2" role="list">
+                  {skillsContent.highlights.map((highlight) => (
+                    <li key={highlight} className="flex items-start gap-2 text-neutral-200">
+                      <span aria-hidden="true" className="mt-1 inline-flex h-2 w-2 rounded-full bg-accent-led" />
+                      <span>{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            </Reveal>
           </div>
         </section>
 
