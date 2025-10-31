@@ -242,3 +242,6 @@ export const Navbar: React.FC<{
     </header>
   );
 };
+
+export { RadarChart } from './components/RadarChart';
+export type { RadarChartProps, RadarChartAxis } from './components/RadarChart';

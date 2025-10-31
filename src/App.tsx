@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useMemo, useRef, useState } from 'react';
+import React, { createContext, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import contentAll from '../content/content.json';
 import { Navbar, Footer, SectionHeading, ProjectCard, SkillTag, Reveal, LanguageSwitcher, Locale, AboutCard } from './components';
 
@@ -8,6 +8,17 @@ type ContentLang = typeof contentAll['pl'];
 type ContentMap = { pl: ContentLang; en: ContentLang; nl: ContentLang };
 
 const LocaleContext = createContext<{ locale: Locale; setLocale: (loc: Locale) => void }>({ locale: 'pl', setLocale: () => {} });
+
+type Rating = { value: number; scale: number; label?: string };
+type Competency = { id: string; name: string; experience?: string; rating: Rating; detail: string };
+type SkillCategory = { id: string; name: string; description: string; rating: Rating; competencies: Competency[] };
+type SkillsChartAxis = { id: string; label: string; value: number; description?: string };
+type SkillsContent = {
+  title: string;
+  chart: { title: string; max: number; axes: SkillsChartAxis[] };
+  categories: SkillCategory[];
+  highlights: string[];
+};
 
 const App: React.FC = () => {
   const content = contentAll as ContentMap;
@@ -92,6 +103,102 @@ const App: React.FC = () => {
     });
     return () => obs.disconnect();
   }, []);
+
+  const skillsContent = content[locale].skills as SkillsContent;
+  const skillCategories = skillsContent.categories;
+  const [activeCategoryId, setActiveCategoryId] = useState<string>(() => skillCategories[0]?.id ?? '');
+  const [activeCompetencyId, setActiveCompetencyId] = useState<string>(
+    () => skillCategories[0]?.competencies[0]?.id ?? ''
+  );
+  const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
+
+  useEffect(() => {
+    const firstCategory = skillCategories[0];
+    setActiveCategoryId(firstCategory?.id ?? '');
+    setActiveCompetencyId(firstCategory?.competencies[0]?.id ?? '');
+  }, [locale, skillCategories]);
+
+  useEffect(() => {
+    const category = skillCategories.find((cat) => cat.id === activeCategoryId);
+    if (!category) return;
+    if (!category.competencies.some((comp) => comp.id === activeCompetencyId)) {
+      setActiveCompetencyId(category.competencies[0]?.id ?? '');
+    }
+  }, [activeCategoryId, skillCategories, activeCompetencyId]);
+
+  const activeCategory =
+    skillCategories.find((cat) => cat.id === activeCategoryId) ?? skillCategories[0];
+  const activeCompetency =
+    activeCategory?.competencies.find((comp) => comp.id === activeCompetencyId) ??
+    activeCategory?.competencies[0];
+
+  const handleTabKey = useCallback(
+    (event: React.KeyboardEvent<HTMLButtonElement>, index: number) => {
+      if (!skillCategories.length) return;
+      const lastIndex = skillCategories.length - 1;
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+        event.preventDefault();
+        const nextIndex = index === lastIndex ? 0 : index + 1;
+        const nextCategory = skillCategories[nextIndex];
+        setActiveCategoryId(nextCategory.id);
+        setActiveCompetencyId(nextCategory.competencies[0]?.id ?? '');
+        tabRefs.current[nextIndex]?.focus();
+      } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+        event.preventDefault();
+        const prevIndex = index === 0 ? lastIndex : index - 1;
+        const prevCategory = skillCategories[prevIndex];
+        setActiveCategoryId(prevCategory.id);
+        setActiveCompetencyId(prevCategory.competencies[0]?.id ?? '');
+        tabRefs.current[prevIndex]?.focus();
+      } else if (event.key === 'Home') {
+        event.preventDefault();
+        const firstCategory = skillCategories[0];
+        setActiveCategoryId(firstCategory?.id ?? '');
+        setActiveCompetencyId(firstCategory?.competencies[0]?.id ?? '');
+        tabRefs.current[0]?.focus();
+      } else if (event.key === 'End') {
+        event.preventDefault();
+        const lastCategory = skillCategories[lastIndex];
+        setActiveCategoryId(lastCategory?.id ?? '');
+        setActiveCompetencyId(lastCategory?.competencies[0]?.id ?? '');
+        tabRefs.current[lastIndex]?.focus();
+      }
+    },
+    [skillCategories]
+  );
+
+  const formatRatingValue = (value: number) => (Number.isInteger(value) ? value.toFixed(0) : value.toFixed(1));
+
+  const ratingSrText = (rating: Rating) => {
+    const base = `${formatRatingValue(rating.value)} / ${formatRatingValue(rating.scale)}`;
+    if (locale === 'pl') return `Ocena ${base}`;
+    if (locale === 'nl') return `Score ${base}`;
+    return `Rating ${base}`;
+  };
+
+  const renderRating = (rating: Rating, className?: string) => {
+    const totalStars = 5;
+    const max = rating.scale || 1;
+    const normalized = Math.max(0, Math.min(rating.value / max, 1));
+    const filled = Math.round(normalized * totalStars);
+    const stars = Array.from({ length: totalStars }, (_, idx) => (idx < filled ? '★' : '☆')).join('');
+    return (
+      <span className={`inline-flex items-center gap-2 ${className ?? ''}`}>
+        <span aria-hidden="true" className="text-accent-led text-base leading-none tracking-tight">
+          {stars}
+        </span>
+        <span className="sr-only">{ratingSrText(rating)}</span>
+        <span aria-hidden="true" className="text-neutral-300 text-sm">
+          {formatRatingValue(rating.value)}/{formatRatingValue(rating.scale)}
+        </span>
+      </span>
+    );
+  };
+
+  const highlightsTitle =
+    locale === 'pl' ? 'Najważniejsze wyróżniki' : locale === 'nl' ? 'Belangrijkste highlights' : 'Key highlights';
+
+  const chartValueLabel = locale === 'pl' ? 'Ocena' : locale === 'nl' ? 'Score' : 'Score';
 
   // Smooth scroll offset handled via scroll-margin in CSS (.section)
   const year = new Date().getFullYear();
@@ -245,19 +352,138 @@ const App: React.FC = () => {
           className="section mt-24"
         >
           <SectionHeading id="skills-title" title={content[locale].skills.title} />
-          <div className="grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {content[locale].skills.categories.map((cat) => (
-              <Reveal key={cat.name}>
-                <article className="rounded-card bg-surface.card border border-surface-border p-4 shadow-card">
-                  <h3 className="font-heading font-semibold text-neutral-50 mb-2">{cat.name}</h3>
-                  <ul className="flex flex-wrap gap-2" role="list">
-                    {cat.items.map((it) => (
-                      <li key={it}><SkillTag label={it} /></li>
-                    ))}
-                  </ul>
-                </article>
-              </Reveal>
-            ))}
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)] items-start">
+            <Reveal className="lg:row-span-2">
+              <article className="rounded-card bg-surface.card border border-surface-border p-4 shadow-card">
+                <div
+                  role="tablist"
+                  aria-label={locale === 'pl' ? 'Kategorie kompetencji' : locale === 'nl' ? 'Competentiecategorieën' : 'Competency categories'}
+                  className="flex flex-wrap gap-3"
+                >
+                  {skillCategories.map((cat, index) => {
+                    const isActive = cat.id === activeCategoryId;
+                    return (
+                      <button
+                        key={cat.id}
+                        ref={(node) => {
+                          tabRefs.current[index] = node;
+                        }}
+                        type="button"
+                        role="tab"
+                        id={`skills-tab-${cat.id}`}
+                        aria-selected={isActive}
+                        aria-controls={`skills-panel-${cat.id}`}
+                        tabIndex={isActive ? 0 : -1}
+                        onClick={() => {
+                          setActiveCategoryId(cat.id);
+                          setActiveCompetencyId(cat.competencies[0]?.id ?? '');
+                        }}
+                        onKeyDown={(event) => handleTabKey(event, index)}
+                        className={`flex-1 min-w-[12rem] px-4 py-3 rounded-button border text-left transition focus-visible:outline-none ${
+                          isActive
+                            ? 'bg-primary-600 text-white border-primary-500 shadow-lg'
+                            : 'bg-transparent text-neutral-200 border-surface-border hover:bg-surface.card'
+                        }`}
+                      >
+                        <span className="block font-heading font-semibold text-base">{cat.name}</span>
+                        <div className="mt-1 flex flex-wrap items-center gap-2 text-sm text-neutral-300">
+                          {renderRating(cat.rating)}
+                          {cat.rating.label && (
+                            <span className="inline-flex items-center rounded-full bg-primary-600/20 px-2 py-0.5 text-xs text-primary-200">
+                              {cat.rating.label}
+                            </span>
+                          )}
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+                {skillCategories.map((cat) => {
+                  const isActive = cat.id === activeCategoryId;
+                  return (
+                    <div
+                      key={cat.id}
+                      role="tabpanel"
+                      id={`skills-panel-${cat.id}`}
+                      aria-labelledby={`skills-tab-${cat.id}`}
+                      hidden={!isActive}
+                      className="mt-6"
+                    >
+                      <p className="text-neutral-200 text-sm md:text-base">{cat.description}</p>
+                      <div className="mt-6 grid gap-4 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
+                        <ul className="space-y-3" role="list">
+                          {cat.competencies.map((comp) => {
+                            const isCompActive = comp.id === activeCompetencyId;
+                            return (
+                              <li key={comp.id}>
+                                <button
+                                  type="button"
+                                  onClick={() => setActiveCompetencyId(comp.id)}
+                                  onMouseEnter={() => setActiveCompetencyId(comp.id)}
+                                  onFocus={() => setActiveCompetencyId(comp.id)}
+                                  aria-pressed={isCompActive}
+                                  className={`w-full rounded-md border px-4 py-3 text-left transition focus-visible:outline-none ${
+                                    isCompActive
+                                      ? 'border-primary-500 bg-primary-500/10 shadow-md'
+                                      : 'border-surface-border bg-surface.card/30 hover:bg-surface.card'
+                                  }`}
+                                >
+                                  <span className="flex flex-wrap items-center justify-between gap-2 font-medium text-neutral-100">
+                                    {comp.name}
+                                    {renderRating(comp.rating, 'text-xs text-neutral-300')}
+                                  </span>
+                                  {comp.experience && (
+                                    <span className="mt-1 block text-sm text-neutral-300">{comp.experience}</span>
+                                  )}
+                                </button>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                        <div
+                          className="rounded-md border border-surface-border bg-surface.card/60 p-4 shadow-inner"
+                          role="status"
+                          aria-live="polite"
+                        >
+                          <h4 className="font-heading text-lg font-semibold text-neutral-50">
+                            {activeCompetency?.name}
+                          </h4>
+                          {activeCompetency?.detail && (
+                            <p className="mt-2 text-sm text-neutral-200 md:text-base">{activeCompetency.detail}</p>
+                          )}
+                          {activeCompetency?.experience && (
+                            <p className="mt-3 text-sm text-neutral-300">{activeCompetency.experience}</p>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </article>
+            </Reveal>
+            <Reveal>
+              <article className="rounded-card bg-surface.card border border-surface-border p-4 shadow-card">
+                <RadarChart
+                  title={skillsContent.chart.title}
+                  axes={skillsContent.chart.axes}
+                  maxValue={skillsContent.chart.max}
+                  valueLabel={chartValueLabel}
+                />
+              </article>
+            </Reveal>
+            <Reveal>
+              <article className="rounded-card bg-surface.card border border-surface-border p-4 shadow-card">
+                <h3 className="font-heading text-lg font-semibold text-neutral-50">{highlightsTitle}</h3>
+                <ul className="mt-3 space-y-2" role="list">
+                  {skillsContent.highlights.map((highlight) => (
+                    <li key={highlight} className="flex items-start gap-2 text-neutral-200">
+                      <span aria-hidden="true" className="mt-1 inline-flex h-2 w-2 rounded-full bg-accent-led" />
+                      <span>{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            </Reveal>
           </div>
         </section>
 
