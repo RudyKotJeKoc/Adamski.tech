@@ -1,0 +1,23 @@
+<svg width="800" height="480" viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Machine Transfer System placeholder</title>
+  <desc id="desc">Placeholder artwork for the Machine Transfer System relocation tracker.</desc>
+  <defs>
+    <linearGradient id="mtsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b2f3a" />
+      <stop offset="100%" stop-color="#2d9f85" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="480" rx="32" fill="url(#mtsGrad)" />
+  <g stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.6">
+    <path d="M120 360h120l32-80h120l32 80h120l32-112h120" fill="none" />
+    <circle cx="120" cy="360" r="14" fill="#ffffff" />
+    <circle cx="272" cy="280" r="14" fill="#ffffff" />
+    <circle cx="424" cy="360" r="14" fill="#ffffff" />
+    <circle cx="576" cy="248" r="14" fill="#ffffff" />
+    <circle cx="728" cy="248" r="14" fill="#ffffff" />
+  </g>
+  <g font-family="'Montserrat', 'Helvetica Neue', Arial, sans-serif" fill="#ffffff" font-weight="600">
+    <text x="48" y="88" font-size="38">Machine Transfer System</text>
+    <text x="48" y="130" font-size="20" opacity="0.75">Relocation tracker case study visual</text>
+  </g>
+</svg>

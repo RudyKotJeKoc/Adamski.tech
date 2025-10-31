@@ -1,0 +1,23 @@
+<svg width="800" height="480" viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">MIM furnaces modernization placeholder</title>
+  <desc id="desc">Placeholder illustration for the MIM furnace modernization proposal case study.</desc>
+  <defs>
+    <linearGradient id="mimGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a2a33" />
+      <stop offset="100%" stop-color="#6bc1d6" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="480" rx="32" fill="url(#mimGrad)" />
+  <g fill="none" stroke="#ffffff" stroke-width="4" opacity="0.6" stroke-linecap="round" stroke-dasharray="8 16">
+    <ellipse cx="240" cy="240" rx="120" ry="96" />
+    <ellipse cx="560" cy="240" rx="140" ry="104" />
+    <path d="M360 240h80" stroke-dasharray="0" />
+    <path d="M560 136v208" stroke-dasharray="0" />
+    <circle cx="560" cy="136" r="12" fill="#ffffff" />
+    <circle cx="560" cy="344" r="12" fill="#ffffff" />
+  </g>
+  <g font-family="'Montserrat', 'Helvetica Neue', Arial, sans-serif" fill="#ffffff" font-weight="600">
+    <text x="48" y="88" font-size="34">MIM Furnaces Modernization</text>
+    <text x="48" y="128" font-size="20" opacity="0.75">Strategic proposal placeholder artwork</text>
+  </g>
+</svg>
