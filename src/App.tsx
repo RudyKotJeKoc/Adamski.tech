@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useMemo, useRef, useState } from 'react';
 import contentAll from '../content/content.json';
-import { Navbar, Footer, SectionHeading, ProjectCard, SkillTag, Reveal, LanguageSwitcher, Locale } from './components';
+import { Navbar, Footer, SectionHeading, ProjectCard, SkillTag, Reveal, LanguageSwitcher, Locale, AboutCard } from './components';
 
 type SectionId = 'hero' | 'about' | 'skills' | 'projects' | 'contact';
 
@@ -122,12 +122,10 @@ const App: React.FC = () => {
           className="section mt-24"
         >
           <SectionHeading id="about-title" title={content[locale].about.title} />
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {content[locale].about.paragraphs.map((p, idx) => (
-              <Reveal key={idx}>
-                <article className="rounded-card bg-surface.card border border-surface-border p-4 shadow-card">
-                  <p className="text-neutral-200">{p}</p>
-                </article>
+          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+            {content[locale].about.cards?.map((card) => (
+              <Reveal key={card.title}>
+                <AboutCard title={card.title} icon={card.icon} items={card.items} cta={card.cta} />
               </Reveal>
             ))}
           </div>

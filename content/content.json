@@ -19,11 +19,59 @@
     },
     "about": {
       "title": "O mnie",
-      "paragraphs": [
-        "Multidyscyplinarny specjalista techniczny łączący głęboką wiedzę hardware z nowoczesnymi kompetencjami software. 15+ lat praktycznego doświadczenia w automatyce przemysłowej, robotyce i systemach MIM.",
-        "Unikalny profil: od programowania PLC i robotów Yaskawa Motoman, przez tworzenie aplikacji webowych (React, TypeScript), po AI-enhanced workflow. Właściciel własnej działalności (2020-2021) - 250,000 PLN przychodu w 15 miesięcy.",
-        "ADHD jako supermoc: cross-domain pattern recognition, hyperfocus w rozwiązywaniu problemów. Filozofia Daremon: nie walczę z energią, wykorzystuję ją strategicznie.",
-        "Trójjęzyczny komunikator: Polski (native), Niderlandzki (C1 - profesjonalny 53.3%), Angielski (techniczny). TOP 1-2% użytkowników AI: 852 MB udokumentowanej współpracy (~250 konwersacji, ~17,500 wiadomości, ~20 milionów słów), 1,000+ godzin collaborative thinking, systematyczna baza wiedzy obejmująca 40-50 projektów biznesowych i technicznych."
+      "cards": [
+        {
+          "title": "Industrial DNA",
+          "icon": "🛠️",
+          "items": [
+            "**15+ lat** utrzymania ruchu, robotyki i MIM w środowiskach high-mix.",
+            "**Certyfikowane** doświadczenie z Arburg, Yaskawa, Siemens S7.",
+            "**Zero poważnych przestojów** w prowadzeniu kluczowych wdrożeń."
+          ],
+          "cta": {
+            "label": "Zobacz projekty",
+            "href": "#projects"
+          }
+        },
+        {
+          "title": "Cyfrowy stack",
+          "icon": "💡",
+          "items": [
+            "**Full-stack** rozwiązania: React, TypeScript, Python, Node tooling.",
+            "**Integracje IoT** z Home Assistant, ESPHome, custom sensorami.",
+            "**Workflow AI** wykorzystywany do prototypowania i dokumentacji."
+          ],
+          "cta": {
+            "label": "Lista kompetencji",
+            "href": "#skills"
+          }
+        },
+        {
+          "title": "Strategia i przywództwo",
+          "icon": "🧭",
+          "items": [
+            "**Audyt procesów** i mapowanie ryzyka w zespołach produkcyjnych.",
+            "**Koordynacja B2B** – komunikacja PL/EN/NL w środowisku międzynarodowym.",
+            "**Podejście Lean**: szybka diagnoza i priorytetyzacja działań."
+          ],
+          "cta": {
+            "label": "Umów konsultację",
+            "href": "#contact"
+          }
+        },
+        {
+          "title": "Modele współpracy",
+          "icon": "🤝",
+          "items": [
+            "**Projekty end-to-end**: koncepcja → wdrożenie → szkolenie.",
+            "**Wsparcie hybrydowe**: on-site NL/PL + remote troubleshooting.",
+            "**Partnerstwo R&D** dla modernizacji pieców MIM i systemów custom."
+          ],
+          "cta": {
+            "label": "Porozmawiajmy",
+            "href": "#contact"
+          }
+        }
       ]
     },
     "skills": {
@@ -174,11 +222,59 @@
     },
     "about": {
       "title": "About",
-      "paragraphs": [
-        "Multi-disciplinary technical specialist combining deep hardware knowledge with modern software competencies. 15+ years of practical experience in industrial automation, robotics, and MIM systems.",
-        "Unique profile: from PLC programming and Yaskawa Motoman robots, through web application development (React, TypeScript), to AI-enhanced workflow. Business owner (2020-2021) - €60,000+ revenue in 15 months.",
-        "ADHD as superpower: cross-domain pattern recognition, hyperfocus in problem-solving. Daremon philosophy: I don't fight my energy, I use it strategically.",
-        "Trilingual communicator: Polish (native), Dutch (C1 - professional 53.3%), English (technical). TOP 1-2% AI user: 852 MB documented collaboration (~250 conversations, ~17,500 messages, ~20 million words), 1,000+ hours collaborative thinking, systematic knowledge base covering 40-50 business and technical projects."
+      "cards": [
+        {
+          "title": "Industrial DNA",
+          "icon": "🛠️",
+          "items": [
+            "**15+ years** in maintenance, robotics, and MIM high-mix environments.",
+            "**Certified expertise** with Arburg, Yaskawa, Siemens S7.",
+            "**Zero critical downtime** across mission-critical rollouts."
+          ],
+          "cta": {
+            "label": "View projects",
+            "href": "#projects"
+          }
+        },
+        {
+          "title": "Digital stack",
+          "icon": "💡",
+          "items": [
+            "**Full-stack** solutions: React, TypeScript, Python, Node tooling.",
+            "**IoT integrations** with Home Assistant, ESPHome, custom sensors.",
+            "**AI-assisted workflow** for prototyping and documentation."
+          ],
+          "cta": {
+            "label": "See skills",
+            "href": "#skills"
+          }
+        },
+        {
+          "title": "Strategy & leadership",
+          "icon": "🧭",
+          "items": [
+            "**Process audits** and risk mapping for production teams.",
+            "**B2B coordination** – PL/EN/NL communication in international setups.",
+            "**Lean mindset**: rapid diagnostics and action prioritisation."
+          ],
+          "cta": {
+            "label": "Book a consultation",
+            "href": "#contact"
+          }
+        },
+        {
+          "title": "Engagement models",
+          "icon": "🤝",
+          "items": [
+            "**End-to-end projects**: concept → deployment → training.",
+            "**Hybrid support**: on-site NL/PL + remote troubleshooting.",
+            "**R&D partnerships** for MIM furnace upgrades and custom systems."
+          ],
+          "cta": {
+            "label": "Let's talk",
+            "href": "#contact"
+          }
+        }
       ]
     },
     "skills": {
@@ -329,11 +425,59 @@
     },
     "about": {
       "title": "Over mij",
-      "paragraphs": [
-        "Multi-disciplinaire technische specialist die diepe hardware-kennis combineert met moderne software-competenties. 15+ jaar praktijkervaring in industriële automatisering, robotica en MIM-systemen.",
-        "Uniek profiel: van PLC-programmering en Yaskawa Motoman robots, via webapplicatie-ontwikkeling (React, TypeScript), tot AI-versterkte workflow. Bedrijfseigenaar (2020-2021) - €60.000+ omzet in 15 maanden.",
-        "ADHD als superkracht: cross-domain patroonherkenning, hyperfocus bij probleemoplossing. Daremon filosofie: ik vecht niet tegen mijn energie, ik gebruik het strategisch.",
-        "Drietalige communicator: Pools (moedertaal), Nederlands (C1 - professioneel 53.3%), Engels (technisch). TOP 1-2% AI-gebruiker: 852 MB gedocumenteerde samenwerking (~250 gesprekken, ~17.500 berichten, ~20 miljoen woorden), 1.000+ uur collaborative thinking, systematische kennisbasis met 40-50 zakelijke en technische projecten."
+      "cards": [
+        {
+          "title": "Industrieel DNA",
+          "icon": "🛠️",
+          "items": [
+            "**15+ jaar** onderhoud, robotica en MIM in high-mix omgevingen.",
+            "**Gecertificeerde expertise** met Arburg, Yaskawa, Siemens S7.",
+            "**Geen kritieke stilstand** tijdens cruciale implementaties."
+          ],
+          "cta": {
+            "label": "Bekijk projecten",
+            "href": "#projects"
+          }
+        },
+        {
+          "title": "Digitale stack",
+          "icon": "💡",
+          "items": [
+            "**Full-stack** oplossingen: React, TypeScript, Python, Node tooling.",
+            "**IoT-integraties** met Home Assistant, ESPHome en maatwerksensoren.",
+            "**AI-ondersteunde workflow** voor prototyping en documentatie."
+          ],
+          "cta": {
+            "label": "Bekijk skills",
+            "href": "#skills"
+          }
+        },
+        {
+          "title": "Strategie & leiderschap",
+          "icon": "🧭",
+          "items": [
+            "**Procesaudits** en risicokaarten voor productieteams.",
+            "**B2B-coördinatie** – communicatie PL/EN/NL in internationale omgevingen.",
+            "**Lean-denken**: snelle diagnose en prioritering van acties."
+          ],
+          "cta": {
+            "label": "Plan een consult",
+            "href": "#contact"
+          }
+        },
+        {
+          "title": "Samenwerkingsmodellen",
+          "icon": "🤝",
+          "items": [
+            "**End-to-end projecten**: concept → implementatie → training.",
+            "**Hybride support**: on-site NL/PL + remote troubleshooting.",
+            "**R&D-partnerships** voor MIM-oven upgrades en maatwerksystemen."
+          ],
+          "cta": {
+            "label": "Laten we praten",
+            "href": "#contact"
+          }
+        }
       ]
     },
     "skills": {
