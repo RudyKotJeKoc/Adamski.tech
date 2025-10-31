@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useId, useMemo, useRef, useState } from 'react';
 
 export type Locale = 'pl' | 'en' | 'nl';
 
@@ -34,8 +34,13 @@ type NavItem = { id: string; label: string };
 
 export const LanguageSwitcher: React.FC<{ locale: Locale; onChange: (loc: Locale) => void }> = ({ locale, onChange }) => {
   const langs: Locale[] = ['pl', 'en', 'nl'];
+  const labels: Record<Locale, string> = {
+    pl: 'Wybór języka',
+    en: 'Language selection',
+    nl: 'Taalkeuze'
+  };
   return (
-    <div role="group" aria-label="Wybór języka" className="flex items-center gap-2">
+    <div role="group" aria-label={labels[locale]} className="flex items-center gap-2">
       {langs.map((l) => (
         <button
           key={l}
@@ -90,6 +95,11 @@ type AboutCardProps = {
   cta?: { label: string; href: string } | null;
 };
 
+type ProjectMetric = { label: string; value: string };
+type ProjectImage = { src: string; alt: string };
+type ProjectCtaVariant = 'primary' | 'secondary' | 'ghost';
+type ProjectCta = { label: string; href: string; variant?: ProjectCtaVariant | string };
+
 export const AboutCard: React.FC<AboutCardProps> = ({ title, icon, items, cta }) => (
   <article className="h-full rounded-card bg-surface.card border border-surface-border shadow-card transition-shadow hover:shadow-lg focus-within:shadow-lg focus-within:border-accent-led">
     <header className="flex items-start gap-3 p-4 pb-2">
@@ -123,7 +133,6 @@ export const AboutCard: React.FC<AboutCardProps> = ({ title, icon, items, cta })
   </article>
 );
 
-type ProjectLinks = { demo?: string; repo?: string };
 export const ProjectCard: React.FC<{
   locale: Locale;
   name: string;
@@ -295,6 +304,258 @@ export const ProjectCard: React.FC<{
   );
 };
 
+type MetricCounterProps = {
+  value: number;
+  suffix?: string;
+  label: string;
+  description?: string;
+  locale: Locale;
+};
+
+export const MetricCounter: React.FC<MetricCounterProps> = ({ value, suffix = '', label, description, locale }) => {
+  const [displayValue, setDisplayValue] = useState(() => (prefersReducedMotion() ? value : 0));
+
+  useEffect(() => {
+    if (prefersReducedMotion()) {
+      setDisplayValue(value);
+      return;
+    }
+
+    let frame = 0;
+    const start = performance.now();
+    const duration = 900;
+
+    const animate = (timestamp: number) => {
+      const progress = Math.min((timestamp - start) / duration, 1);
+      setDisplayValue(value * progress);
+      if (progress < 1) {
+        frame = requestAnimationFrame(animate);
+      }
+    };
+
+    frame = requestAnimationFrame(animate);
+
+    return () => {
+      cancelAnimationFrame(frame);
+    };
+  }, [value]);
+
+  const formattedValue = useMemo(() => {
+    const formatter = new Intl.NumberFormat(locale, {
+      maximumFractionDigits: Number.isInteger(value) ? 0 : 1
+    });
+    return formatter.format(Number.isFinite(displayValue) ? displayValue : value);
+  }, [displayValue, locale, value]);
+
+  return (
+    <article
+      className="rounded-card border border-surface-border bg-surface.card/80 p-4 shadow-card"
+      aria-label={`${label}: ${formattedValue}${suffix}`}
+      aria-live="polite"
+    >
+      <div className="flex items-baseline gap-2">
+        <span className="text-3xl font-heading font-semibold text-primary-200" aria-hidden="true">
+          {formattedValue}
+        </span>
+        {suffix && (
+          <span className="text-lg font-medium text-primary-400" aria-hidden="true">
+            {suffix.trim()}
+          </span>
+        )}
+      </div>
+      <p className="mt-2 text-neutral-100 font-medium">{label}</p>
+      {description ? <p className="mt-2 text-sm text-neutral-300">{description}</p> : null}
+      <span className="sr-only">{`${formattedValue}${suffix}`}</span>
+    </article>
+  );
+};
+
+type WorkflowPhase = {
+  id: string;
+  name: string;
+  summary: string;
+  deliverables?: string[];
+  icon?: string;
+};
+
+export const WorkflowDiagram: React.FC<{ phases: WorkflowPhase[] }> = ({ phases }) => {
+  const diagramId = useId();
+
+  if (!phases.length) {
+    return null;
+  }
+
+  return (
+    <section aria-labelledby={`${diagramId}-title`} className="space-y-4">
+      <h4 id={`${diagramId}-title`} className="sr-only">
+        Workflow
+      </h4>
+      <ol className="grid gap-4 md:grid-cols-2" role="list">
+        {phases.map((phase, index) => (
+          <li
+            key={phase.id}
+            className="rounded-card border border-dashed border-surface-border bg-background-elevated/60 p-4 shadow-inner"
+          >
+            <div className="flex items-center gap-3">
+              <span
+                aria-hidden="true"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-700/30 font-heading text-lg text-primary-200"
+              >
+                {phase.icon ?? index + 1}
+              </span>
+              <div>
+                <p className="text-xs uppercase tracking-wide text-neutral-400">{`Phase ${index + 1}`}</p>
+                <h5 className="text-lg font-heading text-neutral-50">{phase.name}</h5>
+              </div>
+            </div>
+            <p className="mt-3 text-sm text-neutral-200">{phase.summary}</p>
+            {phase.deliverables && phase.deliverables.length > 0 ? (
+              <ul className="mt-3 space-y-1 text-sm text-neutral-200" role="list">
+                {phase.deliverables.map((deliverable) => (
+                  <li key={`${phase.id}-${deliverable}`} className="flex items-start gap-2">
+                    <span aria-hidden="true" className="mt-1 h-1.5 w-1.5 rounded-full bg-accent-led" />
+                    <span>{deliverable}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </li>
+        ))}
+      </ol>
+    </section>
+  );
+};
+
+type TimelineMilestone = {
+  id: string;
+  period: string;
+  role: string;
+  context?: string;
+  summary: string;
+  highlights?: string[];
+};
+
+export const TimelineSlider: React.FC<{ milestones: TimelineMilestone[]; label: string }> = ({ milestones, label }) => {
+  const [activeId, setActiveId] = useState<string>(() => milestones[0]?.id ?? '');
+  const sliderId = useId();
+
+  useEffect(() => {
+    setActiveId(milestones[0]?.id ?? '');
+  }, [milestones]);
+
+  const activeMilestone = useMemo(
+    () => milestones.find((milestone) => milestone.id === activeId) ?? milestones[0],
+    [activeId, milestones]
+  );
+
+  if (!milestones.length || !activeMilestone) {
+    return null;
+  }
+
+  return (
+    <section className="timeline-slider space-y-4">
+      <div
+        role="tablist"
+        aria-label={label}
+        aria-orientation="horizontal"
+        className="flex gap-2 overflow-x-auto pb-2"
+      >
+        {milestones.map((milestone, index) => {
+          const isActive = milestone.id === activeMilestone.id;
+          return (
+            <button
+              key={milestone.id}
+              id={`${sliderId}-tab-${milestone.id}`}
+              type="button"
+              role="tab"
+              aria-selected={isActive}
+              aria-controls={`${sliderId}-panel-${milestone.id}`}
+              onClick={() => setActiveId(milestone.id)}
+              className={`rounded-button border px-4 py-2 text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-led ${
+                isActive
+                  ? 'border-primary-500 bg-primary-600/20 text-primary-50'
+                  : 'border-surface-border bg-surface.card/40 text-neutral-200 hover:bg-surface.card'
+              }`}
+            >
+              <span className="block font-semibold text-neutral-50">{milestone.period}</span>
+              <span className="block text-xs text-neutral-300">{index + 1}</span>
+            </button>
+          );
+        })}
+      </div>
+      <article
+        role="tabpanel"
+        id={`${sliderId}-panel-${activeMilestone.id}`}
+        aria-labelledby={`${sliderId}-tab-${activeMilestone.id}`}
+        className="rounded-card border border-surface-border bg-surface.card/80 p-6 shadow-card"
+      >
+        <header className="flex flex-col gap-1">
+          <p className="text-sm uppercase tracking-wide text-primary-300">{activeMilestone.period}</p>
+          <h3 className="text-xl font-heading font-semibold text-neutral-50">{activeMilestone.role}</h3>
+          {activeMilestone.context ? (
+            <p className="text-sm text-neutral-300">{activeMilestone.context}</p>
+          ) : null}
+        </header>
+        <p className="mt-4 text-neutral-200">{activeMilestone.summary}</p>
+        {activeMilestone.highlights && activeMilestone.highlights.length > 0 ? (
+          <ul className="mt-4 space-y-2 text-sm text-neutral-200" role="list">
+            {activeMilestone.highlights.map((highlight) => (
+              <li key={`${activeMilestone.id}-${highlight}`} className="flex items-start gap-2">
+                <span aria-hidden="true" className="mt-1 h-1.5 w-1.5 rounded-full bg-primary-500" />
+                <span>{highlight}</span>
+              </li>
+            ))}
+          </ul>
+        ) : null}
+      </article>
+    </section>
+  );
+};
+
+type PartnerCardProps = {
+  icon?: string;
+  title: string;
+  valueProposition: string;
+  idealFor?: string;
+  highlights?: string[];
+  ctaLabel?: string;
+};
+
+export const PartnerCard: React.FC<PartnerCardProps> = ({
+  icon,
+  title,
+  valueProposition,
+  idealFor,
+  highlights = [],
+  ctaLabel
+}) => (
+  <article className="h-full rounded-card border border-surface-border bg-surface.card/80 p-5 shadow-card transition hover:shadow-lg">
+    <header className="flex items-start gap-3">
+      {icon ? (
+        <span aria-hidden="true" className="text-3xl leading-none">
+          {icon}
+        </span>
+      ) : null}
+      <div>
+        <h3 className="text-lg font-heading font-semibold text-neutral-50">{title}</h3>
+        {idealFor ? <p className="text-sm text-neutral-300">{idealFor}</p> : null}
+      </div>
+    </header>
+    <p className="mt-4 text-neutral-200">{valueProposition}</p>
+    {highlights.length > 0 ? (
+      <ul className="mt-4 space-y-2 text-sm text-neutral-200" role="list">
+        {highlights.map((highlight) => (
+          <li key={`${title}-${highlight}`} className="flex items-start gap-2">
+            <span aria-hidden="true" className="mt-1 h-1.5 w-1.5 rounded-full bg-accent-led" />
+            <span>{highlight}</span>
+          </li>
+        ))}
+      </ul>
+    ) : null}
+    {ctaLabel ? <p className="mt-4 text-sm font-medium text-primary-300">{ctaLabel}</p> : null}
+  </article>
+);
+
 export const Footer: React.FC<{ year: number; labels: NavItem[] }> = ({ year, labels }) => (
   <footer role="contentinfo" className="mt-24 border-t border-surface-border py-8 text-neutral-300">
     <nav className="flex flex-wrap gap-4 mb-4">
@@ -319,6 +580,14 @@ export const Navbar: React.FC<{
   locale: Locale;
   onLocaleChange: (loc: Locale) => void;
 }> = ({ labels, activeId, locale, onLocaleChange }) => {
+  const contactLabel = useMemo(() => {
+    const navContact = labels.find((item) => item.id === 'contact');
+    if (navContact) return navContact.label;
+    if (locale === 'pl') return 'Skontaktuj się';
+    if (locale === 'nl') return 'Neem contact op';
+    return 'Get in touch';
+  }, [labels, locale]);
+
   return (
     <header
       role="banner"
@@ -355,8 +624,9 @@ export const Navbar: React.FC<{
             href="#contact"
             role="button"
             className="hidden md:inline-block px-4 py-2 rounded-button text-white bg-gradient-to-r from-primary-600 to-accent-led hover:from-primary-700 hover:to-accent-led"
+            aria-label={contactLabel}
           >
-            Skontaktuj się
+            {contactLabel}
           </a>
         </div>
       </nav>

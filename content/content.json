@@ -288,6 +288,8 @@
     },
     "projects": {
       "title": "Kluczowe Projekty i Realizacje",
+      "filter_label": "Filtruj projekty według kompetencji",
+      "all_label": "Wszystkie projekty",
       "items": [
         {
           "name": "DAREMON Radio ETS",
@@ -1312,6 +1314,8 @@
     },
     "projects": {
       "title": "Key Projects & Achievements",
+      "filter_label": "Filter projects by capability",
+      "all_label": "All projects",
       "items": [
         {
           "name": "DAREMON Radio ETS",
@@ -2335,6 +2339,8 @@
     },
     "projects": {
       "title": "Belangrijke Projecten & Prestaties",
+      "filter_label": "Filter projecten op competentie",
+      "all_label": "Alle projecten",
       "items": [
         {
           "name": "DAREMON Radio ETS",
