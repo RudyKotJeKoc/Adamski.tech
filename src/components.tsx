@@ -65,6 +65,60 @@ export const SkillTag: React.FC<{ label: string }> = ({ label }) => (
   </span>
 );
 
+const renderFormatted = (text: string) => {
+  const segments = text.split(/(\*\*[^*]+\*\*)/g).filter(Boolean);
+  return segments.map((segment, idx) => {
+    if (segment.startsWith('**') && segment.endsWith('**')) {
+      return (
+        <strong key={`${segment}-${idx}`} className="text-neutral-50">
+          {segment.slice(2, -2)}
+        </strong>
+      );
+    }
+    return <React.Fragment key={`${segment}-${idx}`}>{segment}</React.Fragment>;
+  });
+};
+
+type AboutCardProps = {
+  title: string;
+  icon?: string;
+  items: string[];
+  cta?: { label: string; href: string } | null;
+};
+
+export const AboutCard: React.FC<AboutCardProps> = ({ title, icon, items, cta }) => (
+  <article className="h-full rounded-card bg-surface.card border border-surface-border shadow-card transition-shadow hover:shadow-lg focus-within:shadow-lg focus-within:border-accent-led">
+    <header className="flex items-start gap-3 p-4 pb-2">
+      {icon && (
+        <span aria-hidden="true" className="text-2xl leading-none">
+          {icon}
+        </span>
+      )}
+      <h3 className="text-xl font-heading font-semibold text-neutral-50">{title}</h3>
+    </header>
+    <ul className="px-4 pb-4 space-y-2 text-neutral-200" role="list">
+      {items.map((item, idx) => (
+        <li key={`${title}-${idx}`} className="leading-relaxed">
+          {renderFormatted(item)}
+        </li>
+      ))}
+    </ul>
+    {cta?.href && cta?.label && (
+      <div className="px-4 pb-4">
+        <a
+          href={cta.href}
+          role="button"
+          aria-label={`${title}: ${cta.label}`}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-button border border-primary-600 text-primary-50 hover:text-white hover:border-accent-led focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-led"
+        >
+          {cta.label}
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    )}
+  </article>
+);
+
 type ProjectLinks = { demo?: string; repo?: string };
 export const ProjectCard: React.FC<{
   name: string;
