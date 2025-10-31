@@ -1,6 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 
 export type Locale = 'pl' | 'en' | 'nl';
+
+const prefersReducedMotion = () =>
+  typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 export const Reveal: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className }) => {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -63,6 +66,277 @@ export const SkillTag: React.FC<{ label: string }> = ({ label }) => (
   <span className="inline-block px-3 py-1 rounded-chip border border-surface-border text-neutral-200 hover:bg-surface.card focus:bg-surface.card focus-visible:outline-none">
     {label}
   </span>
+);
+
+export const MetricCounter: React.FC<{
+  value: number;
+  suffix?: string;
+  label: string;
+  description?: string;
+  duration?: number;
+  locale: Locale;
+}> = ({ value, suffix = '', label, description, duration = 1200, locale }) => {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [displayValue, setDisplayValue] = useState(0);
+  const [triggered, setTriggered] = useState(false);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setTriggered(true);
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!triggered) return;
+    if (prefersReducedMotion()) {
+      setDisplayValue(value);
+      return;
+    }
+    let frame = 0;
+    const start = performance.now();
+    const step = (timestamp: number) => {
+      const progress = Math.min((timestamp - start) / duration, 1);
+      setDisplayValue(value * progress);
+      if (progress < 1) {
+        frame = requestAnimationFrame(step);
+      }
+    };
+    frame = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(frame);
+  }, [triggered, value, duration]);
+
+  const decimals = Number.isInteger(value) ? 0 : 1;
+  const formatted = useMemo(() => {
+    const formatter = new Intl.NumberFormat(locale, {
+      maximumFractionDigits: decimals,
+      minimumFractionDigits: decimals && displayValue > 0 && !Number.isInteger(value) ? 1 : 0
+    });
+    return formatter.format(triggered ? displayValue : 0);
+  }, [displayValue, decimals, locale, triggered, value]);
+
+  return (
+    <article
+      ref={ref}
+      className="rounded-card bg-surface.card border border-surface-border p-5 shadow-card transition-transform hover:-translate-y-1 hover:shadow-md"
+    >
+      <div className="text-3xl font-heading font-semibold text-neutral-50" aria-live="polite">
+        {formatted}
+        <span className="text-primary-400">{suffix}</span>
+      </div>
+      <h3 className="mt-3 text-lg font-heading text-neutral-100">{label}</h3>
+      {description && <p className="mt-2 text-sm text-neutral-300">{description}</p>}
+    </article>
+  );
+};
+
+export type WorkflowPhase = {
+  id: string;
+  name: string;
+  summary: string;
+  deliverables: string[];
+  icon?: string;
+};
+
+export const WorkflowDiagram: React.FC<{ phases: WorkflowPhase[] }> = ({ phases }) => (
+  <ol className="relative grid gap-6" role="list">
+    {phases.map((phase, index) => (
+      <li key={phase.id} className="relative pl-12">
+        <div
+          className="absolute left-0 top-2 flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-primary-700 to-accent-led text-lg"
+          aria-hidden="true"
+        >
+          {phase.icon ?? '•'}
+        </div>
+        {index < phases.length - 1 && (
+          <span
+            aria-hidden="true"
+            className="absolute left-5 top-10 h-full w-px bg-surface-border"
+          />
+        )}
+        <article className="rounded-card border border-surface-border bg-background-elevated/70 p-4 backdrop-blur">
+          <header className="flex flex-wrap items-baseline justify-between gap-2">
+            <h3 className="text-xl font-heading text-neutral-50">{phase.name}</h3>
+            <span className="text-xs uppercase tracking-wide text-primary-300">{index + 1}/{phases.length}</span>
+          </header>
+          <p className="mt-2 text-neutral-300">{phase.summary}</p>
+          {phase.deliverables.length > 0 && (
+            <ul className="mt-3 space-y-1 text-sm text-neutral-200" role="list">
+              {phase.deliverables.map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <span aria-hidden="true" className="mt-[6px] h-1.5 w-1.5 rounded-full bg-primary-500" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </article>
+      </li>
+    ))}
+  </ol>
+);
+
+export type TimelineMilestone = {
+  id: string;
+  period: string;
+  role: string;
+  context?: string;
+  summary: string;
+  highlights?: string[];
+};
+
+export const TimelineSlider: React.FC<{
+  milestones: TimelineMilestone[];
+  label: string;
+}> = ({ milestones, label }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const tabsRef = useRef<(HTMLButtonElement | null)[]>([]);
+
+  const goTo = (index: number) => {
+    const normalized = (index + milestones.length) % milestones.length;
+    setActiveIndex(normalized);
+  };
+
+  useEffect(() => {
+    const node = tabsRef.current[activeIndex];
+    if (!node) return;
+    if (prefersReducedMotion()) {
+      node.scrollIntoView({ block: 'nearest', inline: 'center' });
+      return;
+    }
+    node.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }, [activeIndex]);
+
+  const active = milestones[activeIndex];
+
+  return (
+    <div className="space-y-4" role="region" aria-label={label}>
+      <article
+        id={`timeline-panel-${active.id}`}
+        role="tabpanel"
+        aria-labelledby={`timeline-tab-${active.id}`}
+        className="rounded-card border border-surface-border bg-surface.card/80 p-6 shadow-card"
+      >
+        <header className="flex flex-col gap-1 md:flex-row md:items-center md:justify-between">
+          <div>
+            <p className="text-sm uppercase tracking-wide text-primary-300">{active.period}</p>
+            <h3 className="text-2xl font-heading text-neutral-50">{active.role}</h3>
+          </div>
+          {active.context && <span className="text-neutral-300">{active.context}</span>}
+        </header>
+        <p className="mt-3 text-neutral-200" aria-live="polite">
+          {active.summary}
+        </p>
+        {active.highlights && active.highlights.length > 0 && (
+          <ul className="mt-4 space-y-2 text-sm text-neutral-200" role="list">
+            {active.highlights.map((item) => (
+              <li key={item} className="flex items-start gap-2">
+                <span aria-hidden="true" className="mt-1 h-1.5 w-1.5 rounded-full bg-accent-led" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </article>
+      <div className="flex flex-col gap-3 rounded-card border border-surface-border bg-background-elevated/60 p-4">
+        <div className="flex items-center justify-between gap-3">
+          <button
+            type="button"
+            onClick={() => goTo(activeIndex - 1)}
+            className="rounded-button border border-surface-border px-3 py-2 text-sm text-neutral-200 transition hover:border-primary-500 hover:text-primary-200"
+            aria-label="Previous milestone"
+          >
+            ‹
+          </button>
+          <p className="text-sm text-neutral-300">{activeIndex + 1} / {milestones.length}</p>
+          <button
+            type="button"
+            onClick={() => goTo(activeIndex + 1)}
+            className="rounded-button border border-surface-border px-3 py-2 text-sm text-neutral-200 transition hover:border-primary-500 hover:text-primary-200"
+            aria-label="Next milestone"
+          >
+            ›
+          </button>
+        </div>
+        <div role="tablist" aria-label={label} className="flex gap-2 overflow-x-auto pb-1">
+          {milestones.map((milestone, index) => (
+            <button
+              key={milestone.id}
+              id={`timeline-tab-${milestone.id}`}
+              role="tab"
+              ref={(node) => {
+                tabsRef.current[index] = node;
+              }}
+              aria-controls={activeIndex === index ? `timeline-panel-${milestone.id}` : undefined}
+              aria-selected={activeIndex === index}
+              onClick={() => goTo(index)}
+              onKeyDown={(event) => {
+                if (event.key === 'ArrowRight') {
+                  event.preventDefault();
+                  goTo(index + 1);
+                }
+                if (event.key === 'ArrowLeft') {
+                  event.preventDefault();
+                  goTo(index - 1);
+                }
+              }}
+              className={`min-w-[6rem] rounded-card border px-3 py-2 text-left text-sm transition ${
+                activeIndex === index
+                  ? 'border-primary-500 bg-primary-600/20 text-primary-200'
+                  : 'border-transparent bg-surface.card text-neutral-300 hover:text-neutral-50'
+              }`}
+            >
+              <span className="block text-xs uppercase tracking-wide text-neutral-400">{milestone.period}</span>
+              <span className="block font-medium text-neutral-100">{milestone.role}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export const PartnerCard: React.FC<{
+  icon?: string;
+  title: string;
+  valueProposition: string;
+  idealFor?: string;
+  highlights?: string[];
+  ctaLabel?: string;
+}> = ({ icon, title, valueProposition, idealFor, highlights = [], ctaLabel }) => (
+  <article className="group relative flex h-full flex-col rounded-card border border-surface-border bg-surface.card p-5 shadow-card transition-transform hover:-translate-y-1 hover:shadow-lg">
+    {icon && (
+      <span aria-hidden="true" className="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary-700/60 text-2xl">
+        {icon}
+      </span>
+    )}
+    <h3 className="text-xl font-heading text-neutral-50">{title}</h3>
+    <p className="mt-2 text-neutral-200">{valueProposition}</p>
+    {idealFor && <p className="mt-2 text-sm text-neutral-300">{idealFor}</p>}
+    {highlights.length > 0 && (
+      <ul className="mt-3 space-y-1 text-sm text-neutral-200" role="list">
+        {highlights.map((item) => (
+          <li key={item} className="flex items-start gap-2">
+            <span aria-hidden="true" className="mt-1 h-1.5 w-1.5 rounded-full bg-accent-led" />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    )}
+    {ctaLabel && (
+      <p className="mt-4 text-sm font-medium text-primary-300">{ctaLabel}</p>
+    )}
+  </article>
 );
 
 type ProjectLinks = { demo?: string; repo?: string };

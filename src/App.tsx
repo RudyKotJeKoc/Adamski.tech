@@ -1,8 +1,21 @@
 import React, { createContext, useEffect, useMemo, useRef, useState } from 'react';
 import contentAll from '../content/content.json';
-import { Navbar, Footer, SectionHeading, ProjectCard, SkillTag, Reveal, LanguageSwitcher, Locale } from './components';
+import {
+  Navbar,
+  Footer,
+  SectionHeading,
+  ProjectCard,
+  SkillTag,
+  Reveal,
+  LanguageSwitcher,
+  Locale,
+  MetricCounter,
+  WorkflowDiagram,
+  TimelineSlider,
+  PartnerCard
+} from './components';
 
-type SectionId = 'hero' | 'about' | 'skills' | 'projects' | 'contact';
+type SectionId = 'hero' | 'about' | 'ai' | 'equipment' | 'skills' | 'career' | 'projects' | 'brand' | 'partners' | 'contact';
 
 type ContentLang = typeof contentAll['pl'];
 type ContentMap = { pl: ContentLang; en: ContentLang; nl: ContentLang };
@@ -35,8 +48,13 @@ const App: React.FC = () => {
     () => [
       { id: 'hero', label: content[locale].navigation.hero },
       { id: 'about', label: content[locale].navigation.about },
+      { id: 'ai', label: content[locale].navigation.ai },
+      { id: 'equipment', label: content[locale].navigation.equipment },
       { id: 'skills', label: content[locale].navigation.skills },
+      { id: 'career', label: content[locale].navigation.career },
       { id: 'projects', label: content[locale].navigation.projects },
+      { id: 'brand', label: content[locale].navigation.brand },
+      { id: 'partners', label: content[locale].navigation.partners },
       { id: 'contact', label: content[locale].navigation.contact }
     ],
     [locale]
@@ -45,8 +63,13 @@ const App: React.FC = () => {
   const sectionsRef = {
     hero: useRef<HTMLElement | null>(null),
     about: useRef<HTMLElement | null>(null),
+    ai: useRef<HTMLElement | null>(null),
+    equipment: useRef<HTMLElement | null>(null),
     skills: useRef<HTMLElement | null>(null),
+    career: useRef<HTMLElement | null>(null),
     projects: useRef<HTMLElement | null>(null),
+    brand: useRef<HTMLElement | null>(null),
+    partners: useRef<HTMLElement | null>(null),
     contact: useRef<HTMLElement | null>(null)
   };
 
@@ -133,6 +156,122 @@ const App: React.FC = () => {
           </div>
         </section>
 
+        {/* AI Methodology */}
+        <section
+          id="ai"
+          ref={sectionsRef.ai as React.RefObject<HTMLElement>}
+          aria-labelledby="ai-title"
+          className="section mt-24"
+        >
+          <SectionHeading
+            id="ai-title"
+            title={content[locale].ai_methodology.title}
+            subtitle={content[locale].ai_methodology.subtitle}
+          />
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1.35fr)]">
+            <div className="grid gap-4 sm:grid-cols-2">
+              {content[locale].ai_methodology.metrics.map((metric) => (
+                <Reveal key={metric.id}>
+                  <MetricCounter
+                    value={metric.value}
+                    suffix={metric.suffix}
+                    label={metric.label}
+                    description={metric.description}
+                    locale={locale}
+                  />
+                </Reveal>
+              ))}
+            </div>
+            <Reveal>
+              <article className="rounded-card border border-surface-border bg-surface.card/90 p-6 shadow-card">
+                <h3 className="text-xl font-heading text-neutral-50">{content[locale].ai_methodology.workflow.title}</h3>
+                <p className="mt-3 text-neutral-300">{content[locale].ai_methodology.subtitle}</p>
+                <div className="mt-6">
+                  <WorkflowDiagram phases={content[locale].ai_methodology.workflow.phases} />
+                </div>
+                {content[locale].ai_methodology.workflow.automation.length > 0 && (
+                  <div className="mt-6 rounded-card border border-dashed border-surface-border bg-background-elevated/60 p-4">
+                    <h4 className="text-sm uppercase tracking-wide text-primary-300">
+                      {locale === 'pl'
+                        ? 'Warstwa automatyzacji'
+                        : locale === 'en'
+                        ? 'Automation layer'
+                        : 'Automatiseringslaag'}
+                    </h4>
+                    <ul className="mt-3 space-y-2 text-sm text-neutral-200" role="list">
+                      {content[locale].ai_methodology.workflow.automation.map((item) => (
+                        <li key={item} className="flex items-start gap-2">
+                          <span aria-hidden="true" className="mt-1 h-1.5 w-1.5 rounded-full bg-primary-500" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </article>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* Equipment Inventory */}
+        <section
+          id="equipment"
+          ref={sectionsRef.equipment as React.RefObject<HTMLElement>}
+          aria-labelledby="equipment-title"
+          className="section mt-24"
+        >
+          <SectionHeading
+            id="equipment-title"
+            title={content[locale].equipment_inventory.title}
+            subtitle={content[locale].equipment_inventory.subtitle}
+          />
+          <div className="grid gap-6 lg:grid-cols-2">
+            {content[locale].equipment_inventory.categories.map((category) => (
+              <Reveal key={category.name}>
+                <article className="rounded-card border border-surface-border bg-surface.card/80 p-5 shadow-card">
+                  <header className="mb-4 flex items-start justify-between gap-2">
+                    <h3 className="text-xl font-heading text-neutral-50">{category.name}</h3>
+                    <span className="text-sm text-neutral-400">{category.items.length} {locale === 'pl' ? 'pozycji' : locale === 'en' ? 'assets' : 'items'}</span>
+                  </header>
+                  <ul className="grid gap-4" role="list">
+                    {category.items.map((item) => (
+                      <li
+                        key={item.id}
+                        className="rounded-card border border-surface-border/70 bg-background-elevated/60 p-4 transition hover:border-primary-500"
+                      >
+                        <div className="flex items-center gap-3">
+                          {item.icon && (
+                            <span
+                              aria-hidden="true"
+                              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary-700/50 text-xl"
+                            >
+                              {item.icon}
+                            </span>
+                          )}
+                          <div>
+                            <h4 className="font-heading text-neutral-50">{item.name}</h4>
+                            <p className="text-xs uppercase tracking-wide text-primary-300">{item.status}</p>
+                          </div>
+                        </div>
+                        {item.specs?.length > 0 && (
+                          <ul className="mt-3 space-y-1 text-sm text-neutral-200" role="list">
+                            {item.specs.map((spec) => (
+                              <li key={spec} className="flex items-start gap-2">
+                                <span aria-hidden="true" className="mt-1 h-1 w-1 rounded-full bg-accent-led" />
+                                <span>{spec}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </section>
+
         {/* Skills */}
         <section
           id="skills"
@@ -155,6 +294,32 @@ const App: React.FC = () => {
               </Reveal>
             ))}
           </div>
+        </section>
+
+        {/* Career Timeline */}
+        <section
+          id="career"
+          ref={sectionsRef.career as React.RefObject<HTMLElement>}
+          aria-labelledby="career-title"
+          className="section mt-24"
+        >
+          <SectionHeading
+            id="career-title"
+            title={content[locale].career_timeline.title}
+            subtitle={content[locale].career_timeline.subtitle}
+          />
+          <Reveal>
+            <TimelineSlider
+              milestones={content[locale].career_timeline.milestones}
+              label={
+                locale === 'pl'
+                  ? `${content[locale].career_timeline.title} — oś czasu`
+                  : locale === 'nl'
+                  ? `${content[locale].career_timeline.title} — tijdlijn`
+                  : `${content[locale].career_timeline.title} timeline`
+              }
+            />
+          </Reveal>
         </section>
 
         {/* Projects */}
@@ -182,6 +347,93 @@ const App: React.FC = () => {
             <a href="#contact" className="text-primary-500 hover:text-primary-300">
               {locale === 'pl' ? 'Chcesz podobne wdrożenie? Skontaktuj się' : locale === 'en' ? 'Want a similar implementation? Get in touch' : 'Wil je iets soortgelijks? Neem contact op'}
             </a>
+          </div>
+        </section>
+
+        {/* Daremon Brand */}
+        <section
+          id="brand"
+          ref={sectionsRef.brand as React.RefObject<HTMLElement>}
+          aria-labelledby="brand-title"
+          className="section mt-24"
+        >
+          <SectionHeading id="brand-title" title={content[locale].brand.title} />
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.3fr)]">
+            <Reveal>
+              <article className="rounded-card border border-surface-border bg-surface.card/80 p-6 shadow-card">
+                <h3 className="text-xl font-heading text-neutral-50">{content[locale].brand.philosophy.title}</h3>
+                <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                  {content[locale].brand.philosophy.items.map((item) => (
+                    <div key={item.id} className="rounded-card border border-surface-border/60 bg-background-elevated/60 p-4">
+                      <div className="flex items-center gap-3">
+                        {item.icon && (
+                          <span aria-hidden="true" className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary-700/60 text-xl">
+                            {item.icon}
+                          </span>
+                        )}
+                        <h4 className="font-heading text-neutral-50">{item.name}</h4>
+                      </div>
+                      <p className="mt-2 text-sm text-neutral-300">{item.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </article>
+            </Reveal>
+            <Reveal>
+              <article className="rounded-card border border-surface-border bg-surface.card/80 p-6 shadow-card">
+                <h3 className="text-xl font-heading text-neutral-50">{content[locale].brand.services.title}</h3>
+                <div className="mt-5 space-y-4">
+                  {content[locale].brand.services.items.map((service) => (
+                    <article
+                      key={service.id}
+                      className="rounded-card border border-surface-border/70 bg-background-elevated/60 p-5 transition hover:border-primary-500"
+                    >
+                      <h4 className="text-lg font-heading text-neutral-50">{service.name}</h4>
+                      <p className="mt-2 text-neutral-200">{service.description}</p>
+                      {service.deliverables?.length > 0 && (
+                        <ul className="mt-3 space-y-1 text-sm text-neutral-200" role="list">
+                          {service.deliverables.map((deliverable) => (
+                            <li key={deliverable} className="flex items-start gap-2">
+                              <span aria-hidden="true" className="mt-1 h-1.5 w-1.5 rounded-full bg-primary-500" />
+                              <span>{deliverable}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                      {service.cta && <p className="mt-4 text-sm font-medium text-primary-300">{service.cta}</p>}
+                    </article>
+                  ))}
+                </div>
+              </article>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* Partners */}
+        <section
+          id="partners"
+          ref={sectionsRef.partners as React.RefObject<HTMLElement>}
+          aria-labelledby="partners-title"
+          className="section mt-24"
+        >
+          <SectionHeading
+            id="partners-title"
+            title={content[locale].partners.title}
+            subtitle={content[locale].partners.subtitle}
+          />
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {content[locale].partners.cards.map((card) => (
+              <Reveal key={card.id}>
+                <PartnerCard
+                  icon={card.icon}
+                  title={card.title}
+                  valueProposition={card.value_proposition}
+                  idealFor={card.ideal_for}
+                  highlights={card.highlights}
+                  ctaLabel={card.cta_label}
+                />
+              </Reveal>
+            ))}
           </div>
         </section>
 
