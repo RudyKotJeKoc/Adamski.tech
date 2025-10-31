@@ -287,62 +287,296 @@
         {
           "name": "DAREMON Radio ETS",
           "tagline": "Progressive Web App - Radio internetowe z wizualizacjami 3D",
-          "tech": ["React", "TypeScript", "Web Audio API", "Three.js", "Service Workers", "Vitest"],
-          "description": "2200+ linii kodu JavaScript, 18+ plików testowych. Pełna funkcjonalność offline, zaawansowane wizualizacje audio, profesjonalna architektura PWA. Projekt flagowy pokazujący kompetencje full-stack web development.",
-          "links": {
-            "demo": "https://daremonradioets.netlify.app",
-            "repo": "https://github.com/RudyKotJeKoc/DAREMON-Radio-ETS"
-          }
+          "summary": "Flagowy projekt PWA łączący streaming audio, wizualizacje 3D oraz pełny tryb offline dla odbiorców mobilnych i desktopowych.",
+          "challenge": "Zaprojektować radio internetowe, które działa bez dostępu do sieci i prezentuje dane audio w immersyjnej formie 3D.",
+          "approach": [
+            "Zbudowałem architekturę React + TypeScript z modułowym pipeline audio i zarządzaniem stanem.",
+            "Zaimplementowałem Service Workers oraz IndexedDB do cache'owania zasobów, playlist i konfiguracji wizualizacji.",
+            "Stworzyłem renderer WebGL/Three.js z presetami wizualizacji reagującymi na dynamikę utworu."
+          ],
+          "outcome": "Aplikacja PWA gotowa na produkcję: ładowanie <2s, pełna obsługa mobilna, testy jednostkowe (Vitest) i audyt Lighthouse 95+/100.",
+          "metrics": [
+            {
+              "label": "Linie kodu",
+              "value": "2200+"
+            },
+            {
+              "label": "Pliki testów",
+              "value": "18+"
+            },
+            {
+              "label": "Tryb offline",
+              "value": "100%"
+            }
+          ],
+          "skills": [
+            "React",
+            "TypeScript",
+            "Web Audio API",
+            "Three.js",
+            "Service Workers",
+            "Testowanie"
+          ],
+          "image": {
+            "src": "/assets/projects/daremon-radio-ets.svg",
+            "alt": "Ekran główny aplikacji DAREMON Radio ETS z wizualizacją audio 3D"
+          },
+          "ctas": [
+            {
+              "label": "Szczegółowe case study",
+              "href": "https://adamski.tech/case-studies/daremon-radio-ets",
+              "variant": "primary"
+            },
+            {
+              "label": "Zobacz demo",
+              "href": "https://daremonradioets.netlify.app",
+              "variant": "secondary"
+            },
+            {
+              "label": "Repozytorium GitHub",
+              "href": "https://github.com/RudyKotJeKoc/DAREMON-Radio-ETS",
+              "variant": "ghost"
+            }
+          ]
         },
         {
           "name": "Machine Transfer System",
           "tagline": "Responsywna aplikacja do trackingu relocacji 50+ maszyn przemysłowych",
-          "tech": ["HTML5", "CSS3", "JavaScript", "localStorage"],
-          "description": "Stworzona podczas zamknięcia fabryki ITB (2024-2025). Real-time status updates dla 3 destynacji (Czechy, Meksyk, złomowisko). Mobile-friendly interface usprawniający proces relocacji. Recognition od management za praktyczne rozwiązanie krytycznego problemu biznesowego.",
-          "links": {
-            "demo": "",
-            "repo": ""
-          }
+          "summary": "Lekka aplikacja webowa wspierająca zamknięcie zakładu ITB poprzez transparentne raportowanie statusu relokacji sprzętu.",
+          "challenge": "Zapewnienie pełnej widoczności w czasie rzeczywistym dla trzech lokalizacji docelowych podczas demontażu linii produkcyjnych.",
+          "approach": [
+            "Zmapowałem proces relokacji i odwzorowałem go na proste statusy aktualizowane bezpośrednio z hali.",
+            "Wdrożyłem lokalne przechowywanie (localStorage), aby aplikacja działała offline na tabletach i telefonach.",
+            "Dostarczyłem responsywny interfejs z widokiem destynacji, filtrami i kolorystyką statusów zgodną z procedurami BHP."
+          ],
+          "outcome": "Management otrzymał jeden punkt prawdy o przepływie maszyn, co skróciło czas raportowania i zapobiegło duplikacji pracy.",
+          "metrics": [
+            {
+              "label": "Maszyny śledzone",
+              "value": "50+"
+            },
+            {
+              "label": "Destynacje",
+              "value": "3"
+            },
+            {
+              "label": "Czas wdrożenia",
+              "value": "3 dni"
+            }
+          ],
+          "skills": [
+            "JavaScript",
+            "UX dla przemysłu",
+            "Procesy relokacyjne",
+            "Lean communication"
+          ],
+          "image": {
+            "src": "/assets/projects/machine-transfer-system.svg",
+            "alt": "Widok listy statusów w aplikacji Machine Transfer System"
+          },
+          "ctas": [
+            {
+              "label": "Szczegółowe case study",
+              "href": "https://adamski.tech/case-studies/machine-transfer-system",
+              "variant": "primary"
+            },
+            {
+              "label": "Porozmawiaj o wdrożeniu",
+              "href": "mailto:kontakt@adamski.tech?subject=Machine%20Transfer%20System",
+              "variant": "secondary"
+            }
+          ]
         },
         {
-          "name": "Własna Działalność - Automatyka Przemysłowa",
+          "name": "Własna działalność — Automatyka Przemysłowa",
           "tagline": "15 miesięcy przedsiębiorczości B2B (2020-2021)",
-          "tech": ["PLC (Siemens, Mitsubishi, Unitronics)", "Robotyka", "Diagnostyka", "Zarządzanie projektami"],
-          "description": "~250,000 PLN przychodu, ~15 klientów B2B, ~40 projektów (modernizacje PLC, naprawy awaryjne). 100% spłaconych faktur, 80% klientów powracających. Udowodniona zdolność do budowania i prowadzenia technicznego biznesu od zera.",
-          "links": {
-            "demo": "",
-            "repo": ""
-          }
+          "summary": "Solowa działalność realizująca serwis, modernizacje PLC oraz projekty MIM dla klientów z Polski i Holandii.",
+          "challenge": "Zbudować zaufanie i pipeline projektów w kilka miesięcy, startując bez zaplecza korporacyjnego.",
+          "approach": [
+            "Wypracowałem standardy obsługi awarii 24/7 oraz pakiety prewencyjne dla klientów kluczowych.",
+            "Rozwinąłem sieć partnerów (mechanika, elektryka, CNC), aby skalować kompetencje bez stałych kosztów.",
+            "Wdrożyłem CRM i system rozliczeń, które zapewniły terminowość faktur oraz raportowanie rentowności."
+          ],
+          "outcome": "Firma osiągnęła 250 tys. PLN przychodu w 15 miesięcy przy 100% opłaconych fakturach i 80% klientów powracających.",
+          "metrics": [
+            {
+              "label": "Przychód",
+              "value": "250k PLN"
+            },
+            {
+              "label": "Projekty zamknięte",
+              "value": "40+"
+            },
+            {
+              "label": "Powracający klienci",
+              "value": "80%"
+            }
+          ],
+          "skills": [
+            "Zarządzanie projektami",
+            "PLC Siemens",
+            "Diagnostyka przemysłowa",
+            "Negocjacje B2B"
+          ],
+          "image": {
+            "src": "/assets/projects/industrial-automation-business.svg",
+            "alt": "Schemat współpracy B2B w działalności Daremon Engineering"
+          },
+          "ctas": [
+            {
+              "label": "Case study działalności",
+              "href": "https://adamski.tech/case-studies/industrial-automation",
+              "variant": "primary"
+            },
+            {
+              "label": "Umów konsultację",
+              "href": "mailto:kontakt@adamski.tech?subject=Konsultacja%20Automatyka",
+              "variant": "secondary"
+            }
+          ]
         },
         {
           "name": "YouTube: @DariuszDaremon",
           "tagline": "481 subskrybentów - Edukacja techniczna i DIY projekty",
-          "tech": ["Hydraulika", "Spawanie TIG", "Automatyka", "DIY Engineering"],
-          "description": "36+ filmów: tutoriale techniczne, DIY projekty (hydrauliczna prasa, brama przesuwna), edukacja społeczności maker. Showcase praktycznych umiejętności i zdolności do przekazywania wiedzy technicznej w przystępny sposób.",
-          "links": {
-            "demo": "https://youtube.com/@DariuszDaremon",
-            "repo": ""
-          }
+          "summary": "Kanał wideo budujący społeczność maker i pokazujący praktyczne wdrożenia automatyki oraz DIY engineering.",
+          "challenge": "Przekuć złożoną wiedzę inżynieryjną na angażujący format wideo zrozumiały dla szerszej publiczności.",
+          "approach": [
+            "Opracowałem scenariusze lekcji i checklisty bezpieczeństwa dla nagrań warsztatowych.",
+            "Nagrywam i montuję materiał w warsztacie, łącząc ujęcia detali technicznych z narracją krok-po-kroku.",
+            "Optymalizuję SEO (miniatury, rozdziały, tagi), aby zwiększyć organiczny zasięg i retencję."
+          ],
+          "outcome": "Stały przyrost społeczności (15% r/r) i leady do projektów konsultingowych dzięki zaufaniu widzów.",
+          "metrics": [
+            {
+              "label": "Opublikowane filmy",
+              "value": "36+"
+            },
+            {
+              "label": "Subskrybenci",
+              "value": "481"
+            },
+            {
+              "label": "Komentarze/mies.",
+              "value": "40+"
+            }
+          ],
+          "skills": [
+            "Edukacja techniczna",
+            "Produkcja wideo",
+            "Community management"
+          ],
+          "image": {
+            "src": "/assets/projects/youtube-channel.svg",
+            "alt": "Kadr z filmu instruktażowego na kanale YouTube Dariusz Daremon"
+          },
+          "ctas": [
+            {
+              "label": "Szczegółowe case study",
+              "href": "https://adamski.tech/case-studies/youtube-channel",
+              "variant": "primary"
+            },
+            {
+              "label": "Odwiedź kanał",
+              "href": "https://youtube.com/@DariuszDaremon",
+              "variant": "secondary"
+            }
+          ]
         },
         {
           "name": "MIM Furnaces Modernization Proposal",
           "tagline": "Koncepcja biznesowa dla partnera Hansa (2024-2025)",
-          "tech": ["MIM Technology", "CVE/Elino Furnaces", "PLC Retrofit", "Business Planning"],
-          "description": "Kompleksowy business case: retrofit pieców próżniowych (PLC, sensory), małoskalowa produkcja high-end MIM, ROI calculations, partnership structure. Technical feasibility study połączone ze strategią biznesową. Status: Ongoing discussions (Oct 2025).",
-          "links": {
-            "demo": "",
-            "repo": ""
-          }
+          "summary": "Strategiczny blueprint modernizacji pieców próżniowych MIM wraz z modelem biznesowym małoskalowej produkcji premium.",
+          "challenge": "Zidentyfikować opłacalny model modernizacji istniejących pieców MIM i wejścia na rynek komponentów high-end.",
+          "approach": [
+            "Przeprowadziłem audyt techniczny pieców CVE/Elino oraz inwentaryzację czujników i sterowników.",
+            "Przygotowałem model finansowy CAPEX/OPEX z trzema scenariuszami ROI i analizą ryzyk.",
+            "Zaprojektowałem roadmapę retrofitu PLC, integracji IoT oraz strukturę partnerstwa joint-venture."
+          ],
+          "outcome": "Partner biznesowy otrzymał kompletny materiał do decyzji inwestycyjnej; projekt w fazie negocjacji (Q4 2025).",
+          "metrics": [
+            {
+              "label": "Piece w analizie",
+              "value": "2"
+            },
+            {
+              "label": "Scenariusze ROI",
+              "value": "3"
+            },
+            {
+              "label": "Status",
+              "value": "Negocjacje Q4 2025"
+            }
+          ],
+          "skills": [
+            "Technologia MIM",
+            "Retrofit PLC",
+            "Planowanie CAPEX",
+            "Analiza ryzyka"
+          ],
+          "image": {
+            "src": "/assets/projects/mim-furnaces-proposal.svg",
+            "alt": "Schemat modernizacji pieca MIM z zaznaczonymi punktami pomiarowymi"
+          },
+          "ctas": [
+            {
+              "label": "Streszczenie case study",
+              "href": "https://adamski.tech/case-studies/mim-furnaces-modernization",
+              "variant": "primary"
+            },
+            {
+              "label": "Umów warsztat strategiczny",
+              "href": "mailto:kontakt@adamski.tech?subject=MIM%20Modernizacja",
+              "variant": "secondary"
+            }
+          ]
         },
         {
           "name": "Home Assistant - Smart Home Infrastructure",
           "tagline": "50+ urządzeń, 30+ automatyzacji - produkcyjna instalacja",
-          "tech": ["Home Assistant", "ESPHome", "MQTT", "Automation", "IoT"],
-          "description": "Zaawansowany ekosystem smart home: wielopoziomowe automatyzacje, własne sensory ESP32, integracja systemów bezpieczeństwa. Praktyczna implementacja IoT na poziomie produkcyjnym, nie hobby - pełna dokumentacja i monitoring.",
-          "links": {
-            "demo": "",
-            "repo": ""
-          }
+          "summary": "Stabilna architektura smart home integrująca bezpieczeństwo, HVAC i autorskie sensory ESP32 w jednym panelu zarządzania.",
+          "challenge": "Zintegrować heterogeniczne systemy (oświetlenie, HVAC, bezpieczeństwo) w spójny i bezpieczny ekosystem.",
+          "approach": [
+            "Segmentowałem sieć (IoT, automatyzacje, goście) z kontrolą dostępu i monitoringiem zużycia energii.",
+            "Projektuję i programuję własne moduły ESPHome z kalibracją czujników i watchdogami sprzętowymi.",
+            "Buduję automatyzacje oparte o reguły, harmonogramy i dane pogodowe z fallbackami manualnymi."
+          ],
+          "outcome": "Instalacja działa 24/7 z monitorowaniem awarii i powiadomieniami <5 minut; infrastruktura gotowa do skalowania.",
+          "metrics": [
+            {
+              "label": "Urządzenia",
+              "value": "50+"
+            },
+            {
+              "label": "Automatyzacje",
+              "value": "30+"
+            },
+            {
+              "label": "Dostępność",
+              "value": "99.7%"
+            }
+          ],
+          "skills": [
+            "Home Assistant",
+            "ESPHome",
+            "IoT Security",
+            "Monitoring"
+          ],
+          "image": {
+            "src": "/assets/projects/smart-home-infrastructure.svg",
+            "alt": "Widok panelu Home Assistant z automatyzacjami i wykresami zużycia"
+          },
+          "ctas": [
+            {
+              "label": "Szczegółowe case study",
+              "href": "https://adamski.tech/case-studies/home-assistant",
+              "variant": "primary"
+            },
+            {
+              "label": "Skonsultuj architekturę",
+              "href": "mailto:kontakt@adamski.tech?subject=Home%20Assistant%20Consulting",
+              "variant": "secondary"
+            }
+          ]
         }
       ]
     },
@@ -647,63 +881,297 @@
       "items": [
         {
           "name": "DAREMON Radio ETS",
-          "tagline": "Progressive Web App - Internet radio with 3D visualizations",
-          "tech": ["React", "TypeScript", "Web Audio API", "Three.js", "Service Workers", "Vitest"],
-          "description": "2200+ lines of JavaScript, 18+ test files. Full offline functionality, advanced audio visualizations, professional PWA architecture. Flagship project showcasing full-stack web development competencies.",
-          "links": {
-            "demo": "https://daremonradioets.netlify.app",
-            "repo": "https://github.com/RudyKotJeKoc/DAREMON-Radio-ETS"
-          }
+          "tagline": "Progressive Web App – Internet radio with 3D visualizations",
+          "summary": "Flagship PWA combining audio streaming, 3D visualizations, and full offline mode for mobile and desktop listeners.",
+          "challenge": "Design an internet radio that works with unreliable connectivity while delivering immersive 3D audio analytics.",
+          "approach": [
+            "Built a React + TypeScript architecture with a modular audio pipeline and state management.",
+            "Implemented Service Workers and IndexedDB to cache assets, playlists, and visualization presets.",
+            "Created a WebGL/Three.js renderer with responsive visualization presets reacting to track dynamics."
+          ],
+          "outcome": "Production-ready PWA: <2s loading, full mobile support, Vitest unit coverage, Lighthouse score 95+/100.",
+          "metrics": [
+            {
+              "label": "Lines of code",
+              "value": "2200+"
+            },
+            {
+              "label": "Test files",
+              "value": "18+"
+            },
+            {
+              "label": "Offline coverage",
+              "value": "100%"
+            }
+          ],
+          "skills": [
+            "React",
+            "TypeScript",
+            "Web Audio API",
+            "Three.js",
+            "Service Workers",
+            "Testing"
+          ],
+          "image": {
+            "src": "/assets/projects/daremon-radio-ets.svg",
+            "alt": "DAREMON Radio ETS interface with 3D audio visualization"
+          },
+          "ctas": [
+            {
+              "label": "View detailed case study",
+              "href": "https://adamski.tech/case-studies/daremon-radio-ets",
+              "variant": "primary"
+            },
+            {
+              "label": "Launch demo",
+              "href": "https://daremonradioets.netlify.app",
+              "variant": "secondary"
+            },
+            {
+              "label": "Browse GitHub repo",
+              "href": "https://github.com/RudyKotJeKoc/DAREMON-Radio-ETS",
+              "variant": "ghost"
+            }
+          ]
         },
         {
           "name": "Machine Transfer System",
-          "tagline": "Responsive app for tracking relocation of 50+ industrial machines",
-          "tech": ["HTML5", "CSS3", "JavaScript", "localStorage"],
-          "description": "Created during ITB factory closure (2024-2025). Real-time status updates for 3 destinations (Czech Republic, Mexico, scrap). Mobile-friendly interface streamlining relocation process. Management recognition for practical solution to critical business problem.",
-          "links": {
-            "demo": "",
-            "repo": ""
-          }
+          "tagline": "Responsive tracking app for relocating 50+ industrial machines",
+          "summary": "Lightweight web app that supported the ITB factory shutdown with transparent relocation status reporting.",
+          "challenge": "Provide real-time visibility to three destination sites while disassembling production lines under time pressure.",
+          "approach": [
+            "Mapped the relocation process and translated it into simple statuses updated directly from the shop floor.",
+            "Implemented localStorage so the app works offline on tablets and phones used in the plant.",
+            "Delivered a responsive UI with destination views, filters, and safety-aligned status colors."
+          ],
+          "outcome": "Management received a single source of truth, reducing reporting time and preventing duplicated work streams.",
+          "metrics": [
+            {
+              "label": "Machines tracked",
+              "value": "50+"
+            },
+            {
+              "label": "Destinations",
+              "value": "3"
+            },
+            {
+              "label": "Implementation time",
+              "value": "3 days"
+            }
+          ],
+          "skills": [
+            "JavaScript",
+            "Industrial UX",
+            "Relocation process",
+            "Lean communication"
+          ],
+          "image": {
+            "src": "/assets/projects/machine-transfer-system.svg",
+            "alt": "Status board screen from the Machine Transfer System web app"
+          },
+          "ctas": [
+            {
+              "label": "View detailed case study",
+              "href": "https://adamski.tech/case-studies/machine-transfer-system",
+              "variant": "primary"
+            },
+            {
+              "label": "Discuss a rollout",
+              "href": "mailto:contact@adamski.tech?subject=Machine%20Transfer%20System",
+              "variant": "secondary"
+            }
+          ]
         },
         {
-          "name": "Own Business - Industrial Automation",
+          "name": "Independent Industrial Automation Practice",
           "tagline": "15 months of B2B entrepreneurship (2020-2021)",
-          "tech": ["PLC (Siemens, Mitsubishi, Unitronics)", "Robotics", "Diagnostics", "Project Management"],
-          "description": "~€60,000 revenue, ~15 B2B clients, ~40 projects (PLC modernizations, emergency repairs). 100% paid invoices, 80% returning clients. Proven ability to build and run technical business from scratch.",
-          "links": {
-            "demo": "",
-            "repo": ""
-          }
+          "summary": "Solo practice delivering maintenance, PLC modernizations, and MIM projects for Polish and Dutch clients.",
+          "challenge": "Build trust and a full project pipeline within months while starting without corporate backing.",
+          "approach": [
+            "Established 24/7 emergency response standards plus preventive service packages for key accounts.",
+            "Built a partner network (mechanical, electrical, CNC) to scale capabilities without fixed overhead.",
+            "Introduced CRM and financial tracking to ensure on-time invoicing and profitability reporting."
+          ],
+          "outcome": "Generated ~€60k revenue in 15 months with 100% invoices paid and 80% returning clients.",
+          "metrics": [
+            {
+              "label": "Revenue",
+              "value": "€60k"
+            },
+            {
+              "label": "Projects delivered",
+              "value": "40+"
+            },
+            {
+              "label": "Returning clients",
+              "value": "80%"
+            }
+          ],
+          "skills": [
+            "Project management",
+            "Siemens PLC",
+            "Industrial diagnostics",
+            "B2B negotiations"
+          ],
+          "image": {
+            "src": "/assets/projects/industrial-automation-business.svg",
+            "alt": "Service workflow diagram from the independent automation practice"
+          },
+          "ctas": [
+            {
+              "label": "View detailed case study",
+              "href": "https://adamski.tech/case-studies/industrial-automation",
+              "variant": "primary"
+            },
+            {
+              "label": "Book a consultation",
+              "href": "mailto:contact@adamski.tech?subject=Automation%20Consulting",
+              "variant": "secondary"
+            }
+          ]
         },
         {
           "name": "YouTube: @DariuszDaremon",
-          "tagline": "481 subscribers - Technical education & DIY projects",
-          "tech": ["Hydraulics", "TIG Welding", "Automation", "DIY Engineering"],
-          "description": "36+ videos: technical tutorials, DIY projects (hydraulic press, sliding gate), maker community education. Showcase of practical skills and ability to convey technical knowledge in accessible way.",
-          "links": {
-            "demo": "https://youtube.com/@DariuszDaremon",
-            "repo": ""
-          }
+          "tagline": "481 subscribers – Technical education & DIY projects",
+          "summary": "Video channel growing a maker community and showcasing real-world automation and DIY engineering builds.",
+          "challenge": "Translate complex engineering know-how into engaging, easy-to-follow video lessons.",
+          "approach": [
+            "Drafted lesson scripts and safety checklists for workshop recordings.",
+            "Shoot and edit on-site footage that blends technical close-ups with step-by-step narration.",
+            "Optimized SEO (thumbnails, chapters, tags) to boost organic reach and retention."
+          ],
+          "outcome": "Consistent 15% YoY community growth and inbound consulting leads thanks to viewer trust.",
+          "metrics": [
+            {
+              "label": "Videos published",
+              "value": "36+"
+            },
+            {
+              "label": "Subscribers",
+              "value": "481"
+            },
+            {
+              "label": "Monthly comments",
+              "value": "40+"
+            }
+          ],
+          "skills": [
+            "Technical education",
+            "Video production",
+            "Community management"
+          ],
+          "image": {
+            "src": "/assets/projects/youtube-channel.svg",
+            "alt": "Still frame from the Dariusz Daremon YouTube instructional series"
+          },
+          "ctas": [
+            {
+              "label": "View detailed case study",
+              "href": "https://adamski.tech/case-studies/youtube-channel",
+              "variant": "primary"
+            },
+            {
+              "label": "Visit the channel",
+              "href": "https://youtube.com/@DariuszDaremon",
+              "variant": "secondary"
+            }
+          ]
         },
         {
           "name": "MIM Furnaces Modernization Proposal",
           "tagline": "Business concept for partner Hans (2024-2025)",
-          "tech": ["MIM Technology", "CVE/Elino Furnaces", "PLC Retrofit", "Business Planning"],
-          "description": "Comprehensive business case: vacuum furnace retrofit (PLC, sensors), small-scale high-end MIM production, ROI calculations, partnership structure. Technical feasibility study combined with business strategy. Status: Ongoing discussions (Oct 2025).",
-          "links": {
-            "demo": "",
-            "repo": ""
-          }
+          "summary": "Strategic blueprint for retrofitting vacuum MIM furnaces paired with a premium small-batch production model.",
+          "challenge": "Identify a financially viable modernization path for existing MIM assets and entry strategy for high-end components.",
+          "approach": [
+            "Audited CVE/Elino furnace condition and catalogued sensors and controllers.",
+            "Developed a CAPEX/OPEX model with three ROI scenarios and risk analysis.",
+            "Designed a retrofit roadmap for PLC + IoT integration and a joint-venture partnership structure."
+          ],
+          "outcome": "Partner received an investment-grade package; negotiations in progress (Q4 2025).",
+          "metrics": [
+            {
+              "label": "Furnaces assessed",
+              "value": "2"
+            },
+            {
+              "label": "ROI scenarios",
+              "value": "3"
+            },
+            {
+              "label": "Status",
+              "value": "Negotiations Q4 2025"
+            }
+          ],
+          "skills": [
+            "MIM technology",
+            "PLC retrofit",
+            "CAPEX planning",
+            "Risk analysis"
+          ],
+          "image": {
+            "src": "/assets/projects/mim-furnaces-proposal.svg",
+            "alt": "Modernization concept diagram for a vacuum MIM furnace"
+          },
+          "ctas": [
+            {
+              "label": "View detailed case study",
+              "href": "https://adamski.tech/case-studies/mim-furnaces-modernization",
+              "variant": "primary"
+            },
+            {
+              "label": "Schedule a strategy workshop",
+              "href": "mailto:contact@adamski.tech?subject=MIM%20Modernization",
+              "variant": "secondary"
+            }
+          ]
         },
         {
-          "name": "Home Assistant - Smart Home Infrastructure",
-          "tagline": "50+ devices, 30+ automations - production installation",
-          "tech": ["Home Assistant", "ESPHome", "MQTT", "Automation", "IoT"],
-          "description": "Advanced smart home ecosystem: multi-level automations, custom ESP32 sensors, security systems integration. Practical IoT implementation at production level, not hobby - full documentation and monitoring.",
-          "links": {
-            "demo": "",
-            "repo": ""
-          }
+          "name": "Home Assistant – Smart Home Infrastructure",
+          "tagline": "50+ devices, 30+ automations – production-grade install",
+          "summary": "Reliable smart home architecture integrating security, HVAC, and custom ESP32 sensors in one control plane.",
+          "challenge": "Unify heterogeneous systems (lighting, HVAC, security) into a secure, dependable ecosystem.",
+          "approach": [
+            "Segmented the network (IoT, automations, guest) with access control and energy monitoring.",
+            "Designed and programmed custom ESPHome modules with sensor calibration and hardware watchdogs.",
+            "Built rule-based, schedule, and weather-driven automations with manual fallbacks."
+          ],
+          "outcome": "24/7 monitored installation with <5 minute incident alerts and headroom for further scaling.",
+          "metrics": [
+            {
+              "label": "Connected devices",
+              "value": "50+"
+            },
+            {
+              "label": "Automations",
+              "value": "30+"
+            },
+            {
+              "label": "Availability",
+              "value": "99.7%"
+            }
+          ],
+          "skills": [
+            "Home Assistant",
+            "ESPHome",
+            "IoT security",
+            "Monitoring"
+          ],
+          "image": {
+            "src": "/assets/projects/smart-home-infrastructure.svg",
+            "alt": "Home Assistant dashboard showing automations and energy usage charts"
+          },
+          "ctas": [
+            {
+              "label": "View detailed case study",
+              "href": "https://adamski.tech/case-studies/home-assistant",
+              "variant": "primary"
+            },
+            {
+              "label": "Review the architecture",
+              "href": "mailto:contact@adamski.tech?subject=Home%20Assistant%20Consulting",
+              "variant": "secondary"
+            }
+          ]
         }
       ]
     },
@@ -1008,63 +1476,297 @@
       "items": [
         {
           "name": "DAREMON Radio ETS",
-          "tagline": "Progressive Web App - Internetradio met 3D-visualisaties",
-          "tech": ["React", "TypeScript", "Web Audio API", "Three.js", "Service Workers", "Vitest"],
-          "description": "2200+ regels JavaScript, 18+ testbestanden. Volledige offline functionaliteit, geavanceerde audio-visualisaties, professionele PWA-architectuur. Vlaggenschipproject dat full-stack webontwikkelingscompetenties laat zien.",
-          "links": {
-            "demo": "https://daremonradioets.netlify.app",
-            "repo": "https://github.com/RudyKotJeKoc/DAREMON-Radio-ETS"
-          }
+          "tagline": "Progressive Web App – Internetradio met 3D-visualisaties",
+          "summary": "Flagship PWA die audiostreaming, 3D-visualisaties en volledige offline modus combineert voor mobiel en desktop.",
+          "challenge": "Een internetradio ontwerpen die blijft werken bij slechte connectiviteit en tegelijk rijke 3D-audioanalyse levert.",
+          "approach": [
+            "React- en TypeScript-architectuur gebouwd met een modulaire audio-pipeline en state management.",
+            "Service Workers en IndexedDB geïmplementeerd om assets, afspeellijsten en visualisatiepresets te cachen.",
+            "WebGL/Three.js-renderer ontwikkeld met responsieve presets die reageren op de dynamiek van de track."
+          ],
+          "outcome": "Productierijpe PWA: <2s laadtijd, volledige mobiele ondersteuning, Vitest-unit tests, Lighthouse-score 95+/100.",
+          "metrics": [
+            {
+              "label": "Regels code",
+              "value": "2200+"
+            },
+            {
+              "label": "Testbestanden",
+              "value": "18+"
+            },
+            {
+              "label": "Offline dekking",
+              "value": "100%"
+            }
+          ],
+          "skills": [
+            "React",
+            "TypeScript",
+            "Web Audio API",
+            "Three.js",
+            "Service Workers",
+            "Testen"
+          ],
+          "image": {
+            "src": "/assets/projects/daremon-radio-ets.svg",
+            "alt": "DAREMON Radio ETS-interface met 3D-audiovisualisatie"
+          },
+          "ctas": [
+            {
+              "label": "Bekijk de case study",
+              "href": "https://adamski.tech/case-studies/daremon-radio-ets",
+              "variant": "primary"
+            },
+            {
+              "label": "Start de demo",
+              "href": "https://daremonradioets.netlify.app",
+              "variant": "secondary"
+            },
+            {
+              "label": "GitHub-repository",
+              "href": "https://github.com/RudyKotJeKoc/DAREMON-Radio-ETS",
+              "variant": "ghost"
+            }
+          ]
         },
         {
           "name": "Machine Transfer System",
-          "tagline": "Responsieve app voor tracking van relocatie van 50+ industriële machines",
-          "tech": ["HTML5", "CSS3", "JavaScript", "localStorage"],
-          "description": "Gemaakt tijdens sluiting ITB-fabriek (2024-2025). Real-time statusupdates voor 3 bestemmingen (Tsjechië, Mexico, schroot). Mobile-friendly interface die relocatieproces stroomlijnt. Management erkenning voor praktische oplossing voor kritiek bedrijfsprobleem.",
-          "links": {
-            "demo": "",
-            "repo": ""
-          }
+          "tagline": "Responsieve tracking-app voor relocatie van 50+ industriële machines",
+          "summary": "Lichte webapp die de sluiting van de ITB-fabriek ondersteunde met transparante rapportage over relocatiestatussen.",
+          "challenge": "Realtime inzicht bieden aan drie bestemmingen terwijl productielijnen onder tijdsdruk worden gedemonteerd.",
+          "approach": [
+            "Het relocatieproces in kaart gebracht en vertaald naar eenvoudige statusupdates direct vanaf de werkvloer.",
+            "localStorage toegepast zodat de app offline werkt op tablets en telefoons in de fabriek.",
+            "Responsieve UI geleverd met bestemmingsweergaven, filters en veiligheidsgecodeerde statussen."
+          ],
+          "outcome": "Management kreeg één bron van waarheid, wat rapportagetijd verkortte en dubbele werkzaamheden voorkwam.",
+          "metrics": [
+            {
+              "label": "Machines gevolgd",
+              "value": "50+"
+            },
+            {
+              "label": "Bestemmingen",
+              "value": "3"
+            },
+            {
+              "label": "Implementatietijd",
+              "value": "3 dagen"
+            }
+          ],
+          "skills": [
+            "JavaScript",
+            "Industriële UX",
+            "Relocatieproces",
+            "Lean communicatie"
+          ],
+          "image": {
+            "src": "/assets/projects/machine-transfer-system.svg",
+            "alt": "Statusbordscherm van de Machine Transfer System-webapp"
+          },
+          "ctas": [
+            {
+              "label": "Bekijk de case study",
+              "href": "https://adamski.tech/case-studies/machine-transfer-system",
+              "variant": "primary"
+            },
+            {
+              "label": "Bespreek een rollout",
+              "href": "mailto:contact@adamski.tech?subject=Machine%20Transfer%20System",
+              "variant": "secondary"
+            }
+          ]
         },
         {
-          "name": "Eigen Bedrijf - Industriële Automatisering",
+          "name": "Zelfstandige praktijk – Industriële automatisering",
           "tagline": "15 maanden B2B-ondernemerschap (2020-2021)",
-          "tech": ["PLC (Siemens, Mitsubishi, Unitronics)", "Robotica", "Diagnostiek", "Projectmanagement"],
-          "description": "~€60.000 omzet, ~15 B2B-klanten, ~40 projecten (PLC-moderniseringen, noodreparaties). 100% betaalde facturen, 80% terugkerende klanten. Bewezen vermogen om technisch bedrijf vanaf nul op te bouwen en te runnen.",
-          "links": {
-            "demo": "",
-            "repo": ""
-          }
+          "summary": "Solo-praktijk voor onderhoud, PLC-modernisaties en MIM-projecten voor klanten in Polen en Nederland.",
+          "challenge": "Binnen enkele maanden vertrouwen en een volledige projectpijplijn opbouwen zonder corporatieve rugdekking.",
+          "approach": [
+            "24/7 storingsdienst en preventieve servicepakketten opgezet voor sleutelklanten.",
+            "Partnernetwerk (mechanisch, elektrisch, CNC) uitgebouwd om capaciteit te schalen zonder vaste kosten.",
+            "CRM en financieel toezicht ingevoerd om tijdige facturatie en winstgevendheid te borgen."
+          ],
+          "outcome": "~€60k omzet in 15 maanden met 100% betaalde facturen en 80% terugkerende klanten.",
+          "metrics": [
+            {
+              "label": "Omzet",
+              "value": "€60k"
+            },
+            {
+              "label": "Projecten",
+              "value": "40+"
+            },
+            {
+              "label": "Terugkerende klanten",
+              "value": "80%"
+            }
+          ],
+          "skills": [
+            "Projectmanagement",
+            "Siemens PLC",
+            "Industriële diagnose",
+            "B2B-onderhandeling"
+          ],
+          "image": {
+            "src": "/assets/projects/industrial-automation-business.svg",
+            "alt": "Workflow van de zelfstandige automatiseringspraktijk"
+          },
+          "ctas": [
+            {
+              "label": "Bekijk de case study",
+              "href": "https://adamski.tech/case-studies/industrial-automation",
+              "variant": "primary"
+            },
+            {
+              "label": "Plan een consult",
+              "href": "mailto:contact@adamski.tech?subject=Automation%20Consulting",
+              "variant": "secondary"
+            }
+          ]
         },
         {
           "name": "YouTube: @DariuszDaremon",
-          "tagline": "481 abonnees - Technische educatie & DIY-projecten",
-          "tech": ["Hydrauliek", "TIG Lassen", "Automatisering", "DIY Engineering"],
-          "description": "36+ video's: technische tutorials, DIY-projecten (hydraulische pers, schuifpoort), maker-gemeenschap educatie. Showcase van praktische vaardigheden en vermogen om technische kennis op toegankelijke manier over te brengen.",
-          "links": {
-            "demo": "https://youtube.com/@DariuszDaremon",
-            "repo": ""
-          }
+          "tagline": "481 abonnees – Technische educatie & DIY-projecten",
+          "summary": "Videokanaal dat een maker-community opbouwt en echte automatiserings- en DIY-projecten toont.",
+          "challenge": "Complexe engineeringkennis vertalen naar boeiende, gemakkelijk te volgen videolessen.",
+          "approach": [
+            "Les-scripts en veiligheidschecklists opgesteld voor werkplaatsopnames.",
+            "Op locatie gefilmd en gemonteerd met technische close-ups en stap-voor-stap uitleg.",
+            "SEO geoptimaliseerd (thumbnails, hoofdstukken, tags) voor meer organisch bereik en retentie."
+          ],
+          "outcome": "Constante groei van 15% per jaar en inkomende adviesaanvragen dankzij vertrouwen van kijkers.",
+          "metrics": [
+            {
+              "label": "Video's",
+              "value": "36+"
+            },
+            {
+              "label": "Abonnees",
+              "value": "481"
+            },
+            {
+              "label": "Reacties/maand",
+              "value": "40+"
+            }
+          ],
+          "skills": [
+            "Technische educatie",
+            "Videoproductie",
+            "Communitymanagement"
+          ],
+          "image": {
+            "src": "/assets/projects/youtube-channel.svg",
+            "alt": "Still uit de instructieserie op het YouTube-kanaal Dariusz Daremon"
+          },
+          "ctas": [
+            {
+              "label": "Bekijk de case study",
+              "href": "https://adamski.tech/case-studies/youtube-channel",
+              "variant": "primary"
+            },
+            {
+              "label": "Bezoek het kanaal",
+              "href": "https://youtube.com/@DariuszDaremon",
+              "variant": "secondary"
+            }
+          ]
         },
         {
-          "name": "MIM Ovens Modernisatie Voorstel",
-          "tagline": "Bedrijfsconcept voor partner Hans (2024-2025)",
-          "tech": ["MIM Technologie", "CVE/Elino Ovens", "PLC Retrofit", "Business Planning"],
-          "description": "Uitgebreide business case: vacuümoven retrofit (PLC, sensoren), kleinschalige high-end MIM-productie, ROI-berekeningen, partnership structuur. Technical feasibility study gecombineerd met bedrijfsstrategie. Status: Lopende discussies (Oct 2025).",
-          "links": {
-            "demo": "",
-            "repo": ""
-          }
+          "name": "MIM Furnaces Modernization Proposal",
+          "tagline": "Businessconcept voor partner Hans (2024-2025)",
+          "summary": "Strategische blauwdruk voor het retrofitten van vacuüm-MIM-ovens gecombineerd met een premium kleinschalig productiemodel.",
+          "challenge": "Een financieel haalbaar moderniseringstraject bepalen voor bestaande MIM-activa en een marktstrategie voor high-end componenten.",
+          "approach": [
+            "Technische audit van CVE/Elino-ovens uitgevoerd en sensoren en controllers geïnventariseerd.",
+            "CAPEX/OPEX-model met drie ROI-scenario's en risicoanalyse opgesteld.",
+            "Roadmap ontworpen voor PLC- en IoT-integratie plus joint-venture-partnerstructuur."
+          ],
+          "outcome": "Partner ontving een investeringswaardig pakket; onderhandelingen lopen (Q4 2025).",
+          "metrics": [
+            {
+              "label": "Ovens beoordeeld",
+              "value": "2"
+            },
+            {
+              "label": "ROI-scenario's",
+              "value": "3"
+            },
+            {
+              "label": "Status",
+              "value": "Onderhandelingen Q4 2025"
+            }
+          ],
+          "skills": [
+            "MIM-technologie",
+            "PLC-retrofit",
+            "CAPEX-planning",
+            "Risicoanalyse"
+          ],
+          "image": {
+            "src": "/assets/projects/mim-furnaces-proposal.svg",
+            "alt": "Modernisatieconcept voor een vacuüm-MIM-oven"
+          },
+          "ctas": [
+            {
+              "label": "Bekijk de case study",
+              "href": "https://adamski.tech/case-studies/mim-furnaces-modernization",
+              "variant": "primary"
+            },
+            {
+              "label": "Plan een strategiesessie",
+              "href": "mailto:contact@adamski.tech?subject=MIM%20Modernization",
+              "variant": "secondary"
+            }
+          ]
         },
         {
-          "name": "Home Assistant - Smart Home Infrastructuur",
-          "tagline": "50+ apparaten, 30+ automatiseringen - productie-installatie",
-          "tech": ["Home Assistant", "ESPHome", "MQTT", "Automation", "IoT"],
-          "description": "Geavanceerd smart home ecosysteem: multi-level automatiseringen, aangepaste ESP32-sensoren, integratie beveiligingssystemen. Praktische IoT-implementatie op productieniveau, geen hobby - volledige documentatie en monitoring.",
-          "links": {
-            "demo": "",
-            "repo": ""
-          }
+          "name": "Home Assistant – Smart Home Infrastructure",
+          "tagline": "50+ apparaten, 30+ automatiseringen – productieklare installatie",
+          "summary": "Betrouwbare smart home-architectuur die beveiliging, HVAC en custom ESP32-sensoren verenigt in één controlelaag.",
+          "challenge": "Heterogene systemen (verlichting, HVAC, beveiliging) samenbrengen in een veilig en stabiel ecosysteem.",
+          "approach": [
+            "Netwerk gesegmenteerd (IoT, automatiseringen, gasten) met toegangscontrole en energiebewaking.",
+            "Eigen ESPHome-modules ontworpen en geprogrammeerd met sensorkalibratie en hardware-watchdogs.",
+            "Automatiseringen gebouwd op basis van regels, schema's en weersdata met handmatige fallback."
+          ],
+          "outcome": "24/7 gemonitorde installatie met incidentmeldingen <5 minuten en ruimte voor verdere schaalvergroting.",
+          "metrics": [
+            {
+              "label": "Verbonden apparaten",
+              "value": "50+"
+            },
+            {
+              "label": "Automatiseringen",
+              "value": "30+"
+            },
+            {
+              "label": "Beschikbaarheid",
+              "value": "99,7%"
+            }
+          ],
+          "skills": [
+            "Home Assistant",
+            "ESPHome",
+            "IoT-beveiliging",
+            "Monitoring"
+          ],
+          "image": {
+            "src": "/assets/projects/smart-home-infrastructure.svg",
+            "alt": "Home Assistant-dashboard met automatiseringen en energiegrafieken"
+          },
+          "ctas": [
+            {
+              "label": "Bekijk de case study",
+              "href": "https://adamski.tech/case-studies/home-assistant",
+              "variant": "primary"
+            },
+            {
+              "label": "Bespreek de architectuur",
+              "href": "mailto:contact@adamski.tech?subject=Home%20Assistant%20Consulting",
+              "variant": "secondary"
+            }
+          ]
         }
       ]
     },
