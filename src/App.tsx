@@ -212,6 +212,13 @@ const App: React.FC = () => {
   const chartValueLabel = locale === 'pl' ? 'Ocena' : locale === 'nl' ? 'Score' : 'Score';
 
   // Smooth scroll offset handled via scroll-margin in CSS (.section)
+  const contactContent = content[locale].contact;
+  const envContactEmail = (import.meta.env.VITE_CONTACT_EMAIL as string | undefined)?.trim();
+  const contactEmail = envContactEmail && envContactEmail.length > 0 ? envContactEmail : contactContent.email ?? 'contact@adamski.tech';
+  const linkedinUrl = contactContent.socials?.linkedin ?? '#';
+  const callUrl = contactContent.call_url ?? linkedinUrl;
+  const contactChannels = contactContent.channels ?? [];
+  const privacyLink = contactContent.privacy;
   const year = new Date().getFullYear();
 
   return (
@@ -806,12 +813,79 @@ const App: React.FC = () => {
           aria-labelledby="contact-title"
           className="section mt-24"
         >
-          <SectionHeading id="contact-title" title={content[locale].contact.title} subtitle={content[locale].contact.subtitle} />
-          <div className="grid md:grid-cols-2 gap-8">
+          <SectionHeading id="contact-title" title={contactContent.title} subtitle={contactContent.subtitle} />
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+            <div className="rounded-card bg-surface.card border border-surface-border p-6 shadow-card flex flex-col gap-6">
+              <div>
+                <h3 className="font-heading text-2xl font-semibold text-neutral-50">{contactContent.headline ?? contactContent.title}</h3>
+                <p className="mt-3 text-neutral-300 text-base">{contactContent.subtext ?? contactContent.subtitle}</p>
+              </div>
+              <ul role="list" className="space-y-4">
+                {contactChannels.map((channel) => {
+                  const channelHref =
+                    channel.type === 'email'
+                      ? `mailto:${contactEmail}`
+                      : channel.type === 'linkedin'
+                      ? linkedinUrl
+                      : channel.type === 'call'
+                      ? contactContent.call_url ?? callUrl
+                      : undefined;
+                  return (
+                    <li key={`${channel.type ?? channel.label}-${channel.value}`} className="rounded-card bg-background-elevated/60 border border-surface-border px-4 py-3">
+                      <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+                        <span className="font-semibold text-neutral-100">{channel.label}</span>
+                        {channelHref ? (
+                          <a
+                            href={channelHref}
+                            className="text-primary-400 hover:text-primary-200 break-all"
+                            aria-label={`${channel.label}: ${channel.value}`}
+                            target={channel.type === 'email' ? undefined : '_blank'}
+                            rel={channel.type === 'email' ? undefined : 'noreferrer noopener'}
+                          >
+                            {channel.value}
+                          </a>
+                        ) : (
+                          <span className="text-neutral-300 break-all">{channel.value}</span>
+                        )}
+                      </div>
+                      {channel.description ? <p className="mt-1 text-sm text-neutral-400">{channel.description}</p> : null}
+                    </li>
+                  );
+                })}
+              </ul>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a
+                  href={`mailto:${contactEmail}`}
+                  className="px-4 py-2 rounded-button text-white bg-gradient-to-r from-primary-600 to-accent-led hover:from-primary-700 hover:to-accent-led text-center"
+                  aria-label={`${contactContent.ctas?.email ?? 'Email'}: ${contactEmail}`}
+                >
+                  {contactContent.ctas?.email ?? contactContent.email_label}
+                </a>
+                <a
+                  href={linkedinUrl}
+                  className="px-4 py-2 rounded-button border border-primary-600 text-primary-50 !bg-transparent !hover:bg-transparent hover:text-white text-center"
+                  aria-label={`${contactContent.ctas?.linkedin ?? 'LinkedIn'}: ${linkedinUrl}`}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  {contactContent.ctas?.linkedin ?? 'LinkedIn'}
+                </a>
+                <a
+                  href={callUrl}
+                  className="px-4 py-2 rounded-button border border-surface-border text-neutral-100 hover:border-primary-500 hover:text-primary-100 text-center"
+                  aria-label={`${contactContent.ctas?.call ?? 'Book a call'}: ${callUrl}`}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  {contactContent.ctas?.call ?? 'Book a call'}
+                </a>
+              </div>
+              <p className="text-sm text-neutral-400">{contactContent.availability_note}</p>
+            </div>
             <form
               id="contact-form"
-              aria-describedby="contact-note"
-              className="rounded-card bg-surface.card border border-surface-border p-4 shadow-card"
+              aria-describedby="contact-note message-help"
+              className="rounded-card bg-surface.card border border-surface-border p-6 shadow-card"
               onSubmit={(e) => {
                 e.preventDefault();
                 const form = e.currentTarget as HTMLFormElement;
@@ -821,48 +895,80 @@ const App: React.FC = () => {
                 const message = String(fd.get('message') || '');
                 const subject = encodeURIComponent(`Kontakt z Adamski.tech — ${name}`);
                 const body = encodeURIComponent(`Imię i nazwisko: ${name}\nEmail: ${email}\n\nWiadomość:\n${message}`);
-                window.location.href = `mailto:TODO:email?subject=${subject}&body=${body}`;
+                window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
               }}
             >
-              <label htmlFor="name" className="block text-neutral-200 mb-1">Imię i nazwisko</label>
-              <input id="name" name="name" required autoComplete="name" className="w-full rounded-button bg-background-elevated border border-surface-border px-3 py-2 mb-4" />
-              <label htmlFor="email" className="block text-neutral-200 mb-1">{content[locale].contact.email_label}</label>
-              <input id="email" type="email" name="email" required autoComplete="email" className="w-full rounded-button bg-background-elevated border border-surface-border px-3 py-2 mb-4" />
-              <label htmlFor="message" className="block text-neutral-200 mb-1">Wiadomość</label>
-              <textarea id="message" name="message" rows={6} required className="w-full rounded-card bg-background-elevated border border-surface-border px-3 py-2 mb-4" />
-              <div className="flex gap-3">
-                <button type="submit" className="px-4 py-2 rounded-button text-white bg-gradient-to-r from-primary-600 to-accent-led hover:from-primary-700 hover:to-accent-led">
+              <fieldset className="space-y-4" aria-label="Formularz kontaktowy">
+                <div>
+                  <label htmlFor="name" className="block text-neutral-200 mb-1">
+                    Imię i nazwisko
+                  </label>
+                  <input
+                    id="name"
+                    name="name"
+                    required
+                    autoComplete="name"
+                    className="w-full rounded-button bg-background-elevated border border-surface-border px-3 py-2"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-neutral-200 mb-1">
+                    {contactContent.email_label}
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    required
+                    autoComplete="email"
+                    className="w-full rounded-button bg-background-elevated border border-surface-border px-3 py-2"
+                  />
+                </div>
+                <div>
+                  <div className="flex items-baseline justify-between gap-2">
+                    <label htmlFor="message" className="block text-neutral-200 mb-1">
+                      Wiadomość
+                    </label>
+                    <span id="message-help" className="text-xs text-neutral-400">
+                      Podaj kontekst projektu, zakres i terminy.
+                    </span>
+                  </div>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={6}
+                    required
+                    className="w-full rounded-card bg-background-elevated border border-surface-border px-3 py-2"
+                    aria-describedby="message-help"
+                  />
+                </div>
+              </fieldset>
+              <div className="mt-4 flex flex-col sm:flex-row gap-3">
+                <button
+                  type="submit"
+                  className="px-4 py-2 rounded-button text-white bg-gradient-to-r from-primary-600 to-accent-led hover:from-primary-700 hover:to-accent-led"
+                  aria-label="Wyślij wiadomość email"
+                >
                   Wyślij
                 </button>
-                <a href="mailto:TODO:email" className="px-4 py-2 rounded-button border border-primary-600 text-primary-50 !bg-transparent !hover:bg-transparent hover:text-white">
-                  Wyślij email
+                <a
+                  href={`mailto:${contactEmail}`}
+                  className="px-4 py-2 rounded-button border border-primary-600 text-primary-50 !bg-transparent !hover:bg-transparent hover:text-white text-center"
+                  aria-label={`Otwórz klienta poczty dla ${contactEmail}`}
+                >
+                  {contactContent.ctas?.email ?? contactContent.email_label}
                 </a>
               </div>
-              <small id="contact-note" className="block mt-3 text-neutral-400">
-                Dane wykorzystane wyłącznie do kontaktu. TODO: link do polityki prywatności.
+              <small id="contact-note" className="block mt-4 text-sm text-neutral-400">
+                Dane wykorzystane wyłącznie do kontaktu.{' '}
+                {privacyLink?.url ? (
+                  <a href={privacyLink.url} className="text-primary-400 hover:text-primary-200" target="_blank" rel="noreferrer noopener">
+                    {privacyLink.label}
+                  </a>
+                ) : null}
+                .
               </small>
             </form>
-            <div className="rounded-card bg-surface.card border border-surface-border p-4 shadow-card">
-              <h3 className="font-heading font-semibold text-neutral-50 mb-2">Alternatywny kontakt</h3>
-              <ul className="space-y-2">
-                <li>
-                  <a className="text-neutral-300 hover:text-neutral-50" href={content[locale].contact.socials.github || '#'}>
-                    GitHub
-                  </a>
-                </li>
-                <li>
-                  <a className="text-neutral-300 hover:text-neutral-50" href={content[locale].contact.socials.linkedin || '#'}>
-                    LinkedIn
-                  </a>
-                </li>
-                <li>
-                  <a className="text-neutral-300 hover:text-neutral-50" href={content[locale].contact.socials.youtube || '#'}>
-                    YouTube
-                  </a>
-                </li>
-              </ul>
-              <p className="mt-3 text-neutral-300">{content[locale].contact.availability_note}</p>
-            </div>
           </div>
         </section>
 

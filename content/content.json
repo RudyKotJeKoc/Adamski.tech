@@ -590,14 +590,47 @@
       ]
     },
     "contact": {
-      "title": "Kontakt",
-      "subtitle": "Preferowany kontakt: email lub LinkedIn. Odpowiadam w ciągu 24-48h.",
+      "title": "Partnerstwa i współpraca",
+      "subtitle": "Strategiczne projekty automatyki, MIM i produktów cyfrowych.",
+      "headline": "Porozmawiajmy o partnerstwie technicznym",
+      "subtext": "Preferuję rozmowy o wspólnych wdrożeniach, modernizacji produkcji i R&D. Wybierz kanał, który najszybciej uruchomi pierwszy krok.",
       "email_label": "Email",
       "phone_label": "Telefon",
+      "email": "partner@adamski.tech",
+      "channels": [
+        {
+          "type": "email",
+          "label": "Email bezpośredni",
+          "value": "partner@adamski.tech",
+          "description": "Najlepszy do briefów, dokumentacji i ofert."
+        },
+        {
+          "type": "linkedin",
+          "label": "LinkedIn",
+          "value": "linkedin.com/in/dariusz-adamski",
+          "description": "Szybkie intro partnerskie oraz aktualizacje."
+        },
+        {
+          "type": "call",
+          "label": "Rozmowa 30 min",
+          "value": "cal.com/daremon/intro",
+          "description": "Online discovery call – doprecyzowanie potrzeb i kolejnych kroków."
+        }
+      ],
+      "ctas": {
+        "email": "Wyślij brief",
+        "linkedin": "Napisz na LinkedIn",
+        "call": "Zarezerwuj rozmowę"
+      },
       "socials": {
         "github": "https://github.com/RudyKotJeKoc",
         "linkedin": "https://linkedin.com/in/dariusz-adamski",
         "youtube": "https://youtube.com/@DariuszDaremon"
+      },
+      "call_url": "https://cal.com/daremon/intro",
+      "privacy": {
+        "label": "Polityka prywatności",
+        "url": "https://adamski.tech/privacy"
       },
       "address": "Holandia / Nederland",
       "availability_note": "Dostępny do: Konsultacji technicznych, Projektów modernizacyjnych, Partnership ventures (MIM/Daremon Lab), Technical leadership. Odpowiem szybko - cenię przejrzystą komunikację."
@@ -1580,14 +1613,47 @@
       ]
     },
     "contact": {
-      "title": "Contact",
-      "subtitle": "Preferred contact: email or LinkedIn. I respond within 24-48h.",
+      "title": "Partnerships & collaboration",
+      "subtitle": "Strategic automation, MIM and digital product initiatives.",
+      "headline": "Let's discuss a long-term technical partnership",
+      "subtext": "I focus on co-building production capabilities, modernization programmes and R&D. Choose the channel that accelerates the first decision.",
       "email_label": "Email",
       "phone_label": "Phone",
+      "email": "partner@adamski.tech",
+      "channels": [
+        {
+          "type": "email",
+          "label": "Direct email",
+          "value": "partner@adamski.tech",
+          "description": "Ideal for briefs, specs and partnership proposals."
+        },
+        {
+          "type": "linkedin",
+          "label": "LinkedIn",
+          "value": "linkedin.com/in/dariusz-adamski",
+          "description": "Fast executive intro and ongoing dialogue."
+        },
+        {
+          "type": "call",
+          "label": "30-minute call",
+          "value": "cal.com/daremon/intro",
+          "description": "Online discovery session to align on scope and next steps."
+        }
+      ],
+      "ctas": {
+        "email": "Send a brief",
+        "linkedin": "Message on LinkedIn",
+        "call": "Book a call"
+      },
       "socials": {
         "github": "https://github.com/RudyKotJeKoc",
         "linkedin": "https://linkedin.com/in/dariusz-adamski",
         "youtube": "https://youtube.com/@DariuszDaremon"
+      },
+      "call_url": "https://cal.com/daremon/intro",
+      "privacy": {
+        "label": "Privacy policy",
+        "url": "https://adamski.tech/privacy"
       },
       "address": "Netherlands / Holland",
       "availability_note": "Available for: Technical consulting, Modernization projects, Partnership ventures (MIM/Daremon Lab), Technical leadership. I respond quickly - I value clear communication."
@@ -2567,14 +2633,47 @@
       ]
     },
     "contact": {
-      "title": "Contact",
-      "subtitle": "Voorkeur contact: e-mail of LinkedIn. Ik reageer binnen 24-48u.",
+      "title": "Partnerschap & samenwerking",
+      "subtitle": "Strategische automatisering, MIM en digitale producten.",
+      "headline": "Laten we praten over een technisch partnerschap",
+      "subtext": "Ik focus op gezamenlijke implementaties, modernisering en R&D-trajecten. Kies het kanaal dat de eerste stap versnelt.",
       "email_label": "E‑mail",
       "phone_label": "Telefoon",
+      "email": "partner@adamski.tech",
+      "channels": [
+        {
+          "type": "email",
+          "label": "Directe e-mail",
+          "value": "partner@adamski.tech",
+          "description": "Ideaal voor briefs, specificaties en voorstellen."
+        },
+        {
+          "type": "linkedin",
+          "label": "LinkedIn",
+          "value": "linkedin.com/in/dariusz-adamski",
+          "description": "Snel executive-intro en voortgezet overleg."
+        },
+        {
+          "type": "call",
+          "label": "Gesprek van 30 min",
+          "value": "cal.com/daremon/intro",
+          "description": "Online kennismaking om scope en vervolgstappen af te stemmen."
+        }
+      ],
+      "ctas": {
+        "email": "Stuur een brief",
+        "linkedin": "Bericht via LinkedIn",
+        "call": "Plan een call"
+      },
       "socials": {
         "github": "https://github.com/RudyKotJeKoc",
         "linkedin": "https://linkedin.com/in/dariusz-adamski",
         "youtube": "https://youtube.com/@DariuszDaremon"
+      },
+      "call_url": "https://cal.com/daremon/intro",
+      "privacy": {
+        "label": "Privacybeleid",
+        "url": "https://adamski.tech/privacy"
       },
       "address": "Nederland",
       "availability_note": "Beschikbaar voor: Technische consultancy, Modernisatieprojecten, Partnership ventures (MIM/Daremon Lab), Technical leadership. Ik reageer snel - ik waardeer heldere communicatie."
