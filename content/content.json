@@ -134,11 +134,25 @@
               "detail": "Programowanie cykli, kalibracja form i prewencyjna konserwacja serii Arburg Golden Edition oraz Allrounder."
             },
             {
-              "id": "fanuc",
-              "name": "Roboty FANUC i Unitronics PLC",
-              "experience": "10+ lat doświadczenia w integracji",
+              "id": "plastics",
+              "name": "Przetwórstwo tworzyw sztucznych",
+              "experience": "Od 2013 - ekstruder, wtryski, wytłaczarko-wydmuchiwarki",
               "rating": { "value": 8.5, "scale": 10 },
-              "detail": "Programowanie robotów FANUC, integracja sterowników Unitronics, oraz konfiguracja systemów produkcyjnych w Cleanroom class 7."
+              "detail": "Kompleksowa praca z tworzywem w różnych procesach: ekstruderach, wtryskarkach oraz wytłaczarko-wydmuchiwarkami."
+            },
+            {
+              "id": "fanuc",
+              "name": "Roboty FANUC",
+              "experience": "5+ lat integracji i programowania",
+              "rating": { "value": 8.5, "scale": 10 },
+              "detail": "Programowanie robotów FANUC, konfiguracja systemów bezpieczeństwa, integracja z liniami produkcyjnymi."
+            },
+            {
+              "id": "unitronics",
+              "name": "PLC Unitronics",
+              "experience": "4+ lata programowania",
+              "rating": { "value": 8.0, "scale": 10 },
+              "detail": "Programowanie sterowników Unitronics, tworzenie interfejsów HMI, diagnostyka i rozwiązywanie problemów."
             },
             {
               "id": "siemens",
@@ -159,7 +173,7 @@
               "name": "Pneumatyka/Hydraulika",
               "experience": "10+ lat serwisowania układów",
               "rating": { "value": 8.0, "scale": 10 },
-              "detail": "Projektowanie schematów, diagnostyka zaworów proporcjonalnych i układów wysokociśnieniowych."
+              "detail": "Projektowanie schematów, diagnostyka zaworów proporcjonalnych i układów wysokociśnieniowych. Praca techniczna wraz z utrzymaniem ruchu w Cleanroom class 7."
             }
           ]
         },
@@ -251,9 +265,9 @@
             {
               "id": "business-ops",
               "name": "Własna działalność",
-              "experience": "~250k PLN przychodu w 15 miesięcy (szacunkowo)",
+              "experience": "15 miesięcy prowadzenia działalności B2B",
               "rating": { "value": 8.5, "scale": 10 },
-              "detail": "Sprzedaż konsultacyjna, budowa portfela klientów B2B i pełna księgowość."
+              "detail": "Sprzedaż konsultacyjna, budowa portfela klientów B2B i pełna księgowość. Satysfakcjonujący przychód z 40+ projektów."
             },
             {
               "id": "project-management",
@@ -282,6 +296,7 @@
       "highlights": [
         "Full-Stack Manufacturing: SolidWorks → PLC → React → TIG welding",
         "AI-Enhanced Professional (TOP 1-2%): 852 MB bazy wiedzy, ~250 konwersacji strategicznych, ~17,500 wiadomości, ~55,000 stron A4 dokumentacji, 1,000+ godzin collaborative thinking (14-18 miesięcy intensywnej współpracy). Wykorzystanie AI na poziomie eksperckim - od prototypowania przez dokumentację po strategiczne decyzje projektowe.",
+        "AI-Augmented Professional: Zaawansowane wykorzystanie Claude (Anthropic) i narzędzi AI do prototypowania, dokumentacji i rozwiązywania problemów technicznych. 852 MB bazy wiedzy, ~250 sesji strategicznych, ~17,500 wiadomości, ~55,000 stron dokumentacji, 1,000+ godzin collaborative thinking. Poziom: ekspert w prompt engineeringu, systemowym workflow i integracji AI z procesami przemysłowymi.",
         "Zero poważnych wypadków w 10+ lat kariery",
         "Średnia ocena kompetencji: 8.25/10"
       ]
@@ -350,16 +365,16 @@
         },
         {
           "name": "Machine Transfer System",
-          "tagline": "Koncepcja aplikacji do trackingu relocacji maszyn przemysłowych",
+          "tagline": "Prototyp aplikacji do trackingu relocacji 50+ maszyn przemysłowych",
 
-          "summary": "Zaprojektowana (nie wdrożona) aplikacja webowa wspierająca potencjalne zamknięcie zakładu poprzez transparentne raportowanie statusu relokacji sprzętu. Koncepcja okazała się zbędna, gdyż istniejące rozwiązania były wystarczające.",
+          "summary": "Proof-of-concept aplikacji webowej zaprojektowanej dla wsparcia zamknięcia zakładu ITB, ostatecznie nie wdrożonej - wystarczyło obecne rozwiązanie.",
           "challenge": "Zapewnienie pełnej widoczności w czasie rzeczywistym dla trzech lokalizacji docelowych podczas demontażu linii produkcyjnych.",
           "approach": [
             "Zmapowałem proces relokacji i odwzorowałem go na proste statusy aktualizowane bezpośrednio z hali.",
-            "Wdrożyłem lokalne przechowywanie (localStorage), aby aplikacja działała offline na tabletach i telefonach.",
-            "Dostarczyłem responsywny interfejs z widokiem destynacji, filtrami i kolorystyką statusów zgodną z procedurami BHP."
+            "Zaprojektowałem lokalne przechowywanie (localStorage), aby aplikacja działała offline na tabletach i telefonach.",
+            "Przygotowałem responsywny interfejs z widokiem destynacji, filtrami i kolorystyką statusów zgodną z procedurami BHP."
           ],
-          "outcome": "Koncepcja przygotowana i zaprezentowana, jednak po analizie istniejących rozwiązań okazała się zbędna - obecne systemy były wystarczające.",
+          "outcome": "Prototyp gotowy do wdrożenia, jednak istniejące rozwiązania okazały się wystarczające. Projekt pokazał możliwości szybkiego prototypowania dedykowanych narzędzi przemysłowych.",
           "metrics": [
             {
               "label": "Status projektu",
@@ -408,12 +423,8 @@
             "Rozwinąłem sieć partnerów (mechanika, elektryka, CNC), aby skalować kompetencje bez stałych kosztów.",
             "Wdrożyłem CRM i system rozliczeń, które zapewniły terminowość faktur oraz raportowanie rentowności."
           ],
-          "outcome": "Firma osiągnęła około 250 tys. PLN przychodu (szacunkowo) w 15 miesięcy przy 100% opłaconych fakturach i 80% klientów powracających.",
+          "outcome": "Działalność w 15 miesięcy osiągnęła satysfakcjonujące rezultaty przy 100% opłaconych fakturach i 80% klientów powracających.",
           "metrics": [
-            {
-              "label": "Przychód",
-              "value": "~250k PLN"
-            },
             {
               "label": "Projekty zamknięte",
               "value": "40+"
@@ -421,6 +432,10 @@
             {
               "label": "Powracający klienci",
               "value": "80%"
+            },
+            {
+              "label": "Okres działalności",
+              "value": "15 miesięcy"
             }
           ],
           "skills": [
@@ -872,7 +887,7 @@
           "context": "ITB / Hansa + projekty MIM",
           "summary": "Koordynacja relokacji 50+ maszyn, PoC dla modernizacji pieców próżniowych, audyty bezpieczeństwa.",
           "highlights": [
-            "Wdrożony system śledzenia przenosin maszyn",
+            "Prototyp systemu śledzenia przenosin maszyn (nie wdrożony - wystarczyło obecne rozwiązanie)",
             "Proof-of-concept MIM furnace retrofit",
             "Warsztaty AI dla zespołów utrzymania ruchu"
           ]
@@ -882,7 +897,7 @@
           "period": "2020-2021",
           "role": "Właściciel Daremon Engineering",
           "context": "B2B automatyka i serwis",
-          "summary": "Budowa działalności od zera — 250k PLN przychodu, 40 projektów modernizacyjnych.",
+          "summary": "Budowa działalności od zera — 40 projektów modernizacyjnych z portfelem stałych klientów B2B.",
           "highlights": [
             "Programowanie PLC (Siemens, Mitsubishi)",
             "Kontrakty serwisowe 24/7",
@@ -1028,7 +1043,7 @@
   "en": {
     "meta": {
       "title": "Daremon Engineering — Adamski.tech",
-      "description": "Senior Multi-Disciplinary Specialist: 15+ years industrial experience + digital competencies (React, TypeScript, Python, AI). Hardware ↔ Software Bridge."
+      "description": "Senior Multi-Disciplinary Specialist: 10+ years industrial experience + digital competencies (React, TypeScript, Python, AI). Hardware ↔ Software Bridge."
     },
     "navigation": {
       "hero": "Home",
@@ -1160,11 +1175,25 @@
               "detail": "Cycle programming, mold calibration, and preventive maintenance for Arburg Golden Edition and Allrounder series."
             },
             {
-              "id": "fanuc",
-              "name": "FANUC robots & Unitronics PLC",
-              "experience": "10+ years integration experience",
+              "id": "plastics",
+              "name": "Plastics processing",
+              "experience": "Since 2013 - extruders, injection molding, blow molding",
               "rating": { "value": 8.5, "scale": 10 },
-              "detail": "Programming FANUC robots, integrating Unitronics controllers, and configuring production systems in Cleanroom class 7."
+              "detail": "Comprehensive work with plastics across various processes: extruders, injection molding machines, and blow molding machines."
+            },
+            {
+              "id": "fanuc",
+              "name": "FANUC robots",
+              "experience": "5+ years integration and programming",
+              "rating": { "value": 8.5, "scale": 10 },
+              "detail": "Programming FANUC robots, safety system configuration, integration with production lines."
+            },
+            {
+              "id": "unitronics",
+              "name": "Unitronics PLC",
+              "experience": "4+ years programming",
+              "rating": { "value": 8.0, "scale": 10 },
+              "detail": "Programming Unitronics controllers, creating HMI interfaces, diagnostics and troubleshooting."
             },
             {
               "id": "siemens",
@@ -1185,7 +1214,7 @@
               "name": "Pneumatics/Hydraulics",
               "experience": "10+ years maintaining systems",
               "rating": { "value": 8.0, "scale": 10 },
-              "detail": "Designing schematics, troubleshooting proportional valves, and supporting high-pressure systems."
+              "detail": "Designing schematics, troubleshooting proportional valves, and supporting high-pressure systems. Technical work including maintenance in Cleanroom class 7."
             }
           ]
         },
@@ -1277,9 +1306,9 @@
             {
               "id": "business-ops",
               "name": "Own business",
-              "experience": "~€60k+ revenue in 15 months (approximate)",
+              "experience": "15 months running B2B operations",
               "rating": { "value": 8.5, "scale": 10 },
-              "detail": "Consultative selling, building a B2B client portfolio, and end-to-end accounting."
+              "detail": "Consultative selling, building a B2B client portfolio, and end-to-end accounting. Satisfactory revenue from 40+ projects."
             },
             {
               "id": "project-management",
@@ -1307,7 +1336,7 @@
       ],
       "highlights": [
         "Full-Stack Manufacturing: SolidWorks → PLC → React → TIG welding",
-        "AI-Enhanced Professional (TOP 1-2%): 852 MB knowledge base, ~250 strategic conversations, ~17,500 messages, ~55,000 A4 pages documentation, 1,000+ hours collaborative thinking (14-18 months intensive collaboration). Expert-level AI utilization - from prototyping through documentation to strategic project decisions.",
+        "AI-Augmented Professional: Advanced use of Claude (Anthropic) and AI tools for prototyping, documentation, and technical problem-solving. 852 MB knowledge base, ~250 strategic sessions, ~17,500 messages, ~55,000 pages documentation, 1,000+ hours collaborative thinking. Level: expert in prompt engineering, systematic workflow, and AI integration with industrial processes.",
         "Zero serious accidents in 10+ year career",
         "Average competency rating: 8.25/10"
       ]
@@ -1433,12 +1462,8 @@
             "Built a partner network (mechanical, electrical, CNC) to scale capabilities without fixed overhead.",
             "Introduced CRM and financial tracking to ensure on-time invoicing and profitability reporting."
           ],
-          "outcome": "Generated ~€60k revenue (approximate) in 15 months with 100% invoices paid and 80% returning clients.",
+          "outcome": "Achieved satisfactory results in 15 months with 100% invoices paid and 80% returning clients.",
           "metrics": [
-            {
-              "label": "Revenue",
-              "value": "~€60k"
-            },
             {
               "label": "Projects delivered",
               "value": "40+"
@@ -1897,7 +1922,7 @@
           "context": "ITB / Hansa & MIM modernization",
           "summary": "Coordinated relocation of 50+ machines, furnace retrofit PoC, and safety audits.",
           "highlights": [
-            "Deployed machine transfer tracking system",
+            "Machine transfer tracking prototype (not deployed - existing solution was sufficient)",
             "Proof-of-concept MIM furnace retrofit",
             "AI workshops for maintenance teams"
           ]
@@ -1907,7 +1932,7 @@
           "period": "2020-2021",
           "role": "Founder — Daremon Engineering",
           "context": "B2B automation and service",
-          "summary": "Built business from scratch — €60k+ revenue, 40 modernization projects.",
+          "summary": "Built business from scratch — 40 modernization projects with stable B2B client portfolio.",
           "highlights": [
             "PLC programming (Siemens, Mitsubishi)",
             "24/7 service retainers",
@@ -2053,7 +2078,7 @@
   "nl": {
     "meta": {
       "title": "Daremon Engineering — Adamski.tech",
-      "description": "Senior Multi-Disciplinaire Specialist: 15+ jaar industriële ervaring + digitale competenties (React, TypeScript, Python, AI). Hardware ↔ Software Bridge."
+      "description": "Senior Multi-Disciplinaire Specialist: 10+ jaar industriële ervaring + digitale competenties (React, TypeScript, Python, AI). Hardware ↔ Software Bridge."
     },
     "navigation": {
       "hero": "Start",
@@ -2122,26 +2147,13 @@
             "label": "Plan een consult",
             "href": "#contact"
           }
-        },
-        {
-          "title": "Gespecialiseerde ervaring",
-          "icon": "🏭",
-          "items": [
-            "**Technisch werk** met onderhoud in Cleanroom class 7 omgevingen.",
-            "**Sinds 2013** ervaring met kunststoffen: extruders, spuitgiet- en blaasvormmachines.",
-            "**R&D-partnerships** voor MIM-oven upgrades en maatwerksystemen."
-          ],
-          "cta": {
-            "label": "Laten we praten",
-            "href": "#contact"
-          }
         }
       ]
     },
     "skills": {
       "title": "Technische Competenties",
       "chart": {
-        "title": "Overzicht belangrijkste competenties",
+        "title": "Overzicht technische vaardigheden",
         "max": 10,
         "axes": [
           {
@@ -2185,11 +2197,25 @@
               "detail": "Programmering van cycli, kalibratie van matrijzen en preventief onderhoud voor Arburg Golden Edition en Allrounder-series."
             },
             {
-              "id": "fanuc",
-              "name": "FANUC robots & Unitronics PLC",
-              "experience": "10+ jaar integratie-ervaring",
+              "id": "plastics",
+              "name": "Kunststofverwerking",
+              "experience": "Sinds 2013 - extruders, spuitgieten, blaasgieten",
               "rating": { "value": 8.5, "scale": 10 },
-              "detail": "Programmering van FANUC-robots, integratie van Unitronics-controllers en configuratie van productiesystemen in Cleanroom class 7."
+              "detail": "Uitgebreide werkervaring met kunststof in diverse processen: extruders, spuitgietmachines en blaasvormmachines."
+            },
+            {
+              "id": "fanuc",
+              "name": "FANUC robots",
+              "experience": "5+ jaar integratie en programmering",
+              "rating": { "value": 8.5, "scale": 10 },
+              "detail": "Programmeren van FANUC-robots, configuratie van veiligheidssystemen, integratie met productielijnen."
+            },
+            {
+              "id": "unitronics",
+              "name": "Unitronics PLC",
+              "experience": "4+ jaar programmering",
+              "rating": { "value": 8.0, "scale": 10 },
+              "detail": "Programmeren van Unitronics-controllers, creëren van HMI-interfaces, diagnose en troubleshooting."
             },
             {
               "id": "siemens",
@@ -2210,7 +2236,7 @@
               "name": "Pneumatiek/Hydrauliek",
               "experience": "10+ jaar systeemonderhoud",
               "rating": { "value": 8.0, "scale": 10 },
-              "detail": "Ontwerp van schema's, troubleshooting van proportionele ventielen en hogedruksystemen."
+              "detail": "Ontwerp van schema's, troubleshooting van proportionele ventielen en hogedruksystemen. Technische werkzaamheden inclusief onderhoud in Cleanroom class 7."
             }
           ]
         },
@@ -2302,9 +2328,9 @@
             {
               "id": "business-ops",
               "name": "Eigen bedrijf",
-              "experience": "~€60k+ omzet in 15 maanden (geschat)",
+              "experience": "15 maanden B2B-activiteiten",
               "rating": { "value": 8.5, "scale": 10 },
-              "detail": "Consultatieve verkoop, opbouw van B2B-klantenportefeuille en volledige boekhouding."
+              "detail": "Consultatieve verkoop, opbouw van B2B-klantenportefeuille en volledige boekhouding. Bevredigende omzet uit 40+ projecten."
             },
             {
               "id": "project-management",
@@ -2332,7 +2358,7 @@
       ],
       "highlights": [
         "Full-Stack Manufacturing: SolidWorks → PLC → React → TIG lassen",
-        "AI-Versterkte Professional (TOP 1-2%): 852 MB kennisbasis, ~250 strategische gesprekken, ~17.500 berichten, ~55.000 A4 pagina's documentatie, 1.000+ uur collaborative thinking (14-18 maanden intensieve samenwerking). Expertgebruik van AI - van prototyping tot documentatie tot strategische projectbeslissingen.",
+        "AI-Versterkte Professional: Geavanceerd gebruik van Claude (Anthropic) en AI-tools voor prototyping, documentatie en technische probleemoplossing. 852 MB kennisbasis, ~250 strategische sessies, ~17.500 berichten, ~55.000 pagina's documentatie, 1.000+ uur collaborative thinking. Niveau: expert in prompt engineering, systematische workflow en AI-integratie met industriële processen.",
         "Nul ernstige ongevallen in 10+ jaar carrière",
         "Gemiddelde competentiebeoordeling: 8.25/10"
       ]
@@ -2455,12 +2481,8 @@
             "Partnernetwerk (mechanisch, elektrisch, CNC) uitgebouwd om capaciteit te schalen zonder vaste kosten.",
             "CRM en financieel toezicht ingevoerd om tijdige facturatie en winstgevendheid te borgen."
           ],
-          "outcome": "~€60k omzet (geschat) in 15 maanden met 100% betaalde facturen en 80% terugkerende klanten.",
+          "outcome": "Bevredigende resultaten in 15 maanden met 100% betaalde facturen en 80% terugkerende klanten.",
           "metrics": [
-            {
-              "label": "Omzet",
-              "value": "~€60k"
-            },
             {
               "label": "Projecten",
               "value": "40+"
@@ -2919,7 +2941,7 @@
           "context": "ITB / Hansa & MIM-modernisatie",
           "summary": "Coördinatie relocatie 50+ machines, furnace retrofit PoC en veiligheidsaudits.",
           "highlights": [
-            "Machine transfer tracking geïmplementeerd",
+            "Machine transfer tracking prototype (niet geïmplementeerd - bestaande oplossing was voldoende)",
             "Proof-of-concept MIM furnace retrofit",
             "AI-workshops voor onderhoudsteams"
           ]
@@ -2929,7 +2951,7 @@
           "period": "2020-2021",
           "role": "Oprichter — Daremon Engineering",
           "context": "B2B automatisering en service",
-          "summary": "Bedrijf vanaf nul opgebouwd — €60k+ omzet, 40 modernisatieprojecten.",
+          "summary": "Bedrijf vanaf nul opgebouwd — 40 modernisatieprojecten met stabiel B2B-klantenbestand.",
           "highlights": [
             "PLC-programmering (Siemens, Mitsubishi)",
             "24/7 servicecontracten",
