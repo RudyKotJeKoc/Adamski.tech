@@ -458,7 +458,7 @@ export const TimelineSlider: React.FC<{ milestones: TimelineMilestone[]; label: 
         role="tablist"
         aria-label={label}
         aria-orientation="horizontal"
-        className="flex gap-2 overflow-x-auto pb-2"
+        className="flex gap-2 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-thin"
       >
         {milestones.map((milestone, index) => {
           const isActive = milestone.id === activeMilestone.id;
@@ -471,7 +471,7 @@ export const TimelineSlider: React.FC<{ milestones: TimelineMilestone[]; label: 
               aria-selected={isActive}
               aria-controls={`${sliderId}-panel-${milestone.id}`}
               onClick={() => setActiveId(milestone.id)}
-              className={`rounded-button border px-4 py-2 text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-led ${
+              className={`shrink-0 snap-start rounded-button border px-4 py-2 text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-led ${
                 isActive
                   ? 'border-primary-500 bg-primary-600/20 text-primary-50'
                   : 'border-surface-border bg-surface-card/40 text-neutral-200 hover:bg-surface-card'
@@ -487,21 +487,21 @@ export const TimelineSlider: React.FC<{ milestones: TimelineMilestone[]; label: 
         role="tabpanel"
         id={`${sliderId}-panel-${activeMilestone.id}`}
         aria-labelledby={`${sliderId}-tab-${activeMilestone.id}`}
-        className="rounded-card border border-surface-border bg-surface-card/80 p-6 shadow-card"
+        className="rounded-card border border-surface-border bg-surface-card/80 p-4 sm:p-6 shadow-card"
       >
         <header className="flex flex-col gap-1">
-          <p className="text-sm uppercase tracking-wide text-primary-300">{activeMilestone.period}</p>
-          <h3 className="text-xl font-heading font-semibold text-neutral-50">{activeMilestone.role}</h3>
+          <p className="text-xs sm:text-sm uppercase tracking-wide text-primary-300">{activeMilestone.period}</p>
+          <h3 className="text-lg sm:text-xl font-heading font-semibold text-neutral-50">{activeMilestone.role}</h3>
           {activeMilestone.context ? (
             <p className="text-sm text-neutral-300">{activeMilestone.context}</p>
           ) : null}
         </header>
-        <p className="mt-4 text-neutral-200">{activeMilestone.summary}</p>
+        <p className="mt-4 text-sm sm:text-base text-neutral-200">{activeMilestone.summary}</p>
         {activeMilestone.highlights && activeMilestone.highlights.length > 0 ? (
           <ul className="mt-4 space-y-2 text-sm text-neutral-200" role="list">
             {activeMilestone.highlights.map((highlight) => (
               <li key={`${activeMilestone.id}-${highlight}`} className="flex items-start gap-2">
-                <span aria-hidden="true" className="mt-1 h-1.5 w-1.5 rounded-full bg-primary-500" />
+                <span aria-hidden="true" className="mt-1 h-1.5 w-1.5 rounded-full bg-primary-500 shrink-0" />
                 <span>{highlight}</span>
               </li>
             ))}
