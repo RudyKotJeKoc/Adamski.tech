@@ -73,11 +73,11 @@
           }
         },
         {
-          "title": "Modele współpracy",
-          "icon": "🤝",
+          "title": "Doświadczenie specjalistyczne",
+          "icon": "🏭",
           "items": [
-            "**Projekty end-to-end**: koncepcja → wdrożenie → szkolenie.",
-            "**Wsparcie hybrydowe**: on-site NL/PL + remote troubleshooting.",
+            "**Praca techniczna** wraz z utrzymaniem ruchu w Cleanroom class 7.",
+            "**Od 2013** doświadczenie z tworzywami: ekstrudery, wtryskarki, wytłaczarko-wydmuchiwarki.",
             "**Partnerstwo R&D** dla modernizacji pieców MIM i systemów custom."
           ],
           "cta": {
@@ -90,7 +90,7 @@
     "skills": {
       "title": "Kompetencje Techniczne",
       "chart": {
-        "title": "Profil kompetencji",
+        "title": "Przegląd kluczowych kompetencji",
         "max": 10,
         "axes": [
           {
@@ -123,13 +123,13 @@
         {
           "id": "production",
           "name": "Systemy Produkcyjne",
-          "description": "7+ lat prowadzenia projektów utrzymania ruchu i modernizacji linii wtryskowych, pieców próżniowych oraz stanowisk robotycznych.",
+          "description": "10+ lat prowadzenia projektów utrzymania ruchu i modernizacji linii wtryskowych, pieców próżniowych oraz stanowisk robotycznych. Od 2013 roku praca z tworzywami w ekstruderach, wtryskarkach i wytłaczarko-wydmuchiwarki.",
           "rating": { "value": 8.6, "scale": 10, "label": "Ekspert" },
           "competencies": [
             {
               "id": "arburg",
               "name": "Wtryskarki Arburg",
-              "experience": "7+ lat w zakładach produkcyjnych",
+              "experience": "10+ lat w zakładach produkcyjnych",
               "rating": { "value": 9.0, "scale": 10 },
               "detail": "Programowanie cykli, kalibracja form i prewencyjna konserwacja serii Arburg Golden Edition oraz Allrounder."
             },
@@ -157,14 +157,14 @@
             {
               "id": "siemens",
               "name": "PLC Siemens S7",
-              "experience": "7+ lat wsparcia produkcji",
+              "experience": "10+ lat wsparcia produkcji",
               "rating": { "value": 8.0, "scale": 10 },
               "detail": "Modernizacja kodu S7-300/1200, diagnostyka Profibus/Profinet i uruchomienia w trybie ciągłym."
             },
             {
               "id": "mim",
               "name": "Piece próżniowe MIM",
-              "experience": "7+ lat obsługi pieców CVE/Elino",
+              "experience": "10+ lat obsługi pieców CVE/Elino",
               "rating": { "value": 8.0, "scale": 10 },
               "detail": "Nadzór procesów spiekania MIM, analiza logów próżni oraz wdrażanie retrofitów czujników."
             },
@@ -295,6 +295,7 @@
       ],
       "highlights": [
         "Full-Stack Manufacturing: SolidWorks → PLC → React → TIG welding",
+        "AI-Enhanced Professional (TOP 1-2%): 852 MB bazy wiedzy, ~250 konwersacji strategicznych, ~17,500 wiadomości, ~55,000 stron A4 dokumentacji, 1,000+ godzin collaborative thinking (14-18 miesięcy intensywnej współpracy). Wykorzystanie AI na poziomie eksperckim - od prototypowania przez dokumentację po strategiczne decyzje projektowe.",
         "AI-Augmented Professional: Zaawansowane wykorzystanie Claude (Anthropic) i narzędzi AI do prototypowania, dokumentacji i rozwiązywania problemów technicznych. 852 MB bazy wiedzy, ~250 sesji strategicznych, ~17,500 wiadomości, ~55,000 stron dokumentacji, 1,000+ godzin collaborative thinking. Poziom: ekspert w prompt engineeringu, systemowym workflow i integracji AI z procesami przemysłowymi.",
         "Zero poważnych wypadków w 10+ lat kariery",
         "Średnia ocena kompetencji: 8.25/10"
@@ -376,16 +377,16 @@
           "outcome": "Prototyp gotowy do wdrożenia, jednak istniejące rozwiązania okazały się wystarczające. Projekt pokazał możliwości szybkiego prototypowania dedykowanych narzędzi przemysłowych.",
           "metrics": [
             {
-              "label": "Maszyny śledzone",
-              "value": "50+"
+              "label": "Status projektu",
+              "value": "Koncepcja"
             },
             {
-              "label": "Destynacje",
-              "value": "3"
-            },
-            {
-              "label": "Czas wdrożenia",
+              "label": "Czas przygotowania",
               "value": "3 dni"
+            },
+            {
+              "label": "Wdrożenie",
+              "value": "Nie wymagane"
             }
           ],
           "skills": [
@@ -415,7 +416,7 @@
           "name": "Własna działalność — Automatyka Przemysłowa",
           "tagline": "15 miesięcy przedsiębiorczości B2B (2020-2021)",
 
-          "summary": "Solowa działalność realizująca serwis, modernizacje PLC oraz projekty MIM dla klientów z Polski i Holandii.",
+          "summary": "Solowa działalność realizująca serwis, modernizacje PLC oraz projekty MIM dla klientów z Polski i Holandii. Przychód szacunkowy, bez pełnej dokumentacji księgowej.",
           "challenge": "Zbudować zaufanie i pipeline projektów w kilka miesięcy, startując bez zaplecza korporacyjnego.",
           "approach": [
             "Wypracowałem standardy obsługi awarii 24/7 oraz pakiety prewencyjne dla klientów kluczowych.",
@@ -653,14 +654,14 @@
     },
     "ai_methodology": {
       "title": "Metodologia AI & Operacje Wiedzy",
-      "subtitle": "Systemowy workflow łączący dokumentację, modele językowe i automatyzacje, aby przyspieszać eksperymenty techniczne.",
+      "subtitle": "Systemowy workflow łączący dokumentację, modele językowe i automatyzacje. Wykorzystanie AI na poziomie eksperckim: od prompt engineeringu, przez wielowątkowe sesje strategiczne, po pełną automatyzację procesów dokumentacyjnych i decyzyjnych.",
       "metrics": [
         {
           "id": "knowledge-base",
           "value": 852,
           "suffix": " MB",
           "label": "Baza wiedzy AI",
-          "description": "Udokumentowane sesje kontekstowe, repozytorium promptów i wzorce rozwiązań dla projektów przemysłowych."
+          "description": "Udokumentowane sesje kontekstowe, repozytorium promptów i wzorce rozwiązań. Wykorzystanie zaawansowane: multi-turn conversations, context management, custom GPTs, API integrations."
         },
         {
           "id": "iteration",
@@ -1113,11 +1114,11 @@
           }
         },
         {
-          "title": "Engagement models",
-          "icon": "🤝",
+          "title": "Specialized experience",
+          "icon": "🏭",
           "items": [
-            "**End-to-end projects**: concept → deployment → training.",
-            "**Hybrid support**: on-site NL/PL + remote troubleshooting.",
+            "**Technical work** with maintenance in Cleanroom class 7 environments.",
+            "**Since 2013** plastics experience: extruders, injection molding, blow molding machines.",
             "**R&D partnerships** for MIM furnace upgrades and custom systems."
           ],
           "cta": {
@@ -1130,7 +1131,7 @@
     "skills": {
       "title": "Technical Competencies",
       "chart": {
-        "title": "Competency profile",
+        "title": "Key competencies overview",
         "max": 10,
         "axes": [
           {
@@ -1163,13 +1164,13 @@
         {
           "id": "production",
           "name": "Production Systems",
-          "description": "7+ years leading maintenance and modernization projects across injection lines, vacuum furnaces, and robotic cells.",
+          "description": "10+ years leading maintenance and modernization projects across injection lines, vacuum furnaces, and robotic cells. Since 2013, experience with plastics in extruders, injection molding and blow molding machines.",
           "rating": { "value": 8.6, "scale": 10, "label": "Expert" },
           "competencies": [
             {
               "id": "arburg",
               "name": "Arburg injection molding",
-              "experience": "7+ years on factory floors",
+              "experience": "10+ years on factory floors",
               "rating": { "value": 9.0, "scale": 10 },
               "detail": "Cycle programming, mold calibration, and preventive maintenance for Arburg Golden Edition and Allrounder series."
             },
@@ -1197,14 +1198,14 @@
             {
               "id": "siemens",
               "name": "Siemens S7 PLC",
-              "experience": "7+ years production support",
+              "experience": "10+ years production support",
               "rating": { "value": 8.0, "scale": 10 },
               "detail": "Modernizing S7-300/1200 code, diagnosing Profibus/Profinet networks, and commissioning continuous operations."
             },
             {
               "id": "mim",
               "name": "MIM vacuum furnaces",
-              "experience": "7+ years with CVE/Elino furnaces",
+              "experience": "10+ years with CVE/Elino furnaces",
               "rating": { "value": 8.0, "scale": 10 },
               "detail": "Supervising MIM sintering, analyzing vacuum logs, and implementing sensor retrofit upgrades."
             },
@@ -1404,27 +1405,27 @@
         },
         {
           "name": "Machine Transfer System",
-          "tagline": "Responsive tracking app for relocating 50+ industrial machines",
-          "summary": "Lightweight web app that supported the ITB factory shutdown with transparent relocation status reporting.",
-          "challenge": "Provide real-time visibility to three destination sites while disassembling production lines under time pressure.",
+          "tagline": "Concept for tracking app for industrial machine relocation",
+          "summary": "Designed (not deployed) web application to support potential plant closure through transparent equipment relocation status reporting. The concept proved unnecessary as existing solutions were sufficient.",
+          "challenge": "Evaluate if a custom tracking system was needed for real-time visibility across three destination sites during production line disassembly.",
           "approach": [
-            "Mapped the relocation process and translated it into simple statuses updated directly from the shop floor.",
-            "Implemented localStorage so the app works offline on tablets and phones used in the plant.",
-            "Delivered a responsive UI with destination views, filters, and safety-aligned status colors."
+            "Mapped the relocation process and designed simple statuses that could be updated from the shop floor.",
+            "Planned localStorage implementation for offline tablet/phone access in the plant.",
+            "Created responsive UI mockups with destination views, filters, and safety-aligned status colors."
           ],
-          "outcome": "Management received a single source of truth, reducing reporting time and preventing duplicated work streams.",
+          "outcome": "Concept prepared and presented, but after analysis of existing solutions proved unnecessary - current systems were sufficient.",
           "metrics": [
             {
-              "label": "Machines tracked",
-              "value": "50+"
+              "label": "Project status",
+              "value": "Concept"
             },
             {
-              "label": "Destinations",
-              "value": "3"
-            },
-            {
-              "label": "Implementation time",
+              "label": "Preparation time",
               "value": "3 days"
+            },
+            {
+              "label": "Deployment",
+              "value": "Not required"
             }
           ],
           "skills": [
@@ -1454,7 +1455,7 @@
         {
           "name": "Independent Industrial Automation Practice",
           "tagline": "15 months of B2B entrepreneurship (2020-2021)",
-          "summary": "Solo practice delivering maintenance, PLC modernizations, and MIM projects for Polish and Dutch clients.",
+          "summary": "Solo practice delivering maintenance, PLC modernizations, and MIM projects for Polish and Dutch clients. Revenue is approximate, without full accounting documentation.",
           "challenge": "Build trust and a full project pipeline within months while starting without corporate backing.",
           "approach": [
             "Established 24/7 emergency response standards plus preventive service packages for key accounts.",
@@ -1695,7 +1696,7 @@
           "value": 852,
           "suffix": " MB",
           "label": "AI knowledge base",
-          "description": "Documented context sessions, prompt repository, and solution patterns for industrial projects."
+          "description": "Documented context sessions, prompt repository, and solution patterns. Advanced usage: multi-turn conversations, context management, custom GPTs, API integrations."
         },
         {
           "id": "iteration",
@@ -2185,13 +2186,13 @@
         {
           "id": "production",
           "name": "Productiesystemen",
-          "description": "7+ jaar leiding aan onderhouds- en moderniseringsprojecten voor spuitgietlijnen, vacuümovens en robotcellen.",
+          "description": "10+ jaar leiding aan onderhouds- en moderniseringsprojecten voor spuitgietlijnen, vacuümovens en robotcellen. Sinds 2013 ervaring met kunststoffen in extruders, spuitgiet- en blaasvormmachines.",
           "rating": { "value": 8.6, "scale": 10, "label": "Expert" },
           "competencies": [
             {
               "id": "arburg",
               "name": "Arburg spuitgietmachines",
-              "experience": "7+ jaar op productievloeren",
+              "experience": "10+ jaar op productievloeren",
               "rating": { "value": 9.0, "scale": 10 },
               "detail": "Programmering van cycli, kalibratie van matrijzen en preventief onderhoud voor Arburg Golden Edition en Allrounder-series."
             },
@@ -2219,14 +2220,14 @@
             {
               "id": "siemens",
               "name": "Siemens S7 PLC",
-              "experience": "7+ jaar productiesupport",
+              "experience": "10+ jaar productiesupport",
               "rating": { "value": 8.0, "scale": 10 },
               "detail": "Modernisering van S7-300/1200-code, diagnose van Profibus/Profinet-netwerken en inbedrijfname in continu bedrijf."
             },
             {
               "id": "mim",
               "name": "MIM vacuümovens",
-              "experience": "7+ jaar met CVE/Elino ovens",
+              "experience": "10+ jaar met CVE/Elino ovens",
               "rating": { "value": 8.0, "scale": 10 },
               "detail": "Toezicht op MIM-sinterprocessen, analyse van vacuümlogs en implementatie van sensorretrofits."
             },
@@ -2424,27 +2425,27 @@
         },
         {
           "name": "Machine Transfer System",
-          "tagline": "Responsieve tracking-app voor relocatie van 50+ industriële machines",
-          "summary": "Lichte webapp die de sluiting van de ITB-fabriek ondersteunde met transparante rapportage over relocatiestatussen.",
-          "challenge": "Realtime inzicht bieden aan drie bestemmingen terwijl productielijnen onder tijdsdruk worden gedemonteerd.",
+          "tagline": "Concept voor tracking-app voor relocatie van industriële machines",
+          "summary": "Ontworpen (niet geïmplementeerd) webapplicatie om een mogelijke fabriekssluiting te ondersteunen via transparante rapportage van relocatiestatus. Het concept bleek onnodig omdat bestaande oplossingen toereikend waren.",
+          "challenge": "Evalueren of een aangepast trackingsysteem nodig was voor realtime inzicht bij drie bestemmingen tijdens demontage van productielijnen.",
           "approach": [
-            "Het relocatieproces in kaart gebracht en vertaald naar eenvoudige statusupdates direct vanaf de werkvloer.",
-            "localStorage toegepast zodat de app offline werkt op tablets en telefoons in de fabriek.",
-            "Responsieve UI geleverd met bestemmingsweergaven, filters en veiligheidsgecodeerde statussen."
+            "Het relocatieproces in kaart gebracht en eenvoudige statusupdates ontworpen die vanaf de werkvloer konden worden bijgewerkt.",
+            "localStorage-implementatie gepland voor offline tablet/telefoongebruik in de fabriek.",
+            "Responsieve UI-mockups gemaakt met bestemmingsweergaven, filters en veiligheidsgecodeerde statuskleur."
           ],
-          "outcome": "Management kreeg één bron van waarheid, wat rapportagetijd verkortte en dubbele werkzaamheden voorkwam.",
+          "outcome": "Concept voorbereid en gepresenteerd, maar na analyse van bestaande oplossingen niet nodig gebleken - huidige systemen waren voldoende.",
           "metrics": [
             {
-              "label": "Machines gevolgd",
-              "value": "50+"
+              "label": "Projectstatus",
+              "value": "Concept"
             },
             {
-              "label": "Bestemmingen",
-              "value": "3"
-            },
-            {
-              "label": "Implementatietijd",
+              "label": "Voorbereidingstijd",
               "value": "3 dagen"
+            },
+            {
+              "label": "Implementatie",
+              "value": "Niet nodig"
             }
           ],
           "skills": [
@@ -2473,7 +2474,7 @@
         {
           "name": "Zelfstandige praktijk – Industriële automatisering",
           "tagline": "15 maanden B2B-ondernemerschap (2020-2021)",
-          "summary": "Solo-praktijk voor onderhoud, PLC-modernisaties en MIM-projecten voor klanten in Polen en Nederland.",
+          "summary": "Solo-praktijk voor onderhoud, PLC-modernisaties en MIM-projecten voor klanten in Polen en Nederland. Omzet is geschat, zonder volledige boekhoudkundige documentatie.",
           "challenge": "Binnen enkele maanden vertrouwen en een volledige projectpijplijn opbouwen zonder corporatieve rugdekking.",
           "approach": [
             "24/7 storingsdienst en preventieve servicepakketten opgezet voor sleutelklanten.",
@@ -2707,14 +2708,14 @@
     },
     "ai_methodology": {
       "title": "AI-methodologie & Knowledge Operations",
-      "subtitle": "Herhaalbaar systeem dat documentatie, taalmodellen en automatisering combineert om technische experimenten te versnellen.",
+      "subtitle": "Herhaalbaar systeem dat documentatie, taalmodellen en automatisering combineert om technische experimenten te versnellen. Expertgebruik van AI: van prompt engineering, via strategische multi-thread sessies, tot volledige automatisering van documentatie en besluitvormingsprocessen.",
       "metrics": [
         {
           "id": "knowledge-base",
           "value": 852,
           "suffix": " MB",
           "label": "AI-kennisbasis",
-          "description": "Gedocumenteerde contextsessies, promptbibliotheek en oplossingspatronen voor industriële projecten."
+          "description": "Gedocumenteerde contextsessies, promptbibliotheek en oplossingspatronen. Geavanceerd gebruik: multi-turn conversations, context management, custom GPTs, API-integraties."
         },
         {
           "id": "iteration",
