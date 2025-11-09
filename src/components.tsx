@@ -1,4 +1,5 @@
 import React, { useEffect, useId, useMemo, useRef, useState } from 'react';
+import { AudioPlayer } from './components/AudioPlayer';
 
 export type Locale = 'pl' | 'en' | 'nl';
 
@@ -145,6 +146,7 @@ export const ProjectCard: React.FC<{
   skills?: string[];
   image?: ProjectImage;
   ctas?: ProjectCta[];
+  audio?: string;
 }> = ({
   locale,
   name,
@@ -156,7 +158,8 @@ export const ProjectCard: React.FC<{
   metrics = [],
   skills = [],
   image,
-  ctas = []
+  ctas = [],
+  audio
 }) => {
   const sectionLabels: Record<Locale, { challenge: string; approach: string; outcome: string; metrics: string; skills: string }> = {
     pl: {
@@ -240,6 +243,15 @@ export const ProjectCard: React.FC<{
               ))}
             </ul>
           </section>
+        )}
+
+        {/* Audio Player dla projektu */}
+        {audio && (
+          <AudioPlayer
+            src={audio}
+            title={name}
+            type="audio"
+          />
         )}
 
         <div className="space-y-4 text-neutral-200">
@@ -636,3 +648,5 @@ export const Navbar: React.FC<{
 
 export { RadarChart } from './components/RadarChart';
 export type { RadarChartProps, RadarChartAxis } from './components/RadarChart';
+export { AudioPlayer } from './components/AudioPlayer';
+export type { AudioPlayerProps } from './components/AudioPlayer';

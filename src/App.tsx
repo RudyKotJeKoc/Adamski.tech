@@ -14,7 +14,8 @@ import {
   WorkflowDiagram,
   TimelineSlider,
   PartnerCard,
-  RadarChart
+  RadarChart,
+  AudioPlayer
 } from './components';
 
 type SectionId = 'hero' | 'about' | 'career' | 'skills' | 'projects' | 'ai' | 'equipment' | 'brand' | 'partners' | 'contact';
@@ -418,6 +419,25 @@ const App: React.FC = () => {
           className="section mt-24"
         >
           <SectionHeading id="about-title" title={content[locale].about.title} />
+
+          {/* Audio Player - przykład dla sekcji About */}
+          {(content[locale].about as any).audio && (
+            <Reveal>
+              <AudioPlayer
+                src={(content[locale].about as any).audio}
+                title={
+                  locale === 'pl'
+                    ? 'Wprowadzenie'
+                    : locale === 'nl'
+                    ? 'Introductie'
+                    : 'Introduction'
+                }
+                type="audio"
+                className="mb-6"
+              />
+            </Reveal>
+          )}
+
           <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
             {content[locale].about.cards?.map((card) => (
               <Reveal key={card.title}>
@@ -461,6 +481,25 @@ const App: React.FC = () => {
           className="section mt-24"
         >
           <SectionHeading id="skills-title" title={content[locale].skills.title} />
+
+          {/* Audio Player - przykład dla sekcji Skills */}
+          {(content[locale].skills as any).audio && (
+            <Reveal>
+              <AudioPlayer
+                src={(content[locale].skills as any).audio}
+                title={
+                  locale === 'pl'
+                    ? 'Przegląd umiejętności'
+                    : locale === 'nl'
+                    ? 'Overzicht vaardigheden'
+                    : 'Skills overview'
+                }
+                type="audio"
+                className="mb-6"
+              />
+            </Reveal>
+          )}
+
           <div className="grid gap-6 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)] items-start">
             <Reveal className="lg:row-span-2">
               <article className="rounded-card bg-surface-card border border-surface-border p-4 shadow-card">
@@ -604,6 +643,25 @@ const App: React.FC = () => {
           className="section mt-24"
         >
           <SectionHeading id="projects-title" title={content[locale].projects.title} />
+
+          {/* Audio Player - przykład dla sekcji Projects */}
+          {(content[locale].projects as any).audio && (
+            <Reveal>
+              <AudioPlayer
+                src={(content[locale].projects as any).audio}
+                title={
+                  locale === 'pl'
+                    ? 'Przegląd projektów'
+                    : locale === 'nl'
+                    ? 'Projectenoverzicht'
+                    : 'Projects overview'
+                }
+                type="audio"
+                className="mb-6"
+              />
+            </Reveal>
+          )}
+
           <div className="mb-6 flex flex-col gap-3">
             <span className="text-sm text-neutral-300" id="projects-filter-label">
               {projectFilterLabel}
@@ -657,6 +715,7 @@ const App: React.FC = () => {
                   skills={pr.skills}
                   image={pr.image}
                   ctas={pr.ctas}
+                  audio={(pr as any).audio}
                 />
               </Reveal>
             ))}
