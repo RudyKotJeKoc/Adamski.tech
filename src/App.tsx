@@ -12,11 +12,12 @@ import {
   AboutCard,
   MetricCounter,
   WorkflowDiagram,
-  TimelineSlider,
   PartnerCard,
-  RadarChart,
   AudioPlayer
 } from './components';
+import { InteractiveTimeline } from './components/InteractiveTimeline';
+import { SkillsOverview } from './components/SkillsOverview';
+import { CVDownload } from './components/CVDownload';
 
 type SectionId = 'hero' | 'about' | 'career' | 'skills' | 'projects' | 'ai' | 'equipment' | 'brand' | 'partners' | 'contact';
 
@@ -380,16 +381,10 @@ const App: React.FC = () => {
                   >
                     {heroContent.cta_secondary}
                   </a>
-                  <a
-                    href="/dariusz-adamski-cv.pdf"
-                    className="hero-cta hero-cta--ghost"
-                    aria-label={heroContent.cta_tertiary_aria ?? heroContent.cta_tertiary}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    download
-                  >
-                    {heroContent.cta_tertiary}
-                  </a>
+                  <CVDownload
+                    buttonText={heroContent.cta_tertiary}
+                    ariaLabel={heroContent.cta_tertiary_aria ?? heroContent.cta_tertiary}
+                  />
                 </div>
               </div>
             </Reveal>
@@ -460,7 +455,7 @@ const App: React.FC = () => {
             subtitle={content[locale].career_timeline.subtitle}
           />
           <Reveal>
-            <TimelineSlider
+            <InteractiveTimeline
               milestones={content[locale].career_timeline.milestones}
               label={
                 locale === 'pl'
@@ -611,11 +606,9 @@ const App: React.FC = () => {
             </Reveal>
             <Reveal>
               <article className="rounded-card bg-surface-card border border-surface-border p-4 shadow-card">
-                <RadarChart
+                <SkillsOverview
                   title={skillsContent.chart.title}
-                  axes={skillsContent.chart.axes}
-                  maxValue={skillsContent.chart.max}
-                  valueLabel={chartValueLabel}
+                  categories={skillsContent.categories}
                 />
               </article>
             </Reveal>
