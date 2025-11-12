@@ -1,8 +1,8 @@
 {
   "pl": {
     "meta": {
-      "title": "Dariusz Adamski — Maintenance Technician | MIM Specialist",
-      "description": "Senior Maintenance Technician z 9+ lat doświadczenia w przemyśle high-tech. Specjalista Metal Injection Molding (MIM), robotyka przemysłowa, automatyka. ITB Precisietechniek, Daremon Engineering."
+      "title": "Dariusz Adamski — Production Fleet Manager | Automation Programmer",
+      "description": "Production Fleet Manager z 12 lat doświadczenia. Zarządzanie 48+ wtryskark Arburg (270-570 ton), programowanie robotów FANUC, rozwój oprogramowania (Python, JavaScript). Ekspert w wielogeneracyjnej technologii, cleanroom ISO 14644, budowa maszyn od projektu do uruchomienia."
     },
     "navigation": {
       "hero": "Start",
@@ -17,12 +17,12 @@
       "partners": "Partnerzy"
     },
     "hero": {
-      "heading": "Dariusz Krzysztof Adamski — Maintenance Technician",
-      "tagline": "Automatyka Przemysłowa → MIM Technology → Robotyka",
-      "tagline_sequence": ["Automatyka Przemysłowa", "MIM Technology", "Robotyka"],
-      "subheading": "Senior Maintenance Technician z ponad 9-letnim międzynarodowym doświadczeniem w przemyśle high-tech. Specjalista w zakresie technologii Metal Injection Molding (MIM), robotyki przemysłowej i systemów automatyki.",
+      "heading": "Dariusz Krzysztof Adamski — Production Fleet Manager",
+      "tagline": "Fleet Management 48+ maszyn → Programowanie robotów FANUC → Rozwój oprogramowania",
+      "tagline_sequence": ["Fleet Management 48+ maszyn", "Programowanie robotów FANUC", "Rozwój oprogramowania"],
+      "subheading": "Production Fleet Manager z 12-letnim doświadczeniem w przemyśle high-tech. Zarządzanie flotą 48+ wtryskark Arburg (270-570 ton), programowanie robotów FANUC, tworzenie oprogramowania produkcyjnego (Python, JavaScript). Unikalne połączenie: zarządzanie flotą + programowanie robotów + rozwój software + budowa maszyn.",
       "badge_label": "Daremon Engineering",
-      "badge_caption": "Metal Injection Molding, automatyka i serwis przemysłowy.",
+      "badge_caption": "Fleet Management, programowanie automatyzacji i oprogramowanie przemysłowe.",
       "cta_primary": "Zainicjuj partnerstwo",
       "cta_primary_aria": "Zainicjuj partnerstwo – przejdź do sekcji kontakt.",
       "cta_secondary": "Zobacz realizacje",
@@ -34,12 +34,13 @@
       "title": "O mnie",
       "cards": [
         {
-          "title": "Industrial DNA",
-          "icon": "🛠️",
+          "title": "Fleet Management DNA",
+          "icon": "🏭",
           "items": [
-            "**9+ lat** międzynarodowego doświadczenia w przemyśle high-tech (Holandia, Polska).",
-            "**Specjalista MIM** – Metal Injection Molding: wtryskarki Arburg, piece Cremer/EPSI (1400°C), roboty Yaskawa.",
-            "**Zero poważnych incydentów** BHP przez ponad 10 lat kariery."
+            "**12 lat** międzynarodowego doświadczenia w przemyśle high-tech (Holandia, Polska).",
+            "**Fleet Manager 48+ maszyn** – Arburg Allrounder (270-570 ton), wszystkie generacje S/C/E/A (1996-2024).",
+            "**<2% nieplanowanych przestojów** dzięki strategii predictive maintenance.",
+            "**Zero incydentów GMP** w środowisku cleanroom ISO Class 7/8."
           ],
           "cta": {
             "label": "Zobacz projekty",
@@ -47,12 +48,13 @@
           }
         },
         {
-          "title": "Technologie core",
+          "title": "Programowanie & Automatyzacja",
           "icon": "⚙️",
           "items": [
-            "**Blow Molding** – 5 lat z BEKUM (około 25 maszyn, produkcja automotive).",
-            "**Hydraulika & Pneumatyka** – systemy do 300 bar, diagnostyka, regeneracja.",
-            "**PLC & Automatyka** – Siemens S7, robotyka przemysłowa, HMI/SCADA."
+            "**Roboty FANUC** – programowanie TP, integracja produkcyjnych cel, własny analyzer (Python, 578 linii).",
+            "**PLC Siemens S7** – programowanie, diagnostyka Profibus/Profinet, modernizacje.",
+            "**Rozwój software** – Machine Transfer System (HTML/CSS/JS, 2000+ linii), narzędzia Python.",
+            "**Budowa maszyn** – pełny cykl: projekt → montaż → programowanie → uruchomienie."
           ],
           "cta": {
             "label": "Lista kompetencji",
@@ -60,29 +62,31 @@
           }
         },
         {
-          "title": "Przedsiębiorczość",
-          "icon": "🧭",
+          "title": "Wielogeneracyjna Ekspertyza",
+          "icon": "🔧",
           "items": [
-            "**Właściciel JDG** od 2020 – automatyka przemysłowa, serwis, modernizacje.",
-            "**40+ projektów** B2B z 80% klientów powracających.",
-            "**Komunikacja międzynarodowa** – polski/niderlandzki/niemiecki/angielski."
+            "**28 lat historii technologii** – doświadczenie od S-series (1996) do A-series (2024).",
+            "**Multi-środowiskowe** – cleanroom ISO 7/8 + standardowa produkcja.",
+            "**Koordynacja multi-site** – Holandia, Czechy, Meksyk (transfer floty).",
+            "**Database management** – MachineCenter, tracking konserwacji, logistyka transferów."
+          ],
+          "cta": {
+            "label": "Career timeline",
+            "href": "#career"
+          }
+        },
+        {
+          "title": "Osiągnięcia Zawodowe",
+          "icon": "📈",
+          "items": [
+            "**Umowa na czas nieokreślony** po 7 miesiącach próbnego (luty 2022).",
+            "**Wzrost wynagrodzenia +80%** w ciągu 6 lat (€2.367 → €4.264).",
+            "**2978+ linii kodu** – produkcyjne narzędzia software (Python, JavaScript).",
+            "**Pozytywna referencja** od Maintenance Supervisor (marzec 2024)."
           ],
           "cta": {
             "label": "Umów konsultację",
             "href": "#contact"
-          }
-        },
-        {
-          "title": "Rozwój zawodowy",
-          "icon": "📈",
-          "items": [
-            "**Dwie umowy na czas nieokreślony** w Holandii (2016, 2022).",
-            "**Wzrost wynagrodzenia o 100%** w ciągu 9 lat (€1 600 → €3 207).",
-            "**Ciągły rozwój** – od mechanika samochodowego po Senior Maintenance Technician."
-          ],
-          "cta": {
-            "label": "Timeline kariery",
-            "href": "#career"
           }
         }
       ]
@@ -121,102 +125,138 @@
       },
       "categories": [
         {
-          "id": "production",
-          "name": "Systemy Produkcyjne",
-          "description": "10+ lat prowadzenia projektów utrzymania ruchu i modernizacji linii wtryskowych, pieców próżniowych oraz stanowisk robotycznych. Od 2013 roku praca z tworzywami w ekstruderach, wtryskarkach i wytłaczarko-wydmuchiwarki.",
-          "rating": { "value": 8.6, "scale": 10, "label": "Ekspert" },
+          "id": "fleet",
+          "name": "Fleet Management & Coordination",
+          "description": "Zarządzanie flotą 48+ wtryskark Arburg (270-570 ton) obejmujące wszystkie generacje technologii (S/C/E/A, 1996-2024). Doświadczenie w multi-site coordination, database management, predictive maintenance i koordynacji transferów międzynarodowych.",
+          "rating": { "value": 9.2, "scale": 10, "label": "Ekspert" },
           "competencies": [
             {
-              "id": "arburg",
-              "name": "Wtryskarki Arburg",
-              "experience": "10+ lat w zakładach produkcyjnych",
+              "id": "fleet-coordination",
+              "name": "Fleet Coordination 48+ maszyn",
+              "experience": "5,5 lat zarządzania flotą w ITB",
+              "rating": { "value": 9.5, "scale": 10 },
+              "detail": "Zarządzanie harmonogramami konserwacji prewencyjnej dla 48+ jednostek, analiza wpływu na produkcję, koordynacja przestojów, zarządzanie zapasami części zamiennych (kompatybilność między generacjami). Osiągnięcie <2% nieplanowanych przestojów."
+            },
+            {
+              "id": "multi-generation",
+              "name": "Ekspertyza wielogeneracyjna (1996-2024)",
+              "experience": "28-letnia historia technologii",
               "rating": { "value": 9.0, "scale": 10 },
-              "detail": "Programowanie cykli, kalibracja form i prewencyjna konserwacja serii Arburg Golden Edition oraz Allrounder."
+              "detail": "Pełna znajomość wszystkich generacji Arburg: S-series (hydrauliczne, 1996-2010), C-series (hybrydowe, 2000-2015), E-series (elektryczne, 2010-2020), A-series (Industry 4.0, 2020+). Głęboka wiedza o evolucji systemów sterowania Selogica i Gestica."
             },
             {
-              "id": "plastics",
-              "name": "Przetwórstwo tworzyw sztucznych",
-              "experience": "Od 2013 - ekstruder, wtryski, wytłaczarko-wydmuchiwarki",
+              "id": "database-management",
+              "name": "Database & Tracking Systems",
+              "experience": "MachineCenter, tracking konserwacji",
               "rating": { "value": 8.5, "scale": 10 },
-              "detail": "Kompleksowa praca z tworzywem w różnych procesach: ekstruderach, wtryskarkach oraz wytłaczarko-wydmuchiwarkami."
+              "detail": "Zarządzanie bazą danych MachineCenter: numery seryjne, historia konserwacji, logistyka transferów. Planowanie transferów multi-site (Holandia → Czechy, Meksyk). Tracking statusów maszyn, osób odpowiedzialnych, deadline'ów."
             },
             {
-              "id": "fanuc",
-              "name": "Roboty FANUC",
-              "experience": "5+ lat integracji i programowania",
+              "id": "predictive-maintenance",
+              "name": "Predictive Maintenance",
+              "experience": "Strategia minimalizacji przestojów",
+              "rating": { "value": 8.8, "scale": 10 },
+              "detail": "Priorytetyzacja konserwacji na podstawie wpływu na produkcję. Strategie minimalizacji przestojów (średnio <2% nieplanowanych). Koordynacja okien konserwacyjnych z ciągłością produkcji. Komunikacja cross-shift i protokoły handover."
+            },
+            {
+              "id": "contractor-coordination",
+              "name": "Contractor & OEM Coordination",
+              "experience": "Koordynacja wsparcia zewnętrznego",
+              "rating": { "value": 8.0, "scale": 10 },
+              "detail": "Koordynacja wykonawców zewnętrznych i wsparcia OEM (Arburg Service). Planowanie wizyt serwisowych, zarządzanie retrofitami, transfer wiedzy. Komunikacja z serwisami specjalistycznymi."
+            }
+          ]
+        },
+        {
+          "id": "production",
+          "name": "Injection Molding & Production Systems",
+          "description": "12 lat doświadczenia z wtryskarkami Arburg (wszystkie generacje). Programowanie procesów wtryskowych, optymalizacja cykli, balansowanie multi-cavity, integracja kontroli jakości. Praca w środowiskach cleanroom ISO Class 7/8 i standardowej produkcji.",
+          "rating": { "value": 9.0, "scale": 10, "label": "Ekspert" },
+          "competencies": [
+            {
+              "id": "arburg-programming",
+              "name": "Arburg Selogica Programming (All Generations)",
+              "experience": "12 lat, wszystkie generacje S/C/E/A",
+              "rating": { "value": 9.5, "scale": 10 },
+              "detail": "Expert-level programming Arburg Selogica dla wszystkich generacji: S-series (hydrauliczne, 1996-2010), C-series (hybrydowe, 2000-2015), E-series (elektryczne, 2010-2020), A-series (Industry 4.0, 2020+). Rozwój parametrów procesowych, balansowanie multi-cavity, optymalizacja czasu cyklu (redukcja 15-30%)."
+            },
+            {
+              "id": "process-optimization",
+              "name": "Process Optimization & Quality Integration",
+              "experience": "SPC, Cp/Cpk, cavity pressure monitoring",
+              "rating": { "value": 9.0, "scale": 10 },
+              "detail": "Balansowanie multi-cavity (równomierne wypełnienie, minimalna wariancja), analiza zamarzania gniazd wtryskowych, integracja kontroli jakości (SPC, Cp/Cpk studies, cavity pressure monitoring). Ekspertyza materiałowa: HDPE, PP, ABS, PC, PA, TPE, specialized compounds."
+            },
+            {
+              "id": "cleanroom-operations",
+              "name": "Cleanroom Operations ISO 14644",
+              "experience": "Zero incydentów GMP w 4+ lat",
+              "rating": { "value": 9.0, "scale": 10 },
+              "detail": "Protokoły cleanroom ISO Class 7/8, kontrola kontaminacji, garbing procedures (gowning, gloves, hairnets), transfer materiałów (airlocks, pass-throughs), GMP awareness, particle counting. Zero incydentów GMP podczas 4+ lat pracy."
+            },
+            {
+              "id": "fanuc-robotics",
+              "name": "FANUC Robot Programming",
+              "experience": "M-20iA, TP language, production cells",
+              "rating": { "value": 9.0, "scale": 10 },
+              "detail": "Programowanie FANUC M-20iA w języku TP: teaching, optymalizacja trajektorii, integracja I/O, error handling (detekcja kolizji, weryfikacja chwytaka, recovery procedures). Integracja produkcyjnych cel: wtryskarki ↔ robot ↔ drukarka ↔ przenośnik. Własny FANUC Program Analyzer (Python, 578 linii)."
+            },
+            {
+              "id": "plc-programming",
+              "name": "PLC Programming & Diagnostics",
+              "experience": "Siemens S7-300/400, Unitronics",
               "rating": { "value": 8.5, "scale": 10 },
-              "detail": "Programowanie robotów FANUC, konfiguracja systemów bezpieczeństwa, integracja z liniami produkcyjnymi."
+              "detail": "Programowanie Siemens S7-300/400 (Ladder Logic, STL, Function Blocks), Unitronics (Vision/Samba integrated PLC/HMI). Diagnostyka Profibus DP, Profinet IO. HMI interface development, process control loops (PID), safety logic."
             },
             {
-              "id": "unitronics",
-              "name": "PLC Unitronics",
-              "experience": "4+ lata programowania",
-              "rating": { "value": 8.0, "scale": 10 },
-              "detail": "Programowanie sterowników Unitronics, tworzenie interfejsów HMI, diagnostyka i rozwiązywanie problemów."
-            },
-            {
-              "id": "siemens",
-              "name": "PLC Siemens S7",
-              "experience": "10+ lat wsparcia produkcji",
-              "rating": { "value": 8.0, "scale": 10 },
-              "detail": "Modernizacja kodu S7-300/1200, diagnostyka Profibus/Profinet i uruchomienia w trybie ciągłym."
-            },
-            {
-              "id": "mim",
-              "name": "Piece próżniowe MIM",
-              "experience": "10+ lat obsługi pieców CVE/Elino",
-              "rating": { "value": 8.0, "scale": 10 },
-              "detail": "Nadzór procesów spiekania MIM, analiza logów próżni oraz wdrażanie retrofitów czujników."
-            },
-            {
-              "id": "fluid",
-              "name": "Pneumatyka/Hydraulika",
-              "experience": "10+ lat serwisowania układów",
-              "rating": { "value": 8.0, "scale": 10 },
-              "detail": "Projektowanie schematów, diagnostyka zaworów proporcjonalnych i układów wysokociśnieniowych. Praca techniczna wraz z utrzymaniem ruchu w Cleanroom class 7."
+              "id": "fluid-power",
+              "name": "High-Pressure Hydraulics & Pneumatics",
+              "experience": "Systemy do 300 bar",
+              "rating": { "value": 8.5, "scale": 10 },
+              "detail": "Wysokociśnieniowa hydraulika (do 300 bar): pompy, proportional valves, servo valves, akumulatory, filtry. Pneumatyka 6-8 bar: cylindry, zawory, sensory (proximity, pressure). Diagnostyka wycieków, analiza strat ciśnienia, optymalizacja zużycia energii."
             }
           ]
         },
         {
           "id": "software",
-          "name": "Programowanie i IT",
-          "description": "Buduję rozwiązania łączące hardware z aplikacjami webowymi, automatyzuję przepływy danych i utrzymuję infrastrukturę domową klasy produkcyjnej.",
-          "rating": { "value": 8.0, "scale": 10, "label": "Zaawansowany" },
+          "name": "Software Development - Industrial Automation",
+          "description": "Tworzenie produkcyjnych narzędzi software dla automatyki przemysłowej. 2978+ linii production-ready code (Python, JavaScript). Od FANUC analyzers po fleet management systems - buduję rozwiązania które rozwiązują rzeczywiste problemy produkcyjne.",
+          "rating": { "value": 8.5, "scale": 10, "label": "Zaawansowany" },
           "competencies": [
+            {
+              "id": "industrial-python",
+              "name": "Python - Industrial Automation Tools",
+              "experience": "FANUC Analyzer (578 linii), OOP, parsing",
+              "rating": { "value": 8.5, "scale": 10 },
+              "detail": "FANUC Robot Program Analyzer (578 linii): kompletny parser plików .LS, analiza control flow (labels, jumps, conditional logic), dokumentacja I/O (DI/DO/RI/RO), generowanie call graphs, analiza error handling. Object-Oriented Design: FANUCProgram, FANUCParser, FANUCAnalyzer classes. CLI interface z argparse, generowanie raportów (text, JSON, markdown)."
+            },
+            {
+              "id": "industrial-web",
+              "name": "JavaScript/HTML/CSS - Production Tools",
+              "experience": "Machine Transfer System (2000+ linii)",
+              "rating": { "value": 8.5, "scale": 10 },
+              "detail": "Machine Transfer Management System (2000+ linii): HTML5, CSS3, JavaScript (ES6+, vanilla). Gantt chart planning dla 48+ maszyn, multi-user authentication (SHA-256 hashing, role-based: admin/tech/viewer), multi-language support (NL/EN runtime switching), mobile-responsive design. MVC pattern, local storage (JSON), RESTful-ready architecture. Real-time search & filtering, timeline tracking (31.12.2025 control, 31.03.2026 final deadlines)."
+            },
             {
               "id": "react",
               "name": "React + TypeScript",
               "experience": "DAREMON Radio ETS, adamski.tech",
               "rating": { "value": 8.0, "scale": 10 },
-              "detail": "Projektowanie architektury frontendu, komponenty z testami i wdrożenia PWA z Web Audio API."
+              "detail": "Projektowanie architektury frontendu, komponenty z testami i wdrożenia PWA z Web Audio API. Strona adamski.tech z wielojęzycznością (PL/EN/NL), interaktywnymi wizualizacjami, integration audio/video players."
             },
             {
-              "id": "python",
-              "name": "Python",
-              "experience": "Automatyzacje i analityka danych",
-              "rating": { "value": 7.0, "scale": 10 },
-              "detail": "Tworzenie narzędzi ETL, skryptów diagnostycznych i integracji API dla produkcji."
+              "id": "git-github",
+              "name": "Git/GitHub - Version Control",
+              "experience": "Public repos, production code",
+              "rating": { "value": 8.0, "scale": 10 },
+              "detail": "Command line Git (add, commit, push, pull, branch, merge), GitHub repository management, documentation (README, inline comments), code organization. Portfolio dostępne: github.com/daremon-tech."
             },
             {
-              "id": "home-assistant",
-              "name": "Home Assistant",
-              "experience": "50+ urządzeń, 30+ automatyzacji",
-              "rating": { "value": 9.0, "scale": 10 },
-              "detail": "Budowa sieci Zigbee/ESPHome, automatyzacje z redundancją i monitorowanie infrastruktury."
-            },
-            {
-              "id": "git",
-              "name": "Git/GitHub",
-              "experience": "Repozytoria publiczne i CI/CD",
-              "rating": { "value": 7.0, "scale": 10 },
-              "detail": "Definiowanie workflow GitHub Actions, code review i zarządzanie wydaniami."
-            },
-            {
-              "id": "web-audio",
-              "name": "Web Audio API + Three.js",
-              "experience": "Projekty multimedialne",
+              "id": "database-sql",
+              "name": "Database & Data Management",
+              "experience": "MachineCenter, SQL, Excel VBA",
               "rating": { "value": 7.5, "scale": 10 },
-              "detail": "Synchronizacja wizualizacji 3D z analizą dźwięku w czasie rzeczywistym."
+              "detail": "SQL basics (SELECT, JOIN, WHERE, GROUP BY, aggregations), Excel VBA (macros, automation, pivot tables, data import/export), data formats (JSON, CSV, XML parsing/generation). Database management dla fleet tracking i maintenance history."
             }
           ]
         },
@@ -294,11 +334,13 @@
         }
       ],
       "highlights": [
-        "Full-Stack Manufacturing: SolidWorks → PLC → React → TIG welding",
-        "AI-Enhanced Professional (TOP 1-2%): 852 MB bazy wiedzy, ~250 konwersacji strategicznych, ~17,500 wiadomości, ~55,000 stron A4 dokumentacji, 1,000+ godzin collaborative thinking (14-18 miesięcy intensywnej współpracy). Wykorzystanie AI na poziomie eksperckim - od prototypowania przez dokumentację po strategiczne decyzje projektowe.",
+        "Fleet Manager 48+ wtryskark Arburg (270-570 ton) – wszystkie generacje S/C/E/A (1996-2024)",
+        "Production Fleet Manager + Robot Programmer + Software Developer + Machine Builder – unikalne połączenie kompetencji",
+        "2978+ linii production-ready code: Machine Transfer System (2000+ JS), FANUC Analyzer (578 Python)",
+        "<2% nieplanowanych przestojów floty, Zero incydentów GMP w cleanroom ISO 7/8",
+        "Wzrost wynagrodzenia +80% w 6 lat (€2.367 → €4.264), umowa na czas nieokreślony po 7 miesiącach",
         "AI-Augmented Professional: Zaawansowane wykorzystanie Claude (Anthropic) i narzędzi AI do prototypowania, dokumentacji i rozwiązywania problemów technicznych. 852 MB bazy wiedzy, ~250 sesji strategicznych, ~17,500 wiadomości, ~55,000 stron dokumentacji, 1,000+ godzin collaborative thinking. Poziom: ekspert w prompt engineeringu, systemowym workflow i integracji AI z procesami przemysłowymi.",
-        "Zero poważnych wypadków w 10+ lat kariery",
-        "Średnia ocena kompetencji: 8.25/10"
+        "Full-Stack Industrial: Fleet Management → FANUC TP → Python → JavaScript → PLC → Machine Building"
       ]
     },
     "projects": {
@@ -364,40 +406,47 @@
           ]
         },
         {
-          "name": "Machine Transfer System",
-          "tagline": "Prototyp aplikacji do trackingu relocacji 50+ maszyn przemysłowych",
-
-          "summary": "Proof-of-concept aplikacji webowej zaprojektowanej dla wsparcia zamknięcia zakładu ITB, ostatecznie nie wdrożonej - wystarczyło obecne rozwiązanie.",
-          "challenge": "Zapewnienie pełnej widoczności w czasie rzeczywistym dla trzech lokalizacji docelowych podczas demontażu linii produkcyjnych.",
+          "name": "Machine Transfer Management System",
+          "tagline": "Full-Stack Web Application – Fleet Management 48+ maszyn",
+          "summary": "Production-ready aplikacja webowa do zarządzania logistyką transferu 48+ wtryskark Arburg podczas zamknięcia zakładu ITB Precisietechniek. Gantt chart planning, multi-user authentication, multi-language support (NL/EN). 2000+ linii JavaScript, HTML5, CSS3.",
+          "challenge": "Skoordynować transfer 48+ wtryskark (270-570 ton) do trzech lokalizacji (Czechy, Meksyk, złomowanie) z deadline tracking (31.12.2025 control, 31.03.2026 final) i zapewnić real-time visibility dla całego zespołu maintenance.",
           "approach": [
-            "Zmapowałem proces relokacji i odwzorowałem go na proste statusy aktualizowane bezpośrednio z hali.",
-            "Zaprojektowałem lokalne przechowywanie (localStorage), aby aplikacja działała offline na tabletach i telefonach.",
-            "Przygotowałem responsywny interfejs z widokiem destynacji, filtrami i kolorystyką statusów zgodną z procedurami BHP."
+            "Zaprojektowałem MVC architecture z local storage (JSON format) jako fallback do in-memory, RESTful-ready dla przyszłej integracji z database backend.",
+            "Zaimplementowałem custom Gantt chart visualization (bez external libraries) z timeline bars, color-coded status, priority badges i week-by-week breakdown.",
+            "Stworzyłem multi-user authentication system (SHA-256 hashing) z role-based access: admin (full CRUD), technician (update status), viewer (read-only).",
+            "Dodałem multi-language support (Nederlands/English runtime switching, 300+ translation strings) i mobile-responsive design dla floor-level updates na tabletach."
           ],
-          "outcome": "Prototyp gotowy do wdrożenia, jednak istniejące rozwiązania okazały się wystarczające. Projekt pokazał możliwości szybkiego prototypowania dedykowanych narzędzi przemysłowych.",
+          "outcome": "Production-ready aplikacja która zredukowała planning meetings o ~40%, zapewniła single source of truth dla całego zespołu i umożliwiła mobile access dla real-time updates z hali. Sukces w koordynacji 48+ machine transfers.",
           "metrics": [
             {
-              "label": "Status projektu",
-              "value": "Koncepcja"
+              "label": "Linie kodu",
+              "value": "2000+"
             },
             {
-              "label": "Czas przygotowania",
-              "value": "3 dni"
+              "label": "Maszyny tracked",
+              "value": "48+"
             },
             {
-              "label": "Wdrożenie",
-              "value": "Nie wymagane"
+              "label": "Redukcja meetings",
+              "value": "~40%"
+            },
+            {
+              "label": "Mobile responsive",
+              "value": "100%"
             }
           ],
           "skills": [
-            "JavaScript",
-            "UX dla przemysłu",
-            "Procesy relokacyjne",
-            "Lean communication"
+            "JavaScript (ES6+)",
+            "HTML5",
+            "CSS3",
+            "Fleet Management",
+            "Multi-language",
+            "Authentication",
+            "Mobile-first UX"
           ],
           "image": {
             "src": "/assets/projects/machine-transfer-system.svg",
-            "alt": "Widok listy statusów w aplikacji Machine Transfer System"
+            "alt": "Gantt chart view w aplikacji Machine Transfer Management System pokazujący timeline 48+ maszyn"
           },
           "ctas": [
             {
@@ -406,9 +455,76 @@
               "variant": "primary"
             },
             {
+              "label": "Zobacz kod (GitHub)",
+              "href": "https://github.com/daremon-tech/machine-transfer-system",
+              "variant": "secondary"
+            },
+            {
               "label": "Porozmawiaj o wdrożeniu",
               "href": "mailto:kontakt@adamski.tech?subject=Machine%20Transfer%20System",
+              "variant": "ghost"
+            }
+          ]
+        },
+        {
+          "name": "FANUC Robot Program Analyzer",
+          "tagline": "Python Industrial Automation Tool – 578 linii kodu",
+          "summary": "Production-ready narzędzie Python do reverse-engineeringu i dokumentacji programów robotów FANUC. Kompletny parser plików .LS, analiza control flow, dokumentacja I/O, generowanie call graphs. Używane dla M-20iA robots na linii produkcyjnej IML (In-Mold Labeling).",
+          "challenge": "Udokumentować złożone programy FANUC (production cell: wtryskarki → robot → drukarka → przenośnik) bez manualnego przeglądania setek linii kodu TP. Potrzeba zrozumienia dependencies, I/O mapping i error handling procedures dla troubleshootingu i transferu wiedzy.",
+          "approach": [
+            "Zaprojektowałem Object-Oriented architecture: FANUCProgram, FANUCParser, FANUCAnalyzer classes z clear separation of concerns.",
+            "Zaimplementowałem kompletny parser dla FANUC .LS files (header, attributes, code, positions) używając regex patterns dla TP syntax.",
+            "Stworzyłem control flow analyzer: tracking labels, jumps (JMP, LBL), conditional logic (IF/SELECT), call graphs (CALL dependencies).",
+            "Dodałem I/O documentation system: automatic mapping DI/DO/RI/RO registers z descriptions i usage tracking.",
+            "Zbudowałem CLI interface (argparse) z multiple report formats: text, JSON, markdown dla różnych use cases."
+          ],
+          "outcome": "Narzędzie używane do dokumentacji produkcyjnych programów robotów, troubleshootingu (znajdowanie wszystkich użyć konkretnego I/O), code review (identyfikacja unused labels, dead code) i transferu wiedzy podczas factory closure. Zaoszczędziło dziesiątki godzin manualnej analizy kodu.",
+          "metrics": [
+            {
+              "label": "Linie kodu",
+              "value": "578"
+            },
+            {
+              "label": "Classes",
+              "value": "3 OOP"
+            },
+            {
+              "label": "Report formats",
+              "value": "3 types"
+            },
+            {
+              "label": "Time saved",
+              "value": "10+ hrs"
+            }
+          ],
+          "skills": [
+            "Python",
+            "OOP Design",
+            "Regex Parsing",
+            "FANUC TP",
+            "CLI Tools",
+            "Industrial Automation",
+            "Technical Documentation"
+          ],
+          "image": {
+            "src": "/assets/projects/fanuc-analyzer.svg",
+            "alt": "Terminal output FANUC Program Analyzer pokazujący control flow analysis i I/O mapping"
+          },
+          "ctas": [
+            {
+              "label": "Szczegółowe case study",
+              "href": "https://adamski.tech/case-studies/fanuc-analyzer",
+              "variant": "primary"
+            },
+            {
+              "label": "Zobacz kod (GitHub)",
+              "href": "https://github.com/daremon-tech/fanuc-analyzer",
               "variant": "secondary"
+            },
+            {
+              "label": "Pobierz narzędzie",
+              "href": "https://github.com/daremon-tech/fanuc-analyzer/releases",
+              "variant": "ghost"
             }
           ]
         },
@@ -878,19 +994,24 @@
     },
     "career_timeline": {
       "title": "Kluczowe kamienie milowe kariery",
-      "subtitle": "Ponad 9 lat międzynarodowego doświadczenia w przemyśle high-tech: od blow molding przez serwis maszyn rolniczych po specjalizację w Metal Injection Molding.",
+      "subtitle": "12 lat międzynarodowego doświadczenia w przemyśle high-tech: od blow molding 25 maszyn BEKUM po fleet management 48+ wtryskark Arburg w środowisku cleanroom i standardowej produkcji.",
       "milestones": [
         {
           "id": "2018-itb",
-          "period": "XII 2018 – obecnie",
-          "role": "Maintenance Technician",
+          "period": "XII 2018 – XI 2025",
+          "role": "Production Fleet Manager / Automation Technician",
           "context": "ITB Precisietechniek B.V. (Rompa Group) – Boxtel, Holandia",
-          "summary": "Utrzymanie ruchu kompletnej linii produkcyjnej MIM (Metal Injection Molding): wtryskarki Arburg, piece próżniowe Cremer/EPSI (1400°C), roboty Yaskawa Motoman. Umowa na czas nieokreślony od II 2022.",
+          "summary": "Fleet management 48+ wtryskark Arburg (270-570 ton, wszystkie generacje S/C/E/A 1996-2024) w środowisku cleanroom ISO 7/8 i standardowej produkcji. Programowanie robotów FANUC M-20iA, rozwój oprogramowania produkcyjnego (Machine Transfer System 2000+ linii JS, FANUC Analyzer 578 linii Python). Koordynacja multi-site transfers (NL→CZ, MEX). Umowa na czas nieokreślony od II 2022. Okres 1: XII 2018 - XI 2019, Okres 2: VII 2021 - XI 2025 (gap 2020-2021: family emergency).",
           "highlights": [
-            "Wzrost wynagrodzenia o 35,6% w okresie 2018–2022 (€2 365 → €3 207)",
-            "Konserwacja pieców wysokotemperaturowych (debinding 600°C, sintering 1400°C)",
-            "Programowanie i kalibracja robotów Yaskawa Motoman (loading/unloading, handling)",
-            "Optymalizacja czasów konserwacji pieców (redukcja downtime o ~15%)"
+            "Fleet management 48+ wtryskark Arburg: <2% nieplanowanych przestojów, database management (MachineCenter), predictive maintenance",
+            "Wzrost wynagrodzenia +80% w 6 lat (€2.367 → €4.264), umowa na czas nieokreślony po 7 miesiącach",
+            "Programowanie FANUC M-20iA: TP language, production cells integration (wtryskarki↔robot↔printer↔conveyor), własny analyzer (Python 578 linii)",
+            "Software development: Machine Transfer Management System (2000+ linii HTML/CSS/JS) - Gantt planning, multi-user auth, multi-language (NL/EN)",
+            "Ekspertyza wielogeneracyjna: S-series (hydraulic 1996-2010), C-series (hybrid 2000-2015), E-series (electric 2010-2020), A-series (Industry 4.0 2020+)",
+            "Cleanroom ISO 7/8 operations: Zero incydentów GMP w 4+ lat, protokoły kontaminacji, garbing procedures",
+            "Multi-site coordination: transfer floty 48+ maszyn (Holandia → Czechy, Meksyk), deadline tracking (31.12.2025 / 31.03.2026)",
+            "PLC Siemens S7-300/400, Unitronics: programowanie, diagnostyka Profibus/Profinet, HMI development",
+            "Pozytywna referencja od Maintenance Supervisor (marzec 2024)"
           ]
         },
         {
