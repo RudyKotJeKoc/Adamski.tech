@@ -1,0 +1,28 @@
+# Dependabot Configuration for adamski.tech
+# See: SECURITY_AUDIT_REPORT.md → P1-3 for details
+# Automatically checks for dependency updates and security vulnerabilities
+
+version: 2
+updates:
+  # Enable version updates for npm
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 10
+
+    # Security updates
+    commit-message:
+      prefix: "security"
+      include: "scope"
+
+    # Labels for PRs
+    labels:
+      - "dependencies"
+      - "security"
+
+    # Reviewers (optional - uncomment and add GitHub usernames)
+    # reviewers:
+    #   - "RudyKotJeKoc"
