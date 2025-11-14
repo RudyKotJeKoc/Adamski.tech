@@ -36,6 +36,28 @@ module.exports = {
         fast: design.motion.durations.fast,
         base: design.motion.durations.base,
         slow: design.motion.durations.slow
+      },
+      // Micro-interaction animations for InteractiveSkillTag
+      keyframes: {
+        ping: {
+          '75%, 100%': {
+            transform: 'scale(1.2)',
+            opacity: '0',
+          },
+        },
+        'fade-in': {
+          from: { opacity: '0' },
+          to: { opacity: '1' },
+        },
+        'slide-in-from-bottom-1': {
+          from: { transform: 'translateY(4px)' },
+          to: { transform: 'translateY(0)' },
+        },
+      },
+      animation: {
+        ping: 'ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',
+        in: 'fade-in 0.2s ease-out',
+        'slide-in-from-bottom-1': 'slide-in-from-bottom-1 0.2s ease-out',
       }
     }
   },
