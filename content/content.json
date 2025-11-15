@@ -364,6 +364,50 @@
           ]
         },
         {
+          "name": "Daremon.nl",
+          "tagline": "Profesjonalna strona wizytówkowa i portfolio",
+
+          "summary": "Strona internetowa prezentująca profesjonalne usługi i portfolio w zakresie automatyki przemysłowej oraz rozwoju oprogramowania.",
+          "challenge": "Stworzyć efektywną obecność online, która łączy doświadczenie w automatyce przemysłowej z kompetencjami w rozwoju aplikacji webowych.",
+          "approach": [
+            "Zaprojektowałem responsywną stronę prezentującą kompetencje techniczne i realizacje projektowe.",
+            "Zintegrowałem portfolio z przykładami prac zarówno z obszaru automatyki jak i programowania.",
+            "Zoptymalizowałem SEO i performance dla lepszej widoczności w wyszukiwarkach."
+          ],
+          "outcome": "Profesjonalna platforma online skutecznie prezentująca usługi i osiągnięcia, ułatwiająca kontakt z potencjalnymi klientami i partnerami.",
+          "metrics": [
+            {
+              "label": "Status",
+              "value": "Online"
+            },
+            {
+              "label": "Zakres",
+              "value": "Portfolio B2B"
+            },
+            {
+              "label": "Technologie",
+              "value": "Web"
+            }
+          ],
+          "skills": [
+            "Web Development",
+            "UX/UI Design",
+            "SEO",
+            "Branding"
+          ],
+          "image": {
+            "src": "/assets/projects/daremon-nl.svg",
+            "alt": "Strona główna Daremon.nl"
+          },
+          "ctas": [
+            {
+              "label": "Odwiedź stronę",
+              "href": "https://daremon.nl",
+              "variant": "primary"
+            }
+          ]
+        },
+        {
           "name": "Machine Transfer System",
           "tagline": "Prototyp aplikacji do trackingu relocacji 50+ maszyn przemysłowych",
 
@@ -624,7 +668,7 @@
         {
           "type": "linkedin",
           "label": "LinkedIn",
-          "value": "linkedin.com/in/dariusz-adamski",
+          "value": "linkedin.com/in/dariusz-adamski-daremon",
           "description": "Szybkie intro partnerskie oraz aktualizacje."
         },
         {
@@ -641,7 +685,7 @@
       },
       "socials": {
         "github": "https://github.com/RudyKotJeKoc",
-        "linkedin": "https://linkedin.com/in/dariusz-adamski",
+        "linkedin": "https://www.linkedin.com/in/dariusz-adamski-daremon",
         "youtube": "https://youtube.com/@DariuszDaremon"
       },
       "call_url": "https://cal.com/daremon/intro",
@@ -1420,6 +1464,50 @@
           ]
         },
         {
+          "name": "Daremon.nl",
+          "tagline": "Professional business card and portfolio website",
+
+          "summary": "Professional website showcasing services and portfolio in industrial automation and software development.",
+          "challenge": "Create an effective online presence that bridges industrial automation expertise with web application development capabilities.",
+          "approach": [
+            "Designed a responsive website presenting technical competencies and project achievements.",
+            "Integrated portfolio with examples from both automation and programming domains.",
+            "Optimized SEO and performance for better search engine visibility."
+          ],
+          "outcome": "Professional online platform effectively presenting services and achievements, facilitating contact with potential clients and partners.",
+          "metrics": [
+            {
+              "label": "Status",
+              "value": "Online"
+            },
+            {
+              "label": "Scope",
+              "value": "B2B Portfolio"
+            },
+            {
+              "label": "Technology",
+              "value": "Web"
+            }
+          ],
+          "skills": [
+            "Web Development",
+            "UX/UI Design",
+            "SEO",
+            "Branding"
+          ],
+          "image": {
+            "src": "/assets/projects/daremon-nl.svg",
+            "alt": "Daremon.nl homepage"
+          },
+          "ctas": [
+            {
+              "label": "Visit website",
+              "href": "https://daremon.nl",
+              "variant": "primary"
+            }
+          ]
+        },
+        {
           "name": "Machine Transfer System",
           "tagline": "Concept for tracking app for industrial machine relocation",
           "summary": "Designed (not deployed) web application to support potential plant closure through transparent equipment relocation status reporting. The concept proved unnecessary as existing solutions were sufficient.",
@@ -1675,7 +1763,7 @@
         {
           "type": "linkedin",
           "label": "LinkedIn",
-          "value": "linkedin.com/in/dariusz-adamski",
+          "value": "linkedin.com/in/dariusz-adamski-daremon",
           "description": "Fast executive intro and ongoing dialogue."
         },
         {
@@ -1692,7 +1780,7 @@
       },
       "socials": {
         "github": "https://github.com/RudyKotJeKoc",
-        "linkedin": "https://linkedin.com/in/dariusz-adamski",
+        "linkedin": "https://www.linkedin.com/in/dariusz-adamski-daremon",
         "youtube": "https://youtube.com/@DariuszDaremon"
       },
       "call_url": "https://cal.com/daremon/intro",
@@ -2469,6 +2557,50 @@
           ]
         },
         {
+          "name": "Daremon.nl",
+          "tagline": "Professioneel visitekaartje en portfoliowebsite",
+
+          "summary": "Professionele website met diensten en portfolio op het gebied van industriële automatisering en softwareontwikkeling.",
+          "challenge": "Een effectieve online aanwezigheid creëren die expertise in industriële automatisering verbindt met webapplicatie-ontwikkelingsvaardigheden.",
+          "approach": [
+            "Responsieve website ontworpen met technische competenties en projectprestaties.",
+            "Portfolio geïntegreerd met voorbeelden uit zowel automatisering als programmeergebieden.",
+            "SEO en performance geoptimaliseerd voor betere zichtbaarheid in zoekmachines."
+          ],
+          "outcome": "Professioneel online platform dat diensten en prestaties effectief presenteert en contact met potentiële klanten en partners vergemakkelijkt.",
+          "metrics": [
+            {
+              "label": "Status",
+              "value": "Online"
+            },
+            {
+              "label": "Bereik",
+              "value": "B2B Portfolio"
+            },
+            {
+              "label": "Technologie",
+              "value": "Web"
+            }
+          ],
+          "skills": [
+            "Web Development",
+            "UX/UI Design",
+            "SEO",
+            "Branding"
+          ],
+          "image": {
+            "src": "/assets/projects/daremon-nl.svg",
+            "alt": "Daremon.nl homepage"
+          },
+          "ctas": [
+            {
+              "label": "Bezoek website",
+              "href": "https://daremon.nl",
+              "variant": "primary"
+            }
+          ]
+        },
+        {
           "name": "Machine Transfer System",
           "tagline": "Concept voor tracking-app voor relocatie van industriële machines",
           "summary": "Ontworpen (niet geïmplementeerd) webapplicatie om een mogelijke fabriekssluiting te ondersteunen via transparante rapportage van relocatiestatus. Het concept bleek onnodig omdat bestaande oplossingen toereikend waren.",
@@ -2723,7 +2855,7 @@
         {
           "type": "linkedin",
           "label": "LinkedIn",
-          "value": "linkedin.com/in/dariusz-adamski",
+          "value": "linkedin.com/in/dariusz-adamski-daremon",
           "description": "Snel executive-intro en voortgezet overleg."
         },
         {
@@ -2740,7 +2872,7 @@
       },
       "socials": {
         "github": "https://github.com/RudyKotJeKoc",
-        "linkedin": "https://linkedin.com/in/dariusz-adamski",
+        "linkedin": "https://www.linkedin.com/in/dariusz-adamski-daremon",
         "youtube": "https://youtube.com/@DariuszDaremon"
       },
       "call_url": "https://cal.com/daremon/intro",
