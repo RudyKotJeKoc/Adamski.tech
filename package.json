@@ -16,11 +16,12 @@
   },
   "devDependencies": {
     "@types/react": "^19.2.5",
-    "@types/react-dom": "^18.3.0",
+    "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^5.1.1",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.14",
+    "terser": "^5.44.1",
     "typescript": "^5.6.3",
     "vite": "^5.4.0"
   }
