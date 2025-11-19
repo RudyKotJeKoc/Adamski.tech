@@ -1,0 +1,25 @@
+# Netlify Configuration for adamski.tech
+# See: SECURITY_AUDIT_REPORT.md for details
+
+[build]
+  publish = "dist"
+  command = "pnpm build"
+
+# HTTPS Redirects - Force HTTPS
+[[redirects]]
+  from = "http://adamski.tech/*"
+  to = "https://adamski.tech/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.adamski.tech/*"
+  to = "https://adamski.tech/:splat"
+  status = 301
+  force = true
+
+# SPA fallback - handle client-side routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

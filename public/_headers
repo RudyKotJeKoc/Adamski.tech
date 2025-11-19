@@ -1,0 +1,22 @@
+# Security Headers for adamski.tech
+# See: SECURITY_AUDIT_REPORT.md for details
+
+/*
+  # Content Security Policy - XSS Protection
+  # Note: 'unsafe-inline' for style-src is required for Tailwind CSS
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+
+  # Clickjacking Protection
+  X-Frame-Options: DENY
+
+  # MIME Sniffing Protection
+  X-Content-Type-Options: nosniff
+
+  # Referrer Policy
+  Referrer-Policy: no-referrer-when-downgrade
+
+  # Permissions Policy (Feature Policy)
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+
+  # HTTPS Enforcement (HSTS)
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload

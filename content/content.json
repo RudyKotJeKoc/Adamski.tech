@@ -1,8 +1,8 @@
 {
   "pl": {
     "meta": {
-      "title": "Daremon Engineering — Adamski.tech",
-      "description": "Inżynier automatyki i utrzymania ruchu. Niezawodne systemy: automatyzacje, IoT, projekty techniczne, MIM i druk 3D. Profesjonalnie, precyzyjnie, bez zbędnego marketingu."
+      "title": "Dariusz Adamski — Maintenance Technician | MIM Specialist",
+      "description": "Senior Maintenance Technician z 9+ lat doświadczenia w przemyśle high-tech. Specjalista Metal Injection Molding (MIM), robotyka przemysłowa, automatyka. ITB Precisietechniek, Daremon Engineering."
     },
     "navigation": {
       "hero": "Start",
@@ -17,12 +17,12 @@
       "partners": "Partnerzy"
     },
     "hero": {
-      "heading": "Dariusz Adamski — Senior Multi-Disciplinary Specialist",
-      "tagline": "Maszyny → Kod → Strategia",
-      "tagline_sequence": ["Maszyny", "Kod", "Strategia"],
-      "subheading": "Lider automatyki przemysłowej łączący robotykę, retrofity PLC i produkty webowe full-stack dla mierzalnych rezultatów.",
+      "heading": "Dariusz Krzysztof Adamski — Maintenance Technician",
+      "tagline": "Automatyka Przemysłowa → MIM Technology → Robotyka",
+      "tagline_sequence": ["Automatyka Przemysłowa", "MIM Technology", "Robotyka"],
+      "subheading": "Senior Maintenance Technician z ponad 9-letnim międzynarodowym doświadczeniem w przemyśle high-tech. Specjalista w zakresie technologii Metal Injection Molding (MIM), robotyki przemysłowej i systemów automatyki.",
       "badge_label": "Daremon Engineering",
-      "badge_caption": "Maszyny, software i partnerstwa strategiczne.",
+      "badge_caption": "Metal Injection Molding, automatyka i serwis przemysłowy.",
       "cta_primary": "Zainicjuj partnerstwo",
       "cta_primary_aria": "Zainicjuj partnerstwo – przejdź do sekcji kontakt.",
       "cta_secondary": "Zobacz realizacje",
@@ -37,9 +37,9 @@
           "title": "Industrial DNA",
           "icon": "🛠️",
           "items": [
-            "**10+ lat** utrzymania ruchu, robotyki i MIM w środowiskach high-mix.",
-            "**Certyfikowane** doświadczenie z Arburg, FANUC, Unitronics, Siemens S7.",
-            "**Zero poważnych przestojów** w prowadzeniu kluczowych wdrożeń."
+            "**9+ lat** międzynarodowego doświadczenia w przemyśle high-tech (Holandia, Polska).",
+            "**Specjalista MIM** – Metal Injection Molding: wtryskarki Arburg, piece Cremer/EPSI (1400°C), roboty Yaskawa.",
+            "**Zero poważnych incydentów** BHP przez ponad 10 lat kariery."
           ],
           "cta": {
             "label": "Zobacz projekty",
@@ -47,12 +47,12 @@
           }
         },
         {
-          "title": "Cyfrowy stack",
-          "icon": "💡",
+          "title": "Technologie core",
+          "icon": "⚙️",
           "items": [
-            "**Full-stack** rozwiązania: React, TypeScript, Python, Node tooling.",
-            "**Integracje IoT** z Home Assistant, ESPHome, custom sensorami.",
-            "**Workflow AI** wykorzystywany do prototypowania i dokumentacji."
+            "**Blow Molding** – 5 lat z BEKUM (około 25 maszyn, produkcja automotive).",
+            "**Hydraulika & Pneumatyka** – systemy do 300 bar, diagnostyka, regeneracja.",
+            "**PLC & Automatyka** – Siemens S7, robotyka przemysłowa, HMI/SCADA."
           ],
           "cta": {
             "label": "Lista kompetencji",
@@ -60,12 +60,12 @@
           }
         },
         {
-          "title": "Strategia i przywództwo",
+          "title": "Przedsiębiorczość",
           "icon": "🧭",
           "items": [
-            "**Audyt procesów** i mapowanie ryzyka w zespołach produkcyjnych.",
-            "**Koordynacja B2B** – komunikacja PL/EN/NL w środowisku międzynarodowym.",
-            "**Podejście Lean**: szybka diagnoza i priorytetyzacja działań."
+            "**Właściciel JDG** od 2020 – automatyka przemysłowa, serwis, modernizacje.",
+            "**40+ projektów** B2B z 80% klientów powracających.",
+            "**Komunikacja międzynarodowa** – polski/niderlandzki/niemiecki/angielski."
           ],
           "cta": {
             "label": "Umów konsultację",
@@ -73,16 +73,16 @@
           }
         },
         {
-          "title": "Doświadczenie specjalistyczne",
-          "icon": "🏭",
+          "title": "Rozwój zawodowy",
+          "icon": "📈",
           "items": [
-            "**Praca techniczna** wraz z utrzymaniem ruchu w Cleanroom class 7.",
-            "**Od 2013** doświadczenie z tworzywami: ekstrudery, wtryskarki, wytłaczarko-wydmuchiwarki.",
-            "**Partnerstwo R&D** dla modernizacji pieców MIM i systemów custom."
+            "**Dwie umowy na czas nieokreślony** w Holandii (2016, 2022).",
+            "**Wzrost wynagrodzenia o 100%** w ciągu 9 lat (€1 600 → €3 207).",
+            "**Ciągły rozwój** – od mechanika samochodowego po Senior Maintenance Technician."
           ],
           "cta": {
-            "label": "Porozmawiajmy",
-            "href": "#contact"
+            "label": "Timeline kariery",
+            "href": "#career"
           }
         }
       ]
@@ -613,18 +613,18 @@
       "subtext": "Preferuję rozmowy o wspólnych wdrożeniach, modernizacji produkcji i R&D. Wybierz kanał, który najszybciej uruchomi pierwszy krok.",
       "email_label": "Email",
       "phone_label": "Telefon",
-      "email": "Dariusz@Adamski.tech",
+      "email": "kontakt@adamski.tech",
       "channels": [
         {
           "type": "email",
           "label": "Email bezpośredni",
-          "value": "Dariusz@Adamski.tech",
+          "value": "kontakt@adamski.tech",
           "description": "Najlepszy do briefów, dokumentacji i ofert."
         },
         {
           "type": "linkedin",
           "label": "LinkedIn",
-          "value": "linkedin.com/in/dariusz-adamski",
+          "value": "linkedin.com/in/dariusz-adamski-daremon",
           "description": "Szybkie intro partnerskie oraz aktualizacje."
         },
         {
@@ -641,7 +641,7 @@
       },
       "socials": {
         "github": "https://github.com/RudyKotJeKoc",
-        "linkedin": "https://linkedin.com/in/dariusz-adamski",
+        "linkedin": "https://www.linkedin.com/in/dariusz-adamski-daremon",
         "youtube": "https://youtube.com/@DariuszDaremon"
       },
       "call_url": "https://cal.com/daremon/intro",
@@ -878,54 +878,83 @@
     },
     "career_timeline": {
       "title": "Kluczowe kamienie milowe kariery",
-      "subtitle": "Ewolucja od serwisu utrzymania ruchu po hybrydowego lidera AI + hardware.",
+      "subtitle": "Ponad 9 lat międzynarodowego doświadczenia w przemyśle high-tech: od blow molding przez serwis maszyn rolniczych po specjalizację w Metal Injection Molding.",
       "milestones": [
         {
-          "id": "2025-hansa",
-          "period": "2024-2025",
-          "role": "Lead Automation Specialist",
-          "context": "ITB / Hansa + projekty MIM",
-          "summary": "Koordynacja relokacji 50+ maszyn, PoC dla modernizacji pieców próżniowych, audyty bezpieczeństwa.",
+          "id": "2021-itb-second",
+          "period": "VII 2021 – obecnie",
+          "role": "Maintenance Technician / Electrical Engineer",
+          "context": "ITB Precisietechniek B.V. (Rompa Group) – Boxtel, Holandia",
+          "summary": "Drugi okres zatrudnienia w ITB. Utrzymanie ruchu kompletnej linii produkcyjnej MIM (Metal Injection Molding): wtryskarki Arburg, piece próżniowe Cremer/EPSI (1400°C), roboty Yaskawa Motoman. Umowa na czas nieokreślony (Voor onbepaalde tijd) od 28 lutego 2022.",
           "highlights": [
-            "Prototyp systemu śledzenia przenosin maszyn (nie wdrożony - wystarczyło obecne rozwiązanie)",
-            "Proof-of-concept MIM furnace retrofit",
-            "Warsztaty AI dla zespołów utrzymania ruchu"
+            "Umowa na czas nieokreślony od 28 lutego 2022",
+            "Wzrost wynagrodzenia i rozszerzenie odpowiedzialności",
+            "Programowanie i kalibracja robotów Yaskawa Motoman (loading/unloading, handling)",
+            "Optymalizacja czasów konserwacji pieców (redukcja downtime o ~15%)"
           ]
         },
         {
-          "id": "2021-daremon",
-          "period": "2020-2021",
-          "role": "Właściciel Daremon Engineering",
-          "context": "B2B automatyka i serwis",
-          "summary": "Budowa działalności od zera — 40 projektów modernizacyjnych z portfelem stałych klientów B2B.",
+          "id": "2018-itb-first",
+          "period": "XII 2018 – XI 2019",
+          "role": "Maintenance Technician",
+          "context": "ITB Precisietechniek B.V. (Rompa Group) – Boxtel, Holandia",
+          "summary": "Pierwszy okres zatrudnienia w ITB (1 rok). Utrzymanie ruchu kompletnej linii produkcyjnej MIM (Metal Injection Molding): wtryskarki Arburg, piece próżniowe Cremer/EPSI (1400°C), roboty Yaskawa Motoman. Umowa na czas określony (Bepaalde tijd).",
           "highlights": [
-            "Programowanie PLC (Siemens, Mitsubishi)",
-            "Kontrakty serwisowe 24/7",
-            "Skalowanie dokumentacji i baz wiedzy"
+            "Wprowadzenie do technologii MIM i procesów wysokotemperaturowych",
+            "Konserwacja pieców wysokotemperaturowych (debinding 600°C, sintering 1400°C)",
+            "Obsługa i konserwacja robotów Yaskawa Motoman",
+            "Praca na umowie czasowej określonej"
           ]
         },
         {
-          "id": "2019-automation",
-          "period": "2015-2019",
-          "role": "Automation Engineer",
-          "context": "Tier-1 automotive",
-          "summary": "Robotyka, linie montażowe, wdrożenia systemów wizji, szkolenia operatorów.",
+          "id": "2020-daremon",
+          "period": "IV 2020 – VI 2021",
+          "role": "Właściciel – Automatyka Przemysłowa (JDG)",
+          "context": "Dariusz Adamski – Sypniewo, Polska",
+          "summary": "Działalność B2B: serwis i konserwacja maszyn przemysłowych, diagnostyka układów hydraulicznych/pneumatycznych/elektrycznych, modernizacje i retrofit, doradztwo techniczne. Okres 15 miesięcy. Działalność zarejestrowana 01.04.2020.",
           "highlights": [
-            "Integracja Yaskawa Motoman z kontrolą jakości",
-            "Optymalizacja cyklu o 12%",
-            "Programy bezpieczeństwa maszyn"
+            "40+ projektów zamkniętych, 80% klientów powracających",
+            "Serwis wtryskarek, pieców, robotów przemysłowych",
+            "Modernizacje starszych maszyn (dodawanie PLC, czujników)",
+            "Międzynarodowe doświadczenie (Polska, Holandia)"
           ]
         },
         {
-          "id": "2014-maintenance",
-          "period": "2007-2014",
-          "role": "Maintenance & Field Service",
-          "context": "Europejskie projekty serwisowe",
-          "summary": "Serwis pras hydraulicznych, maszyn CNC, wdrożenia Lean i TPM.",
+          "id": "2018-fendt",
+          "period": "II 2018 – X 2018",
+          "role": "Serwisant Maszyn Rolniczych",
+          "context": "Fendt Dealer – Holandia",
+          "summary": "Serwis maszyn rolniczych: ciągniki, kombajny, kosiarki. Okres zatrudnienia: 9 miesięcy. Specjalizacja: hydraulika, ISOBUS.",
           "highlights": [
-            "0 poważnych wypadków",
-            "Certyfikacja hydraulika wysokociśnieniowego",
-            "Program mentoringowy dla nowych techników"
+            "Wzrost wynagrodzenia o 25% w stosunku do poprzedniego pracodawcy",
+            "Diagnostyka układów elektrycznych 12V/24V i ISOBUS",
+            "Przeglądy przedsezonowe i gwarancyjne",
+            "Obsługa 10+ modeli różnorodnych maszyn"
+          ]
+        },
+        {
+          "id": "2013-jagtenberg",
+          "period": "IV 2013 – I 2018",
+          "role": "Monteur Technische Dienst",
+          "context": "Henk Jagtenberg Plastics B.V. / RPC Promens Industrial – Heerewaarden, Holandia",
+          "summary": "Utrzymanie ruchu około 25 wytłaczarko-rozdmuchiwarek BEKUM (produkcja automotive). Pierwsza praca za granicą w wieku 19 lat. Umowa na czas nieokreślony od 2016.",
+          "highlights": [
+            "Zero negatywnych incydentów BHP przez 5 lat",
+            "Konserwacja układów hydraulicznych (200–300 bar, zawory proporcjonalne)",
+            "Współpraca z BEKUM Service (Niemcy) przy major overhauls",
+            "Produkcja kanstrów na benzynę (5–25L), zbiorniki na wodę (20–200L)"
+          ]
+        },
+        {
+          "id": "2020-ronet",
+          "period": "I 2020 – III 2020",
+          "role": "Młodszy Operator CNC",
+          "context": "RONET Sp. z o.o. – Więcbork, Polska",
+          "summary": "Zatrudnienie w trakcie pandemii COVID-19 (lockdown w Europie). Obsługa tokarek i frezarek CNC 3–4 osiowe, kontrola wymiarów, podstawowa konserwacja maszyn.",
+          "highlights": [
+            "Obsługa CNC Fanuc/Siemens",
+            "Obróbka precyzyjna ±0,01 mm",
+            "Kontrola wymiarów (suwmiarka, mikrometr)"
           ]
         }
       ]
@@ -1042,8 +1071,8 @@
   },
   "en": {
     "meta": {
-      "title": "Daremon Engineering — Adamski.tech",
-      "description": "Senior Multi-Disciplinary Specialist: 10+ years industrial experience + digital competencies (React, TypeScript, Python, AI). Hardware ↔ Software Bridge."
+      "title": "Dariusz Adamski — Maintenance Technician | MIM Specialist",
+      "description": "Senior Maintenance Technician with 9+ years of experience in high-tech manufacturing. Metal Injection Molding (MIM) specialist, industrial robotics, automation. ITB Precisietechniek, Daremon Engineering."
     },
     "navigation": {
       "hero": "Home",
@@ -1058,12 +1087,12 @@
       "partners": "Partners"
     },
     "hero": {
-      "heading": "Dariusz Adamski — Senior Multi-Disciplinary Specialist",
-      "tagline": "Machine → Code → Strategy",
-      "tagline_sequence": ["Machine", "Code", "Strategy"],
-      "subheading": "Industrial automation leader bridging robotics, PLC retrofits, and full-stack web products for measurable outcomes.",
+      "heading": "Dariusz Krzysztof Adamski — Maintenance Technician",
+      "tagline": "Industrial Automation → MIM Technology → Robotics",
+      "tagline_sequence": ["Industrial Automation", "MIM Technology", "Robotics"],
+      "subheading": "Senior Maintenance Technician with 9+ years of international experience in high-tech manufacturing. Specialist in Metal Injection Molding (MIM) technology, industrial robotics, and automation systems.",
       "badge_label": "Daremon Engineering",
-      "badge_caption": "Industrial systems, software, and strategic partnerships.",
+      "badge_caption": "Metal Injection Molding, automation, and industrial service.",
       "cta_primary": "Start a partnership call",
       "cta_primary_aria": "Start a partnership call – jump to the contact section.",
       "cta_secondary": "Browse flagship projects",
@@ -1078,9 +1107,9 @@
           "title": "Industrial DNA",
           "icon": "🛠️",
           "items": [
-            "**10+ years** in maintenance, robotics, and MIM high-mix environments.",
-            "**Certified expertise** with Arburg, FANUC, Unitronics, Siemens S7.",
-            "**Zero critical downtime** across mission-critical rollouts."
+            "**9+ years** of international experience in high-tech manufacturing (Netherlands, Poland).",
+            "**MIM Specialist** – Metal Injection Molding: Arburg injection molding, Cremer/EPSI furnaces (1400°C), Yaskawa robots.",
+            "**Zero serious safety incidents** throughout 10+ years of career."
           ],
           "cta": {
             "label": "View projects",
@@ -1088,12 +1117,12 @@
           }
         },
         {
-          "title": "Digital stack",
-          "icon": "💡",
+          "title": "Core Technologies",
+          "icon": "⚙️",
           "items": [
-            "**Full-stack** solutions: React, TypeScript, Python, Node tooling.",
-            "**IoT integrations** with Home Assistant, ESPHome, custom sensors.",
-            "**AI-assisted workflow** for prototyping and documentation."
+            "**Blow Molding** – 5 years with BEKUM (approx. 25 machines, automotive production).",
+            "**Hydraulics & Pneumatics** – systems up to 300 bar, diagnostics, regeneration.",
+            "**PLC & Automation** – Siemens S7, industrial robotics, HMI/SCADA."
           ],
           "cta": {
             "label": "See skills",
@@ -1101,12 +1130,12 @@
           }
         },
         {
-          "title": "Strategy & leadership",
+          "title": "Entrepreneurship",
           "icon": "🧭",
           "items": [
-            "**Process audits** and risk mapping for production teams.",
-            "**B2B coordination** – PL/EN/NL communication in international setups.",
-            "**Lean mindset**: rapid diagnostics and action prioritisation."
+            "**Business owner** since 2020 – industrial automation, service, modernizations.",
+            "**40+ B2B projects** with 80% returning clients.",
+            "**International communication** – Polish/Dutch/German/English."
           ],
           "cta": {
             "label": "Book a consultation",
@@ -1114,16 +1143,16 @@
           }
         },
         {
-          "title": "Specialized experience",
-          "icon": "🏭",
+          "title": "Career Growth",
+          "icon": "📈",
           "items": [
-            "**Technical work** with maintenance in Cleanroom class 7 environments.",
-            "**Since 2013** plastics experience: extruders, injection molding, blow molding machines.",
-            "**R&D partnerships** for MIM furnace upgrades and custom systems."
+            "**Two permanent contracts** in the Netherlands (2016, 2022).",
+            "**100% salary increase** over 9 years (€1,600 → €3,207).",
+            "**Continuous development** – from car mechanic to Senior Maintenance Technician."
           ],
           "cta": {
-            "label": "Let's talk",
-            "href": "#contact"
+            "label": "Career timeline",
+            "href": "#career"
           }
         }
       ]
@@ -1648,18 +1677,18 @@
       "subtext": "I focus on co-building production capabilities, modernization programmes and R&D. Choose the channel that accelerates the first decision.",
       "email_label": "Email",
       "phone_label": "Phone",
-      "email": "Dariusz@Adamski.tech",
+      "email": "kontakt@adamski.tech",
       "channels": [
         {
           "type": "email",
           "label": "Direct email",
-          "value": "Dariusz@Adamski.tech",
+          "value": "kontakt@adamski.tech",
           "description": "Ideal for briefs, specs and partnership proposals."
         },
         {
           "type": "linkedin",
           "label": "LinkedIn",
-          "value": "linkedin.com/in/dariusz-adamski",
+          "value": "linkedin.com/in/dariusz-adamski-daremon",
           "description": "Fast executive intro and ongoing dialogue."
         },
         {
@@ -1676,7 +1705,7 @@
       },
       "socials": {
         "github": "https://github.com/RudyKotJeKoc",
-        "linkedin": "https://linkedin.com/in/dariusz-adamski",
+        "linkedin": "https://www.linkedin.com/in/dariusz-adamski-daremon",
         "youtube": "https://youtube.com/@DariuszDaremon"
       },
       "call_url": "https://cal.com/daremon/intro",
@@ -1913,54 +1942,83 @@
     },
     "career_timeline": {
       "title": "Career milestones",
-      "subtitle": "Journey from maintenance specialist to hybrid AI + hardware leader.",
+      "subtitle": "Over 9 years of international experience in high-tech manufacturing: from blow molding through agricultural machinery service to specialization in Metal Injection Molding.",
       "milestones": [
         {
-          "id": "2025-hansa",
-          "period": "2024-2025",
-          "role": "Lead Automation Specialist",
-          "context": "ITB / Hansa & MIM modernization",
-          "summary": "Coordinated relocation of 50+ machines, furnace retrofit PoC, and safety audits.",
+          "id": "2021-itb-second",
+          "period": "Jul 2021 – Present",
+          "role": "Maintenance Technician / Electrical Engineer",
+          "context": "ITB Precisietechniek B.V. (Rompa Group) – Boxtel, Netherlands",
+          "summary": "Second employment period at ITB. Maintenance of complete MIM (Metal Injection Molding) production line: Arburg injection molding machines, Cremer/EPSI vacuum furnaces (1400°C), Yaskawa Motoman robots. Permanent contract (Voor onbepaalde tijd) since February 28, 2022.",
           "highlights": [
-            "Machine transfer tracking prototype (not deployed - existing solution was sufficient)",
-            "Proof-of-concept MIM furnace retrofit",
-            "AI workshops for maintenance teams"
+            "Permanent contract since February 28, 2022",
+            "Salary increase and expanded responsibilities",
+            "Yaskawa Motoman robot programming and calibration (loading/unloading, handling)",
+            "Furnace maintenance time optimization (~15% downtime reduction)"
           ]
         },
         {
-          "id": "2021-daremon",
-          "period": "2020-2021",
-          "role": "Founder — Daremon Engineering",
-          "context": "B2B automation and service",
-          "summary": "Built business from scratch — 40 modernization projects with stable B2B client portfolio.",
+          "id": "2018-itb-first",
+          "period": "Dec 2018 – Nov 2019",
+          "role": "Maintenance Technician",
+          "context": "ITB Precisietechniek B.V. (Rompa Group) – Boxtel, Netherlands",
+          "summary": "First employment period at ITB (1 year). Maintenance of complete MIM (Metal Injection Molding) production line: Arburg injection molding machines, Cremer/EPSI vacuum furnaces (1400°C), Yaskawa Motoman robots. Fixed-term contract (Bepaalde tijd).",
           "highlights": [
-            "PLC programming (Siemens, Mitsubishi)",
-            "24/7 service retainers",
-            "Scaled documentation and knowledge base"
+            "Introduction to MIM technology and high-temperature processes",
+            "High-temperature furnace maintenance (debinding 600°C, sintering 1400°C)",
+            "Operation and maintenance of Yaskawa Motoman robots",
+            "Fixed-term contract employment"
           ]
         },
         {
-          "id": "2019-automation",
-          "period": "2015-2019",
-          "role": "Automation Engineer",
-          "context": "Tier-1 automotive",
-          "summary": "Robotics, assembly lines, vision systems, operator training.",
+          "id": "2020-daremon",
+          "period": "Apr 2020 – Jun 2021",
+          "role": "Owner — Industrial Automation (Sole Proprietorship)",
+          "context": "Dariusz Adamski – Sypniewo, Poland",
+          "summary": "B2B business: industrial machinery service and maintenance, hydraulic/pneumatic/electrical system diagnostics, modernizations and retrofits, technical consulting. 15-month period. Business registered on April 1, 2020.",
           "highlights": [
-            "Integrated Yaskawa Motoman with quality control",
-            "Reduced cycle time by 12%",
-            "Machine safety programs"
+            "40+ closed projects, 80% returning clients",
+            "Service for injection molding machines, furnaces, industrial robots",
+            "Older machine modernizations (adding PLCs, sensors)",
+            "International experience (Poland, Netherlands)"
           ]
         },
         {
-          "id": "2014-maintenance",
-          "period": "2007-2014",
-          "role": "Maintenance & Field Service",
-          "context": "Europe-wide service projects",
-          "summary": "Hydraulic press service, CNC machines, Lean & TPM deployments.",
+          "id": "2018-fendt",
+          "period": "Feb 2018 – Oct 2018",
+          "role": "Agricultural Machinery Technician",
+          "context": "Fendt Dealer – Netherlands",
+          "summary": "Agricultural machinery service: tractors, combines, mowers. Employment period: 9 months. Specialization: hydraulics, ISOBUS.",
           "highlights": [
-            "Zero serious incidents",
-            "High-pressure hydraulics certification",
-            "Mentoring program for new technicians"
+            "25% salary increase compared to previous employer",
+            "12V/24V electrical system and ISOBUS diagnostics",
+            "Pre-seasonal and warranty inspections",
+            "Service for 10+ different machine models"
+          ]
+        },
+        {
+          "id": "2013-jagtenberg",
+          "period": "Apr 2013 – Jan 2018",
+          "role": "Technical Service Mechanic (Monteur Technische Dienst)",
+          "context": "Henk Jagtenberg Plastics B.V. / RPC Promens Industrial – Heerewaarden, Netherlands",
+          "summary": "Maintenance of approx. 25 BEKUM blow molding machines (automotive production). First job abroad at age 19. Permanent contract from 2016.",
+          "highlights": [
+            "Zero negative safety incidents over 5 years",
+            "Hydraulic system maintenance (200–300 bar, proportional valves)",
+            "Cooperation with BEKUM Service (Germany) on major overhauls",
+            "Production of fuel canisters (5–25L), water tanks (20–200L)"
+          ]
+        },
+        {
+          "id": "2020-ronet",
+          "period": "Jan 2020 – Mar 2020",
+          "role": "Junior CNC Operator",
+          "context": "RONET Sp. z o.o. – Więcbork, Poland",
+          "summary": "Employment during COVID-19 pandemic (European lockdown). Operation of 3–4 axis CNC lathes and mills, dimensional control, basic machine maintenance.",
+          "highlights": [
+            "CNC Fanuc/Siemens operation",
+            "Precision machining ±0.01 mm",
+            "Dimensional control (caliper, micrometer)"
           ]
         }
       ]
@@ -2077,8 +2135,8 @@
   },
   "nl": {
     "meta": {
-      "title": "Daremon Engineering — Adamski.tech",
-      "description": "Senior Multi-Disciplinaire Specialist: 10+ jaar industriële ervaring + digitale competenties (React, TypeScript, Python, AI). Hardware ↔ Software Bridge."
+      "title": "Dariusz Adamski — Onderhoudsmonteur | MIM Specialist",
+      "description": "Senior Onderhoudsmonteur met 9+ jaar ervaring in high-tech productie. Metal Injection Molding (MIM) specialist, industriële robotica, automatisering. ITB Precisietechniek, Daremon Engineering."
     },
     "navigation": {
       "hero": "Start",
@@ -2093,12 +2151,12 @@
       "partners": "Partners"
     },
     "hero": {
-      "heading": "Dariusz Adamski — Senior Multi-Disciplinaire Specialist",
-      "tagline": "Machines → Code → Strategie",
-      "tagline_sequence": ["Machines", "Code", "Strategie"],
-      "subheading": "Industrieel automatiseringsleider die robotica, PLC-retrofits en full-stack webproducten verbindt voor meetbare resultaten.",
+      "heading": "Dariusz Krzysztof Adamski — Onderhoudsmonteur",
+      "tagline": "Industriële Automatisering → MIM Technologie → Robotica",
+      "tagline_sequence": ["Industriële Automatisering", "MIM Technologie", "Robotica"],
+      "subheading": "Senior Onderhoudsmonteur met 9+ jaar internationale ervaring in high-tech productie. Specialist in Metal Injection Molding (MIM) technologie, industriële robotica en automatiseringssystemen.",
       "badge_label": "Daremon Engineering",
-      "badge_caption": "Machines, software en strategische partnerships.",
+      "badge_caption": "Metal Injection Molding, automatisering en industriële service.",
       "cta_primary": "Plan een partnershipgesprek",
       "cta_primary_aria": "Plan een partnershipgesprek – ga naar de contactsectie.",
       "cta_secondary": "Bekijk referentieprojecten",
@@ -2113,9 +2171,9 @@
           "title": "Industrieel DNA",
           "icon": "🛠️",
           "items": [
-            "**10+ jaar** onderhoud, robotica en MIM in high-mix omgevingen.",
-            "**Gecertificeerde expertise** met Arburg, FANUC, Unitronics, Siemens S7.",
-            "**Geen kritieke stilstand** tijdens cruciale implementaties."
+            "**9+ jaar** internationale ervaring in high-tech productie (Nederland, Polen).",
+            "**MIM Specialist** – Metal Injection Molding: Arburg spuitgieten, Cremer/EPSI ovens (1400°C), Yaskawa robots.",
+            "**Geen ernstige veiligheidsincidenten** gedurende 10+ jaar carrière."
           ],
           "cta": {
             "label": "Bekijk projecten",
@@ -2123,12 +2181,12 @@
           }
         },
         {
-          "title": "Digitale stack",
-          "icon": "💡",
+          "title": "Kerntechnologieën",
+          "icon": "⚙️",
           "items": [
-            "**Full-stack** oplossingen: React, TypeScript, Python, Node tooling.",
-            "**IoT-integraties** met Home Assistant, ESPHome en maatwerksensoren.",
-            "**AI-ondersteunde workflow** voor prototyping en documentatie."
+            "**Blow Molding** – 5 jaar met BEKUM (ca. 25 machines, automotive productie).",
+            "**Hydraulica & Pneumatica** – systemen tot 300 bar, diagnose, regeneratie.",
+            "**PLC & Automatisering** – Siemens S7, industriële robotica, HMI/SCADA."
           ],
           "cta": {
             "label": "Bekijk skills",
@@ -2136,16 +2194,29 @@
           }
         },
         {
-          "title": "Strategie & leiderschap",
+          "title": "Ondernemerschap",
           "icon": "🧭",
           "items": [
-            "**Procesaudits** en risicokaarten voor productieteams.",
-            "**B2B-coördinatie** – communicatie PL/EN/NL in internationale omgevingen.",
-            "**Lean-denken**: snelle diagnose en prioritering van acties."
+            "**Bedrijfseigenaar** sinds 2020 – industriële automatisering, service, modernisaties.",
+            "**40+ B2B-projecten** met 80% terugkerende klanten.",
+            "**Internationale communicatie** – Pools/Nederlands/Duits/Engels."
           ],
           "cta": {
             "label": "Plan een consult",
             "href": "#contact"
+          }
+        },
+        {
+          "title": "Carrièregroei",
+          "icon": "📈",
+          "items": [
+            "**Twee vaste contracten** in Nederland (2016, 2022).",
+            "**100% salarisstijging** over 9 jaar (€1.600 → €3.207).",
+            "**Voortdurende ontwikkeling** – van automonteur tot Senior Onderhoudsmonteur."
+          ],
+          "cta": {
+            "label": "Carrièrepad",
+            "href": "#career"
           }
         }
       ]
@@ -2667,18 +2738,18 @@
       "subtext": "Ik focus op gezamenlijke implementaties, modernisering en R&D-trajecten. Kies het kanaal dat de eerste stap versnelt.",
       "email_label": "E‑mail",
       "phone_label": "Telefoon",
-      "email": "Dariusz@Adamski.tech",
+      "email": "kontakt@adamski.tech",
       "channels": [
         {
           "type": "email",
           "label": "Directe e-mail",
-          "value": "Dariusz@Adamski.tech",
+          "value": "kontakt@adamski.tech",
           "description": "Ideaal voor briefs, specificaties en voorstellen."
         },
         {
           "type": "linkedin",
           "label": "LinkedIn",
-          "value": "linkedin.com/in/dariusz-adamski",
+          "value": "linkedin.com/in/dariusz-adamski-daremon",
           "description": "Snel executive-intro en voortgezet overleg."
         },
         {
@@ -2695,7 +2766,7 @@
       },
       "socials": {
         "github": "https://github.com/RudyKotJeKoc",
-        "linkedin": "https://linkedin.com/in/dariusz-adamski",
+        "linkedin": "https://www.linkedin.com/in/dariusz-adamski-daremon",
         "youtube": "https://youtube.com/@DariuszDaremon"
       },
       "call_url": "https://cal.com/daremon/intro",
@@ -2932,54 +3003,83 @@
     },
     "career_timeline": {
       "title": "Carrièremijlpalen",
-      "subtitle": "Reis van onderhoudsspecialist naar hybride AI + hardware leader.",
+      "subtitle": "Meer dan 9 jaar internationale ervaring in high-tech productie: van blow molding via landbouwmachine-service tot specialisatie in Metal Injection Molding.",
       "milestones": [
         {
-          "id": "2025-hansa",
-          "period": "2024-2025",
-          "role": "Lead Automation Specialist",
-          "context": "ITB / Hansa & MIM-modernisatie",
-          "summary": "Coördinatie relocatie 50+ machines, furnace retrofit PoC en veiligheidsaudits.",
+          "id": "2021-itb-second",
+          "period": "Jul 2021 – heden",
+          "role": "Onderhoudsmonteur / Electrical Engineer",
+          "context": "ITB Precisietechniek B.V. (Rompa Group) – Boxtel, Nederland",
+          "summary": "Tweede dienstverband bij ITB. Onderhoud van complete MIM (Metal Injection Molding) productielijn: Arburg spuitgietmachines, Cremer/EPSI vacuümovens (1400°C), Yaskawa Motoman robots. Contract voor onbepaalde tijd sinds 28 februari 2022.",
           "highlights": [
-            "Machine transfer tracking prototype (niet geïmplementeerd - bestaande oplossing was voldoende)",
-            "Proof-of-concept MIM furnace retrofit",
-            "AI-workshops voor onderhoudsteams"
+            "Contract voor onbepaalde tijd sinds 28 februari 2022",
+            "Salarisstijging en uitbreiding verantwoordelijkheden",
+            "Programmering en kalibratie Yaskawa Motoman robots (loading/unloading, handling)",
+            "Optimalisatie onderhoudsonderbrekingen ovens (~15% downtime reductie)"
           ]
         },
         {
-          "id": "2021-daremon",
-          "period": "2020-2021",
-          "role": "Oprichter — Daremon Engineering",
-          "context": "B2B automatisering en service",
-          "summary": "Bedrijf vanaf nul opgebouwd — 40 modernisatieprojecten met stabiel B2B-klantenbestand.",
+          "id": "2018-itb-first",
+          "period": "Dec 2018 – Nov 2019",
+          "role": "Onderhoudsmonteur",
+          "context": "ITB Precisietechniek B.V. (Rompa Group) – Boxtel, Nederland",
+          "summary": "Eerste dienstverband bij ITB (1 jaar). Onderhoud van complete MIM (Metal Injection Molding) productielijn: Arburg spuitgietmachines, Cremer/EPSI vacuümovens (1400°C), Yaskawa Motoman robots. Contract voor bepaalde tijd.",
           "highlights": [
-            "PLC-programmering (Siemens, Mitsubishi)",
-            "24/7 servicecontracten",
-            "Opschaling documentatie & kennisbasis"
+            "Introductie in MIM-technologie en hogetemperatuurprocessen",
+            "Onderhoud hogetemperatuurovens (debinding 600°C, sintering 1400°C)",
+            "Bediening en onderhoud Yaskawa Motoman robots",
+            "Contract voor bepaalde tijd"
           ]
         },
         {
-          "id": "2019-automation",
-          "period": "2015-2019",
-          "role": "Automation Engineer",
-          "context": "Tier-1 automotive",
-          "summary": "Robotica, assemblagelijnen, visionsystemen, operatortraining.",
+          "id": "2020-daremon",
+          "period": "Apr 2020 – Jun 2021",
+          "role": "Eigenaar — Industriële Automatisering (Eenmanszaak)",
+          "context": "Dariusz Adamski – Sypniewo, Polen",
+          "summary": "B2B-bedrijf: service en onderhoud van industriële machines, diagnose van hydraulische/pneumatische/elektrische systemen, modernisaties en retrofits, technisch advies. Periode van 15 maanden. Bedrijf geregistreerd op 1 april 2020.",
           "highlights": [
-            "Integratie Yaskawa Motoman met kwaliteitscontrole",
-            "12% kortere cyclustijd",
-            "Machineveiligheidsprogramma's"
+            "40+ afgeronde projecten, 80% terugkerende klanten",
+            "Service voor spuitgietmachines, ovens, industriële robots",
+            "Modernisatie oudere machines (toevoegen PLCs, sensoren)",
+            "Internationale ervaring (Polen, Nederland)"
           ]
         },
         {
-          "id": "2014-maintenance",
-          "period": "2007-2014",
-          "role": "Onderhoud & Field Service",
-          "context": "Europa-brede serviceprojecten",
-          "summary": "Onderhoud hydraulische persen, CNC-machines, Lean & TPM-implementaties.",
+          "id": "2018-fendt",
+          "period": "Feb 2018 – Okt 2018",
+          "role": "Landbouwmachine Monteur",
+          "context": "Fendt Dealer – Nederland",
+          "summary": "Service van landbouwmachines: tractoren, combines, maaiers. Dienstverband: 9 maanden. Specialisatie: hydraulica, ISOBUS.",
           "highlights": [
-            "Geen ernstige incidenten",
-            "Certificaat hogedrukhydrauliek",
-            "Mentoringprogramma voor nieuwe technici"
+            "25% salarisstijging t.o.v. vorige werkgever",
+            "Diagnose 12V/24V elektrische systemen en ISOBUS",
+            "Voorseizoen en garantie-inspecties",
+            "Service aan 10+ verschillende machinemodellen"
+          ]
+        },
+        {
+          "id": "2013-jagtenberg",
+          "period": "Apr 2013 – Jan 2018",
+          "role": "Monteur Technische Dienst",
+          "context": "Henk Jagtenberg Plastics B.V. / RPC Promens Industrial – Heerewaarden, Nederland",
+          "summary": "Onderhoud van ca. 25 BEKUM blaasvormmachines (automotive productie). Eerste baan in het buitenland op 19-jarige leeftijd. Vast contract vanaf 2016.",
+          "highlights": [
+            "Geen veiligheidsincidenten gedurende 5 jaar",
+            "Onderhoud hydraulische systemen (200–300 bar, proportionele kleppen)",
+            "Samenwerking met BEKUM Service (Duitsland) bij grote revisies",
+            "Productie benzinecans (5–25L), watertanks (20–200L)"
+          ]
+        },
+        {
+          "id": "2020-ronet",
+          "period": "Jan 2020 – Mrt 2020",
+          "role": "Junior CNC-operator",
+          "context": "RONET Sp. z o.o. – Więcbork, Polen",
+          "summary": "Dienstverband tijdens COVID-19 pandemie (Europese lockdown). Bediening 3–4 assen CNC-draai- en freesbanken, maatcontrole, basis machineonderhoud.",
+          "highlights": [
+            "Bediening CNC Fanuc/Siemens",
+            "Precisiebewerking ±0,01 mm",
+            "Maatcontrole (schuifmaat, micrometer)"
           ]
         }
       ]
