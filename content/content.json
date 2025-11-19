@@ -1,8 +1,8 @@
 {
   "pl": {
     "meta": {
-      "title": "Dariusz Adamski — Maintenance Technician | MIM Specialist",
-      "description": "Senior Maintenance Technician z 9+ lat doświadczenia w przemyśle high-tech. Specjalista Metal Injection Molding (MIM), robotyka przemysłowa, automatyka. ITB Precisietechniek, Daremon Engineering."
+      "title": "Dariusz Adamski — Electrical Engineer | Industrial Automation Specialist",
+      "description": "Electrical Engineer z 10+ lat doświadczenia w przemyśle high-tech. Specjalista automatyki przemysłowej, robotyki i systemów elektrycznych. ITB Precisietechniek, Daremon Engineering."
     },
     "navigation": {
       "hero": "Start",
@@ -17,12 +17,12 @@
       "partners": "Partnerzy"
     },
     "hero": {
-      "heading": "Dariusz Krzysztof Adamski — Maintenance Technician",
+      "heading": "Dariusz Krzysztof Adamski — Electrical Engineer",
       "tagline": "Automatyka Przemysłowa → MIM Technology → Robotyka",
       "tagline_sequence": ["Automatyka Przemysłowa", "MIM Technology", "Robotyka"],
-      "subheading": "Senior Maintenance Technician z ponad 9-letnim międzynarodowym doświadczeniem w przemyśle high-tech. Specjalista w zakresie technologii Metal Injection Molding (MIM), robotyki przemysłowej i systemów automatyki.",
+      "subheading": "Electrical Engineer z 10+ latami doświadczenia w przemyśle high-tech. Specjalista w zakresie automatyki przemysłowej, robotyki i systemów elektrycznych w produkcji Metal Injection Molding (MIM).",
       "badge_label": "Daremon Engineering",
-      "badge_caption": "Metal Injection Molding, automatyka i serwis przemysłowy.",
+      "badge_caption": "Elektryczne systemy, automatyka i serwis przemysłowy.",
       "cta_primary": "Zainicjuj partnerstwo",
       "cta_primary_aria": "Zainicjuj partnerstwo – przejdź do sekcji kontakt.",
       "cta_secondary": "Zobacz realizacje",
@@ -37,8 +37,9 @@
           "title": "Industrial DNA",
           "icon": "🛠️",
           "items": [
-            "**9+ lat** międzynarodowego doświadczenia w przemyśle high-tech (Holandia, Polska).",
-            "**Specjalista MIM** – Metal Injection Molding: wtryskarki Arburg, piece Cremer/EPSI (1400°C), roboty Yaskawa.",
+            "**10+ lat** międzynarodowego doświadczenia w przemyśle high-tech (Holandia, Polska).",
+            "**Electrical Engineer** – Automatyka przemysłowa, robotyka, elektryczne systemy produkcyjne.",
+            "**Awans w 2022** – Z Maintenance Technician na Electrical Engineer (+35,6% wynagrodzenia).",
             "**Zero poważnych incydentów** BHP przez ponad 10 lat kariery."
           ],
           "cta": {
@@ -296,7 +297,7 @@
       "highlights": [
         "Full-Stack Manufacturing: SolidWorks → PLC → React → TIG welding",
         "AI-Enhanced Professional (TOP 1-2%): 852 MB bazy wiedzy, ~250 konwersacji strategicznych, ~17,500 wiadomości, ~55,000 stron A4 dokumentacji, 1,000+ godzin collaborative thinking (14-18 miesięcy intensywnej współpracy). Wykorzystanie AI na poziomie eksperckim - od prototypowania przez dokumentację po strategiczne decyzje projektowe.",
-        "AI-Augmented Professional: Zaawansowane wykorzystanie Claude (Anthropic) i narzędzi AI do prototypowania, dokumentacji i rozwiązywania problemów technicznych. 852 MB bazy wiedzy, ~250 sesji strategicznych, ~17,500 wiadomości, ~55,000 stron dokumentacji, 1,000+ godzin collaborative thinking. Poziom: ekspert w prompt engineeringu, systemowym workflow i integracji AI z procesami przemysłowymi.",
+        "AI-Augmented Professional (TOP 1-2%): Zaawansowane wykorzystanie Claude (Anthropic) i narzędzi AI do prototypowania, dokumentacji i rozwiązywania problemów technicznych. 852 MB bazy wiedzy, ~250 sesji strategicznych, ~17,500 wiadomości, ~55,000 stron dokumentacji, 1,000+ godzin collaborative thinking (14-18 miesięcy intensywnej współpracy). Poziom: ekspert w prompt engineeringu, systemowym workflow i integracji AI z procesami przemysłowymi.",
         "Zero poważnych wypadków w 10+ lat kariery",
         "Średnia ocena kompetencji: 8.25/10"
       ]
@@ -878,18 +879,19 @@
     },
     "career_timeline": {
       "title": "Kluczowe kamienie milowe kariery",
-      "subtitle": "Ponad 9 lat międzynarodowego doświadczenia w przemyśle high-tech: od blow molding przez serwis maszyn rolniczych po specjalizację w Metal Injection Molding.",
+      "subtitle": "Ponad 10 lat międzynarodowego doświadczenia w przemyśle high-tech: od blow molding przez serwis maszyn rolniczych po specjalizację w Metal Injection Molding.",
       "milestones": [
         {
           "id": "2018-itb",
-          "period": "XII 2018 – obecnie",
-          "role": "Maintenance Technician",
+          "period": "XII 2018 – heden",
+          "role": "Electrical Engineer (od II 2022) / Maintenance Technician (XII 2018 – I 2022)",
           "context": "ITB Precisietechniek B.V. (Rompa Group) – Boxtel, Holandia",
-          "summary": "Utrzymanie ruchu kompletnej linii produkcyjnej MIM (Metal Injection Molding): wtryskarki Arburg, piece próżniowe Cremer/EPSI (1400°C), roboty Yaskawa Motoman. Umowa na czas nieokreślony od II 2022.",
+          "summary": "Utrzymanie ruchu i rozwój elektrycznych systemów kompletnej linii produkcyjnej MIM (Metal Injection Molding): wtryskarki Arburg, piece próżniowe Cremer/EPSI (1400°C), roboty Yaskawa Motoman. Awans na Electrical Engineer w lutym 2022 jako uznanie dla ekspertyzy i zakresu odpowiedzialności.",
           "highlights": [
-            "Wzrost wynagrodzenia o 35,6% w okresie 2018–2022 (€2 365 → €3 207)",
+            "Awans na Electrical Engineer (II 2022) z 35,6% wzrostem wynagrodzenia (€2.365 → €3.207)",
             "Konserwacja pieców wysokotemperaturowych (debinding 600°C, sintering 1400°C)",
-            "Programowanie i kalibracja robotów Yaskawa Motoman (loading/unloading, handling)",
+            "Programowanie i diagnoza elektryczna robotów Yaskawa Motoman",
+            "PLC troubleshooting i optymalizacja (Siemens S7)",
             "Optymalizacja czasów konserwacji pieców (redukcja downtime o ~15%)"
           ]
         },
@@ -1058,8 +1060,8 @@
   },
   "en": {
     "meta": {
-      "title": "Dariusz Adamski — Maintenance Technician | MIM Specialist",
-      "description": "Senior Maintenance Technician with 9+ years of experience in high-tech manufacturing. Metal Injection Molding (MIM) specialist, industrial robotics, automation. ITB Precisietechniek, Daremon Engineering."
+      "title": "Dariusz Adamski — Electrical Engineer | Industrial Automation Specialist",
+      "description": "Electrical Engineer with 10+ years of experience in high-tech manufacturing. Industrial automation, robotics, and electrical systems specialist. ITB Precisietechniek, Daremon Engineering."
     },
     "navigation": {
       "hero": "Home",
@@ -1074,12 +1076,12 @@
       "partners": "Partners"
     },
     "hero": {
-      "heading": "Dariusz Krzysztof Adamski — Maintenance Technician",
+      "heading": "Dariusz Krzysztof Adamski — Electrical Engineer",
       "tagline": "Industrial Automation → MIM Technology → Robotics",
       "tagline_sequence": ["Industrial Automation", "MIM Technology", "Robotics"],
-      "subheading": "Senior Maintenance Technician with 9+ years of international experience in high-tech manufacturing. Specialist in Metal Injection Molding (MIM) technology, industrial robotics, and automation systems.",
+      "subheading": "Electrical Engineer with 10+ years of experience in high-tech manufacturing. Specialist in industrial automation, robotics, and electrical systems in Metal Injection Molding (MIM) production.",
       "badge_label": "Daremon Engineering",
-      "badge_caption": "Metal Injection Molding, automation, and industrial service.",
+      "badge_caption": "Electrical systems, automation, and industrial service.",
       "cta_primary": "Start a partnership call",
       "cta_primary_aria": "Start a partnership call – jump to the contact section.",
       "cta_secondary": "Browse flagship projects",
@@ -1094,8 +1096,9 @@
           "title": "Industrial DNA",
           "icon": "🛠️",
           "items": [
-            "**9+ years** of international experience in high-tech manufacturing (Netherlands, Poland).",
-            "**MIM Specialist** – Metal Injection Molding: Arburg injection molding, Cremer/EPSI furnaces (1400°C), Yaskawa robots.",
+            "**10+ years** of international experience in high-tech manufacturing (Netherlands, Poland).",
+            "**Electrical Engineer** – Industrial automation, robotics, electrical production systems.",
+            "**Promoted in 2022** – From Maintenance Technician to Electrical Engineer (+35.6% salary increase).",
             "**Zero serious safety incidents** throughout 10+ years of career."
           ],
           "cta": {
@@ -1352,7 +1355,7 @@
       ],
       "highlights": [
         "Full-Stack Manufacturing: SolidWorks → PLC → React → TIG welding",
-        "AI-Augmented Professional: Advanced use of Claude (Anthropic) and AI tools for prototyping, documentation, and technical problem-solving. 852 MB knowledge base, ~250 strategic sessions, ~17,500 messages, ~55,000 pages documentation, 1,000+ hours collaborative thinking. Level: expert in prompt engineering, systematic workflow, and AI integration with industrial processes.",
+        "AI-Augmented Professional (TOP 1-2%): Advanced use of Claude (Anthropic) and AI tools for prototyping, documentation, and technical problem-solving. 852 MB knowledge base, ~250 strategic sessions, ~17,500 messages, ~55,000 pages documentation, 1,000+ hours collaborative thinking (14-18 months of intensive collaboration). Level: expert in prompt engineering, systematic workflow, and AI integration with industrial processes.",
         "Zero serious accidents in 10+ year career",
         "Average competency rating: 8.25/10"
       ]
@@ -1929,18 +1932,19 @@
     },
     "career_timeline": {
       "title": "Career milestones",
-      "subtitle": "Over 9 years of international experience in high-tech manufacturing: from blow molding through agricultural machinery service to specialization in Metal Injection Molding.",
+      "subtitle": "Over 10 years of international experience in high-tech manufacturing: from blow molding through agricultural machinery service to specialization in Metal Injection Molding.",
       "milestones": [
         {
           "id": "2018-itb",
           "period": "Dec 2018 – Present",
-          "role": "Maintenance Technician",
+          "role": "Electrical Engineer (from Feb 2022) / Maintenance Technician (Dec 2018 – Jan 2022)",
           "context": "ITB Precisietechniek B.V. (Rompa Group) – Boxtel, Netherlands",
-          "summary": "Maintenance of complete MIM (Metal Injection Molding) production line: Arburg injection molding machines, Cremer/EPSI vacuum furnaces (1400°C), Yaskawa Motoman robots. Permanent contract since Feb 2022.",
+          "summary": "Maintenance and development of electrical systems for complete MIM (Metal Injection Molding) production line: Arburg injection molding machines, Cremer/EPSI vacuum furnaces (1400°C), Yaskawa Motoman robots. Promoted to Electrical Engineer in February 2022 in recognition of expertise and scope of responsibilities.",
           "highlights": [
-            "35.6% salary increase over 2018–2022 period (€2,365 → €3,207)",
+            "Promotion to Electrical Engineer (Feb 2022) with 35.6% salary increase (€2,365 → €3,207)",
             "High-temperature furnace maintenance (debinding 600°C, sintering 1400°C)",
-            "Yaskawa Motoman robot programming and calibration (loading/unloading, handling)",
+            "Programming and electrical diagnostics of Yaskawa Motoman robots",
+            "PLC troubleshooting and optimization (Siemens S7)",
             "Furnace maintenance time optimization (~15% downtime reduction)"
           ]
         },
@@ -2109,8 +2113,8 @@
   },
   "nl": {
     "meta": {
-      "title": "Dariusz Adamski — Onderhoudsmonteur | MIM Specialist",
-      "description": "Senior Onderhoudsmonteur met 9+ jaar ervaring in high-tech productie. Metal Injection Molding (MIM) specialist, industriële robotica, automatisering. ITB Precisietechniek, Daremon Engineering."
+      "title": "Dariusz Adamski — Electrical Engineer | Industriële Automatisering Specialist",
+      "description": "Electrical Engineer met 10+ jaar ervaring in high-tech productie. Specialist in industriële automatisering, robotica en elektrische systemen. ITB Precisietechniek, Daremon Engineering."
     },
     "navigation": {
       "hero": "Start",
@@ -2125,12 +2129,12 @@
       "partners": "Partners"
     },
     "hero": {
-      "heading": "Dariusz Krzysztof Adamski — Onderhoudsmonteur",
+      "heading": "Dariusz Krzysztof Adamski — Electrical Engineer",
       "tagline": "Industriële Automatisering → MIM Technologie → Robotica",
       "tagline_sequence": ["Industriële Automatisering", "MIM Technologie", "Robotica"],
-      "subheading": "Senior Onderhoudsmonteur met 9+ jaar internationale ervaring in high-tech productie. Specialist in Metal Injection Molding (MIM) technologie, industriële robotica en automatiseringssystemen.",
+      "subheading": "Electrical Engineer met 10+ jaar ervaring in high-tech productie. Specialist in industriële automatisering, robotica en elektrische systemen in Metal Injection Molding (MIM) productie.",
       "badge_label": "Daremon Engineering",
-      "badge_caption": "Metal Injection Molding, automatisering en industriële service.",
+      "badge_caption": "Elektrische systemen, automatisering en industriële service.",
       "cta_primary": "Plan een partnershipgesprek",
       "cta_primary_aria": "Plan een partnershipgesprek – ga naar de contactsectie.",
       "cta_secondary": "Bekijk referentieprojecten",
@@ -2145,8 +2149,9 @@
           "title": "Industrieel DNA",
           "icon": "🛠️",
           "items": [
-            "**9+ jaar** internationale ervaring in high-tech productie (Nederland, Polen).",
-            "**MIM Specialist** – Metal Injection Molding: Arburg spuitgieten, Cremer/EPSI ovens (1400°C), Yaskawa robots.",
+            "**10+ jaar** internationale ervaring in high-tech productie (Nederland, Polen).",
+            "**Electrical Engineer** – Industriële automatisering, robotica, elektrische productiesystemen.",
+            "**Promotie in 2022** – Van Maintenance Technician naar Electrical Engineer (+35,6% salarisstijging).",
             "**Geen ernstige veiligheidsincidenten** gedurende 10+ jaar carrière."
           ],
           "cta": {
@@ -2403,7 +2408,7 @@
       ],
       "highlights": [
         "Full-Stack Manufacturing: SolidWorks → PLC → React → TIG lassen",
-        "AI-Versterkte Professional: Geavanceerd gebruik van Claude (Anthropic) en AI-tools voor prototyping, documentatie en technische probleemoplossing. 852 MB kennisbasis, ~250 strategische sessies, ~17.500 berichten, ~55.000 pagina's documentatie, 1.000+ uur collaborative thinking. Niveau: expert in prompt engineering, systematische workflow en AI-integratie met industriële processen.",
+        "AI-Versterkte Professional (TOP 1-2%): Geavanceerd gebruik van Claude (Anthropic) en AI-tools voor prototyping, documentatie en technische probleemoplossing. 852 MB kennisbasis, ~250 strategische sessies, ~17.500 berichten, ~55.000 pagina's documentatie, 1.000+ uur collaborative thinking (14-18 maanden intensieve samenwerking). Niveau: expert in prompt engineering, systematische workflow en AI-integratie met industriële processen.",
         "Nul ernstige ongevallen in 10+ jaar carrière",
         "Gemiddelde competentiebeoordeling: 8.25/10"
       ]
@@ -2977,18 +2982,19 @@
     },
     "career_timeline": {
       "title": "Carrièremijlpalen",
-      "subtitle": "Meer dan 9 jaar internationale ervaring in high-tech productie: van blow molding via landbouwmachine-service tot specialisatie in Metal Injection Molding.",
+      "subtitle": "Meer dan 10 jaar internationale ervaring in high-tech productie: van blow molding via landbouwmachine-service tot specialisatie in Metal Injection Molding.",
       "milestones": [
         {
           "id": "2018-itb",
           "period": "Dec 2018 – heden",
-          "role": "Onderhoudsmonteur",
+          "role": "Electrical Engineer (vanaf feb 2022) / Maintenance Technician (dec 2018 – jan 2022)",
           "context": "ITB Precisietechniek B.V. (Rompa Group) – Boxtel, Nederland",
-          "summary": "Onderhoud van complete MIM (Metal Injection Molding) productielijn: Arburg spuitgietmachines, Cremer/EPSI vacuümovens (1400°C), Yaskawa Motoman robots. Vast contract sinds feb 2022.",
+          "summary": "Onderhoud en ontwikkeling van elektrische systemen voor complete MIM (Metal Injection Molding) productielijn: Arburg spuitgietmachines, Cremer/EPSI vacuümovens (1400°C), Yaskawa Motoman robots. Promotie naar Electrical Engineer in februari 2022 als erkenning van expertise en verantwoordelijkheden.",
           "highlights": [
-            "35,6% salarisstijging over 2018–2022 periode (€2.365 → €3.207)",
+            "Promotie naar Electrical Engineer (feb 2022) met 35,6% salarisstijging (€2.365 → €3.207)",
             "Onderhoud hogetemperatuurovens (debinding 600°C, sintering 1400°C)",
-            "Programmering en kalibratie Yaskawa Motoman robots (loading/unloading, handling)",
+            "Programmering en elektrische diagnostiek van Yaskawa Motoman robots",
+            "PLC troubleshooting en optimalisatie (Siemens S7)",
             "Optimalisatie onderhoudsonderbrekingen ovens (~15% downtime reductie)"
           ]
         },
