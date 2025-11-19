@@ -881,24 +881,37 @@
       "subtitle": "Ponad 9 lat międzynarodowego doświadczenia w przemyśle high-tech: od blow molding przez serwis maszyn rolniczych po specjalizację w Metal Injection Molding.",
       "milestones": [
         {
-          "id": "2018-itb",
-          "period": "XII 2018 – obecnie",
-          "role": "Maintenance Technician",
+          "id": "2021-itb-second",
+          "period": "VII 2021 – obecnie",
+          "role": "Maintenance Technician / Electrical Engineer",
           "context": "ITB Precisietechniek B.V. (Rompa Group) – Boxtel, Holandia",
-          "summary": "Utrzymanie ruchu kompletnej linii produkcyjnej MIM (Metal Injection Molding): wtryskarki Arburg, piece próżniowe Cremer/EPSI (1400°C), roboty Yaskawa Motoman. Umowa na czas nieokreślony od II 2022.",
+          "summary": "Drugi okres zatrudnienia w ITB. Utrzymanie ruchu kompletnej linii produkcyjnej MIM (Metal Injection Molding): wtryskarki Arburg, piece próżniowe Cremer/EPSI (1400°C), roboty Yaskawa Motoman. Umowa na czas nieokreślony (Voor onbepaalde tijd) od 28 lutego 2022.",
           "highlights": [
-            "Wzrost wynagrodzenia o 35,6% w okresie 2018–2022 (€2 365 → €3 207)",
-            "Konserwacja pieców wysokotemperaturowych (debinding 600°C, sintering 1400°C)",
+            "Umowa na czas nieokreślony od 28 lutego 2022",
+            "Wzrost wynagrodzenia i rozszerzenie odpowiedzialności",
             "Programowanie i kalibracja robotów Yaskawa Motoman (loading/unloading, handling)",
             "Optymalizacja czasów konserwacji pieców (redukcja downtime o ~15%)"
           ]
         },
         {
+          "id": "2018-itb-first",
+          "period": "XII 2018 – XI 2019",
+          "role": "Maintenance Technician",
+          "context": "ITB Precisietechniek B.V. (Rompa Group) – Boxtel, Holandia",
+          "summary": "Pierwszy okres zatrudnienia w ITB (1 rok). Utrzymanie ruchu kompletnej linii produkcyjnej MIM (Metal Injection Molding): wtryskarki Arburg, piece próżniowe Cremer/EPSI (1400°C), roboty Yaskawa Motoman. Umowa na czas określony (Bepaalde tijd).",
+          "highlights": [
+            "Wprowadzenie do technologii MIM i procesów wysokotemperaturowych",
+            "Konserwacja pieców wysokotemperaturowych (debinding 600°C, sintering 1400°C)",
+            "Obsługa i konserwacja robotów Yaskawa Motoman",
+            "Praca na umowie czasowej określonej"
+          ]
+        },
+        {
           "id": "2020-daremon",
-          "period": "IV 2020 – obecnie",
+          "period": "IV 2020 – VI 2021",
           "role": "Właściciel – Automatyka Przemysłowa (JDG)",
           "context": "Dariusz Adamski – Sypniewo, Polska",
-          "summary": "Działalność B2B: serwis i konserwacja maszyn przemysłowych, diagnostyka układów hydraulicznych/pneumatycznych/elektrycznych, modernizacje i retrofit, doradztwo techniczne. Model współpracy równoległy z etatem w ITB.",
+          "summary": "Działalność B2B: serwis i konserwacja maszyn przemysłowych, diagnostyka układów hydraulicznych/pneumatycznych/elektrycznych, modernizacje i retrofit, doradztwo techniczne. Okres 15 miesięcy. Działalność zarejestrowana 01.04.2020.",
           "highlights": [
             "40+ projektów zamkniętych, 80% klientów powracających",
             "Serwis wtryskarek, pieców, robotów przemysłowych",
@@ -907,14 +920,14 @@
           ]
         },
         {
-          "id": "2018-bonenkamp",
+          "id": "2018-fendt",
           "period": "II 2018 – X 2018",
-          "role": "Werkplaatsmonteur",
-          "context": "Gebr. Bonenkamp Rivierenland B.V. – Tiel, Holandia",
-          "summary": "Serwis maszyn rolniczych, parkowych i komunalnych: ciągniki, kombajny, kosiarki samojezdne. Specjalizacja w hydraulice mobilnej (pompy, cylindry, zawory wysokociśnieniowe).",
+          "role": "Serwisant Maszyn Rolniczych",
+          "context": "Fendt Dealer – Holandia",
+          "summary": "Serwis maszyn rolniczych: ciągniki, kombajny, kosiarki. Okres zatrudnienia: 9 miesięcy. Specjalizacja: hydraulika, ISOBUS.",
           "highlights": [
             "Wzrost wynagrodzenia o 25% w stosunku do poprzedniego pracodawcy",
-            "Diagnostyka układów elektrycznych 12V/24V",
+            "Diagnostyka układów elektrycznych 12V/24V i ISOBUS",
             "Przeglądy przedsezonowe i gwarancyjne",
             "Obsługa 10+ modeli różnorodnych maszyn"
           ]
@@ -1932,24 +1945,37 @@
       "subtitle": "Over 9 years of international experience in high-tech manufacturing: from blow molding through agricultural machinery service to specialization in Metal Injection Molding.",
       "milestones": [
         {
-          "id": "2018-itb",
-          "period": "Dec 2018 – Present",
-          "role": "Maintenance Technician",
+          "id": "2021-itb-second",
+          "period": "Jul 2021 – Present",
+          "role": "Maintenance Technician / Electrical Engineer",
           "context": "ITB Precisietechniek B.V. (Rompa Group) – Boxtel, Netherlands",
-          "summary": "Maintenance of complete MIM (Metal Injection Molding) production line: Arburg injection molding machines, Cremer/EPSI vacuum furnaces (1400°C), Yaskawa Motoman robots. Permanent contract since Feb 2022.",
+          "summary": "Second employment period at ITB. Maintenance of complete MIM (Metal Injection Molding) production line: Arburg injection molding machines, Cremer/EPSI vacuum furnaces (1400°C), Yaskawa Motoman robots. Permanent contract (Voor onbepaalde tijd) since February 28, 2022.",
           "highlights": [
-            "35.6% salary increase over 2018–2022 period (€2,365 → €3,207)",
-            "High-temperature furnace maintenance (debinding 600°C, sintering 1400°C)",
+            "Permanent contract since February 28, 2022",
+            "Salary increase and expanded responsibilities",
             "Yaskawa Motoman robot programming and calibration (loading/unloading, handling)",
             "Furnace maintenance time optimization (~15% downtime reduction)"
           ]
         },
         {
+          "id": "2018-itb-first",
+          "period": "Dec 2018 – Nov 2019",
+          "role": "Maintenance Technician",
+          "context": "ITB Precisietechniek B.V. (Rompa Group) – Boxtel, Netherlands",
+          "summary": "First employment period at ITB (1 year). Maintenance of complete MIM (Metal Injection Molding) production line: Arburg injection molding machines, Cremer/EPSI vacuum furnaces (1400°C), Yaskawa Motoman robots. Fixed-term contract (Bepaalde tijd).",
+          "highlights": [
+            "Introduction to MIM technology and high-temperature processes",
+            "High-temperature furnace maintenance (debinding 600°C, sintering 1400°C)",
+            "Operation and maintenance of Yaskawa Motoman robots",
+            "Fixed-term contract employment"
+          ]
+        },
+        {
           "id": "2020-daremon",
-          "period": "Apr 2020 – Present",
+          "period": "Apr 2020 – Jun 2021",
           "role": "Owner — Industrial Automation (Sole Proprietorship)",
           "context": "Dariusz Adamski – Sypniewo, Poland",
-          "summary": "B2B business: industrial machinery service and maintenance, hydraulic/pneumatic/electrical system diagnostics, modernizations and retrofits, technical consulting. Operating parallel to ITB employment.",
+          "summary": "B2B business: industrial machinery service and maintenance, hydraulic/pneumatic/electrical system diagnostics, modernizations and retrofits, technical consulting. 15-month period. Business registered on April 1, 2020.",
           "highlights": [
             "40+ closed projects, 80% returning clients",
             "Service for injection molding machines, furnaces, industrial robots",
@@ -1958,14 +1984,14 @@
           ]
         },
         {
-          "id": "2018-bonenkamp",
+          "id": "2018-fendt",
           "period": "Feb 2018 – Oct 2018",
-          "role": "Workshop Mechanic (Werkplaatsmonteur)",
-          "context": "Gebr. Bonenkamp Rivierenland B.V. – Tiel, Netherlands",
-          "summary": "Agricultural, park, and municipal machinery service: tractors, combines, self-propelled mowers. Specialization in mobile hydraulics (pumps, cylinders, high-pressure valves).",
+          "role": "Agricultural Machinery Technician",
+          "context": "Fendt Dealer – Netherlands",
+          "summary": "Agricultural machinery service: tractors, combines, mowers. Employment period: 9 months. Specialization: hydraulics, ISOBUS.",
           "highlights": [
             "25% salary increase compared to previous employer",
-            "12V/24V electrical system diagnostics",
+            "12V/24V electrical system and ISOBUS diagnostics",
             "Pre-seasonal and warranty inspections",
             "Service for 10+ different machine models"
           ]
@@ -2980,24 +3006,37 @@
       "subtitle": "Meer dan 9 jaar internationale ervaring in high-tech productie: van blow molding via landbouwmachine-service tot specialisatie in Metal Injection Molding.",
       "milestones": [
         {
-          "id": "2018-itb",
-          "period": "Dec 2018 – heden",
-          "role": "Onderhoudsmonteur",
+          "id": "2021-itb-second",
+          "period": "Jul 2021 – heden",
+          "role": "Onderhoudsmonteur / Electrical Engineer",
           "context": "ITB Precisietechniek B.V. (Rompa Group) – Boxtel, Nederland",
-          "summary": "Onderhoud van complete MIM (Metal Injection Molding) productielijn: Arburg spuitgietmachines, Cremer/EPSI vacuümovens (1400°C), Yaskawa Motoman robots. Vast contract sinds feb 2022.",
+          "summary": "Tweede dienstverband bij ITB. Onderhoud van complete MIM (Metal Injection Molding) productielijn: Arburg spuitgietmachines, Cremer/EPSI vacuümovens (1400°C), Yaskawa Motoman robots. Contract voor onbepaalde tijd sinds 28 februari 2022.",
           "highlights": [
-            "35,6% salarisstijging over 2018–2022 periode (€2.365 → €3.207)",
-            "Onderhoud hogetemperatuurovens (debinding 600°C, sintering 1400°C)",
+            "Contract voor onbepaalde tijd sinds 28 februari 2022",
+            "Salarisstijging en uitbreiding verantwoordelijkheden",
             "Programmering en kalibratie Yaskawa Motoman robots (loading/unloading, handling)",
             "Optimalisatie onderhoudsonderbrekingen ovens (~15% downtime reductie)"
           ]
         },
         {
+          "id": "2018-itb-first",
+          "period": "Dec 2018 – Nov 2019",
+          "role": "Onderhoudsmonteur",
+          "context": "ITB Precisietechniek B.V. (Rompa Group) – Boxtel, Nederland",
+          "summary": "Eerste dienstverband bij ITB (1 jaar). Onderhoud van complete MIM (Metal Injection Molding) productielijn: Arburg spuitgietmachines, Cremer/EPSI vacuümovens (1400°C), Yaskawa Motoman robots. Contract voor bepaalde tijd.",
+          "highlights": [
+            "Introductie in MIM-technologie en hogetemperatuurprocessen",
+            "Onderhoud hogetemperatuurovens (debinding 600°C, sintering 1400°C)",
+            "Bediening en onderhoud Yaskawa Motoman robots",
+            "Contract voor bepaalde tijd"
+          ]
+        },
+        {
           "id": "2020-daremon",
-          "period": "Apr 2020 – heden",
+          "period": "Apr 2020 – Jun 2021",
           "role": "Eigenaar — Industriële Automatisering (Eenmanszaak)",
           "context": "Dariusz Adamski – Sypniewo, Polen",
-          "summary": "B2B-bedrijf: service en onderhoud van industriële machines, diagnose van hydraulische/pneumatische/elektrische systemen, modernisaties en retrofits, technisch advies. Parallel aan ITB-dienstverband.",
+          "summary": "B2B-bedrijf: service en onderhoud van industriële machines, diagnose van hydraulische/pneumatische/elektrische systemen, modernisaties en retrofits, technisch advies. Periode van 15 maanden. Bedrijf geregistreerd op 1 april 2020.",
           "highlights": [
             "40+ afgeronde projecten, 80% terugkerende klanten",
             "Service voor spuitgietmachines, ovens, industriële robots",
@@ -3006,14 +3045,14 @@
           ]
         },
         {
-          "id": "2018-bonenkamp",
+          "id": "2018-fendt",
           "period": "Feb 2018 – Okt 2018",
-          "role": "Werkplaatsmonteur",
-          "context": "Gebr. Bonenkamp Rivierenland B.V. – Tiel, Nederland",
-          "summary": "Service van landbouw-, park- en gemeentemachines: tractoren, combines, zelfrijdende maaiers. Specialisatie in mobiele hydraulica (pompen, cilinders, hogedruk kleppen).",
+          "role": "Landbouwmachine Monteur",
+          "context": "Fendt Dealer – Nederland",
+          "summary": "Service van landbouwmachines: tractoren, combines, maaiers. Dienstverband: 9 maanden. Specialisatie: hydraulica, ISOBUS.",
           "highlights": [
             "25% salarisstijging t.o.v. vorige werkgever",
-            "Diagnose 12V/24V elektrische systemen",
+            "Diagnose 12V/24V elektrische systemen en ISOBUS",
             "Voorseizoen en garantie-inspecties",
             "Service aan 10+ verschillende machinemodellen"
           ]
