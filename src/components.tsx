@@ -1,5 +1,6 @@
 import React, { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { AudioPlayer } from './components/AudioPlayer';
+import { MobileMenu } from './components/MobileMenu';
 
 export type Locale = 'pl' | 'en' | 'nl';
 
@@ -438,92 +439,6 @@ export const WorkflowDiagram: React.FC<{ phases: WorkflowPhase[] }> = ({ phases 
   );
 };
 
-type TimelineMilestone = {
-  id: string;
-  period: string;
-  role: string;
-  context?: string;
-  summary: string;
-  highlights?: string[];
-};
-
-export const TimelineSlider: React.FC<{ milestones: TimelineMilestone[]; label: string }> = ({ milestones, label }) => {
-  const [activeId, setActiveId] = useState<string>(() => milestones[0]?.id ?? '');
-  const sliderId = useId();
-
-  useEffect(() => {
-    setActiveId(milestones[0]?.id ?? '');
-  }, [milestones]);
-
-  const activeMilestone = useMemo(
-    () => milestones.find((milestone) => milestone.id === activeId) ?? milestones[0],
-    [activeId, milestones]
-  );
-
-  if (!milestones.length || !activeMilestone) {
-    return null;
-  }
-
-  return (
-    <section className="timeline-slider space-y-4">
-      <div
-        role="tablist"
-        aria-label={label}
-        aria-orientation="horizontal"
-        className="flex gap-2 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-thin"
-      >
-        {milestones.map((milestone, index) => {
-          const isActive = milestone.id === activeMilestone.id;
-          return (
-            <button
-              key={milestone.id}
-              id={`${sliderId}-tab-${milestone.id}`}
-              type="button"
-              role="tab"
-              aria-selected={isActive}
-              aria-controls={`${sliderId}-panel-${milestone.id}`}
-              onClick={() => setActiveId(milestone.id)}
-              className={`shrink-0 snap-start rounded-button border px-4 py-2 text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-led ${
-                isActive
-                  ? 'border-primary-500 bg-primary-600/20 text-primary-50'
-                  : 'border-surface-border bg-surface-card/40 text-neutral-200 hover:bg-surface-card'
-              }`}
-            >
-              <span className="block font-semibold text-neutral-50">{milestone.period}</span>
-              <span className="block text-xs text-neutral-300">{index + 1}</span>
-            </button>
-          );
-        })}
-      </div>
-      <article
-        role="tabpanel"
-        id={`${sliderId}-panel-${activeMilestone.id}`}
-        aria-labelledby={`${sliderId}-tab-${activeMilestone.id}`}
-        className="rounded-card border border-surface-border bg-surface-card/80 p-4 sm:p-6 shadow-card"
-      >
-        <header className="flex flex-col gap-1">
-          <p className="text-xs sm:text-sm uppercase tracking-wide text-primary-300">{activeMilestone.period}</p>
-          <h3 className="text-lg sm:text-xl font-heading font-semibold text-neutral-50">{activeMilestone.role}</h3>
-          {activeMilestone.context ? (
-            <p className="text-sm text-neutral-300">{activeMilestone.context}</p>
-          ) : null}
-        </header>
-        <p className="mt-4 text-sm sm:text-base text-neutral-200">{activeMilestone.summary}</p>
-        {activeMilestone.highlights && activeMilestone.highlights.length > 0 ? (
-          <ul className="mt-4 space-y-2 text-sm text-neutral-200" role="list">
-            {activeMilestone.highlights.map((highlight) => (
-              <li key={`${activeMilestone.id}-${highlight}`} className="flex items-start gap-2">
-                <span aria-hidden="true" className="mt-1 h-1.5 w-1.5 rounded-full bg-primary-500 shrink-0" />
-                <span>{highlight}</span>
-              </li>
-            ))}
-          </ul>
-        ) : null}
-      </article>
-    </section>
-  );
-};
-
 type PartnerCardProps = {
   icon?: string;
   title: string;
@@ -632,6 +547,7 @@ export const Navbar: React.FC<{
         </ul>
         <div className="flex items-center gap-4">
           <LanguageSwitcher locale={locale} onChange={onLocaleChange} />
+          <MobileMenu labels={labels} activeId={activeId} />
           <a
             href="#contact"
             role="button"
@@ -650,3 +566,4 @@ export { RadarChart } from './components/RadarChart';
 export type { RadarChartProps, RadarChartAxis } from './components/RadarChart';
 export { AudioPlayer } from './components/AudioPlayer';
 export type { AudioPlayerProps } from './components/AudioPlayer';
+export { MobileMenu } from './components/MobileMenu';
