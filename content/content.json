@@ -878,53 +878,65 @@
     },
     "career_timeline": {
       "title": "Kluczowe kamienie milowe kariery",
-      "subtitle": "Ponad 9 lat międzynarodowego doświadczenia w przemyśle high-tech: od blow molding przez serwis maszyn rolniczych po specjalizację w Metal Injection Molding.",
+      "subtitle": "Ponad 11 lat międzynarodowego doświadczenia w przemyśle high-tech: od blow molding przez serwis maszyn rolniczych po specjalizację w Metal Injection Molding.",
       "milestones": [
         {
           "id": "2021-itb-second",
           "period": "VII 2021 – obecnie",
-          "role": "Maintenance Technician / Electrical Engineer",
-          "context": "ITB Precisietechniek B.V. (Rompa Group) – Boxtel, Holandia",
-          "summary": "Drugi okres zatrudnienia w ITB. Utrzymanie ruchu kompletnej linii produkcyjnej MIM (Metal Injection Molding): wtryskarki Arburg, piece próżniowe Cremer/EPSI (1400°C), roboty Yaskawa Motoman. Umowa na czas nieokreślony (Voor onbepaalde tijd) od 28 lutego 2022.",
+          "role": "Electrical Engineer (formalnie) / Konserwator (faktycznie)",
+          "context": "ITB Precisietechniek B.V. – Boxtel, Holandia",
+          "summary": "Utrzymanie ruchu całej fabryki: wtryskarki (Arburg/Engel), roboty (Motoman/Fanuc), piece i kompletna linia MIM. Odpowiedzialność za całą konserwację elektryczną i mechaniczną. RCA (Root Cause Analysis) przy awariach.",
           "highlights": [
             "Umowa na czas nieokreślony od 28 lutego 2022",
-            "Wzrost wynagrodzenia i rozszerzenie odpowiedzialności",
-            "Programowanie i kalibracja robotów Yaskawa Motoman (loading/unloading, handling)",
-            "Optymalizacja czasów konserwacji pieców (redukcja downtime o ~15%)"
-          ]
-        },
-        {
-          "id": "2018-itb-first",
-          "period": "XII 2018 – XI 2019",
-          "role": "Maintenance Technician",
-          "context": "ITB Precisietechniek B.V. (Rompa Group) – Boxtel, Holandia",
-          "summary": "Pierwszy okres zatrudnienia w ITB (1 rok). Utrzymanie ruchu kompletnej linii produkcyjnej MIM (Metal Injection Molding): wtryskarki Arburg, piece próżniowe Cremer/EPSI (1400°C), roboty Yaskawa Motoman. Umowa na czas określony (Bepaalde tijd).",
-          "highlights": [
-            "Wprowadzenie do technologii MIM i procesów wysokotemperaturowych",
-            "Konserwacja pieców wysokotemperaturowych (debinding 600°C, sintering 1400°C)",
-            "Obsługa i konserwacja robotów Yaskawa Motoman",
-            "Praca na umowie czasowej określonej"
+            "Odpowiedzialność za całą fabrykę (konserwacja elektryczna + mechaniczna)",
+            "Programowanie robotów Yaskawa Motoman i Fanuc",
+            "RCA (Root Cause Analysis) przy złożonych awariach"
           ]
         },
         {
           "id": "2020-daremon",
           "period": "IV 2020 – VI 2021",
-          "role": "Właściciel – Automatyka Przemysłowa (JDG)",
-          "context": "Dariusz Adamski – Sypniewo, Polska",
-          "summary": "Działalność B2B: serwis i konserwacja maszyn przemysłowych, diagnostyka układów hydraulicznych/pneumatycznych/elektrycznych, modernizacje i retrofit, doradztwo techniczne. Okres 15 miesięcy. Działalność zarejestrowana 01.04.2020.",
+          "role": "Właściciel / Service Engineer",
+          "context": "DARIUSZ ADAMSKI AUTOMATYKA PRZEMYSŁOWA – Sypniewo, Polska",
+          "summary": "Mobilny serwis maszyn przemysłowych (JDG). Serwis i konserwacja wtryskarek, pieców, robotów i innych maszyn przemysłowych. Diagnostyka układów hydraulicznych, pneumatycznych i elektrycznych. Modernizacje i retrofity.",
           "highlights": [
             "40+ projektów zamkniętych, 80% klientów powracających",
             "Serwis wtryskarek, pieców, robotów przemysłowych",
-            "Modernizacje starszych maszyn (dodawanie PLC, czujników)",
-            "Międzynarodowe doświadczenie (Polska, Holandia)"
+            "Modernizacje starszych maszyn (PLC, czujniki)",
+            "Mobilny serwis — Polska & Holandia"
           ]
         },
         {
-          "id": "2018-fendt",
+          "id": "2020-ronet",
+          "period": "I 2020 – III 2020",
+          "role": "Młodszy Operator CNC",
+          "context": "RONET Sp. z o.o. – Więcbork, Polska",
+          "summary": "Praca przejściowa w PL. Obsługa tokarek i frezarek CNC 3–4 osiowe, kontrola wymiarów, podstawowa konserwacja maszyn. Obróbka precyzyjna ±0,01 mm.",
+          "highlights": [
+            "Obsługa CNC Fanuc/Siemens",
+            "Obróbka precyzyjna ±0,01 mm",
+            "Kontrola wymiarów (suwmiarka, mikrometr)"
+          ]
+        },
+        {
+          "id": "2018-itb-first",
+          "period": "XII 2018 – XI 2019",
+          "role": "Konserwator",
+          "context": "ITB Precisietechniek B.V. – Boxtel, Holandia",
+          "summary": "Pierwszy okres high-tech: Arburg, Motoman, MIM. Utrzymanie ruchu kompletnej linii produkcyjnej MIM (Metal Injection Molding): wtryskarki Arburg, piece próżniowe Cremer/EPSI (1400°C), roboty Yaskawa Motoman. Umowa na czas określony.",
+          "highlights": [
+            "Wprowadzenie do technologii MIM i procesów wysokotemperaturowych",
+            "Konserwacja pieców wysokotemperaturowych (debinding 600°C, sintering 1400°C)",
+            "Obsługa i konserwacja robotów Yaskawa Motoman",
+            "Pierwsze zetknięcie z wtryskarkami Arburg"
+          ]
+        },
+        {
+          "id": "2018-bonenkamp",
           "period": "II 2018 – X 2018",
-          "role": "Serwisant Maszyn Rolniczych",
-          "context": "Fendt Dealer – Holandia",
-          "summary": "Serwis maszyn rolniczych: ciągniki, kombajny, kosiarki. Okres zatrudnienia: 9 miesięcy. Specjalizacja: hydraulika, ISOBUS.",
+          "role": "Serwisant Warsztatowy",
+          "context": "Gebr. Bonenkamp Rivierenland B.V. – Holandia",
+          "summary": "Serwis maszyn rolniczych. Serwis maszyn rolniczych: ciągniki, kombajny, kosiarki. Okres zatrudnienia: 9 miesięcy. Specjalizacja: hydraulika, ISOBUS.",
           "highlights": [
             "Wzrost wynagrodzenia o 25% w stosunku do poprzedniego pracodawcy",
             "Diagnostyka układów elektrycznych 12V/24V i ISOBUS",
@@ -935,26 +947,14 @@
         {
           "id": "2013-jagtenberg",
           "period": "IV 2013 – I 2018",
-          "role": "Monteur Technische Dienst",
-          "context": "Henk Jagtenberg Plastics B.V. / RPC Promens Industrial – Heerewaarden, Holandia",
-          "summary": "Utrzymanie ruchu około 25 wytłaczarko-rozdmuchiwarek BEKUM (produkcja automotive). Pierwsza praca za granicą w wieku 19 lat. Umowa na czas nieokreślony od 2016.",
+          "role": "Operator → Konserwator",
+          "context": "Jagtenberg Plastics B.V. / RPC Promens Jagtenberg B.V. – Heerewaarden, Holandia",
+          "summary": "Fundament praktyczny — 4 lata 10 miesięcy. Utrzymanie ruchu około 25 wytłaczarko-rozdmuchiwarek BEKUM (produkcja automotive). Pierwsza praca za granicą w wieku 19 lat. Umowa na czas nieokreślony od 2016.",
           "highlights": [
             "Zero negatywnych incydentów BHP przez 5 lat",
             "Konserwacja układów hydraulicznych (200–300 bar, zawory proporcjonalne)",
             "Współpraca z BEKUM Service (Niemcy) przy major overhauls",
             "Produkcja kanstrów na benzynę (5–25L), zbiorniki na wodę (20–200L)"
-          ]
-        },
-        {
-          "id": "2020-ronet",
-          "period": "I 2020 – III 2020",
-          "role": "Młodszy Operator CNC",
-          "context": "RONET Sp. z o.o. – Więcbork, Polska",
-          "summary": "Zatrudnienie w trakcie pandemii COVID-19 (lockdown w Europie). Obsługa tokarek i frezarek CNC 3–4 osiowe, kontrola wymiarów, podstawowa konserwacja maszyn.",
-          "highlights": [
-            "Obsługa CNC Fanuc/Siemens",
-            "Obróbka precyzyjna ±0,01 mm",
-            "Kontrola wymiarów (suwmiarka, mikrometr)"
           ]
         }
       ]
@@ -1942,53 +1942,65 @@
     },
     "career_timeline": {
       "title": "Career milestones",
-      "subtitle": "Over 9 years of international experience in high-tech manufacturing: from blow molding through agricultural machinery service to specialization in Metal Injection Molding.",
+      "subtitle": "Over 11 years of international experience in high-tech manufacturing: from blow molding through agricultural machinery service to specialization in Metal Injection Molding.",
       "milestones": [
         {
           "id": "2021-itb-second",
           "period": "Jul 2021 – Present",
-          "role": "Maintenance Technician / Electrical Engineer",
-          "context": "ITB Precisietechniek B.V. (Rompa Group) – Boxtel, Netherlands",
-          "summary": "Second employment period at ITB. Maintenance of complete MIM (Metal Injection Molding) production line: Arburg injection molding machines, Cremer/EPSI vacuum furnaces (1400°C), Yaskawa Motoman robots. Permanent contract (Voor onbepaalde tijd) since February 28, 2022.",
+          "role": "Electrical Engineer (formal) / Maintenance Technician (actual)",
+          "context": "ITB Precisietechniek B.V. – Boxtel, Netherlands",
+          "summary": "Maintenance of entire factory: injection molding machines (Arburg/Engel), robots (Motoman/Fanuc), furnaces and complete MIM production line. Responsible for all electrical and mechanical maintenance. RCA (Root Cause Analysis) for failures.",
           "highlights": [
             "Permanent contract since February 28, 2022",
-            "Salary increase and expanded responsibilities",
-            "Yaskawa Motoman robot programming and calibration (loading/unloading, handling)",
-            "Furnace maintenance time optimization (~15% downtime reduction)"
+            "Responsible for complete factory (electrical + mechanical maintenance)",
+            "Programming Yaskawa Motoman and Fanuc robots",
+            "RCA (Root Cause Analysis) for complex failures"
+          ]
+        },
+        {
+          "id": "2020-daremon",
+          "period": "Apr 2020 – Jun 2021",
+          "role": "Owner / Service Engineer",
+          "context": "DARIUSZ ADAMSKI AUTOMATYKA PRZEMYSŁOWA – Sypniewo, Poland",
+          "summary": "Mobile industrial machinery service (sole proprietorship). Service and maintenance of injection molding machines, furnaces, robots and other industrial machinery. Diagnostics of hydraulic, pneumatic and electrical systems. Modernizations and retrofits.",
+          "highlights": [
+            "40+ closed projects, 80% returning clients",
+            "Service for injection molding machines, furnaces, industrial robots",
+            "Older machine modernizations (PLCs, sensors)",
+            "Mobile service — Poland & Netherlands"
+          ]
+        },
+        {
+          "id": "2020-ronet",
+          "period": "Jan 2020 – Mar 2020",
+          "role": "Junior CNC Operator",
+          "context": "RONET Sp. z o.o. – Więcbork, Poland",
+          "summary": "Transitional work in PL. Operation of 3–4 axis CNC lathes and mills, dimensional control, basic machine maintenance. Precision machining ±0.01 mm.",
+          "highlights": [
+            "CNC Fanuc/Siemens operation",
+            "Precision machining ±0.01 mm",
+            "Dimensional control (caliper, micrometer)"
           ]
         },
         {
           "id": "2018-itb-first",
           "period": "Dec 2018 – Nov 2019",
           "role": "Maintenance Technician",
-          "context": "ITB Precisietechniek B.V. (Rompa Group) – Boxtel, Netherlands",
-          "summary": "First employment period at ITB (1 year). Maintenance of complete MIM (Metal Injection Molding) production line: Arburg injection molding machines, Cremer/EPSI vacuum furnaces (1400°C), Yaskawa Motoman robots. Fixed-term contract (Bepaalde tijd).",
+          "context": "ITB Precisietechniek B.V. – Boxtel, Netherlands",
+          "summary": "First high-tech period: Arburg, Motoman, MIM. Maintenance of complete MIM (Metal Injection Molding) production line: Arburg injection molding machines, Cremer/EPSI vacuum furnaces (1400°C), Yaskawa Motoman robots. Fixed-term contract.",
           "highlights": [
             "Introduction to MIM technology and high-temperature processes",
             "High-temperature furnace maintenance (debinding 600°C, sintering 1400°C)",
             "Operation and maintenance of Yaskawa Motoman robots",
-            "Fixed-term contract employment"
+            "First experience with Arburg injection molding machines"
           ]
         },
         {
-          "id": "2020-daremon",
-          "period": "Apr 2020 – Jun 2021",
-          "role": "Owner — Industrial Automation (Sole Proprietorship)",
-          "context": "Dariusz Adamski – Sypniewo, Poland",
-          "summary": "B2B business: industrial machinery service and maintenance, hydraulic/pneumatic/electrical system diagnostics, modernizations and retrofits, technical consulting. 15-month period. Business registered on April 1, 2020.",
-          "highlights": [
-            "40+ closed projects, 80% returning clients",
-            "Service for injection molding machines, furnaces, industrial robots",
-            "Older machine modernizations (adding PLCs, sensors)",
-            "International experience (Poland, Netherlands)"
-          ]
-        },
-        {
-          "id": "2018-fendt",
+          "id": "2018-bonenkamp",
           "period": "Feb 2018 – Oct 2018",
-          "role": "Agricultural Machinery Technician",
-          "context": "Fendt Dealer – Netherlands",
-          "summary": "Agricultural machinery service: tractors, combines, mowers. Employment period: 9 months. Specialization: hydraulics, ISOBUS.",
+          "role": "Workshop Mechanic",
+          "context": "Gebr. Bonenkamp Rivierenland B.V. – Netherlands",
+          "summary": "Agricultural machinery service. Service for agricultural machinery: tractors, combines, mowers. Employment period: 9 months. Specialization: hydraulics, ISOBUS.",
           "highlights": [
             "25% salary increase compared to previous employer",
             "12V/24V electrical system and ISOBUS diagnostics",
@@ -1999,26 +2011,14 @@
         {
           "id": "2013-jagtenberg",
           "period": "Apr 2013 – Jan 2018",
-          "role": "Technical Service Mechanic (Monteur Technische Dienst)",
-          "context": "Henk Jagtenberg Plastics B.V. / RPC Promens Industrial – Heerewaarden, Netherlands",
-          "summary": "Maintenance of approx. 25 BEKUM blow molding machines (automotive production). First job abroad at age 19. Permanent contract from 2016.",
+          "role": "Operator → Technical Service Mechanic",
+          "context": "Jagtenberg Plastics B.V. / RPC Promens Jagtenberg B.V. – Heerewaarden, Netherlands",
+          "summary": "Practical foundation — 4 years 10 months. Maintenance of approx. 25 BEKUM blow molding machines (automotive production). First job abroad at age 19. Permanent contract from 2016.",
           "highlights": [
             "Zero negative safety incidents over 5 years",
             "Hydraulic system maintenance (200–300 bar, proportional valves)",
             "Cooperation with BEKUM Service (Germany) on major overhauls",
             "Production of fuel canisters (5–25L), water tanks (20–200L)"
-          ]
-        },
-        {
-          "id": "2020-ronet",
-          "period": "Jan 2020 – Mar 2020",
-          "role": "Junior CNC Operator",
-          "context": "RONET Sp. z o.o. – Więcbork, Poland",
-          "summary": "Employment during COVID-19 pandemic (European lockdown). Operation of 3–4 axis CNC lathes and mills, dimensional control, basic machine maintenance.",
-          "highlights": [
-            "CNC Fanuc/Siemens operation",
-            "Precision machining ±0.01 mm",
-            "Dimensional control (caliper, micrometer)"
           ]
         }
       ]
@@ -3003,53 +3003,65 @@
     },
     "career_timeline": {
       "title": "Carrièremijlpalen",
-      "subtitle": "Meer dan 9 jaar internationale ervaring in high-tech productie: van blow molding via landbouwmachine-service tot specialisatie in Metal Injection Molding.",
+      "subtitle": "Meer dan 11 jaar internationale ervaring in high-tech productie: van blow molding via landbouwmachine-service tot specialisatie in Metal Injection Molding.",
       "milestones": [
         {
           "id": "2021-itb-second",
           "period": "Jul 2021 – heden",
-          "role": "Onderhoudsmonteur / Electrical Engineer",
-          "context": "ITB Precisietechniek B.V. (Rompa Group) – Boxtel, Nederland",
-          "summary": "Tweede dienstverband bij ITB. Onderhoud van complete MIM (Metal Injection Molding) productielijn: Arburg spuitgietmachines, Cremer/EPSI vacuümovens (1400°C), Yaskawa Motoman robots. Contract voor onbepaalde tijd sinds 28 februari 2022.",
+          "role": "Electrical Engineer (formeel) / Onderhoudsmonteur (feitelijk)",
+          "context": "ITB Precisietechniek B.V. – Boxtel, Nederland",
+          "summary": "Utrzymanie ruchu całej fabryki: spuitgietmachines (Arburg/Engel), robots (Motoman/Fanuc), ovens en complete MIM-productielijn. Verantwoordelijk voor alle elektrische en mechanische onderhoudswerkzaamheden. RCA (Root Cause Analysis) bij storingen.",
           "highlights": [
             "Contract voor onbepaalde tijd sinds 28 februari 2022",
-            "Salarisstijging en uitbreiding verantwoordelijkheden",
-            "Programmering en kalibratie Yaskawa Motoman robots (loading/unloading, handling)",
-            "Optimalisatie onderhoudsonderbrekingen ovens (~15% downtime reductie)"
-          ]
-        },
-        {
-          "id": "2018-itb-first",
-          "period": "Dec 2018 – Nov 2019",
-          "role": "Onderhoudsmonteur",
-          "context": "ITB Precisietechniek B.V. (Rompa Group) – Boxtel, Nederland",
-          "summary": "Eerste dienstverband bij ITB (1 jaar). Onderhoud van complete MIM (Metal Injection Molding) productielijn: Arburg spuitgietmachines, Cremer/EPSI vacuümovens (1400°C), Yaskawa Motoman robots. Contract voor bepaalde tijd.",
-          "highlights": [
-            "Introductie in MIM-technologie en hogetemperatuurprocessen",
-            "Onderhoud hogetemperatuurovens (debinding 600°C, sintering 1400°C)",
-            "Bediening en onderhoud Yaskawa Motoman robots",
-            "Contract voor bepaalde tijd"
+            "Verantwoordelijk voor complete fabriek (elektrisch + mechanisch onderhoud)",
+            "Programmering Yaskawa Motoman en Fanuc robots",
+            "RCA (Root Cause Analysis) bij complexe storingen"
           ]
         },
         {
           "id": "2020-daremon",
           "period": "Apr 2020 – Jun 2021",
-          "role": "Eigenaar — Industriële Automatisering (Eenmanszaak)",
-          "context": "Dariusz Adamski – Sypniewo, Polen",
-          "summary": "B2B-bedrijf: service en onderhoud van industriële machines, diagnose van hydraulische/pneumatische/elektrische systemen, modernisaties en retrofits, technisch advies. Periode van 15 maanden. Bedrijf geregistreerd op 1 april 2020.",
+          "role": "Eigenaar / Service Engineer",
+          "context": "DARIUSZ ADAMSKI AUTOMATYKA PRZEMYSŁOWA – Sypniewo, Polen",
+          "summary": "Mobilny serwis maszyn przemysłowych (JDG). Service en onderhoud van spuitgietmachines, ovens, robots en andere industriële machines. Diagnose van hydraulische, pneumatische en elektrische systemen. Modernisaties en retrofits.",
           "highlights": [
             "40+ afgeronde projecten, 80% terugkerende klanten",
-            "Service voor spuitgietmachines, ovens, industriële robots",
-            "Modernisatie oudere machines (toevoegen PLCs, sensoren)",
-            "Internationale ervaring (Polen, Nederland)"
+            "Service spuitgietmachines, ovens, industriële robots",
+            "Modernisatie oudere machines (PLCs, sensoren)",
+            "Mobilny serwis — Polen & Nederland"
           ]
         },
         {
-          "id": "2018-fendt",
+          "id": "2020-ronet",
+          "period": "Jan 2020 – Mrt 2020",
+          "role": "Junior CNC Operator",
+          "context": "RONET Sp. z o.o. – Więcbork, Polen",
+          "summary": "Praca przejściowa w PL. Bediening van 3–4 assen CNC-draai- en freesbanken, maatcontrole, basis machineonderhoud. Precisiebewerking ±0,01 mm.",
+          "highlights": [
+            "Bediening CNC Fanuc/Siemens",
+            "Precisiebewerking ±0,01 mm",
+            "Maatcontrole (schuifmaat, micrometer)"
+          ]
+        },
+        {
+          "id": "2018-itb-first",
+          "period": "Dec 2018 – Nov 2019",
+          "role": "Onderhoudstechnicus",
+          "context": "ITB Precisietechniek B.V. – Boxtel, Nederland",
+          "summary": "Pierwszy okres high-tech: Arburg, Motoman, MIM. Onderhoud van complete MIM (Metal Injection Molding) productielijn: Arburg spuitgietmachines, Cremer/EPSI vacuümovens (1400°C), Yaskawa Motoman robots. Contract voor bepaalde tijd.",
+          "highlights": [
+            "Introductie in MIM-technologie en hogetemperatuurprocessen",
+            "Onderhoud hogetemperatuurovens (debinding 600°C, sintering 1400°C)",
+            "Bediening en onderhoud Yaskawa Motoman robots",
+            "Eerste kennismaking met Arburg spuitgietmachines"
+          ]
+        },
+        {
+          "id": "2018-bonenkamp",
           "period": "Feb 2018 – Okt 2018",
-          "role": "Landbouwmachine Monteur",
-          "context": "Fendt Dealer – Nederland",
-          "summary": "Service van landbouwmachines: tractoren, combines, maaiers. Dienstverband: 9 maanden. Specialisatie: hydraulica, ISOBUS.",
+          "role": "Werkplaatsmonteur",
+          "context": "Gebr. Bonenkamp Rivierenland B.V. – Nederland",
+          "summary": "Serwis maszyn rolniczych. Service van landbouwmachines: tractoren, combines, maaiers. Dienstverband: 9 maanden. Specialisatie: hydraulica, ISOBUS.",
           "highlights": [
             "25% salarisstijging t.o.v. vorige werkgever",
             "Diagnose 12V/24V elektrische systemen en ISOBUS",
@@ -3060,26 +3072,14 @@
         {
           "id": "2013-jagtenberg",
           "period": "Apr 2013 – Jan 2018",
-          "role": "Monteur Technische Dienst",
-          "context": "Henk Jagtenberg Plastics B.V. / RPC Promens Industrial – Heerewaarden, Nederland",
-          "summary": "Onderhoud van ca. 25 BEKUM blaasvormmachines (automotive productie). Eerste baan in het buitenland op 19-jarige leeftijd. Vast contract vanaf 2016.",
+          "role": "Operator → Technische Dienst Medewerker",
+          "context": "Jagtenberg Plastics B.V. / RPC Promens Jagtenberg B.V. – Heerewaarden, Nederland",
+          "summary": "Fundament praktyczny — 4 lata 10 miesięcy. Onderhoud van ca. 25 BEKUM blaasvormmachines (automotive productie). Eerste baan in het buitenland op 19-jarige leeftijd. Vast contract vanaf 2016.",
           "highlights": [
             "Geen veiligheidsincidenten gedurende 5 jaar",
             "Onderhoud hydraulische systemen (200–300 bar, proportionele kleppen)",
             "Samenwerking met BEKUM Service (Duitsland) bij grote revisies",
             "Productie benzinecans (5–25L), watertanks (20–200L)"
-          ]
-        },
-        {
-          "id": "2020-ronet",
-          "period": "Jan 2020 – Mrt 2020",
-          "role": "Junior CNC-operator",
-          "context": "RONET Sp. z o.o. – Więcbork, Polen",
-          "summary": "Dienstverband tijdens COVID-19 pandemie (Europese lockdown). Bediening 3–4 assen CNC-draai- en freesbanken, maatcontrole, basis machineonderhoud.",
-          "highlights": [
-            "Bediening CNC Fanuc/Siemens",
-            "Precisiebewerking ±0,01 mm",
-            "Maatcontrole (schuifmaat, micrometer)"
           ]
         }
       ]
