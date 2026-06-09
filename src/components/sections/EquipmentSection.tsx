@@ -15,7 +15,7 @@ interface EquipmentCategory {
 }
 
 interface EquipmentSectionProps {
-  sectionRef: React.RefObject<HTMLElement | null>;
+  sectionRef?: React.RefObject<HTMLElement | null>;
   content: {
     title: string;
     subtitle?: string;
@@ -25,20 +25,27 @@ interface EquipmentSectionProps {
   showHeading?: boolean;
 }
 
+const itemCountLabels: Record<Locale, string> = {
+  pl: 'pozycji',
+  en: 'assets',
+  nl: 'onderdelen',
+};
+
 export const EquipmentSection: React.FC<EquipmentSectionProps> = ({
   sectionRef,
   content,
   locale,
   showHeading = true,
 }) => {
-  const itemCountLabel = locale === 'pl' ? 'pozycji' : locale === 'en' ? 'assets' : 'items';
+  const itemCountLabel = itemCountLabels[locale];
 
   return (
     <section
-      id="equipment"
+      id={showHeading ? 'equipment' : undefined}
       ref={sectionRef as React.Ref<HTMLElement>}
-      {...(showHeading ? { 'aria-labelledby': 'equipment-title' } : { 'aria-label': content.title })}
-      className={showHeading ? 'section mt-24' : 'section'}
+      aria-labelledby={showHeading ? 'equipment-title' : undefined}
+      aria-label={showHeading ? undefined : content.title}
+      className={showHeading ? 'section mt-24' : undefined}
     >
       {showHeading && <SectionHeading id="equipment-title" title={content.title} subtitle={content.subtitle} />}
       <div className="grid gap-6 lg:grid-cols-2">
@@ -73,8 +80,8 @@ export const EquipmentSection: React.FC<EquipmentSectionProps> = ({
                     </div>
                     {item.specs.length > 0 && (
                       <ul className="mt-3 space-y-1 text-sm text-neutral-200" role="list">
-                        {item.specs.map((spec) => (
-                          <li key={spec} className="flex items-start gap-2">
+                        {item.specs.map((spec, specIndex) => (
+                          <li key={`${spec}-${specIndex}`} className="flex items-start gap-2">
                             <span aria-hidden="true" className="mt-1 h-1 w-1 rounded-full bg-accent-led" />
                             <span>{spec}</span>
                           </li>

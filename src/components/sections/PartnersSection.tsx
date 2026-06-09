@@ -12,7 +12,7 @@ interface PartnerCardData {
 }
 
 interface PartnersSectionProps {
-  sectionRef: React.RefObject<HTMLElement | null>;
+  sectionRef?: React.RefObject<HTMLElement | null>;
   content: {
     title: string;
     subtitle?: string;
@@ -27,14 +27,15 @@ export const PartnersSection: React.FC<PartnersSectionProps> = ({
   showHeading = true,
 }) => (
   <section
-    id="partners"
+    id={showHeading ? 'partners' : undefined}
     ref={sectionRef as React.Ref<HTMLElement>}
-    {...(showHeading ? { 'aria-labelledby': 'partners-title' } : { 'aria-label': content.title })}
-    className={showHeading ? 'section mt-24' : 'section'}
+    aria-labelledby={showHeading ? 'partners-title' : undefined}
+    aria-label={showHeading ? undefined : content.title}
+    className={showHeading ? 'section mt-24' : undefined}
   >
     {showHeading && <SectionHeading id="partners-title" title={content.title} subtitle={content.subtitle} />}
     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {content.cards.map((card) => (
+      {content.cards?.map((card) => (
         <Reveal key={card.id}>
           <PartnerCard
             icon={card.icon}

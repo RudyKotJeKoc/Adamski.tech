@@ -9,7 +9,7 @@ interface AboutCardData {
 }
 
 interface AboutSectionProps {
-  sectionRef: React.RefObject<HTMLElement | null>;
+  sectionRef?: React.RefObject<HTMLElement | null>;
   content: {
     title: string;
     audio?: string;
@@ -32,10 +32,11 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
   showHeading = true,
 }) => (
   <section
-    id="about"
+    id={showHeading ? 'about' : undefined}
     ref={sectionRef as React.Ref<HTMLElement>}
-    {...(showHeading ? { 'aria-labelledby': 'about-title' } : { 'aria-label': content.title })}
-    className={showHeading ? 'section mt-24' : 'section'}
+    aria-labelledby={showHeading ? 'about-title' : undefined}
+    aria-label={showHeading ? undefined : content.title}
+    className={showHeading ? 'section mt-24' : undefined}
   >
     {showHeading && <SectionHeading id="about-title" title={content.title} />}
     {content.audio && (
@@ -49,8 +50,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
       </Reveal>
     )}
     <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-      {content.cards?.map((card) => (
-        <Reveal key={card.title}>
+      {content.cards?.map((card, index) => (
+        <Reveal key={`${card.title}-${index}`}>
           <AboutCard title={card.title} icon={card.icon} items={card.items} cta={card.cta} />
         </Reveal>
       ))}

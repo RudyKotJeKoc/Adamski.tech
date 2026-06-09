@@ -1,10 +1,14 @@
-import React, { useId, useState } from 'react';
+import React, { useEffect, useId, useState } from 'react';
 
 interface AccordionProps {
   title: string;
   children: React.ReactNode;
   defaultOpen?: boolean;
   className?: string;
+  /** Ustawia id na wrapperze div — hash navigation scrolluje do widocznego nagłówka */
+  sectionId?: string;
+  /** Ref dla IntersectionObservera w App.tsx — obserwuje zawsze widoczny wrapper */
+  containerRef?: React.RefObject<HTMLElement | null>;
 }
 
 export const Accordion: React.FC<AccordionProps> = ({
@@ -12,13 +16,31 @@ export const Accordion: React.FC<AccordionProps> = ({
   children,
   defaultOpen = false,
   className = '',
+  sectionId,
+  containerRef,
 }) => {
-  const [isOpen, setIsOpen] = useState(defaultOpen);
+  const [isOpen, setIsOpen] = useState(
+    () => defaultOpen || (sectionId ? window.location.hash === `#${sectionId}` : false)
+  );
+
+  useEffect(() => {
+    if (!sectionId) return;
+    const handler = () => {
+      if (window.location.hash === `#${sectionId}`) setIsOpen(true);
+    };
+    window.addEventListener('hashchange', handler);
+    return () => window.removeEventListener('hashchange', handler);
+  }, [sectionId]);
+
   const panelId = useId();
   const triggerId = useId();
 
   return (
-    <div className={`rounded-card border border-surface-border bg-surface-card/30 ${className}`}>
+    <div
+      ref={containerRef as React.Ref<HTMLDivElement>}
+      id={sectionId}
+      className={`section rounded-card border border-surface-border bg-surface-card/30 ${className}`}
+    >
       <button
         type="button"
         id={triggerId}
@@ -40,11 +62,10 @@ export const Accordion: React.FC<AccordionProps> = ({
         </span>
       </button>
 
-      {/* grid-rows trick: 0fr → 1fr animuje wysokość bez JS */}
+      {/* aria-hidden ukrywa treść przed AT gdy zwinięty; grid-rows animuje wysokość */}
       <div
         id={panelId}
-        role="region"
-        aria-labelledby={triggerId}
+        aria-hidden={!isOpen}
         className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
           isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
         }`}

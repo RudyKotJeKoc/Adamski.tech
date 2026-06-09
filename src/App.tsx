@@ -9,10 +9,6 @@ import {
   Reveal,
   LanguageSwitcher,
   Locale,
-  AboutCard,
-  MetricCounter,
-  WorkflowDiagram,
-  PartnerCard,
   AudioPlayer
 } from './components';
 import { InteractiveTimeline } from './components/InteractiveTimeline';
@@ -411,9 +407,13 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        <Accordion title={content[locale].about.title} className="mt-24">
+        <Accordion
+          sectionId="about"
+          containerRef={sectionsRef.about}
+          title={content[locale].about.title}
+          className="mt-24"
+        >
           <AboutSection
-            sectionRef={sectionsRef.about}
             content={content[locale].about as { title: string; audio?: string; cards?: { title: string; icon?: string; items: string[]; cta?: { label: string; href: string } | null }[] }}
             locale={locale}
             showHeading={false}
@@ -704,9 +704,13 @@ const App: React.FC = () => {
           locale={locale}
         />
 
-        <Accordion title={content[locale].equipment_inventory.title} className="mt-24">
+        <Accordion
+          sectionId="equipment"
+          containerRef={sectionsRef.equipment}
+          title={content[locale].equipment_inventory.title}
+          className="mt-24"
+        >
           <EquipmentSection
-            sectionRef={sectionsRef.equipment}
             content={content[locale].equipment_inventory}
             locale={locale}
             showHeading={false}
@@ -772,9 +776,13 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        <Accordion title={content[locale].partners.title} className="mt-24">
+        <Accordion
+          sectionId="partners"
+          containerRef={sectionsRef.partners}
+          title={content[locale].partners.title}
+          className="mt-24"
+        >
           <PartnersSection
-            sectionRef={sectionsRef.partners}
             content={content[locale].partners}
             showHeading={false}
           />
