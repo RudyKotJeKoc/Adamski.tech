@@ -22,19 +22,25 @@ interface EquipmentSectionProps {
     categories: EquipmentCategory[];
   };
   locale: Locale;
+  showHeading?: boolean;
 }
 
-export const EquipmentSection: React.FC<EquipmentSectionProps> = ({ sectionRef, content, locale }) => {
+export const EquipmentSection: React.FC<EquipmentSectionProps> = ({
+  sectionRef,
+  content,
+  locale,
+  showHeading = true,
+}) => {
   const itemCountLabel = locale === 'pl' ? 'pozycji' : locale === 'en' ? 'assets' : 'items';
 
   return (
     <section
       id="equipment"
       ref={sectionRef as React.Ref<HTMLElement>}
-      aria-labelledby="equipment-title"
-      className="section mt-24"
+      {...(showHeading ? { 'aria-labelledby': 'equipment-title' } : { 'aria-label': content.title })}
+      className={showHeading ? 'section mt-24' : 'section'}
     >
-      <SectionHeading id="equipment-title" title={content.title} subtitle={content.subtitle} />
+      {showHeading && <SectionHeading id="equipment-title" title={content.title} subtitle={content.subtitle} />}
       <div className="grid gap-6 lg:grid-cols-2">
         {content.categories.map((category) => (
           <Reveal key={category.name}>

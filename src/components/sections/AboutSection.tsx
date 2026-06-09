@@ -16,6 +16,7 @@ interface AboutSectionProps {
     cards?: AboutCardData[];
   };
   locale: Locale;
+  showHeading?: boolean;
 }
 
 const audioTitle: Record<Locale, string> = {
@@ -24,14 +25,19 @@ const audioTitle: Record<Locale, string> = {
   nl: 'Introductie',
 };
 
-export const AboutSection: React.FC<AboutSectionProps> = ({ sectionRef, content, locale }) => (
+export const AboutSection: React.FC<AboutSectionProps> = ({
+  sectionRef,
+  content,
+  locale,
+  showHeading = true,
+}) => (
   <section
     id="about"
     ref={sectionRef as React.Ref<HTMLElement>}
-    aria-labelledby="about-title"
-    className="section mt-24"
+    {...(showHeading ? { 'aria-labelledby': 'about-title' } : { 'aria-label': content.title })}
+    className={showHeading ? 'section mt-24' : 'section'}
   >
-    <SectionHeading id="about-title" title={content.title} />
+    {showHeading && <SectionHeading id="about-title" title={content.title} />}
     {content.audio && (
       <Reveal>
         <AudioPlayer
