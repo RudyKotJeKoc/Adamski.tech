@@ -18,6 +18,10 @@ import {
 import { InteractiveTimeline } from './components/InteractiveTimeline';
 import { SkillsOverview } from './components/SkillsOverview';
 import { CVDownload } from './components/CVDownload';
+import { AboutSection } from './components/sections/AboutSection';
+import { AIMethodologySection } from './components/sections/AIMethodologySection';
+import { EquipmentSection } from './components/sections/EquipmentSection';
+import { PartnersSection } from './components/sections/PartnersSection';
 
 type SectionId = 'hero' | 'about' | 'career' | 'skills' | 'projects' | 'ai' | 'equipment' | 'brand' | 'partners' | 'contact';
 
@@ -406,41 +410,11 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* About */}
-        <section
-          id="about"
-          ref={sectionsRef.about as React.RefObject<HTMLElement>}
-          aria-labelledby="about-title"
-          className="section mt-24"
-        >
-          <SectionHeading id="about-title" title={content[locale].about.title} />
-
-          {/* Audio Player - przykład dla sekcji About */}
-          {(content[locale].about as any).audio && (
-            <Reveal>
-              <AudioPlayer
-                src={(content[locale].about as any).audio}
-                title={
-                  locale === 'pl'
-                    ? 'Wprowadzenie'
-                    : locale === 'nl'
-                    ? 'Introductie'
-                    : 'Introduction'
-                }
-                type="audio"
-                className="mb-6"
-              />
-            </Reveal>
-          )}
-
-          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-            {content[locale].about.cards?.map((card) => (
-              <Reveal key={card.title}>
-                <AboutCard title={card.title} icon={card.icon} items={card.items} cta={card.cta} />
-              </Reveal>
-            ))}
-          </div>
-        </section>
+        <AboutSection
+          sectionRef={sectionsRef.about}
+          content={content[locale].about as { title: string; audio?: string; cards?: { title: string; icon?: string; items: string[]; cta?: { label: string; href: string } | null }[] }}
+          locale={locale}
+        />
 
         {/* Career Timeline */}
         <section
@@ -720,121 +694,17 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* AI Methodology */}
-        <section
-          id="ai"
-          ref={sectionsRef.ai as React.RefObject<HTMLElement>}
-          aria-labelledby="ai-title"
-          className="section mt-24"
-        >
-          <SectionHeading
-            id="ai-title"
-            title={content[locale].ai_methodology.title}
-            subtitle={content[locale].ai_methodology.subtitle}
-          />
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1.35fr)]">
-            <div className="grid gap-4 sm:grid-cols-2">
-              {content[locale].ai_methodology.metrics.map((metric) => (
-                <Reveal key={metric.id}>
-                  <MetricCounter
-                    value={metric.value}
-                    suffix={metric.suffix}
-                    label={metric.label}
-                    description={metric.description}
-                    locale={locale}
-                  />
-                </Reveal>
-              ))}
-            </div>
-            <Reveal>
-              <article className="rounded-card border border-surface-border bg-surface-card/90 p-6 shadow-card">
-                <h3 className="text-xl font-heading text-neutral-50">{content[locale].ai_methodology.workflow.title}</h3>
-                <p className="mt-3 text-neutral-300">{content[locale].ai_methodology.subtitle}</p>
-                <div className="mt-6">
-                  <WorkflowDiagram phases={content[locale].ai_methodology.workflow.phases} />
-                </div>
-                {content[locale].ai_methodology.workflow.automation.length > 0 && (
-                  <div className="mt-6 rounded-card border border-dashed border-surface-border bg-background-elevated/60 p-4">
-                    <h4 className="text-sm uppercase tracking-wide text-primary-300">
-                      {locale === 'pl'
-                        ? 'Warstwa automatyzacji'
-                        : locale === 'en'
-                        ? 'Automation layer'
-                        : 'Automatiseringslaag'}
-                    </h4>
-                    <ul className="mt-3 space-y-2 text-sm text-neutral-200" role="list">
-                      {content[locale].ai_methodology.workflow.automation.map((item) => (
-                        <li key={item} className="flex items-start gap-2">
-                          <span aria-hidden="true" className="mt-1 h-1.5 w-1.5 rounded-full bg-primary-500" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </article>
-            </Reveal>
-          </div>
-        </section>
+        <AIMethodologySection
+          sectionRef={sectionsRef.ai}
+          content={content[locale].ai_methodology}
+          locale={locale}
+        />
 
-        {/* Equipment Inventory */}
-        <section
-          id="equipment"
-          ref={sectionsRef.equipment as React.RefObject<HTMLElement>}
-          aria-labelledby="equipment-title"
-          className="section mt-24"
-        >
-          <SectionHeading
-            id="equipment-title"
-            title={content[locale].equipment_inventory.title}
-            subtitle={content[locale].equipment_inventory.subtitle}
-          />
-          <div className="grid gap-6 lg:grid-cols-2">
-            {content[locale].equipment_inventory.categories.map((category) => (
-              <Reveal key={category.name}>
-                <article className="rounded-card border border-surface-border bg-surface-card/80 p-5 shadow-card">
-                  <header className="mb-4 flex items-start justify-between gap-2">
-                    <h3 className="text-xl font-heading text-neutral-50">{category.name}</h3>
-                    <span className="text-sm text-neutral-400">{category.items.length} {locale === 'pl' ? 'pozycji' : locale === 'en' ? 'assets' : 'items'}</span>
-                  </header>
-                  <ul className="grid gap-4" role="list">
-                    {category.items.map((item) => (
-                      <li
-                        key={item.id}
-                        className="rounded-card border border-surface-border/70 bg-background-elevated/60 p-4 transition hover:border-primary-500"
-                      >
-                        <div className="flex items-center gap-3">
-                          {item.icon && (
-                            <span
-                              aria-hidden="true"
-                              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary-700/50 text-xl"
-                            >
-                              {item.icon}
-                            </span>
-                          )}
-                          <div>
-                            <h4 className="font-heading text-neutral-50">{item.name}</h4>
-                            <p className="text-xs uppercase tracking-wide text-primary-300">{item.status}</p>
-                          </div>
-                        </div>
-                        {item.specs?.length > 0 && (
-                          <ul className="mt-3 space-y-1 text-sm text-neutral-200" role="list">
-                            {item.specs.map((spec) => (
-                              <li key={spec} className="flex items-start gap-2">
-                                <span aria-hidden="true" className="mt-1 h-1 w-1 rounded-full bg-accent-led" />
-                                <span>{spec}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </section>
+        <EquipmentSection
+          sectionRef={sectionsRef.equipment}
+          content={content[locale].equipment_inventory}
+          locale={locale}
+        />
 
         {/* Daremon Brand */}
         <section
@@ -895,33 +765,10 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* Partners */}
-        <section
-          id="partners"
-          ref={sectionsRef.partners as React.RefObject<HTMLElement>}
-          aria-labelledby="partners-title"
-          className="section mt-24"
-        >
-          <SectionHeading
-            id="partners-title"
-            title={content[locale].partners.title}
-            subtitle={content[locale].partners.subtitle}
-          />
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {content[locale].partners.cards.map((card) => (
-              <Reveal key={card.id}>
-                <PartnerCard
-                  icon={card.icon}
-                  title={card.title}
-                  valueProposition={card.value_proposition}
-                  idealFor={card.ideal_for}
-                  highlights={card.highlights}
-                  ctaLabel={card.cta_label}
-                />
-              </Reveal>
-            ))}
-          </div>
-        </section>
+        <PartnersSection
+          sectionRef={sectionsRef.partners}
+          content={content[locale].partners}
+        />
 
         {/* Contact */}
         <section
