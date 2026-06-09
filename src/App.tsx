@@ -18,6 +18,7 @@ import {
 import { InteractiveTimeline } from './components/InteractiveTimeline';
 import { SkillsOverview } from './components/SkillsOverview';
 import { CVDownload } from './components/CVDownload';
+import { Accordion } from './components/Accordion';
 import { AboutSection } from './components/sections/AboutSection';
 import { AIMethodologySection } from './components/sections/AIMethodologySection';
 import { EquipmentSection } from './components/sections/EquipmentSection';
@@ -410,11 +411,14 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        <AboutSection
-          sectionRef={sectionsRef.about}
-          content={content[locale].about as { title: string; audio?: string; cards?: { title: string; icon?: string; items: string[]; cta?: { label: string; href: string } | null }[] }}
-          locale={locale}
-        />
+        <Accordion title={content[locale].about.title} className="mt-24">
+          <AboutSection
+            sectionRef={sectionsRef.about}
+            content={content[locale].about as { title: string; audio?: string; cards?: { title: string; icon?: string; items: string[]; cta?: { label: string; href: string } | null }[] }}
+            locale={locale}
+            showHeading={false}
+          />
+        </Accordion>
 
         {/* Career Timeline */}
         <section
@@ -700,11 +704,14 @@ const App: React.FC = () => {
           locale={locale}
         />
 
-        <EquipmentSection
-          sectionRef={sectionsRef.equipment}
-          content={content[locale].equipment_inventory}
-          locale={locale}
-        />
+        <Accordion title={content[locale].equipment_inventory.title} className="mt-24">
+          <EquipmentSection
+            sectionRef={sectionsRef.equipment}
+            content={content[locale].equipment_inventory}
+            locale={locale}
+            showHeading={false}
+          />
+        </Accordion>
 
         {/* Daremon Brand */}
         <section
@@ -765,10 +772,13 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        <PartnersSection
-          sectionRef={sectionsRef.partners}
-          content={content[locale].partners}
-        />
+        <Accordion title={content[locale].partners.title} className="mt-24">
+          <PartnersSection
+            sectionRef={sectionsRef.partners}
+            content={content[locale].partners}
+            showHeading={false}
+          />
+        </Accordion>
 
         {/* Contact */}
         <section
