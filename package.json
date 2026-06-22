@@ -10,12 +10,12 @@
     "lint": "tsc --noEmit"
   },
   "dependencies": {
-    "react": "^19.2.0",
+    "react": "^19.2.7",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.9.5"
   },
   "devDependencies": {
-    "@types/react": "^19.2.5",
+    "@types/react": "^19.2.17",
     "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^5.1.1",
     "autoprefixer": "^10.4.19",
