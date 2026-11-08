@@ -115,24 +115,24 @@ export const RadarChart: React.FC<RadarChartProps> = ({ title, axes, maxValue, v
       >
         <title id={`${chartId}-title`}>{title}</title>
         <desc id={`${chartId}-desc`}>{descText}</desc>
-        <g stroke="rgba(148, 163, 184, 0.25)" strokeWidth="1">
+        <g stroke="rgba(142, 154, 103, 0.22)" strokeWidth="1">
           {polygons.map((points, idx) => (
             <polygon key={`grid-${idx}`} points={points} fill="none" />
           ))}
         </g>
-        <g stroke="rgba(148, 163, 184, 0.35)" strokeWidth="1">
+        <g stroke="rgba(142, 154, 103, 0.38)" strokeWidth="1">
           {axisPoints.map((axis) => (
             <line key={`axis-${axis.id}`} x1={center} y1={center} x2={axis.line.x} y2={axis.line.y} />
           ))}
         </g>
-        <polygon points={dataPoints} fill="rgba(56, 189, 248, 0.32)" stroke="#38bdf8" strokeWidth="1.5" />
+        <polygon points={dataPoints} fill="rgba(217, 164, 65, 0.22)" stroke="#d9a441" strokeWidth="1.5" />
         {axisPoints.map((axis) => (
           <text
             key={`label-${axis.id}`}
             x={axis.text.x}
             y={axis.text.y}
             textAnchor={axis.text.anchor}
-            fill="rgba(226, 232, 240, 0.92)"
+            fill="rgba(228, 231, 220, 0.92)"
             className="text-[0.7rem]"
           >
             {axis.label}

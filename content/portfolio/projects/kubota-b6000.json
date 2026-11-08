@@ -1,0 +1,31 @@
+{
+  "pl": {
+    "slug": "kubota-b6000",
+    "status": "draft",
+    "category": "pojazdy",
+    "order": 50,
+    "featured": false,
+    "title": "Kubota B6000 — konstrukcje i modernizacje",
+    "summary": "Konstrukcje i modernizacje ciągnika Kubota B6000.",
+    "build_status": "",
+    "period": "",
+    "cover": "",
+    "cover_alt": "",
+    "description": "",
+    "gallery": [],
+    "videos": [],
+    "specs": [],
+    "technologies": [],
+    "stages": [],
+    "updates": [],
+    "attachments": []
+  },
+  "en": {
+    "title": "Kubota B6000 — builds and upgrades",
+    "summary": "Builds and upgrades for a Kubota B6000 tractor."
+  },
+  "nl": {
+    "title": "Kubota B6000 — constructies en modernisaties",
+    "summary": "Constructies en modernisaties voor een Kubota B6000-tractor."
+  }
+}

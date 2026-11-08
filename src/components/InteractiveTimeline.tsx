@@ -86,17 +86,23 @@ export const InteractiveTimeline: React.FC<InteractiveTimelineProps> = ({ milest
         <div
           role="tablist"
           aria-label={label}
-          className="relative h-24 bg-surface-card/40 rounded-card border border-surface-border p-4"
+          className="panel panel--flat panel--inset relative px-4 pt-5 pb-9"
         >
           {/* Year markers */}
-          <div className="absolute bottom-2 left-4 right-4 flex justify-between text-xs text-neutral-400">
-            {Array.from({ length: maxYear - minYear + 1 }, (_, i) => minYear + i).map(year => (
-              <span key={year}>{year}</span>
+          <div className="absolute bottom-2 left-4 right-4 h-4 font-mono text-[0.68rem] text-neutral-400 tabular-nums" aria-hidden="true">
+            {Array.from({ length: maxYear - minYear + 1 }, (_, i) => minYear + i).map((year, i) => (
+              <span
+                key={year}
+                className={`absolute top-0 border-l border-surface-line pl-1 ${i % 2 === 1 ? 'hidden sm:inline' : ''}`}
+                style={{ left: `${(((year - minYear) * 12) / totalMonths) * 100}%` }}
+              >
+                {year}
+              </span>
             ))}
           </div>
 
-          {/* Timeline bars */}
-          <div className="relative h-12">
+          {/* Timeline bars — wysokość rośnie z liczbą etapów (każdy kolejny pasek jest przesunięty o 10px) */}
+          <div className="relative" style={{ height: `${(sortedMilestones.length - 1) * 10 + 34}px` }}>
             {sortedMilestones.map((milestone, idx) => {
               const startPos = getPosition(milestone.start);
               const endPos = getPosition(milestone.end);
@@ -116,10 +122,10 @@ export const InteractiveTimeline: React.FC<InteractiveTimelineProps> = ({ milest
                   aria-selected={isActive}
                   aria-controls={`${timelineId}-panel-${milestone.id}`}
                   onClick={() => setActiveId(milestone.id)}
-                  className={`absolute h-8 rounded transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-led group cursor-pointer ${
+                  className={`absolute h-8 transition-all group cursor-pointer ${
                     isActive
-                      ? 'bg-primary-500 z-10 scale-105'
-                      : 'bg-primary-600/60 hover:bg-primary-600/80'
+                      ? 'bg-amber-500 text-background-default z-10 scale-105 shadow-led'
+                      : 'bg-primary-600/70 text-neutral-50 hover:bg-primary-500'
                   }`}
                   style={{
                     left: `${startPos}%`,
@@ -128,7 +134,7 @@ export const InteractiveTimeline: React.FC<InteractiveTimelineProps> = ({ milest
                   }}
                   title={milestone.role}
                 >
-                  <span className="absolute inset-0 flex items-center justify-center text-[10px] font-semibold text-white px-1 truncate">
+                  <span className="absolute inset-0 flex items-center justify-center text-[10px] font-semibold px-1 truncate">
                     {milestone.role.split(' ')[0]}
                     {milestone.end.isCurrent && (
                       <span className="ml-1 animate-pulse" aria-label="huidig">●</span>
@@ -149,10 +155,11 @@ export const InteractiveTimeline: React.FC<InteractiveTimelineProps> = ({ milest
         role="tabpanel"
         id={`${timelineId}-panel-${activeMilestone.id}`}
         aria-labelledby={`${timelineId}-tab-${activeMilestone.id}`}
-        className="rounded-card border border-surface-border bg-surface-card/80 p-4 sm:p-6 shadow-card"
+        className="panel panel--lg hud-corners p-5 sm:p-7"
+        data-spotlight
       >
         <header className="flex flex-col gap-1">
-          <p className="text-xs sm:text-sm uppercase tracking-wide text-primary-300">
+          <p className="font-mono text-xs uppercase tracking-[0.14em] text-sand-400">
             {activeMilestone.period}
             {activeMilestone.end.isCurrent && (
               <span className="ml-2 text-accent-led">● Huidig</span>
@@ -170,7 +177,7 @@ export const InteractiveTimeline: React.FC<InteractiveTimelineProps> = ({ milest
           <ul className="mt-4 space-y-2 text-sm text-neutral-200" role="list">
             {activeMilestone.highlights.map((highlight, i) => (
               <li key={i} className="flex items-start gap-2">
-                <span aria-hidden="true" className="mt-1 h-1.5 w-1.5 rounded-full bg-primary-500 shrink-0" />
+                <span aria-hidden="true" className="mt-[0.45rem] h-1 w-2 bg-amber-500 shrink-0" />
                 <span>{highlight}</span>
               </li>
             ))}

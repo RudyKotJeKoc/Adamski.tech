@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import cta from '../../copy/cta.json';
 import intro from '../../copy/landing_intro.json';
 import { LanguageSwitcher, Locale } from '../components';
+import { SiteBackdrop } from '../components/ui/SiteBackdrop';
 
 type CTAMap = typeof cta;
 type IntroMap = typeof intro;
@@ -87,9 +88,13 @@ const QRBiz: React.FC = () => {
   const lead = (intro as IntroMap)[locale];
 
   return (
+    <>
+    <SiteBackdrop />
     <main className="max-w-screen-sm mx-auto px-4 md:px-8 lg:px-12 py-12">
+      <div className="panel panel--lg hud-corners p-6 md:p-8">
+      <p className="hud-code mb-4">DAREMON ENGINEERING // ADAMSKI.TECH</p>
       <header className="mb-6">
-        <h1 className="text-2xl md:text-3xl font-heading font-semibold text-neutral-50">Daremon Engineering</h1>
+        <h1 className="hud-title text-2xl md:text-3xl">Daremon Engineering</h1>
         <p className="text-neutral-300 mt-2">{lead}</p>
       </header>
 
@@ -98,17 +103,19 @@ const QRBiz: React.FC = () => {
       </div>
 
       <section className="grid gap-4">
-        <a href="/vcard.vcf" download className="px-5 py-3 rounded-button text-white bg-gradient-to-r from-primary-600 to-accent-led hover:from-primary-700 hover:to-accent-led">
+        <a href="/vcard.vcf" download className="btn btn--primary btn--block">
           {labels.vcard}
         </a>
-        <a href={portfolioHref} className="px-5 py-3 rounded-button border border-primary-600 text-primary-50 !bg-transparent !hover:bg-transparent hover:text-white">
+        <a href={portfolioHref} className="btn btn--secondary btn--block">
           {labels.portfolio}
         </a>
-        <a href={mailtoHref} className="px-5 py-3 rounded-button border border-accent-blue_tech text-accent-blue_tech !bg-transparent !hover:bg-transparent hover:text-white">
+        <a href={mailtoHref} className="btn btn--ghost btn--block">
           {labels.consultation}
         </a>
       </section>
+      </div>
     </main>
+    </>
   );
 };
 

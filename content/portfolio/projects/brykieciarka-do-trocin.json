@@ -1,0 +1,31 @@
+{
+  "pl": {
+    "slug": "brykieciarka-do-trocin",
+    "status": "draft",
+    "category": "maszyny",
+    "order": 20,
+    "featured": false,
+    "title": "Brykieciarka do trocin",
+    "summary": "Samodzielnie zbudowana brykieciarka do trocin.",
+    "build_status": "",
+    "period": "",
+    "cover": "",
+    "cover_alt": "",
+    "description": "",
+    "gallery": [],
+    "videos": [],
+    "specs": [],
+    "technologies": [],
+    "stages": [],
+    "updates": [],
+    "attachments": []
+  },
+  "en": {
+    "title": "Sawdust briquetting press",
+    "summary": "Self-built briquetting press for sawdust."
+  },
+  "nl": {
+    "title": "Briketpers voor zaagsel",
+    "summary": "Zelfgebouwde briketpers voor zaagsel."
+  }
+}

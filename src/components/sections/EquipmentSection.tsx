@@ -48,41 +48,44 @@ export const EquipmentSection: React.FC<EquipmentSectionProps> = ({
       className={showHeading ? 'section mt-24' : undefined}
     >
       {showHeading && <SectionHeading id="equipment-title" title={content.title} subtitle={content.subtitle} />}
-      <div className="grid gap-6 lg:grid-cols-2">
-        {content.categories.map((category) => (
+      <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
+        {content.categories.map((category, categoryIndex) => (
           <Reveal key={category.name}>
-            <article className="rounded-card border border-surface-border bg-surface-card/80 p-5 shadow-card">
-              <header className="mb-4 flex items-start justify-between gap-2">
-                <h3 className="text-xl font-heading text-neutral-50">{category.name}</h3>
-                <span className="text-sm text-neutral-400">
-                  {category.items.length} {itemCountLabel}
+            <article className="panel hud-corners h-full p-5 md:p-6" data-spotlight>
+              <header className="mb-5 flex items-start justify-between gap-3">
+                <div>
+                  <p className="hud-code" aria-hidden="true">{`BAY ${String(categoryIndex + 1).padStart(2, '0')}`}</p>
+                  <h3 className="hud-title mt-1 text-xl">{category.name}</h3>
+                </div>
+                <span className="shrink-0 border border-surface-border px-2 py-1 font-mono text-xs text-neutral-300 tabular-nums">
+                  {String(category.items.length).padStart(2, '0')} {itemCountLabel}
                 </span>
               </header>
-              <ul className="grid gap-4" role="list">
+              <ul className="grid gap-3" role="list">
                 {category.items.map((item) => (
-                  <li
-                    key={item.id}
-                    className="rounded-card border border-surface-border/70 bg-background-elevated/60 p-4 transition hover:border-primary-500"
-                  >
+                  <li key={item.id} className="panel panel--inset panel--sm panel--interactive p-4">
                     <div className="flex items-center gap-3">
                       {item.icon && (
                         <span
                           aria-hidden="true"
-                          className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary-700/50 text-xl"
+                          className="grid h-10 w-10 shrink-0 place-items-center border border-surface-line bg-background-deep/70 text-xl"
                         >
-                          {item.icon}
+                          <span className="icon-emoji">{item.icon}</span>
                         </span>
                       )}
-                      <div>
-                        <h4 className="font-heading text-neutral-50">{item.name}</h4>
-                        <p className="text-xs uppercase tracking-wide text-primary-300">{item.status}</p>
+                      <div className="min-w-0">
+                        <h4 className="font-heading font-semibold text-neutral-50">{item.name}</h4>
+                        <p className="mt-0.5 flex items-center gap-2 font-mono text-[0.68rem] uppercase tracking-[0.12em] text-primary-300">
+                          <span className="led led--olive" aria-hidden="true" />
+                          {item.status}
+                        </p>
                       </div>
                     </div>
                     {item.specs.length > 0 && (
                       <ul className="mt-3 space-y-1 text-sm text-neutral-200" role="list">
                         {item.specs.map((spec, specIndex) => (
                           <li key={`${spec}-${specIndex}`} className="flex items-start gap-2">
-                            <span aria-hidden="true" className="mt-1 h-1 w-1 rounded-full bg-accent-led" />
+                            <span aria-hidden="true" className="mt-[0.55rem] h-px w-2.5 shrink-0 bg-amber-500" />
                             <span>{spec}</span>
                           </li>
                         ))}

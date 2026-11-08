@@ -9,6 +9,10 @@ interface AccordionProps {
   sectionId?: string;
   /** Ref dla IntersectionObservera w App.tsx — obserwuje zawsze widoczny wrapper */
   containerRef?: React.RefObject<HTMLElement | null>;
+  /** Numer sekcji w systemie HUD, np. "04" */
+  index?: string;
+  /** Krótki opis zawartości widoczny także w stanie zwiniętym */
+  summary?: string;
 }
 
 export const Accordion: React.FC<AccordionProps> = ({
@@ -18,6 +22,8 @@ export const Accordion: React.FC<AccordionProps> = ({
   className = '',
   sectionId,
   containerRef,
+  index,
+  summary
 }) => {
   const [isOpen, setIsOpen] = useState(
     () => defaultOpen || (sectionId ? window.location.hash === `#${sectionId}` : false)
@@ -39,7 +45,8 @@ export const Accordion: React.FC<AccordionProps> = ({
     <div
       ref={containerRef as React.Ref<HTMLDivElement>}
       id={sectionId}
-      className={`section rounded-card border border-surface-border bg-surface-card/30 ${className}`}
+      className={`section panel panel--lg ${isOpen ? 'panel--accent' : ''} ${className}`}
+      data-spotlight
     >
       <button
         type="button"
@@ -47,17 +54,31 @@ export const Accordion: React.FC<AccordionProps> = ({
         aria-expanded={isOpen}
         aria-controls={panelId}
         onClick={() => setIsOpen((prev) => !prev)}
-        className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary-500/60 rounded-card"
+        className="group flex w-full items-center justify-between gap-4 px-5 py-5 text-left md:px-7 md:py-6 focus-visible:ring-inset focus-visible:ring-offset-0"
       >
-        <span className="text-xl font-heading font-semibold text-neutral-50">{title}</span>
+        <span className="flex min-w-0 items-center gap-4">
+          {index && (
+            <span aria-hidden="true" className="section-rail__index shrink-0">
+              {index}
+            </span>
+          )}
+          <span className="min-w-0">
+            <span className="block font-heading text-xl font-semibold uppercase tracking-[0.04em] text-neutral-50 md:text-2xl">
+              {title}
+            </span>
+            {summary && <span className="mt-1 block hud-label normal-case tracking-[0.14em]">{summary}</span>}
+          </span>
+        </span>
         <span
           aria-hidden="true"
-          className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-surface-border text-primary-300 transition-transform duration-300 ${
-            isOpen ? 'rotate-180' : 'rotate-0'
+          className={`grid h-10 w-10 shrink-0 place-items-center border transition-[transform,border-color,color] duration-300 ${
+            isOpen
+              ? 'rotate-180 border-amber-500 text-amber-400'
+              : 'rotate-0 border-surface-line text-primary-300 group-hover:border-primary-400'
           }`}
         >
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M3 6l5 5 5-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M3 6l5 5 5-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="square" />
           </svg>
         </span>
       </button>
@@ -66,14 +87,13 @@ export const Accordion: React.FC<AccordionProps> = ({
       <div
         id={panelId}
         aria-hidden={!isOpen}
+        inert={!isOpen}
         className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
           isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
         }`}
       >
         <div className="overflow-hidden">
-          <div className="px-2 pb-4">
-            {children}
-          </div>
+          <div className="border-t border-surface-border/70 px-4 pb-6 pt-6 md:px-7">{children}</div>
         </div>
       </div>
     </div>

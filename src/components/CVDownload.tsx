@@ -31,11 +31,11 @@ export const CVDownload: React.FC<CVDownloadProps> = ({ buttonText, ariaLabel })
   };
 
   return (
-    <div className="relative inline-block">
+    <div className="relative inline-block w-full sm:w-auto">
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="hero-cta hero-cta--ghost"
+        className="hero-cta hero-cta--ghost w-full sm:w-auto"
         aria-label={ariaLabel ?? buttonText}
         aria-expanded={isOpen}
         aria-haspopup="true"
@@ -54,7 +54,7 @@ export const CVDownload: React.FC<CVDownloadProps> = ({ buttonText, ariaLabel })
             aria-hidden="true"
           />
           <div
-            className="absolute right-0 top-full mt-2 z-20 min-w-[200px] rounded-card border border-surface-border bg-surface-card shadow-card"
+            className="absolute left-0 sm:left-auto sm:right-0 top-full mt-2 z-20 w-full sm:w-auto min-w-[200px] border border-surface-border bg-background-elevated shadow-card"
             role="menu"
             aria-orientation="vertical"
           >
@@ -63,7 +63,7 @@ export const CVDownload: React.FC<CVDownloadProps> = ({ buttonText, ariaLabel })
                 key={lang}
                 type="button"
                 onClick={() => handleDownload(lang)}
-                className="w-full px-4 py-3 text-left text-sm text-neutral-200 hover:bg-primary-600/20 hover:text-primary-50 transition flex items-center gap-3 first:rounded-t-card last:rounded-b-card"
+                className="w-full px-4 py-3 text-left text-sm text-neutral-200 border-l-2 border-transparent hover:border-amber-500 hover:bg-amber-500/10 hover:text-neutral-50 transition flex items-center gap-3"
                 role="menuitem"
               >
                 <span className="text-xl" aria-hidden="true">

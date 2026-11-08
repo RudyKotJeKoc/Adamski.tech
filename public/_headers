@@ -3,8 +3,12 @@
 
 /*
   # Content Security Policy - XSS Protection
-  # Note: 'unsafe-inline' for style-src is required for Tailwind CSS
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+  # Pełna polityka (script-src, img-src, connect-src...) jest w <meta> każdego dokumentu HTML:
+  #   - strona: wstrzykiwana przy buildzie (vite.config.ts → SITE_CSP), 'unsafe-inline' tylko dla stylów (Tailwind)
+  #   - panel /admin/: public/admin/index.html (Decap CMS wymaga 'unsafe-eval' — tylko tam)
+  # Netlify łączy nagłówki z nakładających się ścieżek, więc osobna polityka dla /admin/* w nagłówku jest niemożliwa.
+  # Tutaj tylko dyrektywy, których <meta> nie obsługuje lub które obowiązują wszędzie.
+  Content-Security-Policy: frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'
 
   # Clickjacking Protection
   X-Frame-Options: DENY

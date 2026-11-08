@@ -1,0 +1,31 @@
+{
+  "pl": {
+    "slug": "uklady-elektroniczne-i-automatyka",
+    "status": "draft",
+    "category": "automatyka",
+    "order": 60,
+    "featured": false,
+    "title": "Układy elektroniczne i automatyka",
+    "summary": "Autorskie układy elektroniczne i rozwiązania automatyki.",
+    "build_status": "",
+    "period": "",
+    "cover": "",
+    "cover_alt": "",
+    "description": "",
+    "gallery": [],
+    "videos": [],
+    "specs": [],
+    "technologies": [],
+    "stages": [],
+    "updates": [],
+    "attachments": []
+  },
+  "en": {
+    "title": "Electronic circuits & automation",
+    "summary": "In-house electronic circuits and automation solutions."
+  },
+  "nl": {
+    "title": "Elektronische schakelingen & automatisering",
+    "summary": "Eigen elektronische schakelingen en automatiseringsoplossingen."
+  }
+}

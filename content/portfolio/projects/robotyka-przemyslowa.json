@@ -1,0 +1,31 @@
+{
+  "pl": {
+    "slug": "robotyka-przemyslowa",
+    "status": "draft",
+    "category": "robotyka",
+    "order": 70,
+    "featured": false,
+    "title": "Robotyka przemysłowa",
+    "summary": "Projekty z zakresu robotyki przemysłowej.",
+    "build_status": "",
+    "period": "",
+    "cover": "",
+    "cover_alt": "",
+    "description": "",
+    "gallery": [],
+    "videos": [],
+    "specs": [],
+    "technologies": [],
+    "stages": [],
+    "updates": [],
+    "attachments": []
+  },
+  "en": {
+    "title": "Industrial robotics",
+    "summary": "Projects in industrial robotics."
+  },
+  "nl": {
+    "title": "Industriële robotica",
+    "summary": "Projecten op het gebied van industriële robotica."
+  }
+}

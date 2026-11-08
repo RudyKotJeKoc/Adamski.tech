@@ -1,0 +1,31 @@
+{
+  "pl": {
+    "slug": "sterownik-9-kanalowy",
+    "status": "draft",
+    "category": "elektronika",
+    "order": 30,
+    "featured": false,
+    "title": "Sterownik dziewięciokanałowy",
+    "summary": "Własny projekt sterownika dziewięciokanałowego.",
+    "build_status": "",
+    "period": "",
+    "cover": "",
+    "cover_alt": "",
+    "description": "",
+    "gallery": [],
+    "videos": [],
+    "specs": [],
+    "technologies": [],
+    "stages": [],
+    "updates": [],
+    "attachments": []
+  },
+  "en": {
+    "title": "Nine-channel controller",
+    "summary": "In-house design of a nine-channel controller."
+  },
+  "nl": {
+    "title": "Negenkanaals controller",
+    "summary": "Eigen ontwerp van een negenkanaals controller."
+  }
+}

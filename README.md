@@ -201,21 +201,33 @@ npm run build
 | SkillsOverview | `src/components/SkillsOverview.tsx` | Wrapper dla RadarChart + kategorie |
 | QRBiz | `src/routes/QRBiz.tsx` | Landing page dla QR code z wizytówki |
 | Hans | `src/routes/Hans.tsx` | Dedicated partner landing page |
+| ProjectPage | `src/routes/ProjectPage.tsx` | Podstrona projektu `/portfolio/:slug` (też `/case-studies/:slug`) |
+| PortfolioGallery | `src/components/portfolio/` | Galeria z filtrami kategorii i kompetencji, lightbox, filmy |
+| HeroSchematic | `src/components/hero/HeroSchematic.tsx` | Interaktywny model warstwowy (CSS 3D + SVG) |
+| Portfolio data | `src/lib/portfolio.ts` | Wczytywanie `content/portfolio/**` + adapter case studies z `content.json` |
+
+### Portfolio i panel CMS
+
+Projekty: `content/portfolio/projects/*.json` (jeden plik = jeden projekt, PL/EN/NL).
+Panel Decap CMS: `/admin/` — instrukcja w **[PORTFOLIO_CMS.md](PORTFOLIO_CMS.md)**.
 
 ---
 
 ## Sekcje Strony
 
-1. **Hero** — Animowany background (dual-track scroll), pulse badge, 3 CTA
-2. **About** — 4 karty (grid responsive), emoji icons, markdown support
-3. **Career Timeline** — Interactive timeline z date parserem, milestones
-4. **Skills** — Tab interface + radar chart + highlights (keyboard accessible)
-5. **Projects** — Portfolio z filtrowaniem (skill chips), audio players, metrics
-6. **AI Methodology** — Metryki, workflow diagram, automation layer
-7. **Equipment Inventory** — Sprzęt inżynierski (PLC, hydraulika, pneumatyka)
-8. **Daremon Brand** — Filozofia, serwisy, deliverables
-9. **Partners** — Karty partnerskie (value prop, ideal for, highlights)
-10. **Contact** — Mailto form (pre-filled), kanały kontaktu, env var support
+Kolejność od listopada 2026 (numeracja HUD 00–10, grupy nawigacji w nawiasach):
+
+0. **Hero** (Start) — model warstwowy 3D, pasek statusu z liczbami z danych, 3 CTA
+1. **Projects** (Portfolio) — galeria z filtrami kategorii i kompetencji, podstrony projektów
+2. **Skills** (Kompetencje) — Tab interface + radar chart + highlights (keyboard accessible)
+3. **Daremon Brand** (Kompetencje) — Filozofia, serwisy, deliverables
+4. **Equipment Inventory** (Warsztat, akordeon) — Sprzęt inżynierski
+5. **AI Methodology** (Warsztat) — Metryki, workflow diagram, automation layer
+6. **Media** (Multimedia) — kanał YouTube + filmy zebrane automatycznie z projektów
+7. **About** (O mnie, akordeon) — 4 karty, emoji icons, markdown support
+8. **Career Timeline** (O mnie) — Interactive timeline z date parserem, milestones
+9. **Partners** (Kontakt, akordeon) — Karty partnerskie
+10. **Contact** (Kontakt) — Mailto form (pre-filled), kanały kontaktu, env var support
 
 ---
 

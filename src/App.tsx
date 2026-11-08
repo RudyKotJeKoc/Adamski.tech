@@ -4,10 +4,7 @@ import {
   Navbar,
   Footer,
   SectionHeading,
-  ProjectCard,
-  SkillTag,
   Reveal,
-  LanguageSwitcher,
   Locale,
   AudioPlayer
 } from './components';
@@ -19,8 +16,17 @@ import { AboutSection } from './components/sections/AboutSection';
 import { AIMethodologySection } from './components/sections/AIMethodologySection';
 import { EquipmentSection } from './components/sections/EquipmentSection';
 import { PartnersSection } from './components/sections/PartnersSection';
+import { MediaSection } from './components/sections/MediaSection';
+import { HeroSchematic, HeroModules } from './components/hero/HeroSchematic';
+import { PortfolioGallery } from './components/portfolio/PortfolioGallery';
+import { SiteBackdrop } from './components/ui/SiteBackdrop';
+import { IconArrowRight } from './components/ui/Icons';
+import { buildNavItems, sectionIndex } from './lib/navigation';
+import { draftsVisible, getProjects } from './lib/portfolio';
+import { useSpotlight } from './lib/useSpotlight';
+import { ui } from './lib/strings';
 
-type SectionId = 'hero' | 'about' | 'career' | 'skills' | 'projects' | 'ai' | 'equipment' | 'brand' | 'partners' | 'contact';
+type SectionId = 'hero' | 'about' | 'career' | 'skills' | 'projects' | 'ai' | 'equipment' | 'brand' | 'media' | 'partners' | 'contact';
 
 type ContentLang = typeof contentAll['pl'];
 type ContentMap = { pl: ContentLang; en: ContentLang; nl: ContentLang };
@@ -38,7 +44,6 @@ type SkillsContent = {
   highlights: string[];
 };
 type ProjectsContent = ContentLang['projects'];
-type ProjectItem = ProjectsContent['items'][number];
 
 const App: React.FC = () => {
   const content = contentAll as ContentMap;
@@ -62,21 +67,9 @@ const App: React.FC = () => {
     if (descTag) descTag.setAttribute('content', metaDesc);
   }, [locale]);
 
-  const labels = useMemo(
-    () => [
-      { id: 'hero', label: content[locale].navigation.hero },
-      { id: 'about', label: content[locale].navigation.about },
-      { id: 'career', label: content[locale].navigation.career },
-      { id: 'skills', label: content[locale].navigation.skills },
-      { id: 'projects', label: content[locale].navigation.projects },
-      { id: 'ai', label: content[locale].navigation.ai },
-      { id: 'equipment', label: content[locale].navigation.equipment },
-      { id: 'brand', label: content[locale].navigation.brand },
-      { id: 'partners', label: content[locale].navigation.partners },
-      { id: 'contact', label: content[locale].navigation.contact }
-    ],
-    [locale]
-  );
+  useSpotlight();
+
+  const labels = useMemo(() => buildNavItems(locale), [locale]);
 
   const heroContent = content[locale].hero;
 
@@ -114,19 +107,16 @@ const App: React.FC = () => {
     ai: useRef<HTMLElement | null>(null),
     equipment: useRef<HTMLElement | null>(null),
     brand: useRef<HTMLElement | null>(null),
+    media: useRef<HTMLElement | null>(null),
     partners: useRef<HTMLElement | null>(null),
     contact: useRef<HTMLElement | null>(null)
   };
 
   const [activeId, setActiveId] = useState<string | null>('hero');
-  const [selectedSkill, setSelectedSkill] = useState<string>('all');
 
   useEffect(() => {
-    setSelectedSkill('all');
-  }, [locale]);
-
-  useEffect(() => {
-    const options: IntersectionObserverInit = { threshold: 0.5 };
+    // Aktywna jest sekcja przecinająca środek ekranu — działa także dla sekcji wyższych niż viewport.
+    const options: IntersectionObserverInit = { rootMargin: '-45% 0px -50% 0px', threshold: 0 };
     const obs = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
         const id = (e.target as HTMLElement).id as SectionId;
@@ -139,8 +129,15 @@ const App: React.FC = () => {
     return () => obs.disconnect();
   }, []);
 
+  useEffect(() => {
+    // Wejście z podstrony (np. /#projects): sekcje istnieją dopiero po pierwszym renderze.
+    const id = decodeURIComponent(window.location.hash.slice(1));
+    if (!id) return;
+    const frame = requestAnimationFrame(() => document.getElementById(id)?.scrollIntoView({ block: 'start' }));
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
   const projectsContent = content[locale].projects as ProjectsContent;
-  const projectItems = (projectsContent?.items ?? []) as ProjectItem[];
 
   const projectFilterLabel = useMemo(() => {
     if (projectsContent?.filter_label) return projectsContent.filter_label;
@@ -166,22 +163,9 @@ const App: React.FC = () => {
     }
   }, [locale, projectsContent]);
 
-  const skillCollator = useMemo(() => new Intl.Collator(locale), [locale]);
-
-  const projectSkills = useMemo(() => {
-    const unique = new Set<string>();
-    projectItems.forEach((project) => {
-      (project.skills ?? []).forEach((skill) => {
-        if (skill) unique.add(skill);
-      });
-    });
-    return Array.from(unique).sort(skillCollator.compare);
-  }, [projectItems, skillCollator]);
-
-  const filteredProjects = useMemo(() => {
-    if (selectedSkill === 'all') return projectItems;
-    return projectItems.filter((project) => project.skills?.includes(selectedSkill));
-  }, [projectItems, selectedSkill]);
+  const showDrafts = useMemo(() => draftsVisible(), []);
+  const portfolioProjects = useMemo(() => getProjects(locale, showDrafts), [locale, showDrafts]);
+  const publishedProjects = useMemo(() => getProjects(locale), [locale]);
 
   const skillsContent = content[locale].skills as SkillsContent;
   const skillCategories = skillsContent.categories;
@@ -260,14 +244,15 @@ const App: React.FC = () => {
     const max = rating.scale || 1;
     const normalized = Math.max(0, Math.min(rating.value / max, 1));
     const filled = Math.round(normalized * totalStars);
-    const stars = Array.from({ length: totalStars }, (_, idx) => (idx < filled ? '★' : '☆')).join('');
     return (
       <span className={`inline-flex items-center gap-2 ${className ?? ''}`}>
-        <span aria-hidden="true" className="text-accent-led text-base leading-none tracking-tight">
-          {stars}
+        <span aria-hidden="true" className="inline-flex gap-[3px]">
+          {Array.from({ length: totalStars }, (_, idx) => (
+            <span key={idx} className={`h-2 w-3.5 ${idx < filled ? 'bg-amber-500' : 'bg-surface-line'}`} />
+          ))}
         </span>
         <span className="sr-only">{ratingSrText(rating)}</span>
-        <span aria-hidden="true" className="text-neutral-300 text-sm">
+        <span aria-hidden="true" className="font-mono text-xs text-neutral-300 tabular-nums">
           {formatRatingValue(rating.value)}/{formatRatingValue(rating.scale)}
         </span>
       </span>
@@ -276,8 +261,6 @@ const App: React.FC = () => {
 
   const highlightsTitle =
     locale === 'pl' ? 'Najważniejsze wyróżniki' : locale === 'nl' ? 'Belangrijkste highlights' : 'Key highlights';
-
-  const chartValueLabel = locale === 'pl' ? 'Ocena' : locale === 'nl' ? 'Score' : 'Score';
 
   // Smooth scroll offset handled via scroll-margin in CSS (.section)
   const contactContent = content[locale].contact;
@@ -289,9 +272,23 @@ const App: React.FC = () => {
   const privacyLink = contactContent.privacy;
   const year = new Date().getFullYear();
 
+  const t = ui[locale];
+  const equipmentCategories = content[locale].equipment_inventory.categories;
+  const equipmentCount = equipmentCategories.reduce((sum, c) => sum + c.items.length, 0);
+  const publishedCategoryCount = new Set(publishedProjects.map((p) => p.category.id)).size;
+  const heroStatus = [
+    { label: t.hero.status.projects, value: String(publishedProjects.length).padStart(2, '0') },
+    { label: t.hero.status.categories, value: String(publishedCategoryCount).padStart(2, '0') },
+    { label: t.hero.status.equipment, value: String(equipmentCount).padStart(2, '0') },
+    { label: t.hero.status.languages, value: 'PL·EN·NL' }
+  ];
+
+  const aboutCards = (content[locale].about as { cards?: { title: string }[] }).cards ?? [];
+
   return (
     <LocaleContext.Provider value={{ locale, setLocale }}>
-      <a className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:px-3 focus:py-2 focus:rounded-button focus:bg-surface-card focus:text-neutral-50" href="#main">
+      <SiteBackdrop />
+      <a className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[70] focus:px-3 focus:py-2 focus:rounded-button focus:bg-surface-card focus:text-neutral-50" href="#main">
         Pomiń nawigację
       </a>
 
@@ -303,7 +300,7 @@ const App: React.FC = () => {
           id="hero"
           ref={sectionsRef.hero as React.RefObject<HTMLElement>}
           aria-labelledby="hero-title"
-          className="section hero relative min-h-[60vh] md:min-h-[70vh] lg:min-h-[75vh] flex items-center bg-hero-bg rounded-card px-4 md:px-8 mt-8 overflow-hidden"
+          className="section hero relative mt-6 md:mt-8"
         >
           <div className="hero-background" aria-hidden="true">
             {heroSequence.length > 0 && (
@@ -350,7 +347,14 @@ const App: React.FC = () => {
               </>
             )}
           </div>
-          <div className="relative z-10 w-full grid md:grid-cols-2 gap-8 items-center">
+          <div className="hero-grid" aria-hidden="true" />
+          <div className="hero-scanlines" aria-hidden="true" />
+          <div className="hero-frame" aria-hidden="true">
+            <span className="hero-frame__mark left-10 top-2">REF // DAREMON-ENG</span>
+            <span className="hero-frame__mark bottom-2 right-10 hidden md:block">GRID 48 · SCALE 1:1</span>
+          </div>
+
+          <div className="relative z-10 grid grid-cols-1 gap-10 px-5 pb-10 pt-14 sm:px-8 md:px-10 md:pt-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center lg:gap-4 lg:pb-12">
             <Reveal>
               <div className="space-y-6">
                 {heroContent.badge_label && (
@@ -362,11 +366,11 @@ const App: React.FC = () => {
                     )}
                   </div>
                 )}
-                <h1 id="hero-title" className="text-3xl md:text-5xl font-heading font-semibold text-neutral-50">
+                <h1 id="hero-title" className="hero-title">
                   {heroContent.heading}
                 </h1>
                 {heroContent.tagline && <p className="hero-tagline">{heroContent.tagline}</p>}
-                <p className="text-neutral-300 md:text-lg">{heroContent.subheading}</p>
+                <p className="max-w-2xl text-neutral-200 md:text-lg leading-relaxed">{heroContent.subheading}</p>
                 <div className="hero-cta-group" role="group" aria-label={heroCtaGroupLabel}>
                   <a
                     href="#contact"
@@ -374,6 +378,7 @@ const App: React.FC = () => {
                     aria-label={heroContent.cta_primary_aria ?? heroContent.cta_primary}
                   >
                     {heroContent.cta_primary}
+                    <IconArrowRight size={14} className="btn__arrow" />
                   </a>
                   <a
                     href="#projects"
@@ -389,61 +394,70 @@ const App: React.FC = () => {
                 </div>
               </div>
             </Reveal>
-            <Reveal className="hidden md:block">
-              <div className="hero-visual" aria-hidden="true">
-                <div className="hero-visual__glow" />
-                <div className="hero-visual__frame">
-                  <p className="hero-visual__title">{heroContent.badge_label}</p>
-                  {heroSequence.length > 0 && (
-                    <ul className="hero-visual__list">
-                      {heroSequence.map((word) => (
-                        <li key={`hero-visual-${word}`}>{word}</li>
-                      ))}
-                    </ul>
-                  )}
+            {heroSequence.length > 0 && (
+              <>
+                <Reveal className="hidden md:block">
+                  <div className="hero-visual">
+                    <HeroSchematic layers={heroSequence} title={t.hero.schematicTitle} subtitle={heroContent.badge_label} />
+                  </div>
+                </Reveal>
+                <div className="md:hidden">
+                  <HeroModules layers={heroSequence} />
                 </div>
-              </div>
-            </Reveal>
+              </>
+            )}
           </div>
+
+          <dl className="hero-status">
+            {heroStatus.map((item) => (
+              <div key={item.label} className="hero-status__item">
+                <dt className="hud-label">{item.label}</dt>
+                <dd className="hero-status__value mt-1">{item.value}</dd>
+              </div>
+            ))}
+          </dl>
         </section>
 
-        <Accordion
-          sectionId="about"
-          containerRef={sectionsRef.about}
-          title={content[locale].about.title}
-          className="mt-24"
-        >
-          <AboutSection
-            content={content[locale].about as { title: string; audio?: string; cards?: { title: string; icon?: string; items: string[]; cta?: { label: string; href: string } | null }[] }}
-            locale={locale}
-            showHeading={false}
-          />
-        </Accordion>
-
-        {/* Career Timeline */}
+        {/* Portfolio */}
         <section
-          id="career"
-          ref={sectionsRef.career as React.RefObject<HTMLElement>}
-          aria-labelledby="career-title"
-          className="section mt-24"
+          id="projects"
+          ref={sectionsRef.projects as React.RefObject<HTMLElement>}
+          aria-labelledby="projects-title"
+          className="section mt-28"
         >
-          <SectionHeading
-            id="career-title"
-            title={content[locale].career_timeline.title}
-            subtitle={content[locale].career_timeline.subtitle}
+          <SectionHeading id="projects-title" title={content[locale].projects.title} index={sectionIndex('projects')} code="SEC/PORTFOLIO" />
+
+          {/* Audio Player - przykład dla sekcji Projects */}
+          {(content[locale].projects as any).audio && (
+            <Reveal>
+              <AudioPlayer
+                src={(content[locale].projects as any).audio}
+                title={
+                  locale === 'pl'
+                    ? 'Przegląd projektów'
+                    : locale === 'nl'
+                    ? 'Projectenoverzicht'
+                    : 'Projects overview'
+                }
+                type="audio"
+                className="mb-6"
+              />
+            </Reveal>
+          )}
+
+          <PortfolioGallery
+            projects={portfolioProjects}
+            locale={locale}
+            skillFilterLabel={projectFilterLabel}
+            allLabel={allProjectsLabel}
+            showDraftBanner={showDrafts && portfolioProjects.some((p) => p.status === 'draft')}
           />
-          <Reveal>
-            <InteractiveTimeline
-              milestones={content[locale].career_timeline.milestones}
-              label={
-                locale === 'pl'
-                  ? `${content[locale].career_timeline.title} — oś czasu`
-                  : locale === 'nl'
-                  ? `${content[locale].career_timeline.title} — tijdlijn`
-                  : `${content[locale].career_timeline.title} timeline`
-              }
-            />
-          </Reveal>
+          <div className="mt-8">
+            <a href="#contact" className="link-tech inline-flex items-center gap-2">
+              {locale === 'pl' ? 'Chcesz podobne wdrożenie? Skontaktuj się' : locale === 'en' ? 'Want a similar implementation? Get in touch' : 'Wil je iets soortgelijks? Neem contact op'}
+              <IconArrowRight size={14} />
+            </a>
+          </div>
         </section>
 
         {/* Skills */}
@@ -451,9 +465,9 @@ const App: React.FC = () => {
           id="skills"
           ref={sectionsRef.skills as React.RefObject<HTMLElement>}
           aria-labelledby="skills-title"
-          className="section mt-24"
+          className="section mt-28"
         >
-          <SectionHeading id="skills-title" title={content[locale].skills.title} />
+          <SectionHeading id="skills-title" title={content[locale].skills.title} index={sectionIndex('skills')} code="SEC/CAPABILITIES" />
 
           {/* Audio Player - przykład dla sekcji Skills */}
           {(content[locale].skills as any).audio && (
@@ -473,13 +487,13 @@ const App: React.FC = () => {
             </Reveal>
           )}
 
-          <div className="grid gap-6 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)] items-start">
+          <div className="grid grid-cols-1 gap-5 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)] items-start">
             <Reveal className="lg:row-span-2">
-              <article className="rounded-card bg-surface-card border border-surface-border p-4 shadow-card">
+              <article className="panel panel--lg hud-corners p-4 md:p-6" data-spotlight>
                 <div
                   role="tablist"
                   aria-label={locale === 'pl' ? 'Kategorie kompetencji' : locale === 'nl' ? 'Competentiecategorieën' : 'Competency categories'}
-                  className="flex flex-wrap gap-3"
+                  className="grid gap-2 sm:grid-cols-2"
                 >
                   {skillCategories.map((cat, index) => {
                     const isActive = cat.id === activeCategoryId;
@@ -500,17 +514,22 @@ const App: React.FC = () => {
                           setActiveCompetencyId(cat.competencies[0]?.id ?? '');
                         }}
                         onKeyDown={(event) => handleTabKey(event, index)}
-                        className={`flex-1 min-w-[12rem] px-4 py-3 rounded-button border text-left transition focus-visible:outline-none ${
+                        className={`relative px-4 py-3 border text-left transition-colors ${
                           isActive
-                            ? 'bg-primary-600 text-white border-primary-500 shadow-lg'
-                            : 'bg-transparent text-neutral-200 border-surface-border hover:bg-surface-card'
+                            ? 'border-amber-500/80 bg-amber-500/10 text-neutral-50 shadow-[inset_3px_0_0_#d9a441]'
+                            : 'border-surface-border bg-background-deep/40 text-neutral-200 hover:border-primary-400 hover:bg-surface-card/60'
                         }`}
                       >
-                        <span className="block font-heading font-semibold text-base">{cat.name}</span>
-                        <div className="mt-1 flex flex-wrap items-center gap-2 text-sm text-neutral-300">
+                        <span className="flex items-baseline gap-2">
+                          <span className="font-mono text-[0.68rem] text-neutral-500 tabular-nums" aria-hidden="true">
+                            {String(index + 1).padStart(2, '0')}
+                          </span>
+                          <span className="font-heading font-semibold text-base uppercase tracking-[0.04em]">{cat.name}</span>
+                        </span>
+                        <div className="mt-2 flex flex-wrap items-center gap-2 text-sm text-neutral-300">
                           {renderRating(cat.rating)}
                           {cat.rating.label && (
-                            <span className="inline-flex items-center rounded-full bg-primary-600/20 px-2 py-0.5 text-xs text-primary-200">
+                            <span className="inline-flex items-center border border-primary-400/50 bg-primary-600/20 px-2 py-0.5 font-mono text-[0.65rem] uppercase tracking-[0.1em] text-primary-200">
                               {cat.rating.label}
                             </span>
                           )}
@@ -532,7 +551,7 @@ const App: React.FC = () => {
                     >
                       <p className="text-neutral-200 text-sm md:text-base">{cat.description}</p>
                       <div className="mt-6 grid gap-4 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
-                        <ul className="space-y-3" role="list">
+                        <ul className="space-y-2" role="list">
                           {cat.competencies.map((comp) => {
                             const isCompActive = comp.id === activeCompetencyId;
                             return (
@@ -543,10 +562,10 @@ const App: React.FC = () => {
                                   onMouseEnter={() => setActiveCompetencyId(comp.id)}
                                   onFocus={() => setActiveCompetencyId(comp.id)}
                                   aria-pressed={isCompActive}
-                                  className={`w-full rounded-md border px-4 py-3 text-left transition focus-visible:outline-none ${
+                                  className={`w-full border-l-2 px-4 py-3 text-left transition-colors ${
                                     isCompActive
-                                      ? 'border-primary-500 bg-primary-500/10 shadow-md'
-                                      : 'border-surface-border bg-surface-card/30 hover:bg-surface-card'
+                                      ? 'border-amber-500 bg-amber-500/10'
+                                      : 'border-surface-line bg-background-deep/40 hover:bg-surface-card/70'
                                   }`}
                                 >
                                   <span className="flex flex-wrap items-center justify-between gap-2 font-medium text-neutral-100">
@@ -562,18 +581,19 @@ const App: React.FC = () => {
                           })}
                         </ul>
                         <div
-                          className="rounded-md border border-surface-border bg-surface-card/60 p-4 shadow-inner"
+                          className="panel panel--inset panel--sm p-5 lg:sticky lg:top-24 self-start"
                           role="status"
                           aria-live="polite"
                         >
-                          <h4 className="font-heading text-lg font-semibold text-neutral-50">
+                          <p className="hud-code" aria-hidden="true">DETAIL // {cat.name}</p>
+                          <h4 className="mt-2 font-heading text-lg font-semibold text-neutral-50">
                             {activeCompetency?.name}
                           </h4>
                           {activeCompetency?.detail && (
                             <p className="mt-2 text-sm text-neutral-200 md:text-base">{activeCompetency.detail}</p>
                           )}
                           {activeCompetency?.experience && (
-                            <p className="mt-3 text-sm text-neutral-300">{activeCompetency.experience}</p>
+                            <p className="mt-3 text-sm text-sand-400">{activeCompetency.experience}</p>
                           )}
                         </div>
                       </div>
@@ -583,7 +603,7 @@ const App: React.FC = () => {
               </article>
             </Reveal>
             <Reveal>
-              <article className="rounded-card bg-surface-card border border-surface-border p-4 shadow-card">
+              <article className="panel p-5" data-spotlight>
                 <SkillsOverview
                   title={skillsContent.chart.title}
                   categories={skillsContent.categories}
@@ -591,12 +611,12 @@ const App: React.FC = () => {
               </article>
             </Reveal>
             <Reveal>
-              <article className="rounded-card bg-surface-card border border-surface-border p-4 shadow-card">
-                <h3 className="font-heading text-lg font-semibold text-neutral-50">{highlightsTitle}</h3>
-                <ul className="mt-3 space-y-2" role="list">
+              <article className="panel panel--accent p-5" data-spotlight>
+                <h3 className="hud-title text-lg">{highlightsTitle}</h3>
+                <ul className="mt-4 space-y-2.5" role="list">
                   {skillsContent.highlights.map((highlight) => (
-                    <li key={highlight} className="flex items-start gap-2 text-neutral-200">
-                      <span aria-hidden="true" className="mt-1 inline-flex h-2 w-2 rounded-full bg-accent-led" />
+                    <li key={highlight} className="flex items-start gap-2.5 text-neutral-200">
+                      <span aria-hidden="true" className="mt-[0.45rem] inline-flex h-1.5 w-1.5 shrink-0 bg-amber-500" />
                       <span>{highlight}</span>
                     </li>
                   ))}
@@ -606,139 +626,28 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* Projects */}
-        <section
-          id="projects"
-          ref={sectionsRef.projects as React.RefObject<HTMLElement>}
-          aria-labelledby="projects-title"
-          className="section mt-24"
-        >
-          <SectionHeading id="projects-title" title={content[locale].projects.title} />
-
-          {/* Audio Player - przykład dla sekcji Projects */}
-          {(content[locale].projects as any).audio && (
-            <Reveal>
-              <AudioPlayer
-                src={(content[locale].projects as any).audio}
-                title={
-                  locale === 'pl'
-                    ? 'Przegląd projektów'
-                    : locale === 'nl'
-                    ? 'Projectenoverzicht'
-                    : 'Projects overview'
-                }
-                type="audio"
-                className="mb-6"
-              />
-            </Reveal>
-          )}
-
-          <div className="mb-6 flex flex-col gap-3">
-            <span className="text-sm text-neutral-300" id="projects-filter-label">
-              {projectFilterLabel}
-            </span>
-            <div
-              role="group"
-              aria-labelledby="projects-filter-label"
-              className="flex flex-wrap gap-2"
-            >
-              <button
-                type="button"
-                className={`px-3 py-1 rounded-chip border border-surface-border text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500/60 ${
-                  selectedSkill === 'all'
-                    ? 'bg-primary-600 text-white border-primary-500'
-                    : 'bg-transparent text-neutral-200 hover:bg-surface-card'
-                }`}
-                aria-pressed={selectedSkill === 'all'}
-                onClick={() => setSelectedSkill('all')}
-              >
-                {allProjectsLabel}
-              </button>
-              {projectSkills.map((skill) => (
-                <button
-                  key={skill}
-                  type="button"
-                  className={`px-3 py-1 rounded-chip border border-surface-border text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500/60 ${
-                    selectedSkill === skill
-                      ? 'bg-primary-600 text-white border-primary-500'
-                      : 'bg-transparent text-neutral-200 hover:bg-surface-card'
-                  }`}
-                  aria-pressed={selectedSkill === skill}
-                  onClick={() => setSelectedSkill(skill)}
-                >
-                  {skill}
-                </button>
-              ))}
-            </div>
-          </div>
-          <div className="grid gap-6 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
-            {filteredProjects.map((pr) => (
-              <Reveal key={pr.name}>
-                <ProjectCard
-                  locale={locale}
-                  name={pr.name}
-                  tagline={pr.tagline}
-                  summary={pr.summary}
-                  challenge={pr.challenge}
-                  approach={pr.approach}
-                  outcome={pr.outcome}
-                  metrics={pr.metrics}
-                  skills={pr.skills}
-                  image={pr.image}
-                  ctas={pr.ctas}
-                  audio={(pr as any).audio}
-                />
-              </Reveal>
-            ))}
-          </div>
-          <div className="mt-6">
-            <a href="#contact" className="text-primary-500 hover:text-primary-300">
-              {locale === 'pl' ? 'Chcesz podobne wdrożenie? Skontaktuj się' : locale === 'en' ? 'Want a similar implementation? Get in touch' : 'Wil je iets soortgelijks? Neem contact op'}
-            </a>
-          </div>
-        </section>
-
-        <AIMethodologySection
-          sectionRef={sectionsRef.ai}
-          content={content[locale].ai_methodology}
-          locale={locale}
-        />
-
-        <Accordion
-          sectionId="equipment"
-          containerRef={sectionsRef.equipment}
-          title={content[locale].equipment_inventory.title}
-          className="mt-24"
-        >
-          <EquipmentSection
-            content={content[locale].equipment_inventory}
-            locale={locale}
-            showHeading={false}
-          />
-        </Accordion>
-
         {/* Daremon Brand */}
         <section
           id="brand"
           ref={sectionsRef.brand as React.RefObject<HTMLElement>}
           aria-labelledby="brand-title"
-          className="section mt-24"
+          className="section mt-28"
         >
-          <SectionHeading id="brand-title" title={content[locale].brand.title} />
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.3fr)]">
+          <SectionHeading id="brand-title" title={content[locale].brand.title} index={sectionIndex('brand')} code="SEC/SERVICES" />
+          <div className="grid grid-cols-1 gap-5 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.3fr)]">
             <Reveal>
-              <article className="rounded-card border border-surface-border bg-surface-card/80 p-6 shadow-card">
-                <h3 className="text-xl font-heading text-neutral-50">{content[locale].brand.philosophy.title}</h3>
-                <div className="mt-5 grid gap-4 sm:grid-cols-2">
+              <article className="panel panel--lg h-full p-6" data-spotlight>
+                <h3 className="hud-title text-xl">{content[locale].brand.philosophy.title}</h3>
+                <div className="mt-5 grid gap-3 sm:grid-cols-2">
                   {content[locale].brand.philosophy.items.map((item) => (
-                    <div key={item.id} className="rounded-card border border-surface-border/60 bg-background-elevated/60 p-4">
+                    <div key={item.id} className="panel panel--inset panel--sm p-4">
                       <div className="flex items-center gap-3">
                         {item.icon && (
-                          <span aria-hidden="true" className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary-700/60 text-xl">
-                            {item.icon}
+                          <span aria-hidden="true" className="grid h-10 w-10 shrink-0 place-items-center border border-surface-line bg-background-deep/70 text-xl">
+                            <span className="icon-emoji">{item.icon}</span>
                           </span>
                         )}
-                        <h4 className="font-heading text-neutral-50">{item.name}</h4>
+                        <h4 className="font-heading font-semibold text-neutral-50">{item.name}</h4>
                       </div>
                       <p className="mt-2 text-sm text-neutral-300">{item.description}</p>
                     </div>
@@ -747,27 +656,31 @@ const App: React.FC = () => {
               </article>
             </Reveal>
             <Reveal>
-              <article className="rounded-card border border-surface-border bg-surface-card/80 p-6 shadow-card">
-                <h3 className="text-xl font-heading text-neutral-50">{content[locale].brand.services.title}</h3>
-                <div className="mt-5 space-y-4">
-                  {content[locale].brand.services.items.map((service) => (
+              <article className="panel panel--lg hud-corners h-full p-6" data-spotlight>
+                <h3 className="hud-title text-xl">{content[locale].brand.services.title}</h3>
+                <div className="mt-5 space-y-3">
+                  {content[locale].brand.services.items.map((service, serviceIndex) => (
                     <article
                       key={service.id}
-                      className="rounded-card border border-surface-border/70 bg-background-elevated/60 p-5 transition hover:border-primary-500"
+                      className="panel panel--inset panel--sm panel--interactive p-5"
                     >
-                      <h4 className="text-lg font-heading text-neutral-50">{service.name}</h4>
+                      <div className="flex items-baseline gap-3">
+                        <span className="font-mono text-xs text-amber-400 tabular-nums" aria-hidden="true">
+                          {`PKG-${String(serviceIndex + 1).padStart(2, '0')}`}
+                        </span>
+                        <h4 className="text-lg font-heading font-semibold text-neutral-50">{service.name}</h4>
+                      </div>
                       <p className="mt-2 text-neutral-200">{service.description}</p>
                       {service.deliverables?.length > 0 && (
-                        <ul className="mt-3 space-y-1 text-sm text-neutral-200" role="list">
+                        <ul className="mt-3 flex flex-wrap gap-1.5" role="list">
                           {service.deliverables.map((deliverable) => (
-                            <li key={deliverable} className="flex items-start gap-2">
-                              <span aria-hidden="true" className="mt-1 h-1.5 w-1.5 rounded-full bg-primary-500" />
-                              <span>{deliverable}</span>
+                            <li key={deliverable} className="tag">
+                              {deliverable}
                             </li>
                           ))}
                         </ul>
                       )}
-                      {service.cta && <p className="mt-4 text-sm font-medium text-primary-300">{service.cta}</p>}
+                      {service.cta && <p className="mt-4 hud-code">{service.cta}</p>}
                     </article>
                   ))}
                 </div>
@@ -777,10 +690,86 @@ const App: React.FC = () => {
         </section>
 
         <Accordion
+          sectionId="equipment"
+          containerRef={sectionsRef.equipment}
+          title={content[locale].equipment_inventory.title}
+          index={sectionIndex('equipment')}
+          summary={content[locale].equipment_inventory.subtitle}
+          className="mt-28"
+        >
+          <EquipmentSection
+            content={content[locale].equipment_inventory}
+            locale={locale}
+            showHeading={false}
+          />
+        </Accordion>
+
+        <AIMethodologySection
+          sectionRef={sectionsRef.ai}
+          content={content[locale].ai_methodology}
+          locale={locale}
+          index={sectionIndex('ai')}
+        />
+
+        <MediaSection
+          sectionRef={sectionsRef.media}
+          content={content[locale].media}
+          locale={locale}
+          index={sectionIndex('media')}
+          channelUrl={contactContent.socials?.youtube}
+          projects={publishedProjects}
+        />
+
+        <Accordion
+          sectionId="about"
+          containerRef={sectionsRef.about}
+          title={content[locale].about.title}
+          index={sectionIndex('about')}
+          summary={aboutCards.map((card) => card.title).join(' · ')}
+          className="mt-28"
+        >
+          <AboutSection
+            content={content[locale].about as { title: string; audio?: string; cards?: { title: string; icon?: string; items: string[]; cta?: { label: string; href: string } | null }[] }}
+            locale={locale}
+            showHeading={false}
+          />
+        </Accordion>
+
+        {/* Career Timeline */}
+        <section
+          id="career"
+          ref={sectionsRef.career as React.RefObject<HTMLElement>}
+          aria-labelledby="career-title"
+          className="section mt-28"
+        >
+          <SectionHeading
+            id="career-title"
+            title={content[locale].career_timeline.title}
+            subtitle={content[locale].career_timeline.subtitle}
+            index={sectionIndex('career')}
+            code="SEC/TIMELINE"
+          />
+          <Reveal>
+            <InteractiveTimeline
+              milestones={content[locale].career_timeline.milestones}
+              label={
+                locale === 'pl'
+                  ? `${content[locale].career_timeline.title} — oś czasu`
+                  : locale === 'nl'
+                  ? `${content[locale].career_timeline.title} — tijdlijn`
+                  : `${content[locale].career_timeline.title} timeline`
+              }
+            />
+          </Reveal>
+        </section>
+
+        <Accordion
           sectionId="partners"
           containerRef={sectionsRef.partners}
           title={content[locale].partners.title}
-          className="mt-24"
+          index={sectionIndex('partners')}
+          summary={content[locale].partners.subtitle}
+          className="mt-28"
         >
           <PartnersSection
             content={content[locale].partners}
@@ -793,16 +782,26 @@ const App: React.FC = () => {
           id="contact"
           ref={sectionsRef.contact as React.RefObject<HTMLElement>}
           aria-labelledby="contact-title"
-          className="section mt-24"
+          className="section mt-28"
         >
-          <SectionHeading id="contact-title" title={contactContent.title} subtitle={contactContent.subtitle} />
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-            <div className="rounded-card bg-surface-card border border-surface-border p-6 shadow-card flex flex-col gap-6">
+          <SectionHeading
+            id="contact-title"
+            title={contactContent.title}
+            subtitle={contactContent.subtitle}
+            index={sectionIndex('contact')}
+            code="SEC/CONTACT"
+          />
+          <div className="grid grid-cols-1 gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+            <div className="panel panel--lg hud-corners p-6 md:p-7 flex flex-col gap-6" data-spotlight>
               <div>
-                <h3 className="font-heading text-2xl font-semibold text-neutral-50">{contactContent.headline ?? contactContent.title}</h3>
+                <p className="hud-code flex items-center gap-2">
+                  <span className="led led--olive led--blink" aria-hidden="true" />
+                  CHANNEL OPEN
+                </p>
+                <h3 className="mt-3 font-heading text-2xl font-semibold text-neutral-50">{contactContent.headline ?? contactContent.title}</h3>
                 <p className="mt-3 text-neutral-300 text-base">{contactContent.subtext ?? contactContent.subtitle}</p>
               </div>
-              <ul role="list" className="space-y-4">
+              <ul role="list" className="space-y-3">
                 {contactChannels.map((channel) => {
                   const channelHref =
                     channel.type === 'email'
@@ -813,13 +812,13 @@ const App: React.FC = () => {
                       ? contactContent.call_url ?? callUrl
                       : undefined;
                   return (
-                    <li key={`${channel.type ?? channel.label}-${channel.value}`} className="rounded-card bg-background-elevated/60 border border-surface-border px-4 py-3">
+                    <li key={`${channel.type ?? channel.label}-${channel.value}`} className="panel panel--inset panel--sm px-4 py-3">
                       <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-                        <span className="font-semibold text-neutral-100">{channel.label}</span>
+                        <span className="font-mono text-xs uppercase tracking-[0.14em] text-sand-400">{channel.label}</span>
                         {channelHref ? (
                           <a
                             href={channelHref}
-                            className="text-primary-400 hover:text-primary-200 break-all"
+                            className="text-amber-400 hover:text-amber-300 break-all"
                             aria-label={`${channel.label}: ${channel.value}`}
                             target={channel.type === 'email' ? undefined : '_blank'}
                             rel={channel.type === 'email' ? undefined : 'noreferrer noopener'}
@@ -835,17 +834,17 @@ const App: React.FC = () => {
                   );
                 })}
               </ul>
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3">
                 <a
                   href={`mailto:${contactEmail}`}
-                  className="px-4 py-2 rounded-button text-white bg-gradient-to-r from-primary-600 to-accent-led hover:from-primary-700 hover:to-accent-led text-center"
+                  className="btn btn--primary"
                   aria-label={`${contactContent.ctas?.email ?? 'Email'}: ${contactEmail}`}
                 >
                   {contactContent.ctas?.email ?? contactContent.email_label}
                 </a>
                 <a
                   href={linkedinUrl}
-                  className="px-4 py-2 rounded-button border border-primary-600 text-primary-50 !bg-transparent !hover:bg-transparent hover:text-white text-center"
+                  className="btn btn--secondary"
                   aria-label={`${contactContent.ctas?.linkedin ?? 'LinkedIn'}: ${linkedinUrl}`}
                   target="_blank"
                   rel="noreferrer noopener"
@@ -854,7 +853,7 @@ const App: React.FC = () => {
                 </a>
                 <a
                   href={callUrl}
-                  className="px-4 py-2 rounded-button border border-surface-border text-neutral-100 hover:border-primary-500 hover:text-primary-100 text-center"
+                  className="btn btn--ghost"
                   aria-label={`${contactContent.ctas?.call ?? 'Book a call'}: ${callUrl}`}
                   target="_blank"
                   rel="noreferrer noopener"
@@ -867,7 +866,8 @@ const App: React.FC = () => {
             <form
               id="contact-form"
               aria-describedby="contact-note message-help"
-              className="rounded-card bg-surface-card border border-surface-border p-6 shadow-card"
+              className="panel panel--lg p-6 md:p-7"
+              data-spotlight
               onSubmit={(e) => {
                 e.preventDefault();
                 const form = e.currentTarget as HTMLFormElement;
@@ -880,9 +880,10 @@ const App: React.FC = () => {
                 window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
               }}
             >
+              <p className="hud-code mb-5" aria-hidden="true">FORM // MSG-01</p>
               <fieldset className="space-y-4" aria-label="Formularz kontaktowy">
                 <div>
-                  <label htmlFor="name" className="block text-neutral-200 mb-1">
+                  <label htmlFor="name" className="field-label">
                     Imię i nazwisko
                   </label>
                   <input
@@ -890,11 +891,11 @@ const App: React.FC = () => {
                     name="name"
                     required
                     autoComplete="name"
-                    className="w-full rounded-button bg-background-elevated border border-surface-border px-3 py-2"
+                    className="field"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-neutral-200 mb-1">
+                  <label htmlFor="email" className="field-label">
                     {contactContent.email_label}
                   </label>
                   <input
@@ -903,15 +904,15 @@ const App: React.FC = () => {
                     name="email"
                     required
                     autoComplete="email"
-                    className="w-full rounded-button bg-background-elevated border border-surface-border px-3 py-2"
+                    className="field"
                   />
                 </div>
                 <div>
-                  <div className="flex items-baseline justify-between gap-2">
-                    <label htmlFor="message" className="block text-neutral-200 mb-1">
+                  <div className="flex flex-wrap items-baseline justify-between gap-x-2">
+                    <label htmlFor="message" className="field-label">
                       Wiadomość
                     </label>
-                    <span id="message-help" className="text-xs text-neutral-400">
+                    <span id="message-help" className="text-xs text-neutral-400 mb-1.5">
                       Podaj kontekst projektu, zakres i terminy.
                     </span>
                   </div>
@@ -920,22 +921,23 @@ const App: React.FC = () => {
                     name="message"
                     rows={6}
                     required
-                    className="w-full rounded-card bg-background-elevated border border-surface-border px-3 py-2"
+                    className="field"
                     aria-describedby="message-help"
                   />
                 </div>
               </fieldset>
-              <div className="mt-4 flex flex-col sm:flex-row gap-3">
+              <div className="mt-5 flex flex-col sm:flex-row gap-3">
                 <button
                   type="submit"
-                  className="px-4 py-2 rounded-button text-white bg-gradient-to-r from-primary-600 to-accent-led hover:from-primary-700 hover:to-accent-led"
+                  className="btn btn--primary"
                   aria-label="Wyślij wiadomość email"
                 >
                   Wyślij
+                  <IconArrowRight size={14} className="btn__arrow" />
                 </button>
                 <a
                   href={`mailto:${contactEmail}`}
-                  className="px-4 py-2 rounded-button border border-primary-600 text-primary-50 !bg-transparent !hover:bg-transparent hover:text-white text-center"
+                  className="btn btn--secondary"
                   aria-label={`Otwórz klienta poczty dla ${contactEmail}`}
                 >
                   {contactContent.ctas?.email ?? contactContent.email_label}
@@ -944,7 +946,7 @@ const App: React.FC = () => {
               <small id="contact-note" className="block mt-4 text-sm text-neutral-400">
                 Dane wykorzystane wyłącznie do kontaktu.{' '}
                 {privacyLink?.url ? (
-                  <a href={privacyLink.url} className="text-primary-400 hover:text-primary-200" target="_blank" rel="noreferrer noopener">
+                  <a href={privacyLink.url} className="link-tech" target="_blank" rel="noreferrer noopener">
                     {privacyLink.label}
                   </a>
                 ) : null}
@@ -954,7 +956,7 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        <Footer year={year} labels={labels} />
+        <Footer year={year} labels={labels} locale={locale} />
       </main>
     </LocaleContext.Provider>
   );

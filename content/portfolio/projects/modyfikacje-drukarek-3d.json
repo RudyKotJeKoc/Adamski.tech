@@ -1,0 +1,31 @@
+{
+  "pl": {
+    "slug": "modyfikacje-drukarek-3d",
+    "status": "draft",
+    "category": "druk-3d",
+    "order": 40,
+    "featured": false,
+    "title": "Modyfikacje drukarek 3D",
+    "summary": "Modyfikacje i usprawnienia drukarek 3D.",
+    "build_status": "",
+    "period": "",
+    "cover": "",
+    "cover_alt": "",
+    "description": "",
+    "gallery": [],
+    "videos": [],
+    "specs": [],
+    "technologies": [],
+    "stages": [],
+    "updates": [],
+    "attachments": []
+  },
+  "en": {
+    "title": "3D printer modifications",
+    "summary": "Modifications and upgrades of 3D printers."
+  },
+  "nl": {
+    "title": "Aanpassingen aan 3D-printers",
+    "summary": "Aanpassingen en verbeteringen van 3D-printers."
+  }
+}

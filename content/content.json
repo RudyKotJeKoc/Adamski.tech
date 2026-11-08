@@ -14,7 +14,21 @@
       "equipment": "Wyposażenie",
       "career": "Timeline kariery",
       "brand": "Filozofia Daremon",
-      "partners": "Partnerzy"
+      "partners": "Partnerzy",
+      "media": "Multimedia"
+    },
+    "navigation_groups": {
+      "start": "Start",
+      "portfolio": "Portfolio",
+      "competences": "Kompetencje",
+      "workshop": "Warsztat",
+      "media": "Multimedia",
+      "about": "O mnie",
+      "contact": "Kontakt"
+    },
+    "media": {
+      "title": "Multimedia i filmy",
+      "subtitle": "Kanał YouTube z praktycznymi wdrożeniami automatyki i projektami DIY oraz filmy dołączone do projektów w portfolio."
     },
     "hero": {
       "heading": "Dariusz Krzysztof Adamski — Maintenance Technician",
@@ -1084,7 +1098,21 @@
       "equipment": "Equipment",
       "career": "Career Timeline",
       "brand": "Daremon Philosophy",
-      "partners": "Partners"
+      "partners": "Partners",
+      "media": "Media"
+    },
+    "navigation_groups": {
+      "start": "Home",
+      "portfolio": "Portfolio",
+      "competences": "Capabilities",
+      "workshop": "Workshop",
+      "media": "Media",
+      "about": "About",
+      "contact": "Contact"
+    },
+    "media": {
+      "title": "Media & video",
+      "subtitle": "YouTube channel with hands-on automation builds and DIY engineering, plus videos attached to portfolio projects."
     },
     "hero": {
       "heading": "Dariusz Krzysztof Adamski — Maintenance Technician",
@@ -2148,7 +2176,21 @@
       "equipment": "Uitrusting",
       "career": "Carrièrepad",
       "brand": "Daremon Filosofie",
-      "partners": "Partners"
+      "partners": "Partners",
+      "media": "Media"
+    },
+    "navigation_groups": {
+      "start": "Start",
+      "portfolio": "Portfolio",
+      "competences": "Competenties",
+      "workshop": "Werkplaats",
+      "media": "Media",
+      "about": "Over mij",
+      "contact": "Contact"
+    },
+    "media": {
+      "title": "Media & video's",
+      "subtitle": "YouTube-kanaal met praktische automatiseringsprojecten en DIY-engineering, plus video's bij portfolioprojecten."
     },
     "hero": {
       "heading": "Dariusz Krzysztof Adamski — Onderhoudsmonteur",

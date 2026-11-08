@@ -1,0 +1,46 @@
+{
+  "items": [
+    {
+      "slug": "daremon-radio-ets",
+      "category": "oprogramowanie",
+      "status": "published",
+      "order": 110,
+      "cover_is_placeholder": true
+    },
+    {
+      "slug": "machine-transfer-system",
+      "category": "oprogramowanie",
+      "status": "published",
+      "order": 120,
+      "cover_is_placeholder": true
+    },
+    {
+      "slug": "industrial-automation",
+      "category": "automatyka",
+      "status": "published",
+      "order": 130,
+      "cover_is_placeholder": true
+    },
+    {
+      "slug": "youtube-channel",
+      "category": "media",
+      "status": "published",
+      "order": 140,
+      "cover_is_placeholder": true
+    },
+    {
+      "slug": "mim-furnaces-modernization",
+      "category": "doradztwo",
+      "status": "published",
+      "order": 150,
+      "cover_is_placeholder": true
+    },
+    {
+      "slug": "home-assistant",
+      "category": "oprogramowanie",
+      "status": "published",
+      "order": 160,
+      "cover_is_placeholder": true
+    }
+  ]
+}

@@ -30,7 +30,7 @@ export const SkillsOverview: React.FC<SkillsOverviewProps> = ({ title, categorie
 
   return (
     <div className="space-y-4">
-      <h3 className="text-xl font-heading font-semibold text-neutral-50">{title}</h3>
+      <h3 className="hud-title text-lg">{title}</h3>
 
       <div className="space-y-3">
         {categories.map((category) => {
@@ -45,7 +45,7 @@ export const SkillsOverview: React.FC<SkillsOverviewProps> = ({ title, categorie
           return (
             <div
               key={category.id}
-              className="rounded-card border border-surface-border bg-surface-card/80 overflow-hidden"
+              className="border border-surface-border bg-background-deep/50 overflow-hidden"
             >
               {/* Category header */}
               <button
@@ -70,7 +70,7 @@ export const SkillsOverview: React.FC<SkillsOverviewProps> = ({ title, categorie
                     <div className="hidden sm:flex items-center gap-2">
                       <div className="w-24 h-2 bg-surface-bg rounded-full overflow-hidden">
                         <div
-                          className="h-full bg-gradient-to-r from-primary-600 to-primary-400 transition-all duration-300"
+                          className="h-full bg-gradient-to-r from-primary-500 to-amber-500 transition-all duration-300"
                           style={{ width: `${avgRating}%` }}
                         />
                       </div>
@@ -114,7 +114,7 @@ export const SkillsOverview: React.FC<SkillsOverviewProps> = ({ title, categorie
                           <div className="flex items-center gap-2">
                             <div className="flex-1 h-2 bg-surface-bg rounded-full overflow-hidden">
                               <div
-                                className="h-full bg-gradient-to-r from-primary-600 to-primary-400 transition-all duration-500 rounded-full"
+                                className="h-full bg-gradient-to-r from-primary-500 to-amber-500 transition-all duration-500 rounded-full"
                                 style={{ width: `${percentage}%` }}
                               />
                             </div>

@@ -1,0 +1,74 @@
+{
+  "categories": [
+    {
+      "id": "maszyny",
+      "code": "MCH",
+      "label_pl": "Maszyny i konstrukcje",
+      "label_en": "Machines & structures",
+      "label_nl": "Machines & constructies"
+    },
+    {
+      "id": "elektronika",
+      "code": "ELX",
+      "label_pl": "Elektronika i sterowniki",
+      "label_en": "Electronics & controllers",
+      "label_nl": "Elektronica & besturingen"
+    },
+    {
+      "id": "automatyka",
+      "code": "AUT",
+      "label_pl": "Automatyka przemysłowa",
+      "label_en": "Industrial automation",
+      "label_nl": "Industriële automatisering"
+    },
+    {
+      "id": "robotyka",
+      "code": "ROB",
+      "label_pl": "Robotyka przemysłowa",
+      "label_en": "Industrial robotics",
+      "label_nl": "Industriële robotica"
+    },
+    {
+      "id": "druk-3d",
+      "code": "3DP",
+      "label_pl": "Druk 3D i CAD",
+      "label_en": "3D printing & CAD",
+      "label_nl": "3D-printen & CAD"
+    },
+    {
+      "id": "pojazdy",
+      "code": "VHC",
+      "label_pl": "Pojazdy i maszyny rolnicze",
+      "label_en": "Vehicles & agricultural machinery",
+      "label_nl": "Voertuigen & landbouwmachines"
+    },
+    {
+      "id": "oprogramowanie",
+      "code": "SFT",
+      "label_pl": "Oprogramowanie i IoT",
+      "label_en": "Software & IoT",
+      "label_nl": "Software & IoT"
+    },
+    {
+      "id": "doradztwo",
+      "code": "B2B",
+      "label_pl": "Doradztwo i modernizacje",
+      "label_en": "Consulting & retrofits",
+      "label_nl": "Advies & retrofits"
+    },
+    {
+      "id": "media",
+      "code": "MED",
+      "label_pl": "Media i edukacja",
+      "label_en": "Media & education",
+      "label_nl": "Media & educatie"
+    },
+    {
+      "id": "inne",
+      "code": "GEN",
+      "label_pl": "Inne projekty",
+      "label_en": "Other projects",
+      "label_nl": "Overige projecten"
+    }
+  ]
+}

@@ -37,6 +37,10 @@ module.exports = {
         base: design.motion.durations.base,
         slow: design.motion.durations.slow
       },
+      letterSpacing: {
+        hud: '0.18em',
+        wide2: '0.32em'
+      },
       // Micro-interaction animations for InteractiveSkillTag
       keyframes: {
         ping: {
@@ -53,11 +57,16 @@ module.exports = {
           from: { transform: 'translateY(4px)' },
           to: { transform: 'translateY(0)' },
         },
+        'led-blink': {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.35' },
+        },
       },
       animation: {
         ping: 'ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',
         in: 'fade-in 0.2s ease-out',
         'slide-in-from-bottom-1': 'slide-in-from-bottom-1 0.2s ease-out',
+        'led-blink': 'led-blink 2.4s ease-in-out infinite',
       }
     }
   },

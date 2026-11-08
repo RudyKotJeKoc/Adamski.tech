@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { LanguageSwitcher, Locale } from '../components';
+import { SiteBackdrop } from '../components/ui/SiteBackdrop';
 
 const setRouteMeta = (title: string, description: string, path: string, locale: Locale) => {
   document.title = title;
@@ -55,9 +56,13 @@ const Hans: React.FC = () => {
   const projectsHref = useMemo(() => `/${search}#projects`, [search]);
 
   return (
+    <>
+    <SiteBackdrop />
     <main className="max-w-screen-sm mx-auto px-4 md:px-8 lg:px-12 py-12">
+      <div className="panel panel--lg hud-corners p-6 md:p-8">
+      <p className="hud-code mb-4">DAREMON ENGINEERING // ADAMSKI.TECH</p>
       <header className="mb-6">
-        <h1 className="text-2xl md:text-3xl font-heading font-semibold text-neutral-50">
+        <h1 className="hud-title text-2xl md:text-3xl">
           {locale === 'pl' ? 'Daremon Engineering — Partner' : locale === 'en' ? 'Daremon Engineering — Partner' : 'Daremon Engineering — Partner'}
         </h1>
         <p className="text-neutral-300 mt-2">
@@ -74,14 +79,16 @@ const Hans: React.FC = () => {
       </div>
 
       <section className="grid gap-4">
-        <a href={projectsHref} className="px-5 py-3 rounded-button border border-primary-600 text-primary-50 !bg-transparent !hover:bg-transparent hover:text-white">
+        <a href={projectsHref} className="btn btn--secondary btn--block">
           {locale === 'pl' ? 'Projekty B2B' : locale === 'en' ? 'B2B Projects' : 'B2B Projecten'}
         </a>
-        <a href="mailto:Dariusz@Adamski.tech?subject=Partner%20inquiry%20—%20Hans" className="px-5 py-3 rounded-button border border-accent-blue_tech text-accent-blue_tech !bg-transparent !hover:bg-transparent hover:text-white">
+        <a href="mailto:Dariusz@Adamski.tech?subject=Partner%20inquiry%20—%20Hans" className="btn btn--ghost btn--block">
           {locale === 'pl' ? 'Kontakt' : locale === 'en' ? 'Contact' : 'Contact'}
         </a>
       </section>
+      </div>
     </main>
+    </>
   );
 };
 

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <!-- CSP tylko dla panelu: Decap kompiluje walidację konfiguracji przez eval (AJV) → 'unsafe-eval' ograniczone do tej strony.
+         localhost:8081 = lokalny serwer `npx decap-server` (używany wyłącznie, gdy panel działa na localhost). -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-eval' https://unpkg.com/decap-cms@3.16.3/dist/; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' blob: https://api.github.com http://localhost:8081; media-src 'self' blob:; frame-src 'self'; object-src 'none'; base-uri 'self'"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Panel portfolio — Adamski.tech</title>
+  </head>
+  <body>
+    <!-- Decap CMS: wersja przypięta, integralność pliku weryfikowana przez SRI. Konfiguracja: ./config.yml -->
+    <script
+      src="https://unpkg.com/decap-cms@3.16.3/dist/decap-cms.js"
+      integrity="sha384-A/Gdn928CNLufmnGWGs9RM4Q9o8bSNLeJERqBFrBjwzL7FRpoLT3MPF8Tl0+Wd2p"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

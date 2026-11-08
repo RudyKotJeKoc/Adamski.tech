@@ -1,0 +1,31 @@
+{
+  "pl": {
+    "slug": "prasa-hydrauliczna",
+    "status": "draft",
+    "category": "maszyny",
+    "order": 10,
+    "featured": false,
+    "title": "Prasa hydrauliczna",
+    "summary": "Samodzielnie zbudowana prasa hydrauliczna.",
+    "build_status": "",
+    "period": "",
+    "cover": "",
+    "cover_alt": "",
+    "description": "",
+    "gallery": [],
+    "videos": [],
+    "specs": [],
+    "technologies": [],
+    "stages": [],
+    "updates": [],
+    "attachments": []
+  },
+  "en": {
+    "title": "Hydraulic press",
+    "summary": "Self-built hydraulic press."
+  },
+  "nl": {
+    "title": "Hydraulische pers",
+    "summary": "Zelfgebouwde hydraulische pers."
+  }
+}

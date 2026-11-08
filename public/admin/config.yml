@@ -1,0 +1,269 @@
+# Decap CMS — panel zarządzania portfolio Adamski.tech
+# Instrukcja: PORTFOLIO_CMS.md w katalogu głównym repozytorium.
+
+backend:
+  name: github
+  repo: RudyKotJeKoc/Adamski.tech
+  branch: main
+  commit_messages:
+    create: 'cms: dodaj {{collection}} „{{slug}}”'
+    update: 'cms: aktualizuj {{collection}} „{{slug}}”'
+    delete: 'cms: usuń {{collection}} „{{slug}}”'
+    uploadMedia: 'cms: dodaj plik „{{path}}”'
+    deleteMedia: 'cms: usuń plik „{{path}}”'
+
+# Edycja lokalna bez logowania: `npx decap-server` + `pnpm dev`, potem http://localhost:5173/admin/index.html
+local_backend: true
+
+locale: pl
+site_url: https://adamski.tech
+display_url: https://adamski.tech
+
+media_folder: public/assets/portfolio
+public_folder: /assets/portfolio
+
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: '-'
+
+i18n:
+  structure: single_file
+  locales: [pl, en, nl]
+  default_locale: pl
+
+collections:
+  - name: projects
+    label: Projekty portfolio
+    label_singular: Projekt
+    description: >
+      Konstrukcje i realizacje widoczne w galerii na stronie głównej oraz na podstronach /portfolio/<slug>.
+      Projekt w statusie „Wersja robocza” nie jest widoczny dla odwiedzających.
+    folder: content/portfolio/projects
+    format: json
+    extension: json
+    create: true
+    identifier_field: slug
+    slug: '{{fields.slug}}'
+    preview_path: 'portfolio/{{fields.slug}}'
+    summary: '{{title}} · {{status}} · {{category}}'
+    sortable_fields: [order, title, status]
+    view_groups:
+      - { label: Status, field: status }
+      - { label: Kategoria, field: category }
+    editor:
+      preview: false
+    i18n: true
+    fields:
+      - label: Tytuł projektu
+        name: title
+        widget: string
+        i18n: true
+      - label: Adres strony (slug)
+        name: slug
+        widget: string
+        i18n: duplicate
+        pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Tylko małe litery bez polskich znaków, cyfry i myślniki, np. prasa-hydrauliczna']
+        hint: 'Adres podstrony: adamski.tech/portfolio/<slug>. Nie zmieniaj po publikacji, aby nie zepsuć udostępnionych linków.'
+      - label: Status publikacji
+        name: status
+        widget: select
+        i18n: duplicate
+        default: draft
+        options:
+          - { label: 'Wersja robocza — niewidoczna', value: draft }
+          - { label: 'Opublikowany', value: published }
+      - label: Kategoria
+        name: category
+        widget: relation
+        i18n: duplicate
+        collection: settings
+        file: categories
+        search_fields: ['categories.*.label_pl']
+        display_fields: ['categories.*.label_pl']
+        value_field: 'categories.*.id'
+      - label: Kolejność w galerii
+        name: order
+        widget: number
+        value_type: int
+        default: 100
+        required: false
+        i18n: duplicate
+        hint: Mniejsza liczba = wyżej w galerii.
+      - label: Wyróżniony
+        name: featured
+        widget: boolean
+        default: false
+        required: false
+        i18n: duplicate
+      - label: Krótki opis (karta w galerii)
+        name: summary
+        widget: text
+        i18n: true
+        hint: 1–2 zdania. Widoczne na karcie projektu i w opisie strony dla wyszukiwarek.
+      - label: Status konstrukcji
+        name: build_status
+        widget: select
+        required: false
+        i18n: duplicate
+        hint: Zostaw puste, jeśli status nie jest określony.
+        options:
+          - { label: Koncepcja, value: concept }
+          - { label: W budowie, value: in_progress }
+          - { label: Testy, value: testing }
+          - { label: Ukończony, value: completed }
+          - { label: W eksploatacji, value: in_use }
+          - { label: Modernizacja, value: modernization }
+      - label: Okres realizacji
+        name: period
+        widget: string
+        required: false
+        i18n: duplicate
+        hint: 'Np. 2023 albo 2022–2024. Zostaw puste, jeśli nieznany.'
+      - label: Zdjęcie główne
+        name: cover
+        widget: image
+        required: false
+        i18n: duplicate
+        hint: Najlepiej JPG/WebP, poziome (16:10 lub 4:3), do ok. 2000 px szerokości.
+      - label: Opis zdjęcia głównego (tekst alternatywny)
+        name: cover_alt
+        widget: string
+        required: false
+        i18n: true
+      - label: Szczegółowy opis konstrukcji
+        name: description
+        widget: text
+        required: false
+        i18n: true
+        hint: 'Akapity oddzielaj pustą linią. Pogrubienie: **tekst**.'
+      - label: Galeria zdjęć
+        name: gallery
+        widget: list
+        required: false
+        summary: '{{fields.caption}}'
+        fields:
+          - { label: Zdjęcie, name: image, widget: image }
+          - { label: Tekst alternatywny, name: alt, widget: string, required: false }
+          - { label: Podpis, name: caption, widget: string, required: false }
+      - label: Filmy
+        name: videos
+        widget: list
+        required: false
+        summary: '{{fields.title}}'
+        fields:
+          - { label: Link do filmu (YouTube), name: url, widget: string, required: false, hint: 'Np. https://www.youtube.com/watch?v=…' }
+          - { label: Albo własny plik MP4/WebM, name: file, widget: file, required: false }
+          - { label: Tytuł filmu, name: title, widget: string, required: false }
+      - label: Parametry techniczne
+        name: specs
+        widget: list
+        required: false
+        i18n: true
+        summary: '{{fields.label}}: {{fields.value}}'
+        hint: Tylko zweryfikowane wartości.
+        fields:
+          - { label: Parametr, name: label, widget: string }
+          - { label: Wartość, name: value, widget: string }
+      - label: Zastosowane technologie
+        name: technologies
+        widget: list
+        required: false
+        field: { label: Technologia, name: name, widget: string }
+      - label: Etapy budowy
+        name: stages
+        widget: list
+        required: false
+        i18n: true
+        summary: '{{fields.date}} {{fields.title}}'
+        fields:
+          - { label: Nazwa etapu, name: title, widget: string }
+          - { label: Data, name: date, widget: string, required: false }
+          - { label: Opis, name: description, widget: text, required: false }
+          - label: Zdjęcia etapu
+            name: images
+            widget: list
+            required: false
+            fields:
+              - { label: Zdjęcie, name: image, widget: image }
+              - { label: Tekst alternatywny, name: alt, widget: string, required: false }
+      - label: Modernizacje i aktualizacje
+        name: updates
+        widget: list
+        required: false
+        i18n: true
+        summary: '{{fields.date}} {{fields.title}}'
+        fields:
+          - { label: Data, name: date, widget: string, required: false }
+          - { label: Tytuł, name: title, widget: string }
+          - { label: Opis, name: description, widget: text, required: false }
+      - label: Schematy, CAD i modele 3D
+        name: attachments
+        widget: list
+        required: false
+        summary: '{{fields.kind}} — {{fields.label}}'
+        hint: Obrazy (PNG/JPG/SVG) są wyświetlane jako galeria, pozostałe pliki jako do pobrania.
+        fields:
+          - label: Rodzaj
+            name: kind
+            widget: select
+            default: document
+            options:
+              - { label: CAD, value: cad }
+              - { label: Schemat, value: schematic }
+              - { label: Model 3D, value: model }
+              - { label: Rysunek techniczny, value: drawing }
+              - { label: Dokument, value: document }
+          - { label: Nazwa, name: label, widget: string }
+          - { label: Plik, name: file, widget: file, required: false }
+          - { label: Albo link zewnętrzny, name: url, widget: string, required: false, hint: 'Np. Onshape, Printables, GrabCAD' }
+
+  - name: settings
+    label: Ustawienia portfolio
+    editor:
+      preview: false
+    files:
+      - name: categories
+        label: Kategorie projektów
+        file: content/portfolio/categories.json
+        format: json
+        fields:
+          - label: Kategorie
+            name: categories
+            widget: list
+            summary: '{{fields.code}} — {{fields.label_pl}}'
+            fields:
+              - { label: Identyfikator, name: id, widget: string, pattern: ['^[a-z0-9-]+$', 'Małe litery, cyfry i myślniki'] }
+              - { label: Kod (3 znaki), name: code, widget: string, pattern: ['^[A-Z0-9]{2,4}$', '2–4 wielkie litery lub cyfry'] }
+              - { label: Nazwa (PL), name: label_pl, widget: string }
+              - { label: Nazwa (EN), name: label_en, widget: string, required: false }
+              - { label: Nazwa (NL), name: label_nl, widget: string, required: false }
+      - name: case_studies
+        label: Case studies — kategorie i kolejność
+        file: content/portfolio/case-studies.json
+        format: json
+        fields:
+          - label: Case studies
+            name: items
+            widget: list
+            summary: '{{fields.slug}} · {{fields.category}}'
+            hint: Treść case studies jest w content/content.json; tutaj tylko ich miejsce w portfolio.
+            fields:
+              - { label: Identyfikator (slug), name: slug, widget: string }
+              - label: Kategoria
+                name: category
+                widget: relation
+                collection: settings
+                file: categories
+                search_fields: ['categories.*.label_pl']
+                display_fields: ['categories.*.label_pl']
+                value_field: 'categories.*.id'
+              - label: Status
+                name: status
+                widget: select
+                default: published
+                options:
+                  - { label: Opublikowany, value: published }
+                  - { label: Ukryty, value: draft }
+              - { label: Kolejność, name: order, widget: number, value_type: int }
+              - { label: Okładka jest grafiką poglądową, name: cover_is_placeholder, widget: boolean, default: false, required: false }
